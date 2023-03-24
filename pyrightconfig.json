@@ -5,6 +5,7 @@
         "component",
         "system",
         "entity",
+        "command",
         "game"
     ],
     "exclude": [
