@@ -4,7 +4,7 @@ from interface.context import IContext
 from abc import abstractmethod
 
 
-class IGame(object):
+class ILogic(object):
 
     def __init__(self, gid: int, context: IContext):
         self.gid: int = gid

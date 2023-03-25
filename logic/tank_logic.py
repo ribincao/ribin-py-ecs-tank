@@ -1,11 +1,11 @@
-from interface.game import IGame
+from interface.logic import ILogic
 from interface.context import IContext
 
 
-class TankGame(IGame):
+class TankLogic(ILogic):
 
     def __init__(self, gid: int, context: IContext):
-        super(TankGame, self).__init__(gid, context)
+        super(TankLogic, self).__init__(gid, context)
     
     def init_system(self):
         from system.move_system import MoveSystem
