@@ -1,13 +1,13 @@
 from abc import abstractmethod
-from interface.entity import IEntity
 from interface.command import ICommand
+from interface.context import IContext
 from typing import List
 
 
 class ISystem(object):
 
-    def __init__(self):
-        self.group: List[IEntity] = []
+    def __init__(self, context: IContext):
+        self.context: IContext = context
         self.commands: List[ICommand] = []
 
     @abstractmethod
