@@ -22,9 +22,15 @@ class PyGameWindow(IWindow):
         pygame.display.init()
         pygame.display.set_caption(self.window_name)
         self.window = pygame.display.set_mode((1024, 980))
-        self.window.fill(pygame.Color(0, 0, 0))
 
     def listen_event(self):
+        # StartScene
+        if not self.in_game:
+            return self.start_scene()
+        return self.game_scene()
+
+    def game_scene(self):
+        # GameScene
         event_list = pygame.event.get()
         for event in event_list:
             if event.type == pygame.QUIT:
@@ -40,3 +46,6 @@ class PyGameWindow(IWindow):
                     logger.debug("s keydown")
                 elif event.key == pygame.K_d:
                     logger.debug("d keydown")
+
+    def start_scene(self):
+        pass
