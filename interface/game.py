@@ -1,6 +1,7 @@
 from interface.system import ISystem
 from typing import Dict
 from interface.context import IContext
+from abc import abstractmethod
 
 
 class IGame(object):
@@ -19,3 +20,7 @@ class IGame(object):
     def update(self):
         for _, system in self.systems.items():
             system.update()
+    
+    @abstractmethod
+    def init_system(self):
+        pass
