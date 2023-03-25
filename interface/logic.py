@@ -29,3 +29,6 @@ class ILogic(object):
     @abstractmethod
     def init_system(self):
         pass
+    
+    def init_logic(self):
+        pass

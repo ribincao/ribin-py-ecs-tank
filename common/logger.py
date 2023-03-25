@@ -14,7 +14,7 @@ class Logger(Singleton):
     def __init__(self):
         self._logger: logging.Logger = logging.getLogger(LOG_NAME)
         self.log_mode: str = LOG_MODE_CONSOLE
-        self.log_level: str = "INFO"
+        self.log_level: str = "DEBUG"
         self.log_path: str = "server.log"
 
     def init_logger(self):

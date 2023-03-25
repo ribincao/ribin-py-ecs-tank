@@ -7,7 +7,7 @@ class TankLogic(ILogic):
     def __init__(self, gid: int, context: IContext):
         super(TankLogic, self).__init__(gid, context)
     
-    def init_system(self):
+    def init_logic(self):
         from system.move_system import MoveSystem
         from system.create_system import CreateSystem
         from system.command_system import CommandSystem
