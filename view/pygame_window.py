@@ -14,7 +14,6 @@ class PyGameWindow(IWindow):
 
     async def update(self):
         while True:
-            logger.debug("PyGameWindow Update.")
             self.listen_event()
             pygame.display.update()
             await asyncio.sleep(self.RENDER_RATE)
