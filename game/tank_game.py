@@ -7,7 +7,7 @@ class TankGame(IGame):
     def __init__(self, gid: int, context: IContext):
         super(TankGame, self).__init__(gid, context)
     
-    def init_game(self):
+    def init_system(self):
         from system.move_system import MoveSystem
         from system.create_system import CreateSystem
         from system.command_system import CommandSystem
