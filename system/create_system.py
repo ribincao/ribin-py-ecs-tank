@@ -1,3 +1,4 @@
+from common.logger import logger
 from interface.system import ISystem
 from interface.context import IContext
 
@@ -8,4 +9,5 @@ class CreateSystem(ISystem):
         super(CreateSystem, self).__init__(context)
 
     async def update(self):
+        logger.debug("CreateSystem Upate")
         pass

@@ -30,4 +30,5 @@ if __name__ == '__main__':
     initialize()
 
     srv = Client()
+    srv.init_game()
     srv.run()

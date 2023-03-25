@@ -2,6 +2,7 @@ from interface.context import IContext
 from interface.entity import IEntity
 from interface.command import ICommand
 from typing import List, Dict
+from common.logger import logger
 
 
 class Context(IContext):
@@ -12,7 +13,7 @@ class Context(IContext):
 
     def create_entity(self, eid: int) -> IEntity:
         if eid in self.entities:
-            print(f"warning: {eid} already exist.")
+            logger.debug(f"warning: {eid} already exist.")
         entity = IEntity(eid)
         self.entities[eid] = entity
         return entity

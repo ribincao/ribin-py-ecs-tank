@@ -18,14 +18,4 @@ class TransformComponent(IComponent):
         super(TransformComponent, self).__init__()
         self.position: Vector2 = Vector2.zero()
 
-if __name__ == '__main__':
-    position1 = Vector2(1.0, 2.0)
-    position2 = Vector2.zero()
-
-    print(position1.x, position2.x)
-    print(position1.y, position2.y)
-
-    t_comp = TransformComponent()
-    print(t_comp.position.x, t_comp.position.y)
-
 
