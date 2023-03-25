@@ -2,14 +2,14 @@ from interface.window import IWindow
 from common.logger import logger
 import asyncio
 import pygame
+from interface.context import IContext
 
 
 class PyGameWindow(IWindow):
     RENDER_RATE = 100e-3
 
-    def __init__(self, game_name: str):
-        super(PyGameWindow, self).__init__()
-        self.game_name: str = game_name
+    def __init__(self, window_name: str, context: IContext):
+        super(PyGameWindow, self).__init__(window_name, context)
         self.window = None
 
     async def update(self):
@@ -20,7 +20,7 @@ class PyGameWindow(IWindow):
 
     def init_window(self):
         pygame.display.init()
-        pygame.display.set_caption(self.game_name)
+        pygame.display.set_caption(self.window_name)
         self.window = pygame.display.set_mode((1024, 980))
         self.window.fill(pygame.Color(0, 0, 0))
 
