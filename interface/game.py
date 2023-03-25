@@ -1,11 +1,13 @@
 from interface.system import ISystem
 from typing import Dict
+from interface.context import IContext
 
 
 class IGame(object):
 
-    def __init__(self, gid: int):
+    def __init__(self, gid: int, context: IContext):
         self.gid: int = gid
+        self.context: IContext = context
         self.systems: Dict[str, ISystem] = {}
     
     def register_system(self, system: ISystem):
