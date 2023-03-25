@@ -1,10 +1,10 @@
 from interface.entity import IEntity
-from component.transform_component import TranformComponent 
+from component.transform_component import TransformComponent
 
 
 class TankPlayer(IEntity):
 
     def __init__(self, uid: int):
-        super(TankEntity, self).__init__(uid)
+        super(TankPlayer, self).__init__(uid)
         self.transform: TransformComponent = TransformComponent() 
 

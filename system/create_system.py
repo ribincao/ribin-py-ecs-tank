@@ -7,5 +7,5 @@ class CreateSystem(ISystem):
     def __init__(self, context: IContext):
         super(CreateSystem, self).__init__(context)
 
-    def update(self):
+    async def update(self):
         pass

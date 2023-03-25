@@ -1,6 +1,6 @@
 
 
-class ICommponent(object):
+class IComponent(object):
 
     def __init__(self):
         pass

@@ -10,6 +10,6 @@ class ISystem(object):
         self.context: IContext = context
 
     @abstractmethod
-    def update(self):
+    async def update(self):
         pass
 

@@ -27,3 +27,5 @@ if __name__ == '__main__':
 
     t_comp = TransformComponent()
     print(t_comp.position.x, t_comp.position.y)
+
+

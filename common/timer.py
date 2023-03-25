@@ -1,4 +1,3 @@
-
 from common.singleton import Singleton
 import asyncio
 import time

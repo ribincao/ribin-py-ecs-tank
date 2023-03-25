@@ -1,13 +1,12 @@
 from common.logger import logger
 from common.common import signal_handler
 import asyncio
-from typing import Optional
 from interface.logic import ILogic
 from context import Context
 from logic.tank_logic import TankLogic
 
 
-class Tank(object):
+class Client(object):
 
     def __init__(self):
         self.context: Context = Context()

@@ -7,5 +7,5 @@ class MoveSystem(ISystem):
     def __init__(self, context: IContext):
         super(MoveSystem, self).__init__(context)
 
-    def update(self):
+    async def update(self):
         pass

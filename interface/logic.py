@@ -12,12 +12,12 @@ class ILogic(object):
         self.systems: Dict[str, ISystem] = {}
     
     def register_system(self, system: ISystem):
-        system_name = system.__class__.__name.__
+        system_name = system.__class__.__name__
         if system_name in self.systems:
             print("warning")
         self.systems[system_name] = system
 
-    def update(self):
+    async def update(self):
         for _, system in self.systems.items():
             system.update()
     
