@@ -8,7 +8,6 @@ class ISystem(object):
 
     def __init__(self, context: IContext):
         self.context: IContext = context
-        self.commands: List[ICommand] = []
 
     @abstractmethod
     def update(self):
