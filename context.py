@@ -1,5 +1,6 @@
 from interface.context import IContext
 from interface.entity import IEntity
+from interface.behavior import IBehavior
 from interface.command import ICommand
 from typing import List, Dict
 from common.logger import logger
@@ -8,14 +9,17 @@ from common.logger import logger
 class Context(IContext):
 
     def __init__(self):
+        super(Context, self).__init__()
         self.entities: Dict[int, IEntity] = {}
+        self.behaviors: Dict[int, IBehavior] = {}
         self.commands: List[ICommand] = []
 
     def create_entity(self, eid: int) -> IEntity:
         if eid in self.entities:
-            logger.debug(f"warning: {eid} already exist.")
+            logger.debug(f"warning: {eid} entity already exist.")
         entity = IEntity(eid)
         self.entities[eid] = entity
+        self.create_behavior(entity)  # 创建表现层
         return entity
 
     def filter_entity(self, component: str, entities: List[IEntity]):
@@ -29,11 +33,22 @@ class Context(IContext):
         return result
 
     def remove_entity(self, eid: int):
-        if eid not in self.entities:
+        if eid not in self.entities and eid not in self.behaviors:
             return
         del self.entities[eid]
+        del self.behaviors[eid]
 
     def input_command(self, command: ICommand):
         self.commands.append(command)
 
+    def create_behavior(self, entity: IEntity):
+        if entity.uid in self.behaviors:
+            logger.debug(f"warning: {entity.uid} behavior already exist.")
+        behavior = IBehavior(entity)
+        self.behaviors[entity.uid] = behavior
 
+    def get_behaviors(self) -> List[IBehavior]:
+        return list(self.behaviors.values())
+
+    def get_entities(self) -> List[IEntity]:
+        return list(self.entities.values())
