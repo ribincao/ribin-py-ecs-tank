@@ -3,9 +3,11 @@ from common.common import signal_handler
 import asyncio
 from interface.logic import ILogic
 from interface.window import IWindow
+from interface.view import IView
 from context import Context
 from logic.tank_logic import TankLogic
-from view.pygame_window import PyGameWindow
+from view.tank_view import TankView
+from window.pygame_window import PyGameWindow
 
 
 class Client(object):
@@ -13,7 +15,8 @@ class Client(object):
     def __init__(self):
         self.context: Context = Context()
         self.logic: ILogic = TankLogic(1, self.context)  # 逻辑层
-        self.window: IWindow = PyGameWindow("Tank", self.context)  # 表现层
+        self.view: IView = TankView(self.context)  # 表现层
+        self.window: IWindow = PyGameWindow("Tank", self.view)  # 渲染层
         # self.connection = None # 用于网络连接
         self._loop: asyncio.AbstractEventLoop = asyncio.get_event_loop()
         

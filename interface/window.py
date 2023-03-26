@@ -1,13 +1,13 @@
 from abc import abstractmethod
-from interface.context import IContext
+from interface.view import IView
 
 
 class IWindow(object):
 
-    def __init__(self, window_name: str, context: IContext):
+    def __init__(self, window_name: str, view: IView):
         self.window_name: str = window_name
-        self.context: IContext = context
         self.in_game: bool = False
+        self.view: IView = view
 
     @abstractmethod
     async def update(self):

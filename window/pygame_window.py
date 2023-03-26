@@ -3,14 +3,14 @@ from common.logger import logger
 import asyncio
 import pygame
 from typing import Optional
-from context import Context
+from interface.view import IView
 
 
 class PyGameWindow(IWindow):
     RENDER_RATE = 100e-3
 
-    def __init__(self, window_name: str, context: Context):
-        super(PyGameWindow, self).__init__(window_name, context)
+    def __init__(self, window_name: str, view: IView):
+        super(PyGameWindow, self).__init__(window_name, view)
         self.window: Optional[pygame.Surface] = None
         self.back_ground: pygame.Color = pygame.Color(0, 0, 0)
 
@@ -19,8 +19,9 @@ class PyGameWindow(IWindow):
             self.window.fill(self.back_ground)
             self.listen_event()
 
-            for behavior in self.context.get_behaviors():
+            for behavior in self.view.get_behaviors():
                 self.window.blit(behavior.mode, behavior.rect)
+
             pygame.display.update()
             await asyncio.sleep(self.RENDER_RATE)
 
