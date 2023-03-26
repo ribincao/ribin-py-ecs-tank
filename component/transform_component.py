@@ -1,15 +1,5 @@
 from interface.component import IComponent
-
-
-class Vector2(object):
-
-    def __init__(self, x: float, y: float):
-        self.x: float = x
-        self.y: float = y
-
-    @staticmethod
-    def zero():
-        return Vector2(0.0, 0.0)
+from common.common import Vector2
 
 
 class TransformComponent(IComponent):

@@ -27,8 +27,5 @@ class ILogic(object):
             await asyncio.sleep(self.LOGIC_RATE)
     
     @abstractmethod
-    def init_system(self):
-        pass
-    
     def init_logic(self):
         pass

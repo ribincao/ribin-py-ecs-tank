@@ -7,4 +7,7 @@ class TankBehavior(IBehavior):
     def __init__(self, entity: IEntity):
         super(TankBehavior, self).__init__(entity)
 
+    def init_modes(self):
+        pass
+
 

@@ -1,20 +1,19 @@
 from interface.entity import IEntity
-from pygame import Surface, image, Rect
-from typing import List
+from pygame import Surface, Rect
+from typing import Dict
+from abc import abstractmethod
 
 
 class IBehavior(object):
 
     def __init__(self, entity: IEntity):
         self.entity: IEntity = entity
-        self.models: List[Surface] = []
-        self.state: int = 0
+        self.models: Dict[str, Surface] = {}
+        self.state: str = ''
 
-    def init_modes(self, paths: List[str]):
-        self.models = []
-        for path in paths:
-            model = image.load(path)
-            self.models.append(model)
+    @abstractmethod
+    def init_modes(self):
+        pass
 
     def get_mode(self) -> Surface:
         return self.models[self.state]

@@ -9,5 +9,5 @@ class CreateSystem(ISystem):
         super(CreateSystem, self).__init__(context)
 
     async def update(self):
-        logger.debug("CreateSystem Upate")
+        logger.debug("CreateSystem Update")
         pass

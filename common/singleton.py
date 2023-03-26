@@ -9,7 +9,7 @@ class Singleton(object):
         return cls._inst
 
 
-def SingletonWrapper(cls):
+def singleton_wrapper(cls):
     instance = {}
 
     def _singleton_wrapper(*args, **kargs):
