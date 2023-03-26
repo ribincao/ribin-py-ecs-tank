@@ -8,6 +8,24 @@ class IBehavior(object):
 
     def __init__(self, entity: IEntity):
         self.entity: IEntity = entity
+
+    @abstractmethod
+    def init_modes(self):
+        pass
+
+    @abstractmethod
+    def mode(self) -> object:
+        pass
+
+    @abstractmethod
+    def rect(self) -> object:
+        pass
+
+
+class IPyGameBehavior(IBehavior):
+
+    def __init__(self, entity: IEntity):
+        super(IPyGameBehavior, self).__init__(entity)
         self.models: Dict[str, Surface] = {}
 
     @abstractmethod

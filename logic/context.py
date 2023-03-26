@@ -1,6 +1,5 @@
 from interface.context import IContext
 from interface.entity import IEntity
-from interface.behavior import IBehavior
 from interface.command import ICommand
 from typing import List, Dict
 from common.logger import logger
@@ -11,7 +10,6 @@ class Context(IContext):
     def __init__(self):
         super(Context, self).__init__()
         self.entities: Dict[int, IEntity] = {}
-        self.behaviors: Dict[int, IBehavior] = {}
         self.commands: List[ICommand] = []
 
     def create_entity(self, eid: int) -> IEntity:
@@ -32,10 +30,9 @@ class Context(IContext):
         return result
 
     def remove_entity(self, eid: int):
-        if eid not in self.entities and eid not in self.behaviors:
+        if eid not in self.entities:
             return
         del self.entities[eid]
-        del self.behaviors[eid]
 
     def input_command(self, command: ICommand):
         self.commands.append(command)

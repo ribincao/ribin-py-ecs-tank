@@ -1,8 +1,8 @@
-from interface.behavior import IBehavior
+from interface.behavior import IPyGameBehavior
 from interface.entity import IEntity
 
 
-class TankBehavior(IBehavior):
+class TankBehavior(IPyGameBehavior):
 
     def __init__(self, entity: IEntity):
         super(TankBehavior, self).__init__(entity)

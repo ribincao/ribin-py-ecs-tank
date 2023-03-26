@@ -1,7 +1,7 @@
 from interface.context import IContext
 from abc import abstractmethod
 from typing import List, Dict
-from interface.behavior import IBehavior
+from interface.behavior import IPyGameBehavior, IBehavior
 from interface.entity import IEntity
 
 
@@ -34,7 +34,7 @@ class IView(object):
         if entity.uid in self.behaviors:
             self.behaviors[entity.uid].entity = entity
             return self.behaviors[entity.uid]
-        behavior = IBehavior(entity)
+        behavior = IPyGameBehavior(entity)  # todo: 根据类型创建不同的behavior
         self.behaviors[entity.uid] = behavior
         return behavior
 
