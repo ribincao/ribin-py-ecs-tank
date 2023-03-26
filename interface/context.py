@@ -1,4 +1,3 @@
-from interface.behavior import IBehavior
 from interface.entity import IEntity
 from interface.command import ICommand
 from typing import List
@@ -9,10 +8,6 @@ class IContext(object):
 
     def __init__(self):
         pass
-
-    @abstractmethod
-    def get_behaviors(self) -> List[IBehavior]:
-        return []
 
     @abstractmethod
     def get_entities(self) -> List[IEntity]:

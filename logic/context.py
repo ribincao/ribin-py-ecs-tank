@@ -19,7 +19,6 @@ class Context(IContext):
             logger.debug(f"warning: {eid} entity already exist.")
         entity = IEntity(eid)
         self.entities[eid] = entity
-        self.create_behavior(entity)  # 创建表现层
         return entity
 
     def filter_entity(self, component: str, entities: List[IEntity]):
@@ -40,15 +39,6 @@ class Context(IContext):
 
     def input_command(self, command: ICommand):
         self.commands.append(command)
-
-    def create_behavior(self, entity: IEntity):
-        if entity.uid in self.behaviors:
-            logger.debug(f"warning: {entity.uid} behavior already exist.")
-        behavior = IBehavior(entity)
-        self.behaviors[entity.uid] = behavior
-
-    def get_behaviors(self) -> List[IBehavior]:
-        return list(self.behaviors.values())
 
     def get_entities(self) -> List[IEntity]:
         return list(self.entities.values())

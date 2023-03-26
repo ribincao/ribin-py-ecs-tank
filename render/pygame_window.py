@@ -36,5 +36,9 @@ class PyGameWindow(IWindow):
                 import sys
                 sys.exit(0)
             if event.type == pygame.KEYDOWN:
-                await self.view.handle_event(event.key)
+                operation = ''
+                if event.key == pygame.K_w:
+                    operation = 'w'
+
+                await self.view.handle_event(operation)
 

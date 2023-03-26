@@ -4,7 +4,7 @@ import asyncio
 from interface.logic import ILogic
 from interface.window import IWindow
 from interface.view import IView
-from common.context import Context
+from logic.context import Context
 from logic.tank_logic import TankLogic
 from view.tank_view import TankView
 from render.pygame_window import PyGameWindow
@@ -27,6 +27,7 @@ class Client(object):
         
     def run(self):
         self._loop.create_task(self.logic.update())
+        self._loop.create_task(self.view.update())
         self._loop.create_task(self.window.update())
         self._loop.run_forever()
 
