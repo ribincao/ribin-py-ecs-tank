@@ -8,10 +8,10 @@ class TankLogic(ILogic):
         super(TankLogic, self).__init__(gid, context)
     
     def init_logic(self):
-        from system.move_system import MoveSystem
-        from system.create_system import CreateSystem
-        from system.command_system import CommandSystem
-        from system.collider_system import ColliderSystem
+        from logic.system.move_system import MoveSystem
+        from logic.system.create_system import CreateSystem
+        from logic.system.command_system import CommandSystem
+        from logic.system.collider_system import ColliderSystem
         
         self.register_system(MoveSystem(self.context))
         self.register_system(CreateSystem(self.context))

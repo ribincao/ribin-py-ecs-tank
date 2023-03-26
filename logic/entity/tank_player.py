@@ -1,5 +1,5 @@
 from interface.entity import IEntity
-from component.transform_component import TransformComponent
+from logic.component.transform_component import TransformComponent
 from typing import Tuple
 
 

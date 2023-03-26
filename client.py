@@ -4,10 +4,10 @@ import asyncio
 from interface.logic import ILogic
 from interface.window import IWindow
 from interface.view import IView
-from context import Context
+from common.context import Context
 from logic.tank_logic import TankLogic
 from view.tank_view import TankView
-from window.pygame_window import PyGameWindow
+from render.pygame_window import PyGameWindow
 
 
 class Client(object):
