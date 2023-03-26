@@ -12,8 +12,8 @@ class Client(object):
 
     def __init__(self):
         self.context: Context = Context()
-        self.logic: ILogic = TankLogic(1, self.context) # 逻辑层
-        self.window: IWindow = PyGameWindow("Tank", self.context) # 表现层
+        self.logic: ILogic = TankLogic(1, self.context)  # 逻辑层
+        self.window: IWindow = PyGameWindow("Tank", self.context)  # 表现层
         # self.connection = None # 用于网络连接
         self._loop: asyncio.AbstractEventLoop = asyncio.get_event_loop()
         

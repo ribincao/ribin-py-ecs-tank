@@ -15,10 +15,12 @@ class IBehavior(object):
     def init_modes(self):
         pass
 
-    def get_mode(self) -> Surface:
+    @property
+    def mode(self) -> Surface:
         return self.models[self.state]
 
-    def get_rect(self) -> Rect:
-        rect = self.get_mode().get_rect()
+    @property
+    def rect(self) -> Rect:
+        rect = self.mode.get_rect()
         rect.left, rect.top = self.entity.get_position()
         return rect

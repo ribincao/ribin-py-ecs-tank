@@ -12,14 +12,15 @@ class PyGameWindow(IWindow):
     def __init__(self, window_name: str, context: Context):
         super(PyGameWindow, self).__init__(window_name, context)
         self.window: Optional[pygame.Surface] = None
+        self.back_ground: pygame.Color = pygame.Color(0, 0, 0)
 
     async def update(self):
         while True:
-            self.window.fill(pygame.Color(0, 0, 0))
+            self.window.fill(self.back_ground)
             self.listen_event()
 
             for behavior in self.context.get_behaviors():
-                self.window.blit(behavior.get_mode(), behavior.get_rect())
+                self.window.blit(behavior.mode, behavior.rect)
             pygame.display.update()
             await asyncio.sleep(self.RENDER_RATE)
 
