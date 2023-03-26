@@ -1,0 +1,11 @@
+{
+  "0": {
+    "mod_id": 0,
+    "models": [
+      "./view/resource/image/player/p1tankD",
+      "./view/resource/image/player/p1tankU",
+      "./view/resource/image/player/p1tankL",
+      "./view/resource/image/player/p1tankR"
+    ]
+  }
+}
