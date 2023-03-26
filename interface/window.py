@@ -6,7 +6,6 @@ class IWindow(object):
 
     def __init__(self, window_name: str, view: IView):
         self.window_name: str = window_name
-        self.in_game: bool = False
         self.view: IView = view
 
     @abstractmethod
