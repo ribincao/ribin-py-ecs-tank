@@ -22,6 +22,7 @@ class Client(object):
         
     def init_game(self):
         self.logic.init_logic()
+        self.view.init_view()
         self.window.init_window()
         
     def run(self):
