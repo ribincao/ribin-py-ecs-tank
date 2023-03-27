@@ -1,32 +1,44 @@
 [
-  {
-    "scene_id": 0,
-    "back_ground": "",
-    "desc": "开场",
-    "items": [
-      {
-        "mod_id": 0,
-        "position": [0, 0]
-      },
-      {
-        "mod_id": 1,
-        "position": [0, 0]
-      }
-    ]
-  },
-  {
-    "scene_id": 1,
-    "back_ground": "",
-    "desc": "第一关",
-    "items": [
-      {
-        "mod_id": 0,
-        "position": [0, 0]
-      },
-      {
-        "mod_id": 1,
-        "position": [0, 0]
-      }
-    ]
-  }
+    {
+        "scene_id": 0,
+        "back_ground": "",
+        "desc": "开场",
+        "items": [
+            {
+                "mod_id": 0,
+                "position": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "mod_id": 1,
+                "position": [
+                    0,
+                    0
+                ]
+            }
+        ]
+    },
+    {
+        "scene_id": 1,
+        "back_ground": "",
+        "desc": "第一关",
+        "items": [
+            {
+                "mod_id": 0,
+                "position": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "mod_id": 1,
+                "position": [
+                    0,
+                    0
+                ]
+            }
+        ]
+    }
 ]

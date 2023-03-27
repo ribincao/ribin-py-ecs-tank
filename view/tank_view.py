@@ -5,6 +5,7 @@ from interface.behavior import IBehavior
 from typing import List
 from interface.entity import IEntity
 from view.behavior.tank_behavior import TankBehavior
+from common.data_util import data_util
 
 
 class TankView(IView):
@@ -31,6 +32,8 @@ class TankView(IView):
         return behavior
 
     def init_view(self):
+        scene_maps = data_util.load_from_json('./view/scene/tank.json')
+        logger.info(f"view_load_tank_scene {scene_maps}")
         pass
 
     async def handle_event(self, operation: str):
