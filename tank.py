@@ -10,7 +10,7 @@ from view.tank_view import TankView
 from render.pygame_window import PyGameWindow
 
 
-class Client(object):
+class TankClient(object):
 
     def __init__(self):
         self.context: Context = Context()
@@ -38,6 +38,6 @@ if __name__ == '__main__':
         signal_handler()
     initialize()
 
-    srv = Client()
+    srv = TankClient()
     srv.init_game()
     srv.run()
