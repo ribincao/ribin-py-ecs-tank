@@ -1,15 +1,15 @@
-from interface.context import IContext
+from logic.context import Context
 from abc import abstractmethod
 from typing import List, Dict
-from interface.behavior import IBehavior
+from view.behavior.ibehavior import IBehavior
 
 
 class IView(object):
     VIEW_RATE = 100e-3
 
-    def __init__(self, context: IContext):
+    def __init__(self, context: Context):
         self.behaviors: Dict[int, IBehavior] = {}
-        self.context: IContext = context
+        self.context: Context = context
         self.scenes: Dict[int, object] = {}
         self.scene_id: int = 0  # 场景id, 不同关卡
         self.back_ground = (0, 0, 0)

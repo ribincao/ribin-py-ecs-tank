@@ -1,11 +1,10 @@
-from abc import abstractmethod
 from typing import Tuple
 from logic.component.create_component import CreateComponent
 from logic.component.transform_component import TransformComponent
 from typing import Optional
 
 
-class IEntity(object):
+class GameLogicEntity(object):
 
     def __init__(self, uid: int):
         self.uid: int = uid

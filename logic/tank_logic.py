@@ -1,5 +1,5 @@
-from interface.logic import ILogic
-from interface.context import IContext
+from logic.ilogic import ILogic
+from logic.context import Context
 from common.data_util import data_util
 from common.logger import logger
 from logic.component.create_component import CreateComponent
@@ -7,7 +7,7 @@ from logic.component.create_component import CreateComponent
 
 class TankLogic(ILogic):
 
-    def __init__(self, gid: int, context: IContext):
+    def __init__(self, gid: int, context: Context):
         super(TankLogic, self).__init__(gid, context)
     
     def init_logic(self):
@@ -22,19 +22,19 @@ class TankLogic(ILogic):
         self.register_system(ColliderSystem(self.context))
 
         # 场景重建
-        maps = data_util.load_from_json('./view/scene/tank.json')
-        logger.info(f"logic_load_map {maps}")
-        if not maps:
-            return
-        idx = 1
-        for map in maps:
-            items = map.get("items", [])
-            if not items:
-                continue
-            for item in items:
-                entity = self.context.create_entity(idx)
-                create_component = CreateComponent()
-                create_component.__dict__.update(item)
-                entity.create = create_component
+        #  maps = data_util.load_from_json('./view/scene/tank.json')
+        #  logger.info(f"logic_load_map {maps}")
+        #  if not maps:
+        #      return
+        #  idx = 1
+        #  for map in maps:
+        #      items = map.get("items", [])
+        #      if not items:
+        #          continue
+        #      for item in items:
+        #          entity = self.context.create_entity(idx)
+        #          create_component = CreateComponent()
+        #          create_component.__dict__.update(item)
+        #          entity.create = create_component
         
 

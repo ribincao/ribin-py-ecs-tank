@@ -1,6 +1,6 @@
-from interface.system import ISystem
+from logic.system.isystem import ISystem
 from typing import Dict
-from interface.context import IContext
+from logic.context import Context
 from abc import abstractmethod
 from common.logger import logger
 import asyncio
@@ -9,9 +9,9 @@ import asyncio
 class ILogic(object):
     LOGIC_RATE = 100e-3
 
-    def __init__(self, gid: int, context: IContext):
+    def __init__(self, gid: int, context: Context):
         self.gid: int = gid
-        self.context: IContext = context
+        self.context: Context = context
         self.systems: Dict[str, ISystem] = {}
     
     def register_system(self, system: ISystem):

@@ -1,16 +1,16 @@
-from interface.view import IView
-from interface.context import IContext
+from view.iview import IView
+from logic.context import Context
 from common.logger import logger
-from interface.behavior import IBehavior
+from view.behavior.ibehavior import IBehavior
 from typing import List
-from interface.entity import IEntity
+from logic.entity.entity import GameLogicEntity
 from view.behavior.tank_behavior import TankBehavior
 from common.data_util import data_util
 
 
 class TankView(IView):
 
-    def __init__(self, context: IContext):
+    def __init__(self, context: Context):
         super(TankView, self).__init__(context)
 
     async def update(self):
@@ -25,7 +25,7 @@ class TankView(IView):
             behaviors[entity.uid] = behavior
         self.behaviors = behaviors
 
-    def create_behavior(self, entity: IEntity):
+    def create_behavior(self, entity: GameLogicEntity):
         # todo: 根据类型创建不同的behavior
         behavior = TankBehavior(entity)
         self.behaviors[entity.uid] = behavior

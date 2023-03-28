@@ -1,9 +1,9 @@
 from common.logger import logger
 from common.common import signal_handler
 import asyncio
-from interface.logic import ILogic
-from interface.window import IWindow
-from interface.view import IView
+from logic.ilogic import ILogic
+from render.iwindow import IWindow
+from view.iview import IView
 from logic.context import Context
 from logic.tank_logic import TankLogic
 from view.tank_view import TankView

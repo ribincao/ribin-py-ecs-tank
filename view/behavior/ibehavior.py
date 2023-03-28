@@ -1,4 +1,4 @@
-from interface.entity import IEntity
+from logic.entity.entity import GameLogicEntity
 from pygame import Surface, Rect
 from typing import Dict
 from abc import abstractmethod
@@ -6,8 +6,8 @@ from abc import abstractmethod
 
 class IBehavior(object):
 
-    def __init__(self, entity: IEntity):
-        self.entity: IEntity = entity
+    def __init__(self, entity: GameLogicEntity):
+        self.entity: GameLogicEntity = entity
 
     @abstractmethod
     def init_modes(self):
@@ -24,7 +24,7 @@ class IBehavior(object):
 
 class IPyGameBehavior(IBehavior):
 
-    def __init__(self, entity: IEntity):
+    def __init__(self, entity: GameLogicEntity):
         super(IPyGameBehavior, self).__init__(entity)
         self.models: Dict[str, Surface] = {}
 

@@ -1,4 +1,4 @@
-from interface.component import IComponent
+from logic.component.icomponent import IComponent
 from common.common import Vector2
 
 

@@ -1,13 +1,11 @@
 from abc import abstractmethod
-from interface.command import ICommand
-from interface.context import IContext
-from typing import List
+from logic.context import Context
 
 
 class ISystem(object):
 
-    def __init__(self, context: IContext):
-        self.context: IContext = context
+    def __init__(self, context: Context):
+        self.context: Context = context
 
     @abstractmethod
     async def update(self):

@@ -1,25 +1,23 @@
-from interface.context import IContext
-from interface.entity import IEntity
-from interface.command import ICommand
+from logic.entity.entity import GameLogicEntity
+from logic.command.icommand import ICommand
 from typing import List, Dict
 from common.logger import logger
 
 
-class Context(IContext):
+class Context(object):
 
     def __init__(self):
-        super(Context, self).__init__()
-        self.entities: Dict[int, IEntity] = {}
+        self.entities: Dict[int, GameLogicEntity] = {}
         self.commands: List[ICommand] = []
 
-    def create_entity(self, eid: int) -> IEntity:
+    def create_entity(self, eid: int) -> GameLogicEntity:
         if eid in self.entities:
             logger.debug(f"warning: {eid} entity already exist.")
-        entity = IEntity(eid)
+        entity = GameLogicEntity(eid)
         self.entities[eid] = entity
         return entity
 
-    def filter_entity(self, component: str, entities: List[IEntity]):
+    def filter_entity(self, component: str, entities: List[GameLogicEntity]):
         if not entities:
             entities = list(self.entities.values())
         result = []
@@ -37,5 +35,5 @@ class Context(IContext):
     def input_command(self, command: ICommand):
         self.commands.append(command)
 
-    def get_entities(self) -> List[IEntity]:
+    def get_entities(self) -> List[GameLogicEntity]:
         return list(self.entities.values())

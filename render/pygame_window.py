@@ -1,8 +1,8 @@
-from interface.window import IWindow
+from render.iwindow import IWindow
 import asyncio
 import pygame
 from typing import Optional
-from interface.view import IView
+from view.iview import IView
 
 
 class PyGameWindow(IWindow):
@@ -15,6 +15,8 @@ class PyGameWindow(IWindow):
 
     async def update(self):
         while True:
+            if not self.window:
+                return
             self.window.fill(self.view.back_ground)
             await self.listen_event()
 

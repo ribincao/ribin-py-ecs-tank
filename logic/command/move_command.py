@@ -1,4 +1,4 @@
-from interface.command import ICommand
+from logic.command.icommand import ICommand
 
 
 class MoveCmd(ICommand):
