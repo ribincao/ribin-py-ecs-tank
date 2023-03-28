@@ -12,6 +12,6 @@ class MoveSystem(ISystem):
         logger.debug("MoveSystem Update")
         entities = self.context.get_entities()
         for entity in entities:
-            if not entity.move or not entity.transform:
+            if not entity.rigibody or not entity.transform:
                 continue
-            entity.transform.position.y += entity.move.gravity
+            entity.transform.position.y += entity.rigibody.gravity
