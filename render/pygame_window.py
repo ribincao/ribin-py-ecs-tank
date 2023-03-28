@@ -3,6 +3,7 @@ import asyncio
 import pygame
 from typing import Optional
 from view.iview import IView
+from common.logger import logger
 
 
 class PyGameWindow(IWindow):
@@ -21,6 +22,9 @@ class PyGameWindow(IWindow):
             await self.listen_event()
 
             for behavior in self.view.get_behaviors():
+                logger.info(f"window update behavior {behavior}")
+                if not behavior.models:
+                    continue
                 self.window.blit(behavior.mode, behavior.rect)
 
             pygame.display.update()
@@ -41,6 +45,12 @@ class PyGameWindow(IWindow):
                 operation = ''
                 if event.key == pygame.K_w:
                     operation = 'w'
+                if event.key == pygame.K_a:
+                    operation = 'a'
+                if event.key == pygame.K_s:
+                    operation = 's'
+                if event.key == pygame.K_d:
+                    operation = 'daaa'
 
                 await self.view.handle_event(operation)
 

@@ -1,6 +1,6 @@
 from logic.entity.entity import GameLogicEntity
 from pygame import Surface, Rect
-from typing import Dict
+from typing import Dict, List
 from abc import abstractmethod
 
 
@@ -8,9 +8,10 @@ class IBehavior(object):
 
     def __init__(self, entity: GameLogicEntity):
         self.entity: GameLogicEntity = entity
+        self.models: Dict[str, object] = {}
 
     @abstractmethod
-    def init_modes(self):
+    def init_models(self, mod_id: int):
         pass
 
     @abstractmethod
@@ -26,10 +27,10 @@ class IPyGameBehavior(IBehavior):
 
     def __init__(self, entity: GameLogicEntity):
         super(IPyGameBehavior, self).__init__(entity)
-        self.models: Dict[str, Surface] = {}
+        self.models: List[Surface] = []
 
     @abstractmethod
-    def init_modes(self):
+    def init_models(self, mod_id: int):
         pass
 
     @property
