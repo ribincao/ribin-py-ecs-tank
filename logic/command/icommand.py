@@ -1,4 +1,5 @@
 from abc import abstractmethod
+from logic.entity.entity import GameLogicEntity
 
 
 class ICommand(object):
@@ -7,6 +8,6 @@ class ICommand(object):
         self.eid: int = eid
 
     @abstractmethod
-    def execute(self):
+    async def execute(self, entity: GameLogicEntity):
         pass
 

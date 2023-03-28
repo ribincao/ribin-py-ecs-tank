@@ -5,6 +5,7 @@ from logic.entity.entity import GameLogicEntity
 from view.behavior.tank_behavior import TankBehavior
 from common.data_util import data_util
 import asyncio
+from logic.command.move_command import MoveCmd, UP, DOWN, LEFT, RIGHT
 
 
 class TankView(IView):
@@ -41,11 +42,18 @@ class TankView(IView):
         logger.info(f"view_load_tank_scene {scene_maps}")
 
     async def handle_event(self, operation: str):
+        move_cmd = MoveCmd(1)
         if operation == 'w':
             logger.info("w key down")
+            move_cmd.direction = UP
         elif operation == 'a':
             logger.info("a key down")
+            move_cmd.direction = LEFT
         elif operation == 's':
             logger.info("s key down")
+            move_cmd.direction = DOWN
         elif operation == 'd':
             logger.info("d key down")
+            move_cmd.direction = RIGHT
+        
+        self.context.input_command(move_cmd)

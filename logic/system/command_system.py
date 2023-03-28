@@ -10,4 +10,10 @@ class CommandSystem(ISystem):
 
     async def update(self):
         logger.debug("CommandSystem Update")
-        pass
+        commands = self.context.commands
+        self.context.commands = []
+        for command in commands:
+            entity = self.context.get_entity(command.eid)
+            if not entity:
+                continue
+            await command.execute(entity)

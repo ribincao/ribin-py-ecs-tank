@@ -1,6 +1,6 @@
 from logic.entity.entity import GameLogicEntity
 from logic.command.icommand import ICommand
-from typing import List, Dict
+from typing import List, Dict, Optional
 from common.logger import logger
 
 
@@ -12,10 +12,13 @@ class Context(object):
 
     def create_entity(self, eid: int) -> GameLogicEntity:
         if eid in self.entities:
-            logger.debug(f"warning: {eid} entity already exist.")
+            logger.warning(f"{eid} entity already exist.")
         entity = GameLogicEntity(eid)
         self.entities[eid] = entity
         return entity
+
+    def get_entity(self, eid: int) -> Optional[GameLogicEntity]:
+        return self.entities.get(eid, None)
 
     def filter_entity(self, component: str, entities: List[GameLogicEntity]):
         if not entities:

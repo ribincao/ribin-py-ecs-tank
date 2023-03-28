@@ -2,8 +2,8 @@
     {
         "mod_id": 0,
         "models": [
-            "./view/resource/tank/image/player/player1/p1tankD.gif",
             "./view/resource/tank/image/player/player1/p1tankU.gif",
+            "./view/resource/tank/image/player/player1/p1tankD.gif",
             "./view/resource/tank/image/player/player1/p1tankL.gif",
             "./view/resource/tank/image/player/player1/p1tankR.gif"
         ]

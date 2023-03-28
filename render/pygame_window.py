@@ -50,7 +50,7 @@ class PyGameWindow(IWindow):
                 if event.key == pygame.K_s:
                     operation = 's'
                 if event.key == pygame.K_d:
-                    operation = 'daaa'
+                    operation = 'd'
 
                 await self.view.handle_event(operation)
 
