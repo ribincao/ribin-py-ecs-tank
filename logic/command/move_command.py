@@ -14,5 +14,17 @@ class MoveCmd(ICommand):
         self.direction = UP
 
     async def execute(self, entity: GameLogicEntity):
-        logger.info(f"MoveCommand {self.eid}-{self.direction} exceute")
-        entity.state = self.direction
+        logger.info(f"MoveCommand IN {self.eid}-{self.direction} exceute")
+        entity.mod_index = self.direction
+        if not entity.transform or not entity.move:
+            return
+        
+        if entity.mod_index == UP:
+            entity.transform.position.y -= entity.move.speed
+        elif entity.mod_index == DOWN:
+            entity.transform.position.y += entity.move.speed
+        elif entity.mod_index == LEFT:
+            entity.transform.position.x -= entity.move.speed
+        elif entity.mod_index == RIGHT:
+            entity.transform.position.x += entity.move.speed
+        logger.info(f"MoveCommand OUT {self.eid}-{entity.transform.position.x}-{entity.transform.position.y} exceute")

@@ -4,6 +4,7 @@ from common.data_util import data_util
 from common.logger import logger
 from logic.component.transform_component import TransformComponent
 from logic.component.create_component import CreateComponent
+from logic.component.move_component import MoveComponent
 from common.common import Vector2
 
 
@@ -38,13 +39,17 @@ class TankLogic(ILogic):
                     continue
                 entity = self.context.create_entity(idx)
                 position = item.get('position', [0.0, 0.0])
+                
                 transform_comp = TransformComponent()
                 transform_comp.position = Vector2(position[0], position[1])
                 entity.transform = transform_comp
                 mod_id = item.get('mod_id', 0)
+
                 create_comp = CreateComponent()
                 create_comp.mod_id = mod_id
                 entity.create = create_comp
-                
+
+                move_comp = MoveComponent()
+                entity.move = move_comp
         
 

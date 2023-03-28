@@ -10,4 +10,8 @@ class MoveSystem(ISystem):
 
     async def update(self):
         logger.debug("MoveSystem Update")
-        pass
+        entities = self.context.get_entities()
+        for entity in entities:
+            if not entity.move or not entity.transform:
+                continue
+            entity.transform.position.y += entity.move.gravity

@@ -41,10 +41,11 @@ class IPyGameBehavior(IBehavior):
 
     @property
     def mode(self) -> Surface:
-        return self.models[self.entity.state]
+        return self.models[self.entity.mod_index]
 
     @property
     def rect(self) -> Rect:
         rect = self.mode.get_rect()
-        rect.left, rect.top = self.entity.get_position()
+        x, y = self.entity.get_position()
+        rect.left, rect.top = x, y
         return rect
