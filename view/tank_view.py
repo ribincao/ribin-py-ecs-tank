@@ -5,7 +5,7 @@ from logic.entity.entity import GameLogicEntity
 from view.behavior.tank_behavior import TankBehavior
 from common.data_util import data_util
 import asyncio
-from logic.command.move_command import MoveCmd, UP, DOWN, LEFT, RIGHT
+from logic.command.move_command import MoveCmd, UP, DOWN, LEFT, RIGHT, STOP
 
 
 class TankView(IView):
@@ -55,6 +55,9 @@ class TankView(IView):
         elif operation == 'd':
             cmd = MoveCmd(1)
             cmd.direction = RIGHT
+        else:
+            cmd = MoveCmd(1)
+            cmd.direction = STOP
         
         if cmd:
             self.context.input_command(cmd)

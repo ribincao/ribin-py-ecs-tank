@@ -140,10 +140,10 @@
         "mod_id": 13,
         "mod_name": "player1",
         "models": [
-            "./view/resource/tank/image/player/player1/p1tankL.gif",
             "./view/resource/tank/image/player/player1/p1tankU.gif",
-            "./view/resource/tank/image/player/player1/p1tankR.gif",
-            "./view/resource/tank/image/player/player1/p1tankD.gif"
+            "./view/resource/tank/image/player/player1/p1tankD.gif",
+            "./view/resource/tank/image/player/player1/p1tankL.gif",
+            "./view/resource/tank/image/player/player1/p1tankR.gif"
         ]
     },
     {
