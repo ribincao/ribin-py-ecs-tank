@@ -14,7 +14,7 @@ class TankClient(object):
 
     def __init__(self):
         self.context: Context = Context()
-        self.logic: ILogic = TankLogic(1, self.context)  # 逻辑层
+        self.logic: ILogic = TankLogic('tank', self.context)  # 逻辑层
         self.view: IView = TankView(self.context)  # 表现层
         self.window: IWindow = PyGameWindow("Tank", self.view)  # 渲染层
         # self.connection = None # 用于网络连接

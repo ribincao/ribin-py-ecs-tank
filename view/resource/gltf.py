@@ -8,17 +8,21 @@ class GLTF(object):
         pass
 
     def export(self, module: str):
+        mod_id = 0
         for root, dirs, files in os.walk('./' + module):
             if dirs:
                 continue
-            mod_id = root.split('/')[-1]
+            mod = root.split('/')[-1]
             for file in files:
                 file_path = os.path.join(root, file)
-                print(mod_id, '-', file_path)
+                print(mod_id, '-', mod, '-', file_path)
+                mod_id += 1
 
     def load_models(self, module: str, mod_id: int):
         gltf_data = data_util.load_from_json(f'./view/resource/{module}/gltf.json')
-        logger.info(f"gltf_load {gltf_data}")
+        if not gltf_data:
+            return []
+        logger.debug(f"gltf_load {gltf_data}")
         for data in gltf_data:
             _mod_id = data.get('mod_id', -1)
             if _mod_id != mod_id:

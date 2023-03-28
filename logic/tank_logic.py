@@ -10,7 +10,7 @@ from common.common import Vector2
 
 class TankLogic(ILogic):
 
-    def __init__(self, gid: int, context: Context):
+    def __init__(self, gid: str, context: Context):
         super(TankLogic, self).__init__(gid, context)
     
     def init_logic(self):

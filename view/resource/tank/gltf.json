@@ -1,11 +1,159 @@
 [
     {
         "mod_id": 0,
+        "mod_name": "music",
         "models": [
-            "./view/resource/tank/image/player/player1/p1tankU.gif",
-            "./view/resource/tank/image/player/player1/p1tankD.gif",
+            "./view/resource/tank/music/blast.wav",
+            "./view/resource/tank/music/add.wav",
+            "./view/resource/tank/music/fire.wav",
+            "./view/resource/tank/music/start.wav",
+            "./view/resource/tank/music/hit.wav"
+        ]
+    },
+    {
+        "mod_id": 1,
+        "mod_name": "wall",
+        "models": [
+            "./view/resource/tank/image/wall/grass.gif",
+            "./view/resource/tank/image/wall/water.gif",
+            "./view/resource/tank/image/wall/wall.gif",
+            "./view/resource/tank/image/wall/steel.gif",
+            "./view/resource/tank/image/wall/steel1.gif",
+            "./view/resource/tank/image/wall/steel2.gif",
+            "./view/resource/tank/image/wall/steels.gif",
+            "./view/resource/tank/image/wall/walls.gif"
+        ]
+    },
+    {
+        "mod_id": 2,
+        "mod_name": "blask",
+        "models": [
+            "./view/resource/tank/image/blask/blast7.gif",
+            "./view/resource/tank/image/blask/blast6.gif",
+            "./view/resource/tank/image/blask/blast4.gif",
+            "./view/resource/tank/image/blask/blast5.gif",
+            "./view/resource/tank/image/blask/blast1.gif",
+            "./view/resource/tank/image/blask/blast2.gif",
+            "./view/resource/tank/image/blask/blast3.gif",
+            "./view/resource/tank/image/blask/blast8.gif"
+        ]
+    },
+    {
+        "mod_id": 3,
+        "mod_name": "symbol",
+        "models": [
+            "./view/resource/tank/image/symbol/destory.gif",
+            "./view/resource/tank/image/symbol/symbol.gif"
+        ]
+    },
+    {
+        "mod_id": 4,
+        "mod_name": "game",
+        "models": [
+            "./view/resource/tank/image/game/select.gif",
+            "./view/resource/tank/image/game/mintank.gif",
+            "./view/resource/tank/image/game/title.gif",
+            "./view/resource/tank/image/game/over.gif",
+            "./view/resource/tank/image/game/selecttank.gif"
+        ]
+    },
+    {
+        "mod_id": 5,
+        "mod_name": "enemy7",
+        "models": [
+            "./view/resource/tank/image/enemy/enemy7/enemy7L.gif",
+            "./view/resource/tank/image/enemy/enemy7/enemy7U.gif",
+            "./view/resource/tank/image/enemy/enemy7/enemy7D.gif",
+            "./view/resource/tank/image/enemy/enemy7/enemy7R.gif"
+        ]
+    },
+    {
+        "mod_id": 6,
+        "mod_name": "enemy6",
+        "models": [
+            "./view/resource/tank/image/enemy/enemy6/enemy6L.gif",
+            "./view/resource/tank/image/enemy/enemy6/enemy6R.gif",
+            "./view/resource/tank/image/enemy/enemy6/enemy6D.gif",
+            "./view/resource/tank/image/enemy/enemy6/enemy6U.gif"
+        ]
+    },
+    {
+        "mod_id": 7,
+        "mod_name": "enemy3",
+        "models": [
+            "./view/resource/tank/image/enemy/enemy3/enemy3U.gif",
+            "./view/resource/tank/image/enemy/enemy3/enemy3R.gif",
+            "./view/resource/tank/image/enemy/enemy3/enemy3D.gif",
+            "./view/resource/tank/image/enemy/enemy3/enemy3L.gif"
+        ]
+    },
+    {
+        "mod_id": 8,
+        "mod_name": "enemy4",
+        "models": [
+            "./view/resource/tank/image/enemy/enemy4/enemy4D.gif",
+            "./view/resource/tank/image/enemy/enemy4/enemy4R.gif",
+            "./view/resource/tank/image/enemy/enemy4/enemy4U.gif",
+            "./view/resource/tank/image/enemy/enemy4/enemy4L.gif"
+        ]
+    },
+    {
+        "mod_id": 9,
+        "mod_name": "enemy5",
+        "models": [
+            "./view/resource/tank/image/enemy/enemy5/enemy5U.gif",
+            "./view/resource/tank/image/enemy/enemy5/enemy5R.gif",
+            "./view/resource/tank/image/enemy/enemy5/enemy5D.gif",
+            "./view/resource/tank/image/enemy/enemy5/enemy5L.gif"
+        ]
+    },
+    {
+        "mod_id": 10,
+        "mod_name": "enemy2",
+        "models": [
+            "./view/resource/tank/image/enemy/enemy2/enemy2D.gif",
+            "./view/resource/tank/image/enemy/enemy2/enemy2R.gif",
+            "./view/resource/tank/image/enemy/enemy2/enemy2U.gif",
+            "./view/resource/tank/image/enemy/enemy2/enemy2L.gif"
+        ]
+    },
+    {
+        "mod_id": 11,
+        "mod_name": "born",
+        "models": [
+            "./view/resource/tank/image/born/born3.gif",
+            "./view/resource/tank/image/born/born2.gif",
+            "./view/resource/tank/image/born/born1.gif",
+            "./view/resource/tank/image/born/born4.gif"
+        ]
+    },
+    {
+        "mod_id": 12,
+        "mod_name": "item",
+        "models": [
+            "./view/resource/tank/image/item/timer.gif",
+            "./view/resource/tank/image/item/star.gif",
+            "./view/resource/tank/image/item/bomb.gif"
+        ]
+    },
+    {
+        "mod_id": 13,
+        "mod_name": "player1",
+        "models": [
             "./view/resource/tank/image/player/player1/p1tankL.gif",
-            "./view/resource/tank/image/player/player1/p1tankR.gif"
+            "./view/resource/tank/image/player/player1/p1tankU.gif",
+            "./view/resource/tank/image/player/player1/p1tankR.gif",
+            "./view/resource/tank/image/player/player1/p1tankD.gif"
+        ]
+    },
+    {
+        "mod_id": 14,
+        "mod_name": "player2",
+        "models": [
+            "./view/resource/tank/image/player/player2/p2tankR.gif",
+            "./view/resource/tank/image/player/player2/p2tankD.gif",
+            "./view/resource/tank/image/player/player2/p2tankF.gif",
+            "./view/resource/tank/image/player/player2/p2tankL.gif"
         ]
     }
 ]
