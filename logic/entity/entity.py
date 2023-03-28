@@ -15,7 +15,7 @@ class IEntity(object):
         self.transform: Optional[TransformComponent] = None
         self.create: Optional[CreateComponent] = None
 
-    @abstractmethod
     def get_position(self) -> Tuple[float, float]:
-        pass
-
+        if not self.transform:
+            return (0.0, 0.0)
+        return self.transform.position.x, self.transform.position.y
