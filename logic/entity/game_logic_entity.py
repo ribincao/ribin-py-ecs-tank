@@ -2,10 +2,10 @@ from interface.entity import IEntity
 from typing import Tuple
 
 
-class TankPlayer(IEntity):
+class GameLogicEntity(IEntity):
 
     def __init__(self, uid: int):
-        super(TankPlayer, self).__init__(uid)
+        super(GameLogicEntity, self).__init__(uid)
 
     def get_position(self) -> Tuple[float, float]:
         if not self.transform:
