@@ -36,21 +36,31 @@ class PyGameWindow(IWindow):
         self.window = pygame.display.set_mode(self.SIZE)
 
     async def listen_event(self):
-        event_list = pygame.event.get()
-        for event in event_list:
-            if event.type == pygame.QUIT:
-                import sys
-                sys.exit(0)
-            if event.type == pygame.KEYDOWN:
-                operation = ''
-                if event.key == pygame.K_w:
-                    operation = 'w'
-                if event.key == pygame.K_a:
-                    operation = 'a'
-                if event.key == pygame.K_s:
-                    operation = 's'
-                if event.key == pygame.K_d:
-                    operation = 'd'
+        operation = ''
+        key_pressed = pygame.key.get_pressed()
+        if key_pressed[pygame.K_w]:
+            operation = 'w'
+        if key_pressed[pygame.K_a]:
+            operation = 'a'
+        if key_pressed[pygame.K_s]:
+            operation = 's'
+        if key_pressed[pygame.K_d]:
+            operation = 'd'
+        # event_list = pygame.event.get()
+        # for event in event_list:
+        #     if event.type == pygame.QUIT:
+        #         import sys
+        #         sys.exit(0)
+        #     if event.type == pygame.KEYDOWN:
+        #         operation = ''
+        #         if event.key == pygame.K_w:
+        #             operation = 'w'
+        #         if event.key == pygame.K_a:
+        #             operation = 'a'
+        #         if event.key == pygame.K_s:
+        #             operation = 's'
+        #         if event.key == pygame.K_d:
+        #             operation = 'd'
 
-                await self.view.handle_event(operation)
+        await self.view.handle_event(operation)
 

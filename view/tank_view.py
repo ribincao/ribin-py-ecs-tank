@@ -42,18 +42,19 @@ class TankView(IView):
         logger.info(f"view_load_tank_scene {scene_maps}")
 
     async def handle_event(self, operation: str):
-        move_cmd = MoveCmd(1)
+        cmd = None
         if operation == 'w':
-            logger.info("w key down")
-            move_cmd.direction = UP
+            cmd = MoveCmd(1)
+            cmd.direction = UP
         elif operation == 'a':
-            logger.info("a key down")
-            move_cmd.direction = LEFT
+            cmd = MoveCmd(1)
+            cmd.direction = LEFT
         elif operation == 's':
-            logger.info("s key down")
-            move_cmd.direction = DOWN
+            cmd = MoveCmd(1)
+            cmd.direction = DOWN
         elif operation == 'd':
-            logger.info("d key down")
-            move_cmd.direction = RIGHT
+            cmd = MoveCmd(1)
+            cmd.direction = RIGHT
         
-        self.context.input_command(move_cmd)
+        if cmd:
+            self.context.input_command(cmd)
