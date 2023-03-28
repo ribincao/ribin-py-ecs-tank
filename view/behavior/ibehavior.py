@@ -8,10 +8,10 @@ class IBehavior(object):
 
     def __init__(self, entity: GameLogicEntity):
         self.entity: GameLogicEntity = entity
-        self.models: Dict[str, object] = {}
+        self.models: List[object] = []
 
     @abstractmethod
-    def init_models(self, mod_id: int):
+    def init_models(self, module: str, mod_id: int):
         pass
 
     @abstractmethod
@@ -30,8 +30,14 @@ class IPyGameBehavior(IBehavior):
         self.models: List[Surface] = []
 
     @abstractmethod
-    def init_models(self, mod_id: int):
-        pass
+    def init_models(self, module: str, mod_id: int):
+        from view.resource.gltf import GLTF
+        import pygame.image as img
+        gltf = GLTF()
+        paths = gltf.load_models(module, mod_id)
+        self.models = []
+        for path in paths:
+            self.models.append(img.load(path))
 
     @property
     def mode(self) -> Surface:

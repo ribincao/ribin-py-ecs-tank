@@ -8,6 +8,7 @@ import asyncio
 
 
 class TankView(IView):
+    MODULE = 'tank'
 
     def __init__(self, context: Context):
         super(TankView, self).__init__(context)
@@ -29,7 +30,9 @@ class TankView(IView):
 
     def create_behavior(self, entity: GameLogicEntity):
         behavior = TankBehavior(entity)
-        behavior.init_models(entity.create.mod_id)
+
+        if entity.create:
+            behavior.init_models(self.MODULE, entity.create.mod_id)
         self.behaviors[entity.uid] = behavior
         return behavior
 

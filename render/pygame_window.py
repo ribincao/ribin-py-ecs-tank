@@ -22,7 +22,7 @@ class PyGameWindow(IWindow):
             await self.listen_event()
 
             for behavior in self.view.get_behaviors():
-                logger.info(f"window update behavior {behavior}")
+                logger.debug(f"window update behavior {behavior}")
                 if not behavior.models:
                     continue
                 self.window.blit(behavior.mode, behavior.rect)
