@@ -3,16 +3,18 @@ from typing import Optional
 from common.logger import logger
 from net.buffer import Buffer
 from net.codec import Codec
+from logic.context import Context
 
 
 class Connection(object):
 
-    def __init__(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
+    def __init__(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter, context: Context):
         super(Connection, self).__init__()
         self.reader: asyncio.StreamReader = reader
         self.writer: asyncio.StreamWriter = writer
         self.buffer: Buffer = Buffer()
         self.codec: Codec = Codec()
+        self.context: Context = context
 
     def close(self):
         self.writer.close()
@@ -25,7 +27,7 @@ class Connection(object):
                 if not data:
                     break
                 message = self.codec.decode(data)
-                logger.info(f"receive_message {message}")
+                logger.info(f"server receive_message {message}")
             self.close()
         except Exception as error:
             self.close()
@@ -53,6 +55,7 @@ class Connection(object):
                     self.close()
                     break
                 message = self.codec.decode(data)
+                logger.info(f"client receive_message {message}")
             except Exception as e:
                 logger.error(f"Error: {e}")
                 self.close()

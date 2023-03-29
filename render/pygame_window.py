@@ -4,14 +4,15 @@ import pygame
 from typing import Optional
 from view.iview import IView
 from common.logger import logger
+from net.tcp import Tcp
 
 
 class PyGameWindow(IWindow):
     RENDER_RATE = 100e-3
     SIZE = (1024, 900)
 
-    def __init__(self, window_name: str, view: IView):
-        super(PyGameWindow, self).__init__(window_name, view)
+    def __init__(self, window_name: str, view: IView, tcp: Tcp):
+        super(PyGameWindow, self).__init__(window_name, view, tcp)
         self.window: Optional[pygame.Surface] = None
 
     async def update(self):
@@ -55,6 +56,9 @@ class PyGameWindow(IWindow):
             if event.type == pygame.KEYUP:
                 operation = '-'
 
-            if operation != '':
-                await self.view.handle_event(operation)
+            if operation == '':
+                continue
+            await self.view.handle_event(operation)
+            # if self.tcp.connection:
+            #     await self.tcp.connection.send_message(operation)
 
