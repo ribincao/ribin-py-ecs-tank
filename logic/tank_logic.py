@@ -37,6 +37,7 @@ class TankLogic(ILogic):
                     continue
                 entity = self.context.create_entity(idx)
                 entity.mod_index = item.get('mod_index', 0)
+                entity.layer = item.get('layer', 0)
 
                 position = item.get('position', [0.0, 0.0])
                 entity.add_transform(Vector2(position[0], position[1]))

@@ -40,6 +40,10 @@ class IPyGameBehavior(IBehavior):
             self.models.append(img.load(path))
 
     @property
+    def layer(self) -> int:
+        return self.entity.layer
+
+    @property
     def mode(self) -> Surface:
         return self.models[self.entity.mod_index]
 

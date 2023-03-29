@@ -15,6 +15,7 @@ class GameLogicEntity(object):
         self.mod_id: int = -1
         self.state: int = EntityState.normal  # 维护状态
         self.mod_index: int = 0
+        self.layer: int = 0
 
         self.transform: Optional[TransformComponent] = None
         self.create: Optional[CreateComponent] = None

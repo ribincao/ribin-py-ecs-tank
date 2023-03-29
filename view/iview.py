@@ -24,7 +24,7 @@ class IView(object):
         pass
 
     def get_behaviors(self) -> List[IPyGameBehavior]:
-        return list(self.behaviors.values())
+        return sorted(list(self.behaviors.values()), key=lambda x: x.layer)
 
     @abstractmethod
     async def handle_event(self, operation: str):

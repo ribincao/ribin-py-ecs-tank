@@ -8,6 +8,7 @@
                 "uid": 1,
                 "mod_id": 13,
                 "mod_index": 0,
+                "layer": 1,
                 "position": [
                     100,
                     100
@@ -17,6 +18,7 @@
                 "uid": 2,
                 "mod_id": 1,
                 "mod_index": 0,
+                "layer": 0,
                 "position": [
                     200,
                     100
@@ -26,6 +28,7 @@
                 "uid": 3,
                 "mod_id": 1,
                 "mod_index": 1,
+                "layer": 0,
                 "position": [
                     300,
                     100
@@ -35,6 +38,7 @@
                 "uid": 4,
                 "mod_id": 3,
                 "mod_index": 1,
+                "layer": 0,
                 "position": [
                     400,
                     100
