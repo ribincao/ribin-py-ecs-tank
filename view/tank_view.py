@@ -61,3 +61,4 @@ class TankView(IView):
         
         if cmd:
             self.context.input_command(cmd)
+            self.context.input_message(cmd)

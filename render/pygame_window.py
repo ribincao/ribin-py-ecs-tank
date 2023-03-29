@@ -11,8 +11,8 @@ class PyGameWindow(IWindow):
     RENDER_RATE = 100e-3
     SIZE = (1024, 900)
 
-    def __init__(self, window_name: str, view: IView, tcp: Tcp):
-        super(PyGameWindow, self).__init__(window_name, view, tcp)
+    def __init__(self, window_name: str, view: IView):
+        super(PyGameWindow, self).__init__(window_name, view)
         self.window: Optional[pygame.Surface] = None
 
     async def update(self):
@@ -59,7 +59,4 @@ class PyGameWindow(IWindow):
             if operation == '':
                 continue
             await self.view.handle_event(operation)
-            # connection = self.tcp.connection
-            # if connection:
-                # await connection.send_message(operation)
 

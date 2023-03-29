@@ -1,5 +1,6 @@
 from abc import abstractmethod
 from logic.entity.entity import GameLogicEntity
+import json
 
 
 class ICommand(object):
@@ -10,4 +11,9 @@ class ICommand(object):
     @abstractmethod
     async def execute(self, entity: GameLogicEntity):
         pass
+
+    def encode(self):
+        d = self.__dict__
+        d["class"] = d.__class__.__name__
+        return json.dumps(d) 
 

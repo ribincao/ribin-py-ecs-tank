@@ -46,19 +46,19 @@ class Connection(object):
     async def send_message(self, message: str):
         data = self.codec.encode(message)
         self.writer.write(data)
-        await self.writer.drain()
+        # await self.writer.drain()
 
     async def connect(self):
         while not self._is_close:
             try:
-                data = await self.receive_message()
-                if not data:
-                    self.close()
-                    break
-                message = self.codec.decode(data)
-                logger.info(f"client receive_message {message}")
+                messages = self.context.messages
+                self.context.messages = []
+                for command in messages:
+                    message = command.encode() 
+                    logger.info(f"client send_command {message}")
+                    await self.send_message(message)
             except Exception as e:
                 logger.error(f"Error: {e}")
                 self.close()
-            await asyncio.sleep(3)
+            await asyncio.sleep(100e-3)
 

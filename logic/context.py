@@ -9,6 +9,7 @@ class Context(object):
     def __init__(self):
         self.entities: Dict[int, GameLogicEntity] = {}
         self.commands: List[ICommand] = []
+        self.messages: List[ICommand] = []
 
     def create_entity(self, eid: int) -> GameLogicEntity:
         if eid in self.entities:
@@ -37,6 +38,9 @@ class Context(object):
 
     def input_command(self, command: ICommand):
         self.commands.append(command)
+
+    def input_message(self, command: ICommand):
+        self.messages.append(command)
 
     def get_entities(self) -> List[GameLogicEntity]:
         return list(self.entities.values())
