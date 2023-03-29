@@ -14,7 +14,7 @@ class ILogic(object):
         self.gid: str = gid
         self.context: Context = context
         self.systems: Dict[str, ISystem] = {}
-        self.gltf: Dict[int, List[str]] = {}
+        self.gltf: List[dict] = []
     
     def register_system(self, system: ISystem):
         system_name = system.__class__.__name__

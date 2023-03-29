@@ -36,6 +36,7 @@ class TankLogic(ILogic):
                 if idx < 0:
                     continue
                 entity = self.context.create_entity(idx)
+                entity.mod_index = item.get('mod_index', 0)
 
                 position = item.get('position', [0.0, 0.0])
                 entity.add_transform(Vector2(position[0], position[1]))

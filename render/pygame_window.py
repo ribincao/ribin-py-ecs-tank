@@ -36,9 +36,9 @@ class PyGameWindow(IWindow):
         self.window = pygame.display.set_mode(self.SIZE)
 
     async def listen_event(self):
-        operation = ''
         event_list = pygame.event.get()
         for event in event_list:
+            operation = ''
             if event.type == pygame.QUIT:
                 import sys
                 sys.exit(0)

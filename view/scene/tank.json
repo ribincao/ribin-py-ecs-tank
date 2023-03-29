@@ -2,13 +2,41 @@
     {
         "scene_id": 0,
         "back_ground": "",
-        "desc": "开场",
+        "desc": "测试",
         "items": [
             {
                 "uid": 1,
                 "mod_id": 13,
+                "mod_index": 0,
                 "position": [
                     100,
+                    100
+                ]
+            },
+            {
+                "uid": 2,
+                "mod_id": 1,
+                "mod_index": 0,
+                "position": [
+                    200,
+                    100
+                ]
+            },
+            {
+                "uid": 3,
+                "mod_id": 1,
+                "mod_index": 1,
+                "position": [
+                    300,
+                    100
+                ]
+            },
+            {
+                "uid": 4,
+                "mod_id": 3,
+                "mod_index": 1,
+                "position": [
+                    400,
                     100
                 ]
             }

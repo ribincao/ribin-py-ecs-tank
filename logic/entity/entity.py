@@ -5,6 +5,7 @@ from logic.component.move_component import MoveComponent
 from logic.component.rigibody_component import RigibodyComponent
 from typing import Optional
 from logic.entity.state import EntityState
+from common.common import Vector2
 
 
 class GameLogicEntity(object):
