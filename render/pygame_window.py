@@ -55,6 +55,6 @@ class PyGameWindow(IWindow):
             if event.type == pygame.KEYUP:
                 operation = '-'
 
-        if operation != '':
-            await self.view.handle_event(operation)
+            if operation != '':
+                await self.view.handle_event(operation)
 

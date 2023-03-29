@@ -24,7 +24,7 @@ class TankLogic(ILogic):
 
         # 场景重建
         maps = data_util.load_from_json('./view/scene/tank.json')
-        logger.info(f"logic_load_map {maps}")
+        logger.debug(f"logic_load_map {maps}")
         if not maps:
             return
         for map in maps:
@@ -36,18 +36,13 @@ class TankLogic(ILogic):
                 if idx < 0:
                     continue
                 entity = self.context.create_entity(idx)
+
                 position = item.get('position', [0.0, 0.0])
-                
-                transform_comp = TransformComponent()
-                transform_comp.position = Vector2(position[0], position[1])
-                entity.transform = transform_comp
+                entity.add_transform(Vector2(position[0], position[1]))
+
                 mod_id = item.get('mod_id', 0)
-
-                create_comp = CreateComponent()
-                create_comp.mod_id = mod_id
-                entity.create = create_comp
-
-                move_comp = MoveComponent()
-                entity.move = move_comp
+                entity.add_create(mod_id)
+                
+                entity.add_move(5)
         
 

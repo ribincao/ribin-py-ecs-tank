@@ -24,3 +24,18 @@ class GameLogicEntity(object):
         if not self.transform:
             return 0.0, 0.0
         return self.transform.position.x, self.transform.position.y
+
+    def add_transform(self, new_position: Vector2):
+        if not self.transform:
+            self.transform = TransformComponent()
+        self.transform.position = new_position
+
+    def add_move(self, new_speed: float):
+        if not self.move:
+            self.move = MoveComponent()
+        self.move.speed = new_speed
+
+    def add_create(self, new_mod_id: int):
+        if not self.create:
+            self.create = CreateComponent()
+        self.create.mod_id = new_mod_id
