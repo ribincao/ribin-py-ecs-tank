@@ -24,3 +24,4 @@ class MoveCmd(ICommand):
             entity.mod_index = self.direction
         else:
             entity.state = EntityState.normal
+

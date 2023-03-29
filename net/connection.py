@@ -4,6 +4,7 @@ from common.logger import logger
 from net.buffer import Buffer
 from net.codec import Codec
 from logic.context import Context
+from logic.command.command_factory import cmd_factory
 
 
 class Connection(object):
@@ -28,7 +29,10 @@ class Connection(object):
                 if not data:
                     break
                 message = self.codec.decode(data)
-                logger.info(f"server receive_message {message}")
+                cmd = cmd_factory.create_cmd(message)
+                logger.info(f"server receive_cmd {cmd.__dict__}")
+                if cmd:
+                    self.context.input_command(cmd)
             self.close()
         except Exception as error:
             self.close()

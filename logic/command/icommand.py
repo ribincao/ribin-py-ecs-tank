@@ -14,6 +14,6 @@ class ICommand(object):
 
     def encode(self):
         d = self.__dict__
-        d["class"] = d.__class__.__name__
+        d["__class__"] = self.__class__.__name__
         return json.dumps(d) 
 

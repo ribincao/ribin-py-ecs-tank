@@ -13,6 +13,7 @@ class Buffer(object):
     def __init__(self):
         super(Buffer, self).__init__()
         self._offset: int = 0
+        self._buffer: bytes = b''
 
     def receive_data(self, data: bytes) -> bytes:
         receive_data = self._buffer + data
