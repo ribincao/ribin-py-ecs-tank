@@ -31,7 +31,10 @@ class Tcp(object):
         connection = Connection(reader, writer, self._context)
         self._is_client = True
         self._client_connection = connection
-        await self._client_connection.connect()
+        await asyncio.gather(
+                self._client_connection.connect(), 
+                self._client_connection.handle_message()
+                )
     
     @property
     def connection(self) -> Optional[Connection]:
