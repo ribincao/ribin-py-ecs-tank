@@ -37,4 +37,4 @@ class Tcp(object):
     def connection(self) -> Optional[Connection]:
         if not self._is_client:
             return None
-        self._client_connection
+        return self._client_connection

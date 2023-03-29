@@ -39,7 +39,7 @@ class TankView(IView):
 
     def init_view(self):
         scene_maps = data_util.load_from_json('./view/scene/tank.json')
-        logger.info(f"view_load_tank_scene {scene_maps}")
+        logger.debug(f"view_load_tank_scene {scene_maps}")
 
     async def handle_event(self, operation: str):
         cmd = None

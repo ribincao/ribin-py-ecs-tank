@@ -59,6 +59,7 @@ class PyGameWindow(IWindow):
             if operation == '':
                 continue
             await self.view.handle_event(operation)
-            # if self.tcp.connection:
-            #     await self.tcp.connection.send_message(operation)
+            # connection = self.tcp.connection
+            # if connection:
+                # await connection.send_message(operation)
 

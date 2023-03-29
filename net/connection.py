@@ -15,6 +15,7 @@ class Connection(object):
         self.buffer: Buffer = Buffer()
         self.codec: Codec = Codec()
         self.context: Context = context
+        self._is_close: bool = False
 
     def close(self):
         self.writer.close()
