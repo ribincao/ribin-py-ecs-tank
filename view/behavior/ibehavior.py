@@ -11,7 +11,7 @@ class IBehavior(object):
         self.models: List[object] = []
 
     @abstractmethod
-    def init_models(self, module: str, mod_id: int):
+    def init_models(self, module: str, mod_name: str):
         pass
 
     @abstractmethod
@@ -30,11 +30,11 @@ class IPyGameBehavior(IBehavior):
         self.models: List[Surface] = []
 
     @abstractmethod
-    def init_models(self, module: str, mod_id: int):
+    def init_models(self, module: str, mod_name: str):
         from view.resource.gltf import GLTF
         import pygame.image as img
         gltf = GLTF()
-        paths = gltf.load_models(module, mod_id)
+        paths = gltf.load_models(module, mod_name)
         self.models = []
         for path in paths:
             self.models.append(img.load(path))

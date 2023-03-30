@@ -9,7 +9,7 @@ class CreateComponent(IComponent):
 
     def __init__(self):
         super(CreateComponent, self).__init__()
-        self.mod_id: int = -1
+        self.mod_name: str = ''
         self.mod_type: str = T_PLAYER
 
 

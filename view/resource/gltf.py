@@ -18,14 +18,14 @@ class GLTF(object):
                 print(mod_id, '-', mod, '-', file_path)
                 mod_id += 1
 
-    def load_models(self, module: str, mod_id: int):
+    def load_models(self, module: str, mod_name: str):
         gltf_data = data_util.load_from_json(f'./view/resource/{module}/gltf.json')
         if not gltf_data:
             return []
         logger.debug(f"gltf_load {gltf_data}")
         for data in gltf_data:
-            _mod_id = data.get('mod_id', -1)
-            if _mod_id != mod_id:
+            _mod_name = data.get('mod_name', '')
+            if _mod_name != mod_name:
                 continue
             return data.get('models', [])
         return []

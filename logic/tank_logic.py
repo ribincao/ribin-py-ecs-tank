@@ -35,15 +35,17 @@ class TankLogic(ILogic):
                 idx = item.get('uid', -1)
                 if idx < 0:
                     continue
+                mod_name = item.get('mod_name', '')
+                if not mod_name:
+                    continue
+                entity.add_create(mod_name)
+
                 entity = self.context.create_entity(idx)
                 entity.mod_index = item.get('mod_index', 0)
                 entity.layer = item.get('layer', 0)
 
                 position = item.get('position', [0.0, 0.0])
                 entity.add_transform(Vector2(position[0], position[1]))
-
-                mod_id = item.get('mod_id', 0)
-                entity.add_create(mod_id)
                 
                 entity.add_move(5)
         

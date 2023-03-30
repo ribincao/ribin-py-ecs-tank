@@ -33,7 +33,7 @@ class TankView(IView):
         behavior = TankBehavior(entity)
 
         if entity.create:
-            behavior.init_models(self.MODULE, entity.create.mod_id)
+            behavior.init_models(self.MODULE, entity.create.mod_name)
         self.behaviors[entity.uid] = behavior
         return behavior
 

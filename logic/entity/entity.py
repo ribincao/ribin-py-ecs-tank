@@ -12,7 +12,6 @@ class GameLogicEntity(object):
 
     def __init__(self, uid: int):
         self.uid: int = uid
-        self.mod_id: int = -1
         self.state: int = EntityState.normal  # 维护状态
         self.mod_index: int = 0
         self.layer: int = 0
@@ -37,7 +36,7 @@ class GameLogicEntity(object):
             self.move = MoveComponent()
         self.move.speed = new_speed
 
-    def add_create(self, new_mod_id: int):
+    def add_create(self, new_mod_name: str):
         if not self.create:
             self.create = CreateComponent()
-        self.create.mod_id = new_mod_id
+        self.create.mod_name = new_mod_name

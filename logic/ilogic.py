@@ -28,14 +28,14 @@ class ILogic(object):
                 await system.update()
             await asyncio.sleep(self.LOGIC_RATE)
 
-    def get_models(self, mod_id: int):
+    def get_models(self, mod_name: str):
         if not self.gltf:
             self.gltf = data_util.load_from_json(f'./view/resource/{self.gid}/gltf.json')
         if not self.gltf:
             return []
         for data in self.gltf:
-            _mod_id = data.get('mod_id', -1)
-            if _mod_id != mod_id:
+            _mod_name = data.get('mod_name', '')
+            if _mod_name != mod_name:
                 continue
             return data.get('models', [])
         return []
