@@ -138,13 +138,6 @@
     },
     {
         "mod_id": 13,
-        "mod_name": "bullet",
-        "models": [
-            "./view/resource/tank/image/bullet/bullet.gif"
-        ]
-    },
-    {
-        "mod_id": 14,
         "mod_name": "player1",
         "models": [
             "./view/resource/tank/image/player/player1/p1tankL.gif",
@@ -154,7 +147,7 @@
         ]
     },
     {
-        "mod_id": 15,
+        "mod_id": 14,
         "mod_name": "player2",
         "models": [
             "./view/resource/tank/image/player/player2/p2tankR.gif",
@@ -164,7 +157,7 @@
         ]
     },
     {
-        "mod_id": 16,
+        "mod_id": 15,
         "mod_name": "map",
         "models": [
             "./view/resource/tank/map/tank.webp"
