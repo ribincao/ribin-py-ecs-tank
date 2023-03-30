@@ -42,21 +42,22 @@ class TankView(IView):
         logger.debug(f"view_load_tank_scene {scene_maps}")
 
     async def handle_event(self, operation: str):
+        uid = 44
         cmd = None
         if operation == 'w':
-            cmd = MoveCmd(1)
+            cmd = MoveCmd(uid)
             cmd.direction = UP
         elif operation == 'a':
-            cmd = MoveCmd(1)
+            cmd = MoveCmd(uid)
             cmd.direction = LEFT
         elif operation == 's':
-            cmd = MoveCmd(1)
+            cmd = MoveCmd(uid)
             cmd.direction = DOWN
         elif operation == 'd':
-            cmd = MoveCmd(1)
+            cmd = MoveCmd(uid)
             cmd.direction = RIGHT
         else:
-            cmd = MoveCmd(1)
+            cmd = MoveCmd(uid)
             cmd.direction = STOP
         
         if cmd:
