@@ -42,7 +42,7 @@ class TankView(IView):
         logger.debug(f"view_load_tank_scene {scene_maps}")
 
     async def handle_event(self, operation: str):
-        uid = 44
+        uid = 42
         cmd = None
         if operation == 'w':
             cmd = MoveCmd(uid)

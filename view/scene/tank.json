@@ -420,8 +420,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     240,
                     60
@@ -429,8 +429,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     240,
                     120
@@ -438,8 +438,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     240,
                     180
@@ -447,8 +447,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 6,
+                "layer": 1,
                 "position": [
                     240,
                     240
@@ -456,8 +456,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     240,
                     300
@@ -465,8 +465,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     240,
                     360
@@ -474,8 +474,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     240,
                     420
@@ -483,8 +483,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     240,
                     480
@@ -500,18 +500,12 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     240,
                     600
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     240,
                     660
@@ -533,9 +527,6 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     300,
                     60
@@ -552,8 +543,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     300,
                     180
@@ -561,8 +552,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     300,
                     240
@@ -570,8 +561,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     300,
                     300
@@ -579,8 +570,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     300,
                     360
@@ -588,8 +579,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     300,
                     420
@@ -597,8 +588,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     300,
                     480
@@ -614,18 +605,12 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     300,
                     600
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     300,
                     660
@@ -633,8 +618,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     300,
                     720
@@ -647,9 +632,6 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     360,
                     60
@@ -657,8 +639,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     360,
                     120
@@ -666,8 +648,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     360,
                     180
@@ -675,8 +657,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 6,
+                "layer": 1,
                 "position": [
                     360,
                     240
@@ -684,8 +666,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     360,
                     300
@@ -693,8 +675,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     360,
                     360
@@ -702,8 +684,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     360,
                     420
@@ -711,8 +693,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     360,
                     480
@@ -728,9 +710,6 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     360,
                     600
@@ -738,17 +717,17 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     360,
                     660
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_name": "symbol",
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     360,
                     720
@@ -761,9 +740,6 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     420,
                     60
@@ -780,8 +756,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     420,
                     180
@@ -789,8 +765,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     420,
                     240
@@ -798,8 +774,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     420,
                     300
@@ -807,8 +783,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     420,
                     360
@@ -816,8 +792,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     420,
                     420
@@ -825,8 +801,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     420,
                     480
@@ -842,18 +818,12 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     420,
                     600
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     420,
                     660
@@ -861,8 +831,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     420,
                     720
@@ -875,18 +845,12 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     480,
                     60
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     480,
                     120
@@ -903,8 +867,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     480,
                     240
@@ -912,8 +876,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     480,
                     300
@@ -921,8 +885,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     480,
                     360
@@ -930,8 +894,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     480,
                     420
@@ -939,8 +903,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     480,
                     480
@@ -948,8 +912,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     480,
                     540
@@ -965,18 +929,12 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     480,
                     660
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     480,
                     720
@@ -989,18 +947,12 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     540,
                     60
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     540,
                     120
@@ -1017,8 +969,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     540,
                     240
@@ -1026,8 +978,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     540,
                     300
@@ -1035,8 +987,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     540,
                     360
@@ -1044,8 +996,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     540,
                     420
@@ -1053,8 +1005,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     540,
                     480
@@ -1062,8 +1014,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     540,
                     540
@@ -1079,18 +1031,12 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     540,
                     660
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     540,
                     720
@@ -1103,9 +1049,6 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     600,
                     60
@@ -1122,8 +1065,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     600,
                     180
@@ -1131,8 +1074,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     600,
                     240
@@ -1140,8 +1083,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     600,
                     300
@@ -1149,8 +1092,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     600,
                     360
@@ -1158,8 +1101,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     600,
                     420
@@ -1167,8 +1110,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 7,
+                "layer": 1,
                 "position": [
                     600,
                     480
@@ -1184,27 +1127,18 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     600,
                     600
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     600,
                     660
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     600,
                     720
@@ -1217,18 +1151,12 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     660,
                     60
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     660,
                     120
@@ -1263,8 +1191,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     660,
                     360
@@ -1281,8 +1209,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     660,
                     480
@@ -1290,8 +1218,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     660,
                     540
@@ -1307,18 +1235,12 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     660,
                     660
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     660,
                     720
@@ -1331,45 +1253,30 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     720,
                     60
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     720,
                     120
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     720,
                     180
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     720,
                     240
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     720,
                     300
@@ -1395,8 +1302,8 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
+                "mod_index": 1,
+                "layer": 0,
                 "position": [
                     720,
                     480
@@ -1412,27 +1319,18 @@
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     720,
                     600
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     720,
                     660
                 ]
             },
             {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
                 "position": [
                     720,
                     720
