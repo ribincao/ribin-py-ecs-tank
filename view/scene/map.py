@@ -50,7 +50,7 @@ class Test(object):
         elif name == "symbol":
             item["mod_name"] = "symbol"
             item["mod_index"] = 1
-            item["layer"] = 0
+            item["layer"] = 1
         elif name == "player1":
             item["mod_name"] = "player1"
             item["mod_index"] = 0
@@ -145,7 +145,6 @@ class Test(object):
         items.append(self.get_tank_item("glass", [300, 540]))
         items.append(self.get_tank_item("", [300, 600]))
         items.append(self.get_tank_item("", [300, 660]))
-        items.append(self.get_tank_item("walls", [300, 720]))
 
         items.append(self.get_tank_item("", [360, 0]))
         items.append(self.get_tank_item("", [360, 60]))
@@ -158,7 +157,20 @@ class Test(object):
         items.append(self.get_tank_item("water", [360, 480]))
         items.append(self.get_tank_item("glass", [360, 540]))
         items.append(self.get_tank_item("", [360, 600]))
-        items.append(self.get_tank_item("walls", [360, 660]))
+        items.append(self.get_tank_item("wall", [345, 705]))
+        items.append(self.get_tank_item("wall", [345, 720]))
+        items.append(self.get_tank_item("wall", [345, 735]))
+        items.append(self.get_tank_item("wall", [345, 750]))
+        items.append(self.get_tank_item("wall", [345, 765]))
+        items.append(self.get_tank_item("wall", [360, 705]))
+        items.append(self.get_tank_item("wall", [375, 705]))
+        items.append(self.get_tank_item("wall", [390, 705]))
+        items.append(self.get_tank_item("wall", [405, 705]))
+        items.append(self.get_tank_item("wall", [420, 705]))
+        items.append(self.get_tank_item("wall", [420, 720]))
+        items.append(self.get_tank_item("wall", [420, 735]))
+        items.append(self.get_tank_item("wall", [420, 750]))
+        items.append(self.get_tank_item("wall", [420, 765]))
         items.append(self.get_tank_item("symbol", [360, 720]))
 
         items.append(self.get_tank_item("", [420, 0]))
@@ -173,7 +185,6 @@ class Test(object):
         items.append(self.get_tank_item("glass", [420, 540]))
         items.append(self.get_tank_item("", [420, 600]))
         items.append(self.get_tank_item("", [420, 660]))
-        items.append(self.get_tank_item("walls", [420, 720]))
 
         items.append(self.get_tank_item("", [480, 0]))
         items.append(self.get_tank_item("", [480, 60]))
