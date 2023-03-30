@@ -6,7 +6,7 @@
         "items": [
             {
                 "uid": 1,
-                "mod_id": 13,
+                "mod_name": "player1",
                 "mod_index": 0,
                 "layer": 1,
                 "position": [
@@ -16,6 +16,7 @@
             },
             {
                 "uid": 2,
+                "mod_name": "wall",
                 "mod_id": 1,
                 "mod_index": 0,
                 "layer": 1,
@@ -26,6 +27,7 @@
             },
             {
                 "uid": 3,
+                "mod_name": "wall",
                 "mod_id": 1,
                 "mod_index": 1,
                 "layer": 0,
@@ -36,7 +38,7 @@
             },
             {
                 "uid": 4,
-                "mod_id": 3,
+                "mod_name": "symbol",
                 "mod_index": 1,
                 "layer": 0,
                 "position": [

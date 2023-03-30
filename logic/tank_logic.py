@@ -35,12 +35,12 @@ class TankLogic(ILogic):
                 idx = item.get('uid', -1)
                 if idx < 0:
                     continue
+                entity = self.context.create_entity(idx)
                 mod_name = item.get('mod_name', '')
                 if not mod_name:
                     continue
                 entity.add_create(mod_name)
 
-                entity = self.context.create_entity(idx)
                 entity.mod_index = item.get('mod_index', 0)
                 entity.layer = item.get('layer', 0)
 
