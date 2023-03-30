@@ -33,10 +33,10 @@ class TankLogic(ILogic):
                 continue
             uid = 1
             for item in items:
-                entity = self.context.create_entity(uid)
                 mod_name = item.get('mod_name', '')
                 if not mod_name:
                     continue
+                entity = self.context.create_entity(uid)
                 entity.add_create(mod_name)
 
                 entity.mod_index = item.get('mod_index', 0)
