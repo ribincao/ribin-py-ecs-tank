@@ -1,0 +1,270 @@
+[
+    {
+        "scene_id": 0,
+        "back_ground": "",
+        "desc": "测试",
+        "items": [
+            {
+                "mod_name": "player1",
+                "mod_index": 0,
+                "layer": 0,
+                "position": [
+                    240,
+                    720
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    0,
+                    120
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    0,
+                    540
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    60,
+                    180
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    60,
+                    600
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    120,
+                    180
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    120,
+                    600
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    180,
+                    120
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    180,
+                    540
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    240,
+                    540
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    300,
+                    120
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    300,
+                    540
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    360,
+                    540
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    420,
+                    120
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    420,
+                    540
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    480,
+                    180
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    480,
+                    600
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    540,
+                    180
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    540,
+                    600
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    600,
+                    120
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    600,
+                    540
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    660,
+                    180
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    660,
+                    240
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    660,
+                    300
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    660,
+                    420
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    660,
+                    600
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    720,
+                    360
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    720,
+                    420
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 1,
+                "position": [
+                    720,
+                    540
+                ]
+            }
+        ]
+    }
+]

@@ -31,11 +31,9 @@ class TankLogic(ILogic):
             items = map.get("items", [])
             if not items:
                 continue
+            uid = 1
             for item in items:
-                idx = item.get('uid', -1)
-                if idx < 0:
-                    continue
-                entity = self.context.create_entity(idx)
+                entity = self.context.create_entity(uid)
                 mod_name = item.get('mod_name', '')
                 if not mod_name:
                     continue
@@ -48,5 +46,7 @@ class TankLogic(ILogic):
                 entity.add_transform(Vector2(position[0], position[1]))
                 
                 entity.add_move(5)
+
+                uid += 1
         
 
