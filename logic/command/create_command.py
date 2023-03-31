@@ -19,10 +19,10 @@ class CreateCmd(ICommand):
         logger.debug(f"CreateCmd IN {entity.uid} exceute")
         if not self.mod_name:
             return
-        entity.create.mod_name = self.mod_name
+        
         entity.mod_index = self.mod_index
-        entity.transform.position = Vector2(self.position[0], self.position[1])
         entity.layer = self.layer
-        if entity.move:
-            entity.move.speed = self.speed
+        entity.add_create(self.mod_name)
+        entity.add_transform(Vector2(self.position[0], self.position[1]))
+        entity.add_move(self.speed)
 

@@ -14,7 +14,7 @@ class MoveSystem(ISystem):
         logger.debug("MoveSystem Update")
         entities = self.context.get_entities()
         for entity in entities:
-            if not entity.transform or not entity.move:
+            if not entity.transform or not entity.move or entity.move.speed <= 0:
                 continue
             if entity.state == EntityState.move:
                 if entity.mod_index == UP:

@@ -9,12 +9,11 @@ class CommandSystem(ISystem):
         super(CommandSystem, self).__init__(context)
 
     async def update(self):
-        logger.debug("CommandSystem Update")
         commands = self.context.commands
         self.context.commands = []
         for command in commands:
-            logger.info(f"CommandSystem Update {command.eid}")
             if command.eid < 0:
                 continue
+            logger.debug(f"CommandSystem Update {command.__class__.__name__} {command.eid}")
             entity = self.context.get_entity(command.eid)
             await command.execute(entity)
