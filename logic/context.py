@@ -18,7 +18,7 @@ class Context(object):
         entity = GameLogicEntity(eid)
         self.entities[eid] = entity
         return entity
-
+    
     def get_entity(self, eid: int) -> Optional[GameLogicEntity]:
         return self.entities.get(eid, None)
 
