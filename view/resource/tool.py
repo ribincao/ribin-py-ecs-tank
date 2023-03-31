@@ -19,7 +19,7 @@ class GLTF(object):
                 continue
             mod = root.split('/')[-1]
             d = {'mod_id': mod_id, 'mod_name': mod, 'models': []}
-            for file in files:
+            for file in sorted(files):
                 file_path = os.path.join(root, file)
                 d['models'].append('./view/resource' + file_path[1:])
             mod_id += 1
