@@ -16,6 +16,8 @@ class CreateCmd(ICommand):
 
     async def execute(self, entity: GameLogicEntity):
         logger.debug(f"CreateCmd IN {entity.uid} exceute")
+        if not self.mod_name:
+            return
         entity.create.mod_name = self.mod_name
         entity.mod_index = self.mod_index
         entity.transform.position = Vector2(self.position[0], self.position[1])

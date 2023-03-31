@@ -19,6 +19,8 @@ class MoveCmd(ICommand):
 
     async def execute(self, entity: GameLogicEntity):
         logger.debug(f"MoveCommand IN {self.eid}-{self.direction} exceute")
+        if not entity.move or not entity.move.speed <= 0:
+            return
         if UP <= self.direction <= RIGHT:
             entity.state = EntityState.move
             entity.mod_index = self.direction

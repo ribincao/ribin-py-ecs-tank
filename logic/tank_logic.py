@@ -3,6 +3,7 @@ from logic.context import Context
 from common.data_util import data_util
 from common.logger import logger
 from common.common import Vector2
+from logic.command.create_command import CreateCmd
 
 
 class TankLogic(ILogic):
@@ -29,19 +30,10 @@ class TankLogic(ILogic):
             if not items:
                 continue
             for item in items:
-                mod_name = item.get('mod_name', '')
-                if not mod_name:
-                    continue
                 entity = self.context.create_entity()
-                entity.add_create(mod_name)
-
-                entity.mod_index = item.get('mod_index', 0)
-                entity.layer = item.get('layer', 0)
-
-                position = item.get('position', [0.0, 0.0])
-                entity.add_transform(Vector2(position[0], position[1]))
-                
-                entity.add_move(5)
+                cmd = CreateCmd(entity.uid)
+                cmd.__dict__.update(item)
+                self. context.input_command(cmd)
             logger.info(f"{self.context.uid_cnt} entity created.")
         
 
