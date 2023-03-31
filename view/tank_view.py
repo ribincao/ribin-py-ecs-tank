@@ -14,8 +14,8 @@ class TankView(IView):
 
     def __init__(self, context: Context):
         super(TankView, self).__init__(context)
-        self.player1_uid: int = -1
-        self.player2_uid: int = -1
+        self.player1_uid: int = 0
+        self.player2_uid: int = 0
 
     async def update(self):
         while True:
@@ -45,19 +45,33 @@ class TankView(IView):
 
     async def handle_event(self, operation: str):
         cmd = None
-        if operation == 'w':
+        if operation == 'w' and self.player1_uid:
             cmd = MoveCmd(self.player1_uid)
             cmd.direction = UP
-        elif operation == 'a':
+        elif operation == 'a' and self.player1_uid:
             cmd = MoveCmd(self.player1_uid)
             cmd.direction = LEFT
-        elif operation == 's':
+        elif operation == 's' and self.player1_uid:
             cmd = MoveCmd(self.player1_uid)
             cmd.direction = DOWN
-        elif operation == 'd':
+        elif operation == 'd' and self.player1_uid:
             cmd = MoveCmd(self.player1_uid)
             cmd.direction = RIGHT
-        elif operation == 'n' and self.player1_uid < 0:
+
+        elif operation == 'W' and self.player2_uid:
+            cmd = MoveCmd(self.player2_uid)
+            cmd.direction = UP
+        elif operation == 'A' and self.player2_uid:
+            cmd = MoveCmd(self.player2_uid)
+            cmd.direction = LEFT
+        elif operation == 'S' and self.player2_uid:
+            cmd = MoveCmd(self.player2_uid)
+            cmd.direction = DOWN
+        elif operation == 'D' and self.player2_uid:
+            cmd = MoveCmd(self.player2_uid)
+            cmd.direction = RIGHT
+
+        elif operation == 'n' and self.player1_uid <= 0:
             entity = self.context.create_entity()
             cmd = CreateCmd(entity.uid)
             cmd.speed = 5
@@ -65,7 +79,15 @@ class TankView(IView):
             cmd.layer = 1
             cmd.position = (285.0, 720.0)
             self.player1_uid = entity.uid
-        else:
+        elif operation == 'm' and self.player2_uid <= 0:
+            entity = self.context.create_entity()
+            cmd = CreateCmd(entity.uid)
+            cmd.speed = 5
+            cmd.mod_name = "player2"
+            cmd.layer = 1
+            cmd.position = (375.0, 720.0)
+            self.player1_uid = entity.uid
+        elif operation == '-':
             cmd = MoveCmd(self.player1_uid)
             cmd.direction = STOP
         
