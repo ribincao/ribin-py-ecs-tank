@@ -14,14 +14,17 @@ class Context(object):
         self.messages: List[ICommand] = []
 
     def create_entity(self) -> GameLogicEntity:
-        logger.debug(f"{self.uid_cnt} entity already exist.")
         entity = GameLogicEntity(self.uid_cnt)
         self.entities[self.uid_cnt] = entity
         self.uid_cnt += 1
         return entity
     
-    def get_entity(self, eid: int) -> Optional[GameLogicEntity]:
-        return self.entities.get(eid, None)
+    def get_entity(self, eid: int) -> GameLogicEntity:
+        entity = self.entities.get(eid, None)
+        if not entity:
+            entity = self.create_entity()
+            entity.uid = eid
+        return entity
 
     def filter_entity(self, component: str, entities: List[GameLogicEntity]):
         if not entities:

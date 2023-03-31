@@ -2,6 +2,7 @@ from logic.entity.entity import GameLogicEntity
 from pygame import Surface, Rect
 from typing import Dict, List
 from abc import abstractmethod
+from common.logger import logger
 
 
 class IBehavior(object):

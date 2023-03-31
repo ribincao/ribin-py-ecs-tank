@@ -27,421 +27,10 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     0,
-                    180
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    0,
-                    240
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 1,
-                "layer": 0,
-                "position": [
-                    0,
-                    300
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 1,
-                "layer": 0,
-                "position": [
-                    0,
-                    360
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    0,
-                    420
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    0,
-                    480
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
-                "position": [
-                    0,
-                    540
-                ]
-            },
-            {
-                "position": [
-                    0,
-                    600
-                ]
-            },
-            {
-                "position": [
-                    0,
-                    660
-                ]
-            },
-            {
-                "position": [
-                    0,
-                    720
-                ]
-            },
-            {
-                "position": [
-                    60,
-                    0
-                ]
-            },
-            {
-                "position": [
-                    60,
-                    60
-                ]
-            },
-            {
-                "position": [
-                    60,
-                    120
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
-                "position": [
-                    60,
-                    180
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    60,
-                    240
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 1,
-                "layer": 0,
-                "position": [
-                    60,
-                    300
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    60,
-                    360
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    60,
-                    420
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    60,
-                    480
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 1,
-                "layer": 0,
-                "position": [
-                    60,
-                    540
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
-                "position": [
-                    60,
-                    600
-                ]
-            },
-            {
-                "position": [
-                    60,
-                    660
-                ]
-            },
-            {
-                "position": [
-                    60,
-                    720
-                ]
-            },
-            {
-                "position": [
-                    120,
-                    0
-                ]
-            },
-            {
-                "position": [
-                    120,
-                    60
-                ]
-            },
-            {
-                "position": [
-                    120,
-                    120
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
-                "position": [
-                    120,
-                    180
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    120,
-                    240
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 1,
-                "layer": 0,
-                "position": [
-                    120,
-                    300
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    120,
-                    360
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    120,
-                    420
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 1,
-                "layer": 0,
-                "position": [
-                    120,
-                    480
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 1,
-                "layer": 0,
-                "position": [
-                    120,
-                    540
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
-                "position": [
-                    120,
-                    600
-                ]
-            },
-            {
-                "position": [
-                    120,
-                    660
-                ]
-            },
-            {
-                "position": [
-                    120,
-                    720
-                ]
-            },
-            {
-                "position": [
-                    180,
-                    0
-                ]
-            },
-            {
-                "position": [
-                    180,
-                    60
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
-                "position": [
-                    180,
-                    120
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    180,
-                    180
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    180,
-                    240
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    180,
-                    300
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    180,
-                    360
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 1,
-                "layer": 0,
-                "position": [
-                    180,
-                    420
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 1,
-                "layer": 0,
-                "position": [
-                    180,
-                    480
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
-                "position": [
-                    180,
-                    540
-                ]
-            },
-            {
-                "position": [
-                    180,
-                    600
-                ]
-            },
-            {
-                "position": [
-                    180,
-                    660
-                ]
-            },
-            {
-                "position": [
-                    180,
-                    720
-                ]
-            },
-            {
-                "position": [
-                    240,
-                    0
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    240,
-                    60
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    240,
-                    120
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    240,
                     180
                 ]
             },
@@ -450,43 +39,43 @@
                 "mod_index": 6,
                 "layer": 1,
                 "position": [
-                    240,
+                    0,
                     240
                 ]
             },
             {
                 "mod_name": "wall",
                 "mod_index": 7,
-                "layer": 1,
+                "layer": 0,
                 "position": [
-                    240,
+                    0,
                     300
                 ]
             },
             {
                 "mod_name": "wall",
                 "mod_index": 7,
-                "layer": 1,
+                "layer": 0,
                 "position": [
-                    240,
+                    0,
                     360
                 ]
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
-                    240,
+                    0,
                     420
                 ]
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
-                "layer": 0,
+                "mod_index": 6,
+                "layer": 1,
                 "position": [
-                    240,
+                    0,
                     480
                 ]
             },
@@ -495,41 +84,44 @@
                 "mod_index": 0,
                 "layer": 2,
                 "position": [
-                    240,
+                    0,
                     540
                 ]
             },
             {
                 "position": [
-                    240,
+                    0,
                     600
                 ]
             },
             {
                 "position": [
-                    240,
+                    0,
                     660
                 ]
             },
             {
-                "mod_name": "player1",
-                "mod_index": 0,
-                "layer": 1,
                 "position": [
-                    240,
+                    0,
                     720
                 ]
             },
             {
                 "position": [
-                    300,
+                    60,
                     0
                 ]
             },
             {
                 "position": [
-                    300,
+                    60,
                     60
+                ]
+            },
+            {
+                "position": [
+                    60,
+                    120
                 ]
             },
             {
@@ -537,112 +129,7 @@
                 "mod_index": 0,
                 "layer": 2,
                 "position": [
-                    300,
-                    120
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    300,
-                    180
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    300,
-                    240
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    300,
-                    300
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    300,
-                    360
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    300,
-                    420
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    300,
-                    480
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 0,
-                "layer": 2,
-                "position": [
-                    300,
-                    540
-                ]
-            },
-            {
-                "position": [
-                    300,
-                    600
-                ]
-            },
-            {
-                "position": [
-                    300,
-                    660
-                ]
-            },
-            {
-                "position": [
-                    360,
-                    0
-                ]
-            },
-            {
-                "position": [
-                    360,
-                    60
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    360,
-                    120
-                ]
-            },
-            {
-                "mod_name": "wall",
-                "mod_index": 7,
-                "layer": 1,
-                "position": [
-                    360,
+                    60,
                     180
                 ]
             },
@@ -651,13 +138,517 @@
                 "mod_index": 6,
                 "layer": 1,
                 "position": [
-                    360,
+                    60,
                     240
                 ]
             },
             {
                 "mod_name": "wall",
                 "mod_index": 7,
+                "layer": 0,
+                "position": [
+                    60,
+                    300
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    60,
+                    360
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    60,
+                    420
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    60,
+                    480
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 7,
+                "layer": 0,
+                "position": [
+                    60,
+                    540
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 2,
+                "position": [
+                    60,
+                    600
+                ]
+            },
+            {
+                "position": [
+                    60,
+                    660
+                ]
+            },
+            {
+                "position": [
+                    60,
+                    720
+                ]
+            },
+            {
+                "position": [
+                    120,
+                    0
+                ]
+            },
+            {
+                "position": [
+                    120,
+                    60
+                ]
+            },
+            {
+                "position": [
+                    120,
+                    120
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 2,
+                "position": [
+                    120,
+                    180
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    120,
+                    240
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 7,
+                "layer": 0,
+                "position": [
+                    120,
+                    300
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    120,
+                    360
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    120,
+                    420
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 7,
+                "layer": 0,
+                "position": [
+                    120,
+                    480
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 7,
+                "layer": 0,
+                "position": [
+                    120,
+                    540
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 2,
+                "position": [
+                    120,
+                    600
+                ]
+            },
+            {
+                "position": [
+                    120,
+                    660
+                ]
+            },
+            {
+                "position": [
+                    120,
+                    720
+                ]
+            },
+            {
+                "position": [
+                    180,
+                    0
+                ]
+            },
+            {
+                "position": [
+                    180,
+                    60
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 2,
+                "position": [
+                    180,
+                    120
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    180,
+                    180
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    180,
+                    240
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    180,
+                    300
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    180,
+                    360
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 7,
+                "layer": 0,
+                "position": [
+                    180,
+                    420
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 7,
+                "layer": 0,
+                "position": [
+                    180,
+                    480
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 2,
+                "position": [
+                    180,
+                    540
+                ]
+            },
+            {
+                "position": [
+                    180,
+                    600
+                ]
+            },
+            {
+                "position": [
+                    180,
+                    660
+                ]
+            },
+            {
+                "position": [
+                    180,
+                    720
+                ]
+            },
+            {
+                "position": [
+                    240,
+                    0
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    240,
+                    60
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    240,
+                    120
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    240,
+                    180
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 4,
+                "layer": 1,
+                "position": [
+                    240,
+                    240
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    240,
+                    300
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    240,
+                    360
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    240,
+                    420
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 7,
+                "layer": 0,
+                "position": [
+                    240,
+                    480
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 2,
+                "position": [
+                    240,
+                    540
+                ]
+            },
+            {
+                "position": [
+                    240,
+                    600
+                ]
+            },
+            {
+                "position": [
+                    240,
+                    660
+                ]
+            },
+            {
+                "position": [
+                    300,
+                    0
+                ]
+            },
+            {
+                "position": [
+                    300,
+                    60
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 2,
+                "position": [
+                    300,
+                    120
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    300,
+                    180
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    300,
+                    240
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    300,
+                    300
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    300,
+                    360
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    300,
+                    420
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    300,
+                    480
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 0,
+                "layer": 2,
+                "position": [
+                    300,
+                    540
+                ]
+            },
+            {
+                "position": [
+                    300,
+                    600
+                ]
+            },
+            {
+                "position": [
+                    300,
+                    660
+                ]
+            },
+            {
+                "position": [
+                    360,
+                    0
+                ]
+            },
+            {
+                "position": [
+                    360,
+                    60
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    360,
+                    120
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
+                "layer": 1,
+                "position": [
+                    360,
+                    180
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 4,
+                "layer": 1,
+                "position": [
+                    360,
+                    240
+                ]
+            },
+            {
+                "mod_name": "wall",
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     360,
@@ -666,7 +657,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     360,
@@ -675,7 +666,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     360,
@@ -684,7 +675,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     360,
@@ -708,7 +699,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     345,
@@ -717,7 +708,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     345,
@@ -726,7 +717,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     345,
@@ -735,7 +726,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     345,
@@ -744,7 +735,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     345,
@@ -753,7 +744,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     360,
@@ -762,7 +753,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     375,
@@ -771,7 +762,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     390,
@@ -780,7 +771,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     405,
@@ -789,7 +780,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     420,
@@ -798,7 +789,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     420,
@@ -807,7 +798,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     420,
@@ -816,7 +807,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     420,
@@ -825,7 +816,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 2,
+                "mod_index": 5,
                 "layer": 1,
                 "position": [
                     420,
@@ -864,7 +855,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     420,
@@ -873,7 +864,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     420,
@@ -882,7 +873,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     420,
@@ -891,7 +882,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     420,
@@ -900,7 +891,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     420,
@@ -909,7 +900,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     420,
@@ -966,7 +957,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     480,
@@ -975,7 +966,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     480,
@@ -984,7 +975,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     480,
@@ -993,7 +984,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     480,
@@ -1002,7 +993,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     480,
@@ -1011,7 +1002,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     480,
@@ -1068,7 +1059,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     540,
@@ -1077,7 +1068,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     540,
@@ -1086,7 +1077,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     540,
@@ -1095,7 +1086,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     540,
@@ -1104,7 +1095,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     540,
@@ -1113,7 +1104,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     540,
@@ -1164,7 +1155,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     600,
@@ -1173,7 +1164,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     600,
@@ -1182,7 +1173,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     600,
@@ -1191,7 +1182,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     600,
@@ -1200,7 +1191,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     600,
@@ -1209,7 +1200,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 7,
+                "mod_index": 6,
                 "layer": 1,
                 "position": [
                     600,
@@ -1290,7 +1281,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     660,
@@ -1308,7 +1299,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     660,
@@ -1317,7 +1308,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     660,
@@ -1401,7 +1392,7 @@
             },
             {
                 "mod_name": "wall",
-                "mod_index": 1,
+                "mod_index": 7,
                 "layer": 0,
                 "position": [
                     720,

@@ -6,6 +6,7 @@ from view.behavior.tank_behavior import TankBehavior
 from common.data_util import data_util
 import asyncio
 from logic.command.move_command import MoveCmd, UP, DOWN, LEFT, RIGHT, STOP
+from logic.command.create_command import CreateCmd
 
 
 class TankView(IView):
@@ -13,6 +14,8 @@ class TankView(IView):
 
     def __init__(self, context: Context):
         super(TankView, self).__init__(context)
+        self.player1_uid: int = -1
+        self.player2_uid: int = -1
 
     async def update(self):
         while True:
@@ -22,7 +25,6 @@ class TankView(IView):
                 if behavior:
                     behavior.entity = entity
                     behaviors[entity.uid] = behavior
-                    logger.debug(f"update_behavior {behavior.mode}")
                     continue
                 behavior = self.create_behavior(entity)
                 behaviors[entity.uid] = behavior
@@ -42,22 +44,29 @@ class TankView(IView):
         logger.debug(f"view_load_tank_scene {scene_maps}")
 
     async def handle_event(self, operation: str):
-        uid = 42
         cmd = None
         if operation == 'w':
-            cmd = MoveCmd(uid)
+            cmd = MoveCmd(self.player1_uid)
             cmd.direction = UP
         elif operation == 'a':
-            cmd = MoveCmd(uid)
+            cmd = MoveCmd(self.player1_uid)
             cmd.direction = LEFT
         elif operation == 's':
-            cmd = MoveCmd(uid)
+            cmd = MoveCmd(self.player1_uid)
             cmd.direction = DOWN
         elif operation == 'd':
-            cmd = MoveCmd(uid)
+            cmd = MoveCmd(self.player1_uid)
             cmd.direction = RIGHT
+        elif operation == 'n':
+            entity = self.context.create_entity()
+            cmd = CreateCmd(entity.uid)
+            cmd.speed = 5
+            cmd.mod_name = "player1"
+            cmd.layer = 1
+            cmd.position = (285.0, 720.0)
+            self.player1_uid = entity.uid
         else:
-            cmd = MoveCmd(uid)
+            cmd = MoveCmd(self.player1_uid)
             cmd.direction = STOP
         
         if cmd:

@@ -13,6 +13,7 @@ class CreateCmd(ICommand):
         self.mod_index: int = 0
         self.position: Tuple[float, float] = (0.0, 0.0)
         self.layer: int = 0
+        self.speed: float = 0
 
     async def execute(self, entity: GameLogicEntity):
         logger.debug(f"CreateCmd IN {entity.uid} exceute")
@@ -22,4 +23,6 @@ class CreateCmd(ICommand):
         entity.mod_index = self.mod_index
         entity.transform.position = Vector2(self.position[0], self.position[1])
         entity.layer = self.layer
+        if entity.move:
+            entity.move.speed = self.speed
 

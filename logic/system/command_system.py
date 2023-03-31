@@ -13,7 +13,8 @@ class CommandSystem(ISystem):
         commands = self.context.commands
         self.context.commands = []
         for command in commands:
-            entity = self.context.get_entity(command.eid)
-            if not entity:
+            logger.info(f"CommandSystem Update {command.eid}")
+            if command.eid < 0:
                 continue
+            entity = self.context.get_entity(command.eid)
             await command.execute(entity)

@@ -23,7 +23,7 @@ class PyGameWindow(IWindow):
             await self.listen_event()
 
             for behavior in self.view.get_behaviors():
-                logger.debug(f"window update behavior {behavior}")
+                logger.debug(f"window update behavior {behavior.entity.create.mod_name}")
                 if not behavior.models:
                     continue
                 self.window.blit(behavior.mode, behavior.rect)
@@ -44,7 +44,6 @@ class PyGameWindow(IWindow):
                 import sys
                 sys.exit(0)
             if event.type == pygame.KEYDOWN:
-                operation = ''
                 if event.key == pygame.K_w:
                     operation = 'w'
                 if event.key == pygame.K_a:
@@ -53,6 +52,8 @@ class PyGameWindow(IWindow):
                     operation = 's'
                 if event.key == pygame.K_d:
                     operation = 'd'
+                if event.key == pygame.K_n:
+                    operation = 'n'
             if event.type == pygame.KEYUP:
                 operation = '-'
 

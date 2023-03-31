@@ -33,19 +33,19 @@ class Test(object):
             item["layer"] = 2
         elif name == "walls":
             item["mod_name"] = "wall"
-            item["mod_index"] = 7
+            item["mod_index"] = 6
             item["layer"] = 1
         elif name == "wall":
             item["mod_name"] = "wall"
-            item["mod_index"] = 2
+            item["mod_index"] = 5
             item["layer"] = 1
         elif name == "water":
             item["mod_name"] = "wall"
-            item["mod_index"] = 1
+            item["mod_index"] = 7
             item["layer"] = 0
         elif name == "steels":
             item["mod_name"] = "wall"
-            item["mod_index"] = 6
+            item["mod_index"] = 4
             item["layer"] = 1
         elif name == "symbol":
             item["mod_name"] = "symbol"
@@ -131,7 +131,7 @@ class Test(object):
         items.append(self.get_tank_item("glass", [240, 540]))
         items.append(self.get_tank_item("", [240, 600]))
         items.append(self.get_tank_item("", [240, 660]))
-        items.append(self.get_tank_item("player1", [240, 720]))
+        # items.append(self.get_tank_item("player1", [240, 720]))
 
         items.append(self.get_tank_item("", [300, 0]))
         items.append(self.get_tank_item("", [300, 60]))
