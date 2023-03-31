@@ -1,8 +1,8 @@
 from logic.entity.entity import GameLogicEntity
 from logic.command.icommand import ICommand
-from typing import List, Dict, Optional
-from common.logger import logger
+from typing import List, Dict, Callable
 import json
+from logic.event.event import EventDispatch, IEvent, EntityCreateEvent
 
 
 class Context(object):
@@ -12,10 +12,13 @@ class Context(object):
         self.entities: Dict[int, GameLogicEntity] = {}
         self.commands: List[ICommand] = []
         self.messages: List[ICommand] = []
+        self.event_dispatch: EventDispatch = EventDispatch()
 
     def create_entity(self) -> GameLogicEntity:
         entity = GameLogicEntity(self.uid_cnt)
         self.entities[self.uid_cnt] = entity
+        self.dispatch_event(EntityCreateEvent(self.uid_cnt))
+
         self.uid_cnt += 1
         return entity
     
@@ -25,16 +28,6 @@ class Context(object):
             entity = self.create_entity()
             entity.uid = eid
         return entity
-
-    def filter_entity(self, component: str, entities: List[GameLogicEntity]):
-        if not entities:
-            entities = list(self.entities.values())
-        result = []
-        for entity in entities:
-            if not entity.__getattribute__(component):
-                continue
-            result.append(entity)
-        return result
 
     def remove_entity(self, eid: int):
         if eid not in self.entities:
@@ -67,3 +60,10 @@ class Context(object):
                 continue
             entity = self.entities[uid]
             entity.refresh(info)
+
+    def dispatch_event(self, event: IEvent):
+        self.event_dispatch.dispatch_event(event)
+
+    def register_event(self, event_name: str, func: Callable):
+        self.event_dispatch.register_event(event_name, func)
+
