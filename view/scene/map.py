@@ -171,7 +171,7 @@ class Test(object):
         items.append(self.get_tank_item("wall", [420, 735]))
         items.append(self.get_tank_item("wall", [420, 750]))
         items.append(self.get_tank_item("wall", [420, 765]))
-        items.append(self.get_tank_item("symbol", [360, 720]))
+        items.append(self.get_tank_item("symbol", [360, 728]))
 
         items.append(self.get_tank_item("", [420, 0]))
         items.append(self.get_tank_item("", [420, 60]))
