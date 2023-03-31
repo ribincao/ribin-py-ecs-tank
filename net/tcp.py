@@ -19,7 +19,10 @@ class Tcp(object):
             connection = Connection(reader, writer, self._context)
 
             logger.info(f"client connected.")
-            await connection.handle_message()
+            await asyncio.gather(
+                    connection.handle_message(),
+                    connection.export_world()
+                    )
 
         server = await asyncio.start_server(handle_client, port=self._port)
         logger.info(f"{self._name} Server started on {server.sockets[0].getsockname()}")

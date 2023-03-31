@@ -37,6 +37,15 @@ class Connection(object):
         except Exception as error:
             self.close()
 
+    async def export_world(self):
+        try:
+            while not self._is_close:
+                logger.info(f"server export world.")
+                await asyncio.sleep(100e-3)
+            self.close()
+        except Exception as error:
+            self.close()
+
     async def receive_message(self) -> Optional[bytes]:
         while not self._is_close:
             data = await self.reader.read(1024)
