@@ -8,15 +8,16 @@ import json
 class Context(object):
 
     def __init__(self):
+        self.uid_cnt: int = 1
         self.entities: Dict[int, GameLogicEntity] = {}
         self.commands: List[ICommand] = []
         self.messages: List[ICommand] = []
 
-    def create_entity(self, eid: int) -> GameLogicEntity:
-        if eid in self.entities:
-            logger.warning(f"{eid} entity already exist.")
-        entity = GameLogicEntity(eid)
-        self.entities[eid] = entity
+    def create_entity(self) -> GameLogicEntity:
+        logger.debug(f"{self.uid_cnt} entity already exist.")
+        entity = GameLogicEntity(self.uid_cnt)
+        self.entities[self.uid_cnt] = entity
+        self.uid_cnt += 1
         return entity
     
     def get_entity(self, eid: int) -> Optional[GameLogicEntity]:
