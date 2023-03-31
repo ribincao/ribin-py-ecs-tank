@@ -2,6 +2,7 @@ from logic.entity.entity import GameLogicEntity
 from logic.command.icommand import ICommand
 from typing import List, Dict, Optional
 from common.logger import logger
+import json
 
 
 class Context(object):
@@ -44,3 +45,23 @@ class Context(object):
 
     def get_entities(self) -> List[GameLogicEntity]:
         return list(self.entities.values())
+
+    def export_world(self) -> str:
+        d = {}
+        for entity in self.get_entities():
+            snap = entity.export()
+            if not snap:
+                continue
+            d[entity.uid] = entity.export()
+        return json.dumps(d)
+
+    def import_world(self, s: str):
+        d = json.loads(s)
+        for _, info in d.items():
+            uid = info.get("uid", -1)
+            if uid not in self.entities:
+                continue
+            entity = self.entities[uid]
+            entity.transform.position.x = info["transform"]["position"][0]
+            entity.transform.position.y = info["transform"]["position"][1]
+            entity.mod_index = info.get("mod_index", 0)

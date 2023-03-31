@@ -1,4 +1,5 @@
 import signal
+from typing import Tuple
 
 
 def signal_handler():
@@ -23,4 +24,7 @@ class Vector2(object):
     @staticmethod
     def zero():
         return Vector2(0.0, 0.0)
+
+    def to_tuple(self) -> Tuple[float, float]:
+        return self.x, self.y
 

@@ -16,15 +16,20 @@ class GameLogicEntity(object):
         self.mod_index: int = 0
         self.layer: int = 0
 
-        self.transform: Optional[TransformComponent] = None
+        self.transform: TransformComponent = TransformComponent()
         self.create: Optional[CreateComponent] = None
         self.move: Optional[MoveComponent] = None
         self.rigibody: Optional[RigibodyComponent] = None
 
-    def get_position(self) -> Tuple[float, float]:
-        if not self.transform:
-            return 0.0, 0.0
-        return self.transform.position.x, self.transform.position.y
+    def export(self) -> dict:
+        if not self.create or not self.create.mod_name.startswith("player"):
+            return {}
+        d = dict()
+        d["uid"] = self.uid
+        d["mod_index"] = self.mod_index
+        d["transform"] = {}
+        d["transform"]["position"] = self.transform.position.to_tuple()
+        return d
 
     def add_transform(self, new_position: Vector2):
         if not self.transform:

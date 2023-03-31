@@ -50,6 +50,6 @@ class IPyGameBehavior(IBehavior):
     @property
     def rect(self) -> Rect:
         rect = self.mode.get_rect()
-        x, y = self.entity.get_position()
+        x, y = self.entity.transform.position.to_tuple()
         rect.left, rect.top = x, y
         return rect
