@@ -85,8 +85,8 @@ class TankView(IView):
             cmd.speed = 5
             cmd.mod_name = "player2"
             cmd.layer = 1
-            cmd.position = (375.0, 720.0)
-            self.player1_uid = entity.uid
+            cmd.position = (435.0, 720.0)
+            self.player2_uid = entity.uid
         elif operation == '-':
             cmd = MoveCmd(self.player1_uid)
             cmd.direction = STOP
