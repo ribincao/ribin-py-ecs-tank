@@ -55,16 +55,6 @@ class PyGameWindow(IWindow):
                 if event.key == pygame.K_n:
                     operation = 'n'
 
-                if event.key == pygame.K_UP:
-                    operation = 'W'
-                if event.key == pygame.K_LEFT:
-                    operation = 'A'
-                if event.key == pygame.K_DOWN:
-                    operation = 'S'
-                if event.key == pygame.K_RIGHT:
-                    operation = 'D'
-                if event.key == pygame.K_m:
-                    operation = 'm'
             if event.type == pygame.KEYUP:
                 operation = '-'
 
