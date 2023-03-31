@@ -36,7 +36,7 @@ class Tcp(object):
         self._client_connection = connection
         await asyncio.gather(
                 self._client_connection.connect(), 
-                self._client_connection.handle_message()
+                self._client_connection.import_world()
                 )
     
     @property

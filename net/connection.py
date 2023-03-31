@@ -40,7 +40,21 @@ class Connection(object):
     async def export_world(self):
         try:
             while not self._is_close:
-                logger.info(f"server export world.")
+                logger.info(f"server export world ping.")
+                await self.send_message("ping")
+                await asyncio.sleep(100e-3)
+            self.close()
+        except Exception as error:
+            self.close()
+
+    async def import_world(self):
+        try:
+            while not self._is_close:
+                data = await self.receive_message()
+                if not data:
+                    break
+                message = self.codec.decode(data)
+                logger.info(f"client import world {message}.")
                 await asyncio.sleep(100e-3)
             self.close()
         except Exception as error:
