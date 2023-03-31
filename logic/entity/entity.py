@@ -17,7 +17,7 @@ class GameLogicEntity(object):
         self.layer: int = 0
 
         self.transform: TransformComponent = TransformComponent()
-        self.create: Optional[CreateComponent] = None
+        self.create: CreateComponent = CreateComponent()
         self.move: Optional[MoveComponent] = None
         self.rigibody: Optional[RigibodyComponent] = None
 
