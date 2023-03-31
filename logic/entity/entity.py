@@ -36,6 +36,14 @@ class GameLogicEntity(object):
         d["move"]["speed"] = self.move.speed
         return d
 
+    def refresh(self, info: dict):
+        self.transform.position.x = info["transform"]["position"][0]
+        self.transform.position.y = info["transform"]["position"][1]
+        self.create.mod_name = info["create"]["mod_name"]
+        self.create.mod_type = info["create"]["mod_type"]
+        self.move.speed = info["move"]["speed"]
+        self.mod_index = info.get("mod_index", 0)
+
     def add_transform(self, new_position: Vector2):
         if not self.transform:
             self.transform = TransformComponent()
