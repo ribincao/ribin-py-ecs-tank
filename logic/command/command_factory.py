@@ -1,4 +1,5 @@
 from logic.command.move_command import MoveCmd
+from logic.command.create_command import CreateCmd
 from common.singleton import Singleton
 from logic.command.icommand import ICommand
 from typing import Optional
@@ -21,6 +22,9 @@ class CmdFactory(Singleton):
         cmd = None
         if class_name == 'MoveCmd':
             cmd = MoveCmd(eid)
+            cmd.__dict__.update(d)
+        if class_name == 'CreateCmd':
+            cmd = CreateCmd(eid)
             cmd.__dict__.update(d)
         return cmd
 

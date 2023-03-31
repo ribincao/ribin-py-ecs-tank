@@ -57,7 +57,7 @@ class TankView(IView):
         elif operation == 'd':
             cmd = MoveCmd(self.player1_uid)
             cmd.direction = RIGHT
-        elif operation == 'n':
+        elif operation == 'n' and self.player1_uid < 0:
             entity = self.context.create_entity()
             cmd = CreateCmd(entity.uid)
             cmd.speed = 5

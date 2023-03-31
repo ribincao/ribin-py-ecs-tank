@@ -22,7 +22,6 @@ class MoveCmd(ICommand):
         if not entity.move or entity.move.speed <= 0:
             return
         if UP <= self.direction <= RIGHT:
-            logger.info(f"MoveCommand OUT {entity.uid}-{entity.state} exceute")
             entity.state = EntityState.move
             entity.mod_index = self.direction
         else:

@@ -18,7 +18,7 @@ class GameLogicEntity(object):
 
         self.transform: TransformComponent = TransformComponent()
         self.create: CreateComponent = CreateComponent()
-        self.move: Optional[MoveComponent] = None
+        self.move: MoveComponent = MoveComponent()
         self.rigibody: Optional[RigibodyComponent] = None
 
     def export(self) -> dict:
@@ -29,6 +29,11 @@ class GameLogicEntity(object):
         d["mod_index"] = self.mod_index
         d["transform"] = {}
         d["transform"]["position"] = self.transform.position.to_tuple()
+        d["create"] = {}
+        d["create"]["mod_name"] = self.create.mod_name
+        d["create"]["mod_type"] = self.create.mod_type
+        d["move"] = {}
+        d["move"]["speed"] = self.move.speed
         return d
 
     def add_transform(self, new_position: Vector2):

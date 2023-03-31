@@ -68,4 +68,7 @@ class Context(object):
             entity = self.entities[uid]
             entity.transform.position.x = info["transform"]["position"][0]
             entity.transform.position.y = info["transform"]["position"][1]
+            entity.create.mod_name = info["create"]["mod_name"]
+            entity.create.mod_type = info["create"]["mod_type"]
+            entity.move.speed = info["move"]["speed"]
             entity.mod_index = info.get("mod_index", 0)

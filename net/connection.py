@@ -30,7 +30,7 @@ class Connection(object):
                     break
                 message = self.codec.decode(data)
                 cmd = cmd_factory.create_cmd(message)
-                logger.info(f"server receive_cmd {cmd.__dict__}")
+                logger.debug(f"server receive_cmd {cmd.__dict__}")
                 if cmd:
                     self.context.input_command(cmd)
             self.close()
@@ -84,7 +84,7 @@ class Connection(object):
                 self.context.messages = []
                 for command in messages:
                     message = command.encode() 
-                    logger.info(f"client send_command {message}")
+                    logger.debug(f"client send_command {message}")
                     await self.send_message(message)
             except Exception as e:
                 logger.error(f"Error: {e}")
