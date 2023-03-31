@@ -2,11 +2,7 @@ from logic.ilogic import ILogic
 from logic.context import Context
 from common.data_util import data_util
 from common.logger import logger
-from logic.component.transform_component import TransformComponent
-from logic.component.create_component import CreateComponent
-from logic.component.move_component import MoveComponent
 from common.common import Vector2
-from logic.command import CreateCmd
 
 
 class TankLogic(ILogic):
@@ -34,9 +30,20 @@ class TankLogic(ILogic):
                 continue
             uid = 1
             for item in items:
-                cmd = CreateCmd(uid)
-                cmd.__dict__.update(item)
-                self.context.input_command(cmd)
+                mod_name = item.get('mod_name', '')
+                if not mod_name:
+                    continue
+                entity = self.context.create_entity(uid)
+                entity.add_create(mod_name)
+
+                entity.mod_index = item.get('mod_index', 0)
+                entity.layer = item.get('layer', 0)
+
+                position = item.get('position', [0.0, 0.0])
+                entity.add_transform(Vector2(position[0], position[1]))
+                
+                entity.add_move(5)
+
                 uid += 1
         
 
