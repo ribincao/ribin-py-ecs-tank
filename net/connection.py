@@ -18,10 +18,13 @@ class Connection(object):
         self.codec: Codec = Codec()
         self.context: Context = context
         self._is_close: bool = False
+        self.uid: int = -1
 
     def close(self):
         self.writer.close()
         self._is_close = True
+        self.context.remove_entity(self.uid)
+        logger.info(f"{self.uid} close connection.")
 
     async def handle_message(self):
         try:
@@ -34,6 +37,7 @@ class Connection(object):
                 logger.debug(f"server receive_cmd {cmd.__dict__}")
                 if cmd:
                     self.context.input_command(cmd)
+                    self.uid = cmd.eid
             self.close()
         except Exception as error:
             self.close()
