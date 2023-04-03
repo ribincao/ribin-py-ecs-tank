@@ -1,13 +1,15 @@
 [
     {
         "mod_id": 0,
-        "mod_name": "music",
+        "mod_name": "audios",
         "models": [
-            "./view/resource/tank/music/add.wav",
-            "./view/resource/tank/music/blast.wav",
-            "./view/resource/tank/music/fire.wav",
-            "./view/resource/tank/music/hit.wav",
-            "./view/resource/tank/music/start.wav"
+            "./view/resource/tank/audios/Gunfire.wav",
+            "./view/resource/tank/audios/add.wav",
+            "./view/resource/tank/audios/bang.wav",
+            "./view/resource/tank/audios/blast.wav",
+            "./view/resource/tank/audios/fire.wav",
+            "./view/resource/tank/audios/hit.wav",
+            "./view/resource/tank/audios/start.wav"
         ]
     },
     {
@@ -50,11 +52,17 @@
         "mod_id": 4,
         "mod_name": "game",
         "models": [
-            "./view/resource/tank/image/game/mintank.gif",
-            "./view/resource/tank/image/game/over.gif",
-            "./view/resource/tank/image/game/select.gif",
-            "./view/resource/tank/image/game/selecttank.gif",
-            "./view/resource/tank/image/game/title.gif"
+            "./view/resource/tank/image/game/.DS_Store",
+            "./view/resource/tank/image/game/appear.png",
+            "./view/resource/tank/image/game/background.png",
+            "./view/resource/tank/image/game/boom_dynamic.png",
+            "./view/resource/tank/image/game/boom_static.png",
+            "./view/resource/tank/image/game/gamebar.png",
+            "./view/resource/tank/image/game/gameover.png",
+            "./view/resource/tank/image/game/logo.png",
+            "./view/resource/tank/image/game/mask.png",
+            "./view/resource/tank/image/game/protect.png",
+            "./view/resource/tank/image/game/tip.png"
         ]
     },
     {
@@ -79,6 +87,28 @@
     },
     {
         "mod_id": 7,
+        "mod_name": "enemyTank",
+        "models": [
+            "./view/resource/tank/image/enemy/enemyTank/enemy_1_0.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_1_1.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_1_2.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_1_3.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_2_0.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_2_1.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_2_2.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_2_3.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_3_0.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_3_1.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_3_2.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_3_3.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_4_0.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_4_1.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_4_2.png",
+            "./view/resource/tank/image/enemy/enemyTank/enemy_4_3.png"
+        ]
+    },
+    {
+        "mod_id": 8,
         "mod_name": "enemy3",
         "models": [
             "./view/resource/tank/image/enemy/enemy3/enemy3D.gif",
@@ -88,7 +118,7 @@
         ]
     },
     {
-        "mod_id": 8,
+        "mod_id": 9,
         "mod_name": "enemy4",
         "models": [
             "./view/resource/tank/image/enemy/enemy4/enemy4D.gif",
@@ -98,7 +128,7 @@
         ]
     },
     {
-        "mod_id": 9,
+        "mod_id": 10,
         "mod_name": "enemy5",
         "models": [
             "./view/resource/tank/image/enemy/enemy5/enemy5D.gif",
@@ -108,7 +138,7 @@
         ]
     },
     {
-        "mod_id": 10,
+        "mod_id": 11,
         "mod_name": "enemy2",
         "models": [
             "./view/resource/tank/image/enemy/enemy2/enemy2D.gif",
@@ -118,7 +148,7 @@
         ]
     },
     {
-        "mod_id": 11,
+        "mod_id": 12,
         "mod_name": "born",
         "models": [
             "./view/resource/tank/image/born/born1.gif",
@@ -128,36 +158,70 @@
         ]
     },
     {
-        "mod_id": 12,
+        "mod_id": 13,
         "mod_name": "item",
         "models": [
-            "./view/resource/tank/image/item/bomb.gif",
-            "./view/resource/tank/image/item/star.gif",
-            "./view/resource/tank/image/item/timer.gif"
-        ]
-    },
-    {
-        "mod_id": 13,
-        "mod_name": "player1",
-        "models": [
-            "./view/resource/tank/image/player/player1/1_p1tankW.gif",
-            "./view/resource/tank/image/player/player1/2_p1tankS.gif",
-            "./view/resource/tank/image/player/player1/3_p1tankA.gif",
-            "./view/resource/tank/image/player/player1/4_p1tabkD.gif"
+            "./view/resource/tank/image/item/.DS_Store",
+            "./view/resource/tank/image/item/food_boom.png",
+            "./view/resource/tank/image/item/food_clock.png",
+            "./view/resource/tank/image/item/food_gun.png",
+            "./view/resource/tank/image/item/food_iron.png",
+            "./view/resource/tank/image/item/food_protect.png",
+            "./view/resource/tank/image/item/food_star.png",
+            "./view/resource/tank/image/item/food_tank.png"
         ]
     },
     {
         "mod_id": 14,
+        "mod_name": "bullet",
+        "models": [
+            "./view/resource/tank/image/bullet/0_bullet.png",
+            "./view/resource/tank/image/bullet/1_bullet.png",
+            "./view/resource/tank/image/bullet/2_bullet.png",
+            "./view/resource/tank/image/bullet/3_bullet.png"
+        ]
+    },
+    {
+        "mod_id": 15,
+        "mod_name": "scene",
+        "models": [
+            "./view/resource/tank/image/scene/brick.png",
+            "./view/resource/tank/image/scene/ice.png",
+            "./view/resource/tank/image/scene/iron.png",
+            "./view/resource/tank/image/scene/river1.png",
+            "./view/resource/tank/image/scene/river2.png",
+            "./view/resource/tank/image/scene/tree.png"
+        ]
+    },
+    {
+        "mod_id": 16,
+        "mod_name": "player1",
+        "models": [
+            "./view/resource/tank/image/player/player1/.DS_Store",
+            "./view/resource/tank/image/player/player1/1_p1tankW.gif",
+            "./view/resource/tank/image/player/player1/2_p1tankS.gif",
+            "./view/resource/tank/image/player/player1/3_p1tankA.gif",
+            "./view/resource/tank/image/player/player1/4_p1tabkD.gif",
+            "./view/resource/tank/image/player/player1/tank_T1_0.png",
+            "./view/resource/tank/image/player/player1/tank_T1_1.png",
+            "./view/resource/tank/image/player/player1/tank_T1_2.png"
+        ]
+    },
+    {
+        "mod_id": 17,
         "mod_name": "player2",
         "models": [
             "./view/resource/tank/image/player/player2/1_p2tankW.gif",
             "./view/resource/tank/image/player/player2/2_p2tankS.gif",
             "./view/resource/tank/image/player/player2/3_p2tankA.gif",
-            "./view/resource/tank/image/player/player2/4_p2tankD.gif"
+            "./view/resource/tank/image/player/player2/4_p2tankD.gif",
+            "./view/resource/tank/image/player/player2/tank_T2_0.png",
+            "./view/resource/tank/image/player/player2/tank_T2_1.png",
+            "./view/resource/tank/image/player/player2/tank_T2_2.png"
         ]
     },
     {
-        "mod_id": 15,
+        "mod_id": 18,
         "mod_name": "map",
         "models": [
             "./view/resource/tank/map/tank.webp"
