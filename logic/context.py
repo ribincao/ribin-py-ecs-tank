@@ -58,10 +58,13 @@ class Context(object):
         d = json.loads(s)
         for _, info in d.items():
             uid = info.get("uid", -1)
-            if uid not in self.entities:
+            if uid < 0:
                 continue
+            entity = self.get_entity(uid)
             entity = self.entities[uid]
             entity.refresh(info)
+            if uid > self.uid_cnt:
+                self.uid_cnt = uid + 1  #  确保客户端和服务端uid尽可能一致
 
     def dispatch_event(self, event: IEvent):
         self.event_dispatch.dispatch_event(event)
