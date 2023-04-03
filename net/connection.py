@@ -57,7 +57,8 @@ class Connection(object):
                 message = self.codec.decode(data)
                 logger.debug(f"client import world {message}.")
                 self.context.import_world(message)
-                await asyncio.sleep(100e-3)
+                if not self.context.is_connected:
+                    self.context.is_connected = True
             self.close()
         except Exception as error:
             self.close()

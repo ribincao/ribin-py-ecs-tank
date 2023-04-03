@@ -13,6 +13,8 @@ class Context(object):
         self.commands: List[ICommand] = []
         self.messages: List[ICommand] = []
         self.event_dispatch: EventDispatch = EventDispatch()
+        
+        self.is_connected: bool = False
 
     def create_entity(self) -> GameLogicEntity:
         entity = GameLogicEntity(self.uid_cnt)

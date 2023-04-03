@@ -28,7 +28,7 @@ class TankClient(object):
         self.window.init_window()
         
     def run(self):
-#         self._loop.create_task(self.tcp.run_client('localhost', 8888))
+        self._loop.create_task(self.tcp.run_client('localhost', 8888))
         self._loop.create_task(self.logic.update())
         self._loop.create_task(self.view.update())
         self._loop.create_task(self.window.update())

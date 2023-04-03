@@ -43,6 +43,9 @@ class TankView(IView):
         logger.debug(f"view_load_tank_scene {scene_maps}")
 
     async def handle_event(self, operation: str):
+        if not self.context.is_connected:
+            return
+
         cmd = None
         if operation == 'w' and self.player_uid:
             cmd = MoveCmd(self.player_uid)
