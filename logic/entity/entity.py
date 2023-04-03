@@ -15,6 +15,7 @@ class GameLogicEntity(object):
         self.state: int = EntityState.normal  # 维护状态
         self.mod_index: int = 0
         self.layer: int = 0
+        self.last_snap: dict = {}
 
         self.transform: TransformComponent = TransformComponent()
         self.create: CreateComponent = CreateComponent()
@@ -34,7 +35,10 @@ class GameLogicEntity(object):
         d["create"]["mod_type"] = self.create.mod_type
         d["move"] = {}
         d["move"]["speed"] = self.move.speed
-        return d
+        if d != self.last_snap:
+            self.last_snap = d
+            return d
+        return {}
 
     def refresh(self, info: dict):
         self.transform.position.x = info["transform"]["position"][0]

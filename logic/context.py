@@ -51,7 +51,9 @@ class Context(object):
             snap = entity.export()
             if not snap:
                 continue
-            d[entity.uid] = entity.export()
+            d[entity.uid] = snap
+        if not d:
+            return ''
         return json.dumps(d)
 
     def import_world(self, s: str):

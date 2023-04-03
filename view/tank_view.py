@@ -47,6 +47,17 @@ class TankView(IView):
 
     async def handle_event(self, operation: str):
         if not self.context.is_connected:
+            if operation == 'n' and self.player_uid <= 0:
+                entity = self.context.create_entity()
+                d = {
+                    "speed": 5,
+                    "mod_name": "player1",
+                    "layer": 1,
+                    "position": [285.0, 720.0]
+                }
+                cmd = cmd_factory.get_create_cmd(entity.uid, d)
+                self.player_uid = entity.uid
+                self.send_cmd(cmd)
             return
 
         cmd: Optional[ICommand] = None
@@ -61,16 +72,6 @@ class TankView(IView):
         elif operation == '-' and self.player_uid:
             cmd = cmd_factory.get_move_cmd(self.player_uid, STOP)
 
-        elif operation == 'n' and self.player_uid <= 0:
-            entity = self.context.create_entity()
-            d = {
-                    "speed": 5,
-                    "mod_name": "player1",
-                    "layer": 1,
-                    "position": [285.0, 720.0]
-            }
-            cmd = cmd_factory.get_create_cmd(entity.uid, d)
-            self.player_uid = entity.uid
         elif operation == 'j' and self.player_uid > 0:
             tank = self.behaviors.get(self.player_uid)
             if not tank:
@@ -85,7 +86,12 @@ class TankView(IView):
                     "position": tank.get_bullet_position()
             }
             cmd = cmd_factory.get_create_cmd(entity.uid, d)
+
+        self.send_cmd(cmd)
         
-        if cmd:
-            self.context.input_command(cmd)
-            self.context.input_message(cmd)
+    def send_cmd(self, cmd: Optional[ICommand]):
+        if not cmd:
+            return
+        self.context.input_command(cmd)
+        self.context.input_message(cmd)
+

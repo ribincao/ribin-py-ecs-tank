@@ -47,8 +47,9 @@ class Connection(object):
         try:
             while not self._is_close:
                 world = self.context.export_world()
-                logger.debug(f"server export world {world}.")
-                await self.send_message(world)
+                if world:
+                    logger.debug(f"server export world {world}.")
+                    await self.send_message(world)
                 await asyncio.sleep(self.SNAP_RATE)
             self.close()
         except Exception as error:
