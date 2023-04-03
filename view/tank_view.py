@@ -5,8 +5,10 @@ from logic.entity.entity import GameLogicEntity
 from view.behavior.tank_behavior import TankBehavior
 from common.data_util import data_util
 import asyncio
-from logic.command.move_command import MoveCmd, UP, DOWN, LEFT, RIGHT, STOP
-from logic.command.create_command import CreateCmd
+from logic.command.move_command import UP, DOWN, LEFT, RIGHT, STOP
+from logic.command.command_factory import cmd_factory
+from logic.command.icommand import ICommand
+from typing import Optional
 
 
 class TankView(IView):
@@ -46,31 +48,28 @@ class TankView(IView):
         if not self.context.is_connected:
             return
 
-        cmd = None
+        cmd: Optional[ICommand] = None
         if operation == 'w' and self.player_uid:
-            cmd = MoveCmd(self.player_uid)
-            cmd.direction = UP
+            cmd = cmd_factory.get_move_cmd(self.player_uid, UP)
         elif operation == 'a' and self.player_uid:
-            cmd = MoveCmd(self.player_uid)
-            cmd.direction = LEFT
+            cmd = cmd_factory.get_move_cmd(self.player_uid, LEFT)
         elif operation == 's' and self.player_uid:
-            cmd = MoveCmd(self.player_uid)
-            cmd.direction = DOWN
+            cmd = cmd_factory.get_move_cmd(self.player_uid, DOWN)
         elif operation == 'd' and self.player_uid:
-            cmd = MoveCmd(self.player_uid)
-            cmd.direction = RIGHT
+            cmd = cmd_factory.get_move_cmd(self.player_uid, RIGHT)
+        elif operation == '-' and self.player_uid:
+            cmd = cmd_factory.get_move_cmd(self.player_uid, STOP)
 
         elif operation == 'n' and self.player_uid <= 0:
             entity = self.context.create_entity()
-            cmd = CreateCmd(entity.uid)
-            cmd.speed = 5
-            cmd.mod_name = "player1"
-            cmd.layer = 1
-            cmd.position = (285.0, 720.0)
+            d = {
+                    "speed": 5,
+                    "mod_name": "player1",
+                    "layer": 1,
+                    "position": [285.0, 720.0]
+            }
+            cmd = cmd_factory.get_create_cmd(entity.uid, d)
             self.player_uid = entity.uid
-        elif operation == '-' and self.player_uid:
-            cmd = MoveCmd(self.player_uid)
-            cmd.direction = STOP
         
         if cmd:
             self.context.input_command(cmd)

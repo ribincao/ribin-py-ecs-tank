@@ -32,6 +32,18 @@ class CmdFactory(Singleton):
         d = json.loads(s)
         return self.from_dict(d)
 
+    @staticmethod
+    def get_move_cmd(uid: int, direction: int) -> MoveCmd:
+        cmd = MoveCmd(uid)
+        cmd.direction = direction
+        return cmd
+
+    @staticmethod
+    def get_create_cmd(uid: int, d: dict) -> CreateCmd:
+        cmd = CreateCmd(uid)
+        cmd.__dict__.update(d)
+        return cmd
+
 
 cmd_factory = CmdFactory()
 
