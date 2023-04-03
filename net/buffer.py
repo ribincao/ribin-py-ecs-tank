@@ -32,7 +32,7 @@ class Buffer(object):
         size = len(data)
 
         if size > self.FRAME_LIMIT:
-            logger.error(f"Frame is too long")
+            logger.error(f"Frame is too long {data}")
             return 0, b''
 
         if start_pos < 0 or start_pos >= size:

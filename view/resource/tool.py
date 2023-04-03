@@ -1,5 +1,6 @@
 import os
 import json
+import pygame
 
 
 class GLTF(object):
@@ -22,11 +23,17 @@ class GLTF(object):
             for file in sorted(files):
                 file_path = os.path.join(root, file)
                 d['models'].append('./view/resource' + file_path[1:])
+                self.show_size(file_path)
             mod_id += 1
             gltf.append(d)
     
         # print(gltf)
         self.save(module, gltf)
+    
+    def show_size(self, path: str):
+        if path.endswith('.gif') or path.endswith('.png'):
+            img = pygame.image.load(path)
+            print(path, img.get_rect())
 
 
 if __name__ == '__main__':

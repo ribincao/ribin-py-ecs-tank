@@ -55,5 +55,5 @@ class IPyGameBehavior(IBehavior):
         rect.left, rect.top = x, y
         return rect
 
-    def get_forward_position(self) -> Tuple[float, float]:
+    def get_bullet_position(self) -> Tuple[float, float]:
         return 0.0, 0.0

@@ -46,9 +46,6 @@ class TankView(IView):
         logger.debug(f"view_load_tank_scene {scene_maps}")
 
     async def handle_event(self, operation: str):
-        if not self.context.is_connected:
-            return
-
         cmd: Optional[ICommand] = None
         if operation == 'w' and self.player_uid:
             cmd = cmd_factory.get_move_cmd(self.player_uid, UP)
@@ -72,17 +69,17 @@ class TankView(IView):
             cmd = cmd_factory.get_create_cmd(entity.uid, d)
             self.player_uid = entity.uid
         elif operation == 'j' and self.player_uid > 0:
-            bhv = self.behaviors.get(self.player_uid)
-            if not bhv:
+            tank = self.behaviors.get(self.player_uid)
+            if not tank:
                 return
             entity = self.context.create_entity()
             d = {
-                    "mod_index": entity.mod_index,
+                    "mod_index": tank.entity.mod_index,
                     "state": EntityState.move,
                     "speed": 5,
                     "mod_name": "bullet",
                     "layer": 1,
-                    "position": bhv.get_forward_position()
+                    "position": tank.get_bullet_position()
             }
             cmd = cmd_factory.get_create_cmd(entity.uid, d)
         

@@ -9,16 +9,16 @@ class TankBehavior(IPyGameBehavior):
     def __init__(self, entity: GameLogicEntity):
         super(TankBehavior, self).__init__(entity)
 
-    def get_forward_position(self) -> Tuple[float, float]:
+    def get_bullet_position(self) -> Tuple[float, float]:
         position = self.entity.transform.position
         if self.entity.mod_index == UP:
-            return position.x + self.rect.width / 2, position.y
+            return position.x + self.rect.width / 2 - 6, position.y
         elif self.entity.mod_index == DOWN:
-            return position.x + self.rect.width / 2, position.y + self.rect.height
+            return position.x + self.rect.width / 2 - 6, position.y + self.rect.height
         elif self.entity.mod_index == LEFT:
-            return position.x, position.y + self.rect.height / 2
+            return position.x, position.y + self.rect.height / 2 - 6
         elif self.entity.mod_index == RIGHT:
-            return position.x + self.rect.width, position.y + self.rect.height / 2
+            return position.x + self.rect.width, position.y + self.rect.height / 2 - 6  #  bullet_size: 12 x 12
 
         return 0.0, 0.0
 
