@@ -56,6 +56,8 @@ class Context(object):
 
     def import_world(self, s: str):
         d = json.loads(s)
+        if not d:
+            return
         for _, info in d.items():
             uid = info.get("uid", -1)
             if uid < 0:
