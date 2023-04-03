@@ -9,6 +9,7 @@ from logic.command.move_command import UP, DOWN, LEFT, RIGHT, STOP
 from logic.command.command_factory import cmd_factory
 from logic.command.icommand import ICommand
 from typing import Optional
+from logic.entity.state import EntityState
 
 
 class TankView(IView):
@@ -77,6 +78,7 @@ class TankView(IView):
             entity = self.context.create_entity()
             d = {
                     "mod_index": entity.mod_index,
+                    "state": EntityState.move,
                     "speed": 5,
                     "mod_name": "bullet",
                     "layer": 1,
