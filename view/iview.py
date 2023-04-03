@@ -5,7 +5,7 @@ from view.behavior.ibehavior import IPyGameBehavior
 
 
 class IView(object):
-    VIEW_RATE = 100e-3
+    VIEW_RATE = 20e-3
 
     def __init__(self, context: Context):
         self.behaviors: Dict[int, IPyGameBehavior] = {}

@@ -8,7 +8,7 @@ from net.tcp import Tcp
 
 
 class PyGameWindow(IWindow):
-    RENDER_RATE = 100e-3
+    RENDER_RATE = 20e-3
     SIZE = (780, 780)
 
     def __init__(self, window_name: str, view: IView):

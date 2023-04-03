@@ -8,7 +8,7 @@ from common.data_util import data_util
 
 
 class ILogic(object):
-    LOGIC_RATE = 100e-3
+    LOGIC_RATE = 20e-3
 
     def __init__(self, gid: str, context: Context):
         self.gid: str = gid

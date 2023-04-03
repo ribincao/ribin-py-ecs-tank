@@ -8,6 +8,7 @@ from logic.command.command_factory import cmd_factory
 
 
 class Connection(object):
+    NET_RATE = 20e-100
 
     def __init__(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter, context: Context):
         super(Connection, self).__init__()
@@ -43,7 +44,7 @@ class Connection(object):
                 world = self.context.export_world()
                 logger.debug(f"server export world {world}.")
                 await self.send_message(world)
-                await asyncio.sleep(100e-3)
+                await asyncio.sleep(self.NET_RATE)
             self.close()
         except Exception as error:
             self.close()
@@ -90,5 +91,5 @@ class Connection(object):
             except Exception as e:
                 logger.error(f"Error: {e}")
                 self.close()
-            await asyncio.sleep(100e-3)
+            await asyncio.sleep(self.NET_RATE)
 
