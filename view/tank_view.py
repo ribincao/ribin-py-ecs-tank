@@ -85,7 +85,6 @@ class TankView(IView):
                     "position": bhv.get_forward_position()
             }
             cmd = cmd_factory.get_create_cmd(entity.uid, d)
-            self.player_uid = entity.uid
         
         if cmd:
             self.context.input_command(cmd)
