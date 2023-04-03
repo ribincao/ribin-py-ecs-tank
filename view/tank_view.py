@@ -70,6 +70,20 @@ class TankView(IView):
             }
             cmd = cmd_factory.get_create_cmd(entity.uid, d)
             self.player_uid = entity.uid
+        elif operation == 'j' and self.player_uid > 0:
+            bhv = self.behaviors.get(self.player_uid)
+            if not bhv:
+                return
+            entity = self.context.create_entity()
+            d = {
+                    "mod_index": entity.mod_index,
+                    "speed": 5,
+                    "mod_name": "bullet",
+                    "layer": 1,
+                    "position": bhv.get_forward_position()
+            }
+            cmd = cmd_factory.get_create_cmd(entity.uid, d)
+            self.player_uid = entity.uid
         
         if cmd:
             self.context.input_command(cmd)

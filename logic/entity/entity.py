@@ -20,7 +20,7 @@ class GameLogicEntity(object):
         self.create: CreateComponent = CreateComponent()
         self.move: MoveComponent = MoveComponent()
         self.rigibody: Optional[RigibodyComponent] = None
-
+    
     def export(self) -> dict:
         if not self.create or not self.create.mod_name.startswith("player"):
             return {}

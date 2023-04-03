@@ -1,6 +1,6 @@
 from logic.entity.entity import GameLogicEntity
 from pygame import Surface, Rect
-from typing import Dict, List
+from typing import Dict, List, Tuple
 from abc import abstractmethod
 from common.logger import logger
 
@@ -54,3 +54,6 @@ class IPyGameBehavior(IBehavior):
         x, y = self.entity.transform.position.to_tuple()
         rect.left, rect.top = x, y
         return rect
+
+    def get_forward_position(self) -> Tuple[float, float]:
+        return 0.0, 0.0
