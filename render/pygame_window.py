@@ -56,6 +56,8 @@ class PyGameWindow(IWindow):
                     operation = 'n'
                 if event.key == pygame.K_j:
                     operation = 'j'
+                if event.key == pygame.K_m:
+                    operation = 'm'
 
             if event.type == pygame.KEYUP:
                 operation = '-'

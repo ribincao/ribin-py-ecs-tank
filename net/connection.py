@@ -19,13 +19,14 @@ class Connection(object):
         self.codec: Codec = Codec()
         self.context: Context = context
         self._is_close: bool = False
+        self.last_world: str = ""
         self.uid: int = -1
 
     def close(self):
         self.writer.close()
         self._is_close = True
         self.context.remove_entity(self.uid)
-        logger.info(f"{self.uid} close connection.")
+        logger.debug(f"{self.uid} close connection.")
 
     async def handle_message(self):
         try:
@@ -47,8 +48,9 @@ class Connection(object):
         try:
             while not self._is_close:
                 world = self.context.export_world()
-                if world:
+                if world != self.last_world:
                     logger.debug(f"server export world {world}.")
+                    self.last_world = world
                     await self.send_message(world)
                 await asyncio.sleep(self.SNAP_RATE)
             self.close()

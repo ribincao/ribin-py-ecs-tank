@@ -44,20 +44,35 @@ class TankView(IView):
     def init_view(self):
         scene_maps = data_util.load_from_json('./view/scene/tank.json')
         logger.debug(f"view_load_tank_scene {scene_maps}")
-
-    async def handle_event(self, operation: str):
-        if not self.context.is_connected:
-            if operation == 'n' and self.player_uid <= 0:
-                entity = self.context.create_entity()
-                d = {
+    
+    def enter_room(self, operation: str):
+        if operation == 'n' and self.player_uid <= 0:
+            entity = self.context.create_entity()
+            d = {
                     "speed": 5,
                     "mod_name": "player1",
                     "layer": 1,
                     "position": [285.0, 720.0]
-                }
-                cmd = cmd_factory.get_create_cmd(entity.uid, d)
-                self.player_uid = entity.uid
-                self.send_cmd(cmd)
+            }
+            cmd = cmd_factory.get_create_cmd(entity.uid, d)
+            self.player_uid = entity.uid
+            self.send_cmd(cmd)
+        if operation == 'm' and self.player_uid <= 0:
+            entity = self.context.create_entity()
+            d = {
+                    "speed": 5,
+                    "mod_name": "player2",
+                    "layer": 1,
+                    "position": [435.0, 720.0]
+            }
+            cmd = cmd_factory.get_create_cmd(entity.uid, d)
+            self.player_uid = entity.uid
+            self.send_cmd(cmd)
+
+    async def handle_event(self, operation: str):
+        self.enter_room(operation)
+
+        if not self.context.is_connected:
             return
 
         cmd: Optional[ICommand] = None

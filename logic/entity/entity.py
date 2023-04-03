@@ -15,15 +15,14 @@ class GameLogicEntity(object):
         self.state: int = EntityState.normal  # 维护状态
         self.mod_index: int = 0
         self.layer: int = 0
-        self.last_snap: dict = {}
 
         self.transform: TransformComponent = TransformComponent()
         self.create: CreateComponent = CreateComponent()
         self.move: MoveComponent = MoveComponent()
         self.rigibody: Optional[RigibodyComponent] = None
-    
+
     def export(self) -> dict:
-        if not self.create or not self.create.mod_name.startswith("player"):
+        if not self.create:
             return {}
         d = dict()
         d["uid"] = self.uid
@@ -35,10 +34,7 @@ class GameLogicEntity(object):
         d["create"]["mod_type"] = self.create.mod_type
         d["move"] = {}
         d["move"]["speed"] = self.move.speed
-        if d != self.last_snap:
-            self.last_snap = d
-            return d
-        return {}
+        return d
 
     def refresh(self, info: dict):
         self.transform.position.x = info["transform"]["position"][0]
