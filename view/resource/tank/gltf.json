@@ -52,7 +52,6 @@
         "mod_id": 4,
         "mod_name": "game",
         "models": [
-            "./view/resource/tank/image/game/.DS_Store",
             "./view/resource/tank/image/game/appear.png",
             "./view/resource/tank/image/game/background.png",
             "./view/resource/tank/image/game/boom_dynamic.png",
@@ -161,7 +160,6 @@
         "mod_id": 13,
         "mod_name": "item",
         "models": [
-            "./view/resource/tank/image/item/.DS_Store",
             "./view/resource/tank/image/item/food_boom.png",
             "./view/resource/tank/image/item/food_clock.png",
             "./view/resource/tank/image/item/food_gun.png",
@@ -197,7 +195,6 @@
         "mod_id": 16,
         "mod_name": "player1",
         "models": [
-            "./view/resource/tank/image/player/player1/.DS_Store",
             "./view/resource/tank/image/player/player1/1_p1tankW.gif",
             "./view/resource/tank/image/player/player1/2_p1tankS.gif",
             "./view/resource/tank/image/player/player1/3_p1tankA.gif",
