@@ -4,7 +4,7 @@ from typing import List, Dict
 from view.behavior.ibehavior import IPyGameBehavior
 
 
-class IView(object):
+class View(object):
     VIEW_RATE = 20e-3
 
     def __init__(self, context: Context):

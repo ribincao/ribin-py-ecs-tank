@@ -1,4 +1,4 @@
-from view.iview import IView
+from view.view import View
 from logic.context import Context
 from common.logger import logger
 from logic.entity.entity import GameLogicEntity
@@ -12,7 +12,7 @@ from typing import Optional
 from logic.entity.state import EntityState
 
 
-class TankView(IView):
+class TankView(View):
     MODULE = 'tank'
 
     def __init__(self, context: Context):

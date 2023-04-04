@@ -2,7 +2,7 @@ from render.iwindow import IWindow
 import asyncio
 import pygame
 from typing import Optional
-from view.iview import IView
+from view.view import View
 from common.logger import logger
 from net.tcp import Tcp
 
@@ -11,7 +11,7 @@ class PyGameWindow(IWindow):
     RENDER_RATE = 20e-3
     SIZE = (780, 780)
 
-    def __init__(self, window_name: str, view: IView):
+    def __init__(self, window_name: str, view: View):
         super(PyGameWindow, self).__init__(window_name, view)
         self.window: Optional[pygame.Surface] = None
 
