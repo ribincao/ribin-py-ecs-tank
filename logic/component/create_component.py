@@ -1,11 +1,11 @@
 from typing import Tuple
-from logic.component.icomponent import IComponent
+from logic.component.component import Component
 
 
 T_PLAYER = 'player'
 T_ITEM = 'item'
 
-class CreateComponent(IComponent):
+class CreateComponent(Component):
 
     def __init__(self):
         super(CreateComponent, self).__init__()

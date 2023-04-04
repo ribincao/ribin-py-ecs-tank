@@ -1,7 +1,7 @@
-from logic.component.icomponent import IComponent
+from logic.component.component import Component
 
 
-class MoveComponent(IComponent):
+class MoveComponent(Component):
 
     def __init__(self):
         super(MoveComponent, self).__init__()

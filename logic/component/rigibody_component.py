@@ -1,9 +1,9 @@
-from logic.component.icomponent import IComponent
+from logic.component.component import Component
 
 
 EARTH_GRAVITY = 9.8
 
-class RigibodyComponent(IComponent):
+class RigibodyComponent(Component):
 
     def __init__(self):
         super(RigibodyComponent, self).__init__()
