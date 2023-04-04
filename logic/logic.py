@@ -7,7 +7,7 @@ import asyncio
 from common.data_util import data_util
 
 
-class ILogic(object):
+class Logic(object):
     LOGIC_RATE = 20e-3
 
     def __init__(self, gid: str, context: Context):
