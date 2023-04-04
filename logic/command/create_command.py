@@ -15,9 +15,9 @@ class CreateCmd(Command):
         self.layer: int = 0
         self.speed: float = 0
         self.state: int = 0
+        self.box_collider: Tuple[float, float] = (60, 60)
 
     async def execute(self, entity: GameLogicEntity):
-        logger.debug(f"CreateCmd IN {entity.uid} exceute")
         if not self.mod_name:
             return
         
@@ -27,4 +27,8 @@ class CreateCmd(Command):
         entity.add_create(self.mod_name)
         entity.add_transform(Vector2(self.position[0], self.position[1]))
         entity.add_move(self.speed)
+        if self.mod_name == 'bullet':
+            self.box_collider = (12.0, 12.0)
+        entity.add_box_collider(self.box_collider[0], self.box_collider[1])
+        logger.info(f"CreateCmd Execute {entity.uid} {self.__dict__}")
 

@@ -3,6 +3,7 @@ from logic.component.create_component import CreateComponent
 from logic.component.transform_component import TransformComponent
 from logic.component.move_component import MoveComponent
 from logic.component.rigibody_component import RigibodyComponent
+from logic.component.box_collider_component import BoxColliderComponent
 from typing import Optional
 from logic.entity.state import EntityState
 from common.common import Vector2
@@ -20,6 +21,7 @@ class GameLogicEntity(object):
         self.create: CreateComponent = CreateComponent()
         self.move: MoveComponent = MoveComponent()
         self.rigibody: Optional[RigibodyComponent] = None
+        self.box2d_collider: Optional[BoxColliderComponent] = None
 
     def export(self) -> dict:
         if not self.create:
@@ -58,3 +60,10 @@ class GameLogicEntity(object):
         if not self.create:
             self.create = CreateComponent()
         self.create.mod_name = new_mod_name
+    
+    def add_box_collider(self, width: float, height: float):
+        if not self.box2d_collider:
+            self.box2d_collider = BoxColliderComponent()
+        self.box2d_collider.height = height
+        self.box2d_collider.width = width
+
