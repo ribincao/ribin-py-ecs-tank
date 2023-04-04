@@ -9,7 +9,6 @@ from net.tcp import Tcp
 
 class PyGameWindow(Window):
     RENDER_RATE = 20e-3
-    SIZE = (780, 780)
 
     def __init__(self, window_name: str, view: View):
         super(PyGameWindow, self).__init__(window_name, view)
@@ -34,7 +33,7 @@ class PyGameWindow(Window):
     def init_window(self):
         pygame.display.init()
         pygame.display.set_caption(self.window_name)
-        self.window = pygame.display.set_mode(self.SIZE)
+        self.window = pygame.display.set_mode(self.view.window_size)
 
     async def listen_event(self):
         event_list = pygame.event.get()

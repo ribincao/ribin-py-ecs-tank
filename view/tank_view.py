@@ -8,7 +8,7 @@ import asyncio
 from logic.command.move_command import UP, DOWN, LEFT, RIGHT, STOP
 from logic.command.command_factory import cmd_factory
 from logic.command.command import Command
-from typing import Optional
+from typing import Optional, Tuple
 from logic.entity.state import EntityState
 
 
@@ -18,6 +18,7 @@ class TankView(View):
     def __init__(self, context: Context):
         super(TankView, self).__init__(context)
         self.player_uid: int = 0
+        self.window_size: Tuple[float, float] = (780, 780)
 
     async def update(self):
         while True:
@@ -45,35 +46,7 @@ class TankView(View):
         scene_maps = data_util.load_from_json('./view/scene/tank.json')
         logger.debug(f"view_load_tank_scene {scene_maps}")
     
-    def enter_room(self, operation: str):
-        if operation == 'n' and self.player_uid <= 0:
-            entity = self.context.create_entity()
-            d = {
-                    "speed": 5,
-                    "mod_name": "player1",
-                    "layer": 1,
-                    "position": [285.0, 720.0]
-            }
-            cmd = cmd_factory.get_create_cmd(entity.uid, d)
-            self.player_uid = entity.uid
-            self.send_cmd(cmd)
-        if operation == 'm' and self.player_uid <= 0:
-            entity = self.context.create_entity()
-            d = {
-                    "speed": 5,
-                    "mod_name": "player2",
-                    "layer": 1,
-                    "position": [435.0, 720.0]
-            }
-            cmd = cmd_factory.get_create_cmd(entity.uid, d)
-            self.player_uid = entity.uid
-            self.send_cmd(cmd)
-
     async def handle_event(self, operation: str):
-        self.enter_room(operation)
-
-        if not self.context.is_connected:
-            return
 
         cmd: Optional[Command] = None
         if operation == 'w' and self.player_uid:
@@ -86,6 +59,27 @@ class TankView(View):
             cmd = cmd_factory.get_move_cmd(self.player_uid, RIGHT)
         elif operation == '-' and self.player_uid:
             cmd = cmd_factory.get_move_cmd(self.player_uid, STOP)
+
+        elif operation == 'n' and self.player_uid <= 0:
+            entity = self.context.create_entity()
+            d = {
+                    "speed": 5,
+                    "mod_name": "player1",
+                    "layer": 1,
+                    "position": [285.0, 720.0]
+            }
+            cmd = cmd_factory.get_create_cmd(entity.uid, d)
+            self.player_uid = entity.uid
+        elif operation == 'm' and self.player_uid <= 0:
+            entity = self.context.create_entity()
+            d = {
+                    "speed": 5,
+                    "mod_name": "player2",
+                    "layer": 1,
+                    "position": [435.0, 720.0]
+            }
+            cmd = cmd_factory.get_create_cmd(entity.uid, d)
+            self.player_uid = entity.uid
 
         elif operation == 'j' and self.player_uid > 0:
             tank = self.behaviors.get(self.player_uid)
@@ -108,5 +102,6 @@ class TankView(View):
         if not cmd:
             return
         self.context.input_command(cmd)
-        self.context.input_message(cmd)
+        if self.context.is_connected:
+            self.context.input_message(cmd)
 
