@@ -16,7 +16,9 @@ class TankLogic(Logic):
         from logic.system.command_system import CommandSystem
         from logic.system.collider_system import ColliderSystem
         from logic.system.gc_system import GCSystem
+        from logic.system.enemy_system import EnemySystem
         
+        self.register_system(EnemySystem(self.context))
         self.register_system(MoveSystem(self.context))
         self.register_system(CommandSystem(self.context))
         self.register_system(ColliderSystem(self.context))
