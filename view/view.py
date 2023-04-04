@@ -23,7 +23,7 @@ class View(object):
         # 初始化所有的关卡scene
         pass
 
-    def get_behaviors(self) -> List[IPyGameBehavior]:
+    def get_behaviors(self) -> List[PyGameBehavior]:
         return sorted(list(self.behaviors.values()), key=lambda x: x.layer)
 
     @abstractmethod
