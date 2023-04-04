@@ -2,7 +2,7 @@ from common.logger import logger
 from common.common import signal_handler
 import asyncio
 from logic.logic import Logic
-from render.iwindow import IWindow
+from render.window import Window
 from view.view import View
 from logic.context import Context
 from logic.tank_logic import TankLogic
@@ -18,7 +18,7 @@ class TankClient(object):
         self.tcp: Tcp = Tcp(8888, 'tank', self.context)  # 网络层
         self.logic: Logic = TankLogic('tank', self.context)  # 逻辑层
         self.view: View = TankView(self.context)  # 表现层
-        self.window: IWindow = PyGameWindow("Tank", self.view)  # 渲染层
+        self.window: Window = PyGameWindow("Tank", self.view)  # 渲染层
         self._loop: asyncio.AbstractEventLoop = asyncio.get_event_loop()
         
     def init_game(self):

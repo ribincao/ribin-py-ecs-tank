@@ -1,4 +1,4 @@
-from render.iwindow import IWindow
+from render.window import Window
 import asyncio
 import pygame
 from typing import Optional
@@ -7,7 +7,7 @@ from common.logger import logger
 from net.tcp import Tcp
 
 
-class PyGameWindow(IWindow):
+class PyGameWindow(Window):
     RENDER_RATE = 20e-3
     SIZE = (780, 780)
 
