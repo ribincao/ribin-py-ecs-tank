@@ -25,6 +25,7 @@ class TankLogic(Logic):
         logger.debug(f"logic_load_map {map}")
         if not map:
             return
+        self.context.edge_size = map.get("window_size", [780, 780])
         items = map.get("items", [])
         for item in items:
             entity = self.context.create_entity()

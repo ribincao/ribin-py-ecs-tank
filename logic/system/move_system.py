@@ -18,17 +18,35 @@ class MoveSystem(System):
         for entity in entities:
             if not entity.transform or not entity.move or entity.move.speed <= 0:
                 continue
+            x, y = entity.transform.position.to_tuple()
             if entity.state == EntityState.move:
                 if entity.mod_index == UP:
-                    entity.transform.position.y -= entity.move.speed
+                    y -= entity.move.speed
                 if entity.mod_index == DOWN:
-                    entity.transform.position.y += entity.move.speed
+                    y += entity.move.speed
                 if entity.mod_index == LEFT:
-                    entity.transform.position.x -= entity.move.speed
+                    x -= entity.move.speed
                 if entity.mod_index == RIGHT:
-                    entity.transform.position.x += entity.move.speed
+                    x += entity.move.speed
+
             if entity.rigibody:
-                entity.transform.position.y += entity.rigibody.gravity
+                y += entity.rigibody.gravity
+
+            if entity.box2d_collider and  self.check_edge(x, y, entity.box2d_collider.width, entity.box2d_collider.height):
+                continue
+
+            entity.transform.position.x = x
+            entity.transform.position.y = y
 
     def on_entity_create(self, event: EntityCreateEvent):
         logger.debug(f"MoveListenEvent {event.uid} created.")
+
+    def check_edge(self, x: float, y: float, width: float, height: float) -> bool:
+        if x < 0 or y < 0:
+            return True
+
+        if x + width > self.context.edge_size[0] or y + height > self.context.edge_size[1]:
+            return True
+
+        return False
+

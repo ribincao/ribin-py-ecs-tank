@@ -1,6 +1,6 @@
 from logic.entity.entity import GameLogicEntity
 from logic.command.command import Command
-from typing import List, Dict, Callable
+from typing import List, Dict, Callable, Tuple
 import json
 from logic.event.event import EventDispatch, IEvent, EntityCreateEvent
 
@@ -13,6 +13,7 @@ class Context(object):
         self.commands: List[Command] = []
         self.messages: List[Command] = []
         self.event_dispatch: EventDispatch = EventDispatch()
+        self.edge_size: Tuple[float, float] = (780, 780)
         
         self.is_connected: bool = False
 
