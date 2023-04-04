@@ -1,14 +1,14 @@
 from logic.context import Context
 from abc import abstractmethod
 from typing import List, Dict
-from view.behavior.ibehavior import IPyGameBehavior
+from view.behavior.behavior import PyGameBehavior
 
 
 class View(object):
     VIEW_RATE = 20e-3
 
     def __init__(self, context: Context):
-        self.behaviors: Dict[int, IPyGameBehavior] = {}
+        self.behaviors: Dict[int, PyGameBehavior] = {}
         self.context: Context = context
         self.scenes: Dict[int, object] = {}
         self.scene_id: int = 0  # 场景id, 不同关卡

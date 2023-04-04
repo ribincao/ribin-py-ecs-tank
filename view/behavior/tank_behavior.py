@@ -1,10 +1,10 @@
-from view.behavior.ibehavior import IPyGameBehavior
+from view.behavior.behavior import PyGameBehavior
 from logic.entity.entity import GameLogicEntity
 from logic.system.move_system import UP, DOWN, LEFT, RIGHT
 from typing import Tuple
 
 
-class TankBehavior(IPyGameBehavior):
+class TankBehavior(PyGameBehavior):
 
     def __init__(self, entity: GameLogicEntity):
         super(TankBehavior, self).__init__(entity)

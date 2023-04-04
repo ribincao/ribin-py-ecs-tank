@@ -5,7 +5,7 @@ from abc import abstractmethod
 from common.logger import logger
 
 
-class IBehavior(object):
+class Behavior(object):
 
     def __init__(self, entity: GameLogicEntity):
         self.entity: GameLogicEntity = entity
@@ -24,10 +24,10 @@ class IBehavior(object):
         pass
 
 
-class IPyGameBehavior(IBehavior):
+class PyGameBehavior(Behavior):
 
     def __init__(self, entity: GameLogicEntity):
-        super(IPyGameBehavior, self).__init__(entity)
+        super(PyGameBehavior, self).__init__(entity)
         self.models: List[Surface] = []
 
     @abstractmethod
