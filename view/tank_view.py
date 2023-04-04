@@ -7,7 +7,7 @@ from common.data_util import data_util
 import asyncio
 from logic.command.move_command import UP, DOWN, LEFT, RIGHT, STOP
 from logic.command.command_factory import cmd_factory
-from logic.command.icommand import ICommand
+from logic.command.command import Command
 from typing import Optional
 from logic.entity.state import EntityState
 
@@ -75,7 +75,7 @@ class TankView(View):
         if not self.context.is_connected:
             return
 
-        cmd: Optional[ICommand] = None
+        cmd: Optional[Command] = None
         if operation == 'w' and self.player_uid:
             cmd = cmd_factory.get_move_cmd(self.player_uid, UP)
         elif operation == 'a' and self.player_uid:
@@ -104,7 +104,7 @@ class TankView(View):
 
         self.send_cmd(cmd)
         
-    def send_cmd(self, cmd: Optional[ICommand]):
+    def send_cmd(self, cmd: Optional[Command]):
         if not cmd:
             return
         self.context.input_command(cmd)

@@ -3,7 +3,7 @@ from logic.entity.entity import GameLogicEntity
 import json
 
 
-class ICommand(object):
+class Command(object):
 
     def __init__(self, eid: int):
         self.eid: int = eid

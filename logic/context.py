@@ -1,5 +1,5 @@
 from logic.entity.entity import GameLogicEntity
-from logic.command.icommand import ICommand
+from logic.command.command import Command
 from typing import List, Dict, Callable
 import json
 from logic.event.event import EventDispatch, IEvent, EntityCreateEvent
@@ -10,8 +10,8 @@ class Context(object):
     def __init__(self):
         self.uid_cnt: int = 1
         self.entities: Dict[int, GameLogicEntity] = {}
-        self.commands: List[ICommand] = []
-        self.messages: List[ICommand] = []
+        self.commands: List[Command] = []
+        self.messages: List[Command] = []
         self.event_dispatch: EventDispatch = EventDispatch()
         
         self.is_connected: bool = False
@@ -36,10 +36,10 @@ class Context(object):
             return
         del self.entities[eid]
 
-    def input_command(self, command: ICommand):
+    def input_command(self, command: Command):
         self.commands.append(command)
 
-    def input_message(self, command: ICommand):
+    def input_message(self, command: Command):
         self.messages.append(command)
 
     def get_entities(self) -> List[GameLogicEntity]:

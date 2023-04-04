@@ -1,4 +1,4 @@
-from logic.command.icommand import ICommand
+from logic.command.command import Command
 from logic.entity.entity import GameLogicEntity
 from common.logger import logger
 from logic.entity.state import EntityState
@@ -11,7 +11,7 @@ LEFT = 2
 RIGHT = 3
 
 
-class MoveCmd(ICommand):
+class MoveCmd(Command):
 
     def __init__(self, eid: int):
         super(MoveCmd, self).__init__(eid)

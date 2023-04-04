@@ -1,11 +1,11 @@
-from logic.command.icommand import ICommand
+from logic.command.command import Command
 from logic.entity.entity import GameLogicEntity
 from common.logger import logger
 from typing import Tuple
 from common.common import Vector2
 
 
-class CreateCmd(ICommand):
+class CreateCmd(Command):
 
     def __init__(self, eid: int):
         super(CreateCmd, self).__init__(eid)

@@ -1,7 +1,7 @@
 from logic.command.move_command import MoveCmd
 from logic.command.create_command import CreateCmd
 from common.singleton import Singleton
-from logic.command.icommand import ICommand
+from logic.command.command import Command
 from typing import Optional
 import json
 
@@ -11,7 +11,7 @@ class CmdFactory(Singleton):
     def __init__(self):
         pass
 
-    def from_dict(self, d: dict) -> Optional[ICommand]:
+    def from_dict(self, d: dict) -> Optional[Command]:
         class_name = d.get('__class__', '')
         if not class_name:
             return None
@@ -28,7 +28,7 @@ class CmdFactory(Singleton):
             cmd.__dict__.update(d)
         return cmd
 
-    def create_cmd(self, s: str) -> Optional[ICommand]:
+    def create_cmd(self, s: str) -> Optional[Command]:
         d = json.loads(s)
         return self.from_dict(d)
 
