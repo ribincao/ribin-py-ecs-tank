@@ -1,4 +1,4 @@
-from logic.system.isystem import ISystem
+from logic.system.system import System
 from typing import Dict, List
 from logic.context import Context
 from abc import abstractmethod
@@ -13,10 +13,10 @@ class Logic(object):
     def __init__(self, gid: str, context: Context):
         self.gid: str = gid
         self.context: Context = context
-        self.systems: Dict[str, ISystem] = {}
+        self.systems: Dict[str, System] = {}
         self.gltf = []
     
-    def register_system(self, system: ISystem):
+    def register_system(self, system: System):
         system_name = system.__class__.__name__
         if system_name in self.systems:
             logger.debug("warning")

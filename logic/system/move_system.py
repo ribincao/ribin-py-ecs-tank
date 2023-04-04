@@ -1,12 +1,12 @@
 from common.logger import logger
-from logic.system.isystem import ISystem
+from logic.system.system import System
 from logic.context import Context
 from logic.entity.state import EntityState
 from logic.command.move_command import UP, DOWN, LEFT, RIGHT
 from logic.event.event import EntityCreateEvent
 
 
-class MoveSystem(ISystem):
+class MoveSystem(System):
 
     def __init__(self, context: Context):
         super(MoveSystem, self).__init__(context)

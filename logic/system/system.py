@@ -2,7 +2,7 @@ from abc import abstractmethod
 from logic.context import Context
 
 
-class ISystem(object):
+class System(object):
 
     def __init__(self, context: Context):
         self.context: Context = context

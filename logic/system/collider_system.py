@@ -1,9 +1,9 @@
-from logic.system.isystem import ISystem
+from logic.system.system import System
 from logic.context import Context
 from common.logger import logger
 
 
-class ColliderSystem(ISystem):
+class ColliderSystem(System):
 
     def __init__(self, context: Context):
         super(ColliderSystem, self).__init__(context)

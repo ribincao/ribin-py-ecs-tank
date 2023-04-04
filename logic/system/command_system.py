@@ -1,9 +1,9 @@
 from common.logger import logger
-from logic.system.isystem import ISystem
+from logic.system.system import System
 from logic.context import Context
 
 
-class CommandSystem(ISystem):
+class CommandSystem(System):
 
     def __init__(self, context: Context):
         super(CommandSystem, self).__init__(context)
