@@ -21,12 +21,20 @@ class MoveSystem(System):
             x, y = entity.transform.position.to_tuple()
             if entity.state == EntityState.move:
                 if entity.mod_index == UP:
+                    if entity.box2d_collider and entity.box2d_collider.collider_direction[1] == -1:
+                        continue
                     y -= entity.move.speed
                 if entity.mod_index == DOWN:
+                    if entity.box2d_collider and entity.box2d_collider.collider_direction[1] == 1:
+                        continue
                     y += entity.move.speed
                 if entity.mod_index == LEFT:
+                    if entity.box2d_collider and entity.box2d_collider.collider_direction[0] == -1:
+                        continue
                     x -= entity.move.speed
                 if entity.mod_index == RIGHT:
+                    if entity.box2d_collider and entity.box2d_collider.collider_direction[0] == 1:
+                        continue
                     x += entity.move.speed
 
             if entity.rigibody:

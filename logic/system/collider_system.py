@@ -2,6 +2,7 @@ from logic.system.system import System
 from logic.context import Context
 from common.logger import logger
 from logic.entity.entity import GameLogicEntity
+from logic.entity.state import EntityState
 
 
 class ColliderSystem(System):
@@ -38,26 +39,30 @@ class ColliderSystem(System):
                 if positionA[0] >= positionB[0] and positionA[1] >= positionB[1]:
                     distanceX = positionA[0] - positionB[0]
                     distanceY = positionA[1] - positionB[1]
-                    if distanceX <= widthB and distanceY <= heightA:
+                    if distanceX < widthB and distanceY < heightA:
                         collider = True
+                        entityA.box2d_collider.collider_direction = (-1, -1)
                         logger.info(f"1. box collider detect {entityA.create.mod_name} -> {entityB.create.mod_name}")
                 elif positionA[0] >= positionB[0] and positionA[1] < positionB[1]:
                     distanceX = positionA[0] - positionB[0]
                     distanceY = positionB[1] - positionA[1]
-                    if distanceX <= widthA and distanceY <= heightA:
+                    if distanceX < widthA and distanceY < heightA:
                         collider = True
+                        entityA.box2d_collider.collider_direction = (1, -1)
                         logger.info(f"1. box collider detect {entityA.create.mod_name} -> {entityB.create.mod_name}")
                 elif positionA[0] < positionB[0] and positionA[1] < positionB[1]:
                     distanceX = positionB[0] - positionA[0]
                     distanceY = positionB[1] - positionA[1]
-                    if distanceX <= widthA and distanceY <= heightB:
+                    if distanceX < widthA and distanceY < heightB:
                         collider = True
+                        entityA.box2d_collider.collider_direction = (1, 1)
                         logger.info(f"1. box collider detect {entityA.create.mod_name} -> {entityB.create.mod_name}")
                 elif positionA[0] < positionB[0] and positionA[1] >= positionB[1]:
                     distanceX = positionB[0] - positionA[0]
                     distanceY = positionA[1] - positionB[1]
-                    if distanceX <= widthB and distanceY <= heightB:
+                    if distanceX < widthB and distanceY < heightB:
                         collider = True
+                        entityA.box2d_collider.collider_direction = (-1, 1)
                         logger.info(f"1. box collider detect {entityA.create.mod_name} -> {entityB.create.mod_name}")
 
                 if collider:

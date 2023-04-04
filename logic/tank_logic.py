@@ -16,9 +16,9 @@ class TankLogic(Logic):
         from logic.system.command_system import CommandSystem
         from logic.system.collider_system import ColliderSystem
         
-        self.register_system(MoveSystem(self.context))
         self.register_system(CommandSystem(self.context))
         self.register_system(ColliderSystem(self.context))
+        self.register_system(MoveSystem(self.context))
 
         # 场景重建
         map = data_util.load_from_json('./view/scene/tank.json')
