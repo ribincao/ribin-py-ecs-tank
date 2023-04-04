@@ -259,16 +259,15 @@ class Test(object):
 
 
     def export_map(self, module: str):
-        maps = []
         data = {}
         data["scene_id"] = 0
         data["desc"] = "test"
         data["back_ground"] = ""
+        data["window_size"] = (780, 780)
         if module == 'tank':
             data["items"] = self.get_tank_items()
 
-        maps.append(data)
-        self.save(module, maps)
+        self.save(module, data)
 
 
 if __name__ == '__main__':
