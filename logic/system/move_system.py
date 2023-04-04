@@ -18,17 +18,21 @@ class MoveSystem(System):
         for entity in entities:
             if not entity.transform or not entity.move or entity.move.speed <= 0:
                 continue
+            x, y = entity.transform.position.to_tuple()
             if entity.state == EntityState.move:
                 if entity.mod_index == UP:
-                    entity.transform.position.y -= entity.move.speed
+                    y -= entity.move.speed
                 if entity.mod_index == DOWN:
-                    entity.transform.position.y += entity.move.speed
+                    y += entity.move.speed
                 if entity.mod_index == LEFT:
-                    entity.transform.position.x -= entity.move.speed
+                    x -= entity.move.speed
                 if entity.mod_index == RIGHT:
-                    entity.transform.position.x += entity.move.speed
+                    x += entity.move.speed
             if entity.rigibody:
-                entity.transform.position.y += entity.rigibody.gravity
+                y += entity.rigibody.gravity
+
+            entity.transform.position.x = min(max(x, 0), self.context.edge_size[0] - 60)
+            entity.transform.position.y = min(max(0, y), self.context.edge_size[1] - 60)
 
     def on_entity_create(self, event: EntityCreateEvent):
         logger.debug(f"MoveListenEvent {event.uid} created.")
