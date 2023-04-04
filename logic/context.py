@@ -25,17 +25,17 @@ class Context(object):
         self.uid_cnt += 1
         return entity
     
-    def get_entity(self, eid: int) -> GameLogicEntity:
-        entity = self.entities.get(eid, None)
+    def get_entity(self, uid: int) -> GameLogicEntity:
+        entity = self.entities.get(uid, None)
         if not entity:
             entity = self.create_entity()
-            entity.uid = eid
+            entity.uid = uid
         return entity
 
-    def remove_entity(self, eid: int):
-        if eid not in self.entities:
+    def remove_entity(self, uid: int):
+        if uid not in self.entities:
             return
-        del self.entities[eid]
+        del self.entities[uid]
 
     def input_command(self, command: Command):
         self.commands.append(command)

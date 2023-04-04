@@ -13,8 +13,8 @@ RIGHT = 3
 
 class MoveCmd(Command):
 
-    def __init__(self, eid: int):
-        super(MoveCmd, self).__init__(eid)
+    def __init__(self, uid: int):
+        super(MoveCmd, self).__init__(uid)
         self.direction = STOP
 
     async def execute(self, entity: GameLogicEntity):

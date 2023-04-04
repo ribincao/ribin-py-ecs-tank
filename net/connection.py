@@ -44,7 +44,7 @@ class Connection(object):
                 logger.debug(f"server receive_cmd {cmd.__dict__}")
                 if cmd:
                     self.context.input_command(cmd)
-                    self.uid = cmd.eid
+                    self.uid = cmd.uid
                     self.update_active_time()
             self.close()
         except Exception as error:

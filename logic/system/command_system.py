@@ -12,8 +12,8 @@ class CommandSystem(System):
         commands = self.context.commands
         self.context.commands = []
         for command in commands:
-            if command.eid < 0:
+            if command.uid < 0:
                 continue
-            logger.debug(f"CommandSystem Update {command.__class__.__name__} {command.eid}")
-            entity = self.context.get_entity(command.eid)
+            logger.debug(f"CommandSystem Update {command.__class__.__name__} {command.uid}")
+            entity = self.context.get_entity(command.uid)
             await command.execute(entity)

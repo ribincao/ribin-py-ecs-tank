@@ -7,8 +7,8 @@ from common.common import Vector2
 
 class CreateCmd(Command):
 
-    def __init__(self, eid: int):
-        super(CreateCmd, self).__init__(eid)
+    def __init__(self, uid: int):
+        super(CreateCmd, self).__init__(uid)
         self.mod_name: str = ""
         self.mod_index: int = 0
         self.position: Tuple[float, float] = (0.0, 0.0)
