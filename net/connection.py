@@ -5,6 +5,7 @@ from net.buffer import Buffer
 from net.codec import Codec
 from logic.context import Context
 from logic.command.command_factory import cmd_factory
+import time
 
 
 class Connection(object):
@@ -21,6 +22,10 @@ class Connection(object):
         self._is_close: bool = False
         self.last_world: str = ""
         self.uid: int = -1
+        self.last_active_time: int = 0
+
+    def update_active_time(self):
+        self.last_active_time = int(time.time())
 
     def close(self):
         self.writer.close()
@@ -40,6 +45,7 @@ class Connection(object):
                 if cmd:
                     self.context.input_command(cmd)
                     self.uid = cmd.eid
+                    self.update_active_time()
             self.close()
         except Exception as error:
             self.close()
@@ -68,6 +74,8 @@ class Connection(object):
                 self.context.import_world(message)
                 if not self.context.is_connected:
                     self.context.is_connected = True
+                
+                self.update_active_time()
             self.close()
         except Exception as error:
             self.close()
