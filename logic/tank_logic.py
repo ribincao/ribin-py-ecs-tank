@@ -21,19 +21,16 @@ class TankLogic(Logic):
         self.register_system(ColliderSystem(self.context))
 
         # 场景重建
-        maps = data_util.load_from_json('./view/scene/tank.json')
-        logger.debug(f"logic_load_map {maps}")
-        if not maps:
+        map = data_util.load_from_json('./view/scene/tank.json')
+        logger.debug(f"logic_load_map {map}")
+        if not map:
             return
-        for map in maps:
-            items = map.get("items", [])
-            if not items:
-                continue
-            for item in items:
-                entity = self.context.create_entity()
-                cmd = CreateCmd(entity.uid)
-                cmd.__dict__.update(item)
-                self. context.input_command(cmd)
-            logger.info(f"{self.context.uid_cnt} entity created.")
+        items = map.get("items", [])
+        for item in items:
+            entity = self.context.create_entity()
+            cmd = CreateCmd(entity.uid)
+            cmd.__dict__.update(item)
+            self. context.input_command(cmd)
+        logger.info(f"{self.context.uid_cnt} entity created.")
         
 

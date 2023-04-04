@@ -43,8 +43,10 @@ class TankView(View):
         return behavior
 
     def init_view(self):
-        scene_maps = data_util.load_from_json('./view/scene/tank.json')
-        logger.debug(f"view_load_tank_scene {scene_maps}")
+        map = data_util.load_from_json('./view/scene/tank.json')
+        logger.debug(f"view_load_tank_scene {map}")
+        if map:
+            self.window_size = map.get("window_size", [780, 780])
     
     async def handle_event(self, operation: str):
 
