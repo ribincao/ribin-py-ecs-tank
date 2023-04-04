@@ -1,6 +1,6 @@
 from logic.entity.entity import GameLogicEntity
 from logic.command.command import Command
-from typing import List, Dict, Callable
+from typing import List, Dict, Callable, Tuple
 import json
 from logic.event.event import EventDispatch, IEvent, EntityCreateEvent
 
@@ -15,6 +15,7 @@ class Context(object):
         self.event_dispatch: EventDispatch = EventDispatch()
         
         self.is_connected: bool = False
+        self.edge_size: Tuple[float, float] = (780, 780)
 
     def create_entity(self) -> GameLogicEntity:
         entity = GameLogicEntity(self.uid_cnt)
@@ -24,17 +25,17 @@ class Context(object):
         self.uid_cnt += 1
         return entity
     
-    def get_entity(self, eid: int) -> GameLogicEntity:
-        entity = self.entities.get(eid, None)
+    def get_entity(self, uid: int) -> GameLogicEntity:
+        entity = self.entities.get(uid, None)
         if not entity:
             entity = self.create_entity()
-            entity.uid = eid
+            entity.uid = uid
         return entity
 
-    def remove_entity(self, eid: int):
-        if eid not in self.entities:
+    def remove_entity(self, uid: int):
+        if uid not in self.entities:
             return
-        del self.entities[eid]
+        del self.entities[uid]
 
     def input_command(self, command: Command):
         self.commands.append(command)

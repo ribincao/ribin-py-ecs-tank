@@ -5,8 +5,8 @@ import json
 
 class Command(object):
 
-    def __init__(self, eid: int):
-        self.eid: int = eid
+    def __init__(self, uid: int):
+        self.uid: int = uid
 
     @abstractmethod
     async def execute(self, entity: GameLogicEntity):

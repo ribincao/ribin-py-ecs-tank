@@ -44,7 +44,7 @@ class Connection(object):
                 logger.debug(f"server receive_cmd {cmd.__dict__}")
                 if cmd:
                     self.context.input_command(cmd)
-                    self.uid = cmd.eid
+                    self.uid = cmd.uid
                     self.update_active_time()
             self.close()
         except Exception as error:
@@ -102,7 +102,7 @@ class Connection(object):
                 self.context.messages = []
                 for command in messages:
                     message = command.encode() 
-                    logger.debug(f"client send_command {message}")
+                    logger.info(f"client send_command {message}")
                     await self.send_message(message)
             except Exception as e:
                 logger.error(f"Error: {e}")
