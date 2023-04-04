@@ -30,14 +30,17 @@ class Tcp(object):
             await server.serve_forever()
 
     async def run_client(self, host: str, port: int):
-        reader, writer = await asyncio.open_connection(host, port)
-        connection = Connection(reader, writer, self._context)
-        self._is_client = True
-        self._client_connection = connection
-        await asyncio.gather(
+        try:
+            reader, writer = await asyncio.open_connection(host, port)
+            connection = Connection(reader, writer, self._context)
+            self._is_client = True
+            self._client_connection = connection
+            await asyncio.gather(
                 self._client_connection.connect(), 
                 self._client_connection.import_world()
                 )
+        except Exception as e:
+            logger.warning(f"connected error {e}")
     
     @property
     def connection(self) -> Optional[Connection]:
