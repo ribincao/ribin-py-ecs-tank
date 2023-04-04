@@ -102,7 +102,7 @@ class Connection(object):
                 self.context.messages = []
                 for command in messages:
                     message = command.encode() 
-                    logger.debug(f"client send_command {message}")
+                    logger.info(f"client send_command {message}")
                     await self.send_message(message)
             except Exception as e:
                 logger.error(f"Error: {e}")
