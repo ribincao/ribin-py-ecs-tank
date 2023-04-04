@@ -19,7 +19,11 @@ class ColliderSystem(System):
                 continue
 
             for entityB in entities:
-                if not entityB.box2d_collider or entityA.uid == entityB.uid:
+                if entityA.layer != entityB.layer:
+                    continue
+                if entityA.uid == entityB.uid:
+                    continue
+                if not entityB.box2d_collider:
                     continue
 
                 positionA = entityA.transform.position.to_tuple()
