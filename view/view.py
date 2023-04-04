@@ -1,6 +1,6 @@
 from logic.context import Context
 from abc import abstractmethod
-from typing import List, Dict
+from typing import List, Dict, Tuple
 from view.behavior.behavior import PyGameBehavior
 
 
@@ -13,6 +13,7 @@ class View(object):
         self.scenes: Dict[int, object] = {}
         self.scene_id: int = 0  # 场景id, 不同关卡
         self.back_ground = (0, 0, 0)
+        self.window_size: Tuple[float, float] = (1024, 960)
 
     @abstractmethod
     async def update(self):
