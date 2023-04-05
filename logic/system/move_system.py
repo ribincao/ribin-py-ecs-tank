@@ -31,8 +31,11 @@ class MoveSystem(System):
             if entity.rigibody:
                 y += entity.rigibody.gravity
 
-            entity.transform.position.x = min(max(x, 0), self.context.edge_size[0] - 60)
-            entity.transform.position.y = min(max(0, y), self.context.edge_size[1] - 60)
+            entity.transform.position.x = x
+            entity.transform.position.y = y
+            if entity.create.mod_name != "bullet":
+                entity.transform.position.x = min(max(x, 0), self.context.edge_size[0] - 60)
+                entity.transform.position.y = min(max(0, y), self.context.edge_size[1] - 60)
 
     def on_entity_create(self, event: EntityCreateEvent):
         logger.debug(f"MoveListenEvent {event.uid} created.")
