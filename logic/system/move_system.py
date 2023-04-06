@@ -17,10 +17,12 @@ class MoveSystem(System):
         for entity in entities:
             if not entity.transform or not entity.move or entity.move.speed <= 0:
                 continue
+            if not entity.state:
+                continue
             x, y = entity.transform.position
 
             entity.transform.last_position = (x, y)
-            if entity.state == State.move:
+            if entity.state.state == State.move:
                 if entity.move.direction == MoveDirection.UP:
                     y -= entity.move.speed
                 if entity.move.direction == MoveDirection.DOWN:

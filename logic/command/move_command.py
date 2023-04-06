@@ -17,6 +17,7 @@ class MoveCmd(Command):
             return
         if MoveDirection.UP <= self.direction <= MoveDirection.RIGHT:
             entity.state.state = State.move
+            entity.move.direction = self.direction
             if entity.model:
                 entity.model.model_index = self.direction
         else:
