@@ -1,8 +1,8 @@
 from common.logger import logger
-from logic.system.system import System
+from logic.interface.system import System
 from logic.context import Context
-from logic.entity.state import EntityState
-from logic.command.move_command import UP, DOWN, LEFT, RIGHT
+from logic.component.state_component import State
+from logic.component.move_component import MoveDirection
 from logic.event.event import EntityCreateEvent
 
 
@@ -13,30 +13,29 @@ class MoveSystem(System):
         self.context.register_event("EntityCreateEvent", self.on_entity_create)
 
     async def update(self):
-        logger.debug("MoveSystem Update")
         entities = self.context.get_entities()
         for entity in entities:
             if not entity.transform or not entity.move or entity.move.speed <= 0:
                 continue
-            x, y = entity.transform.position.to_tuple()
+            if not entity.state:
+                continue
+            x, y = entity.transform.position
 
-            entity.transform.last_position.x = x
-            entity.transform.last_position.y = y
-            if entity.state == EntityState.move:
-                if entity.mod_index == UP:
+            entity.transform.last_position = (x, y)
+            if entity.state.state == State.move:
+                if entity.move.direction == MoveDirection.UP:
                     y -= entity.move.speed
-                if entity.mod_index == DOWN:
+                if entity.move.direction == MoveDirection.DOWN:
                     y += entity.move.speed
-                if entity.mod_index == LEFT:
+                if entity.move.direction == MoveDirection.LEFT:
                     x -= entity.move.speed
-                if entity.mod_index == RIGHT:
+                if entity.move.direction == MoveDirection.RIGHT:
                     x += entity.move.speed
 
-            entity.transform.position.x = x
-            entity.transform.position.y = y
-            if entity.create.mod_name != "bullet":
-                entity.transform.position.x = min(max(x, 0), self.context.edge_size[0] - 60)
-                entity.transform.position.y = min(max(0, y), self.context.edge_size[1] - 60)
+            if entity.box_collider:
+                x = min(max(x, 0), self.context.edge_size[0] - entity.box_collider.width)
+                y = min(max(y, 0), self.context.edge_size[1] - entity.box_collider.height)
+            entity.transform.position = (x, y)
 
     def on_entity_create(self, event: EntityCreateEvent):
         logger.debug(f"MoveListenEvent {event.uid} created.")

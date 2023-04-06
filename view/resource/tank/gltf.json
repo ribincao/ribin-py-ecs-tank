@@ -1,227 +1,990 @@
 [
     {
-        "mod_id": 0,
-        "mod_name": "audios",
+        "model_id": 0,
+        "model_name": "audios",
         "models": [
-            "./view/resource/tank/audios/Gunfire.wav",
-            "./view/resource/tank/audios/add.wav",
-            "./view/resource/tank/audios/bang.wav",
-            "./view/resource/tank/audios/blast.wav",
-            "./view/resource/tank/audios/fire.wav",
-            "./view/resource/tank/audios/hit.wav",
-            "./view/resource/tank/audios/start.wav"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/audios/Gunfire.wav",
+                "size": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/audios/add.wav",
+                "size": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/audios/bang.wav",
+                "size": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/audios/blast.wav",
+                "size": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "index": 4,
+                "model": "./view/resource/tank/audios/fire.wav",
+                "size": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "index": 5,
+                "model": "./view/resource/tank/audios/hit.wav",
+                "size": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "index": 6,
+                "model": "./view/resource/tank/audios/start.wav",
+                "size": [
+                    0,
+                    0
+                ]
+            }
         ]
     },
     {
-        "mod_id": 1,
-        "mod_name": "wall",
+        "model_id": 1,
+        "model_name": "wall",
         "models": [
-            "./view/resource/tank/image/wall/grass.gif",
-            "./view/resource/tank/image/wall/steel.gif",
-            "./view/resource/tank/image/wall/steel1.gif",
-            "./view/resource/tank/image/wall/steel2.gif",
-            "./view/resource/tank/image/wall/steels.gif",
-            "./view/resource/tank/image/wall/wall.gif",
-            "./view/resource/tank/image/wall/walls.gif",
-            "./view/resource/tank/image/wall/water.gif"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/wall/grass.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/wall/steel.gif",
+                "size": [
+                    30,
+                    30
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/wall/steel1.gif",
+                "size": [
+                    30,
+                    60
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/wall/steel2.gif",
+                "size": [
+                    60,
+                    30
+                ]
+            },
+            {
+                "index": 4,
+                "model": "./view/resource/tank/image/wall/steels.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 5,
+                "model": "./view/resource/tank/image/wall/wall.gif",
+                "size": [
+                    15,
+                    15
+                ]
+            },
+            {
+                "index": 6,
+                "model": "./view/resource/tank/image/wall/walls.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 7,
+                "model": "./view/resource/tank/image/wall/water.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            }
         ]
     },
     {
-        "mod_id": 2,
-        "mod_name": "blask",
+        "model_id": 2,
+        "model_name": "blask",
         "models": [
-            "./view/resource/tank/image/blask/blast1.gif",
-            "./view/resource/tank/image/blask/blast2.gif",
-            "./view/resource/tank/image/blask/blast3.gif",
-            "./view/resource/tank/image/blask/blast4.gif",
-            "./view/resource/tank/image/blask/blast5.gif",
-            "./view/resource/tank/image/blask/blast6.gif",
-            "./view/resource/tank/image/blask/blast7.gif",
-            "./view/resource/tank/image/blask/blast8.gif"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/blask/blast1.gif",
+                "size": [
+                    136,
+                    107
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/blask/blast2.gif",
+                "size": [
+                    136,
+                    107
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/blask/blast3.gif",
+                "size": [
+                    136,
+                    107
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/blask/blast4.gif",
+                "size": [
+                    136,
+                    107
+                ]
+            },
+            {
+                "index": 4,
+                "model": "./view/resource/tank/image/blask/blast5.gif",
+                "size": [
+                    136,
+                    107
+                ]
+            },
+            {
+                "index": 5,
+                "model": "./view/resource/tank/image/blask/blast6.gif",
+                "size": [
+                    136,
+                    107
+                ]
+            },
+            {
+                "index": 6,
+                "model": "./view/resource/tank/image/blask/blast7.gif",
+                "size": [
+                    136,
+                    107
+                ]
+            },
+            {
+                "index": 7,
+                "model": "./view/resource/tank/image/blask/blast8.gif",
+                "size": [
+                    136,
+                    107
+                ]
+            }
         ]
     },
     {
-        "mod_id": 3,
-        "mod_name": "symbol",
+        "model_id": 3,
+        "model_name": "symbol",
         "models": [
-            "./view/resource/tank/image/symbol/destory.gif",
-            "./view/resource/tank/image/symbol/symbol.gif"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/symbol/destory.gif",
+                "size": [
+                    60,
+                    45
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/symbol/symbol.gif",
+                "size": [
+                    60,
+                    45
+                ]
+            }
         ]
     },
     {
-        "mod_id": 4,
-        "mod_name": "game",
+        "model_id": 4,
+        "model_name": "game",
         "models": [
-            "./view/resource/tank/image/game/appear.png",
-            "./view/resource/tank/image/game/background.png",
-            "./view/resource/tank/image/game/boom_dynamic.png",
-            "./view/resource/tank/image/game/boom_static.png",
-            "./view/resource/tank/image/game/gamebar.png",
-            "./view/resource/tank/image/game/gameover.png",
-            "./view/resource/tank/image/game/logo.png",
-            "./view/resource/tank/image/game/mask.png",
-            "./view/resource/tank/image/game/protect.png",
-            "./view/resource/tank/image/game/tip.png"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/game/appear.png",
+                "size": [
+                    144,
+                    48
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/game/background.png",
+                "size": [
+                    630,
+                    630
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/game/boom_dynamic.png",
+                "size": [
+                    576,
+                    96
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/game/boom_static.png",
+                "size": [
+                    48,
+                    48
+                ]
+            },
+            {
+                "index": 4,
+                "model": "./view/resource/tank/image/game/gamebar.png",
+                "size": [
+                    480,
+                    48
+                ]
+            },
+            {
+                "index": 5,
+                "model": "./view/resource/tank/image/game/gameover.png",
+                "size": [
+                    64,
+                    32
+                ]
+            },
+            {
+                "index": 6,
+                "model": "./view/resource/tank/image/game/logo.png",
+                "size": [
+                    892,
+                    140
+                ]
+            },
+            {
+                "index": 7,
+                "model": "./view/resource/tank/image/game/mask.png",
+                "size": [
+                    312,
+                    156
+                ]
+            },
+            {
+                "index": 8,
+                "model": "./view/resource/tank/image/game/protect.png",
+                "size": [
+                    96,
+                    48
+                ]
+            },
+            {
+                "index": 9,
+                "model": "./view/resource/tank/image/game/tip.png",
+                "size": [
+                    312,
+                    156
+                ]
+            }
         ]
     },
     {
-        "mod_id": 5,
-        "mod_name": "enemy7",
+        "model_id": 5,
+        "model_name": "enemy7",
         "models": [
-            "./view/resource/tank/image/enemy/enemy7/enemy7D.gif",
-            "./view/resource/tank/image/enemy/enemy7/enemy7L.gif",
-            "./view/resource/tank/image/enemy/enemy7/enemy7R.gif",
-            "./view/resource/tank/image/enemy/enemy7/enemy7U.gif"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/enemy/enemy7/enemy7D.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/enemy/enemy7/enemy7L.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/enemy/enemy7/enemy7R.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/enemy/enemy7/enemy7U.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            }
         ]
     },
     {
-        "mod_id": 6,
-        "mod_name": "enemy6",
+        "model_id": 6,
+        "model_name": "enemy6",
         "models": [
-            "./view/resource/tank/image/enemy/enemy6/enemy6D.gif",
-            "./view/resource/tank/image/enemy/enemy6/enemy6L.gif",
-            "./view/resource/tank/image/enemy/enemy6/enemy6R.gif",
-            "./view/resource/tank/image/enemy/enemy6/enemy6U.gif"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/enemy/enemy6/enemy6D.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/enemy/enemy6/enemy6L.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/enemy/enemy6/enemy6R.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/enemy/enemy6/enemy6U.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            }
         ]
     },
     {
-        "mod_id": 7,
-        "mod_name": "enemyTank",
+        "model_id": 7,
+        "model_name": "enemyTank",
         "models": [
-            "./view/resource/tank/image/enemy/enemyTank/enemy_1_0.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_1_1.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_1_2.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_1_3.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_2_0.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_2_1.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_2_2.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_2_3.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_3_0.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_3_1.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_3_2.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_3_3.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_4_0.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_4_1.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_4_2.png",
-            "./view/resource/tank/image/enemy/enemyTank/enemy_4_3.png"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_1_0.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_1_1.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_1_2.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_1_3.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 4,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_2_0.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 5,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_2_1.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 6,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_2_2.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 7,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_2_3.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 8,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_3_0.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 9,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_3_1.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 10,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_3_2.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 11,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_3_3.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 12,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_4_0.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 13,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_4_1.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 14,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_4_2.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 15,
+                "model": "./view/resource/tank/image/enemy/enemyTank/enemy_4_3.png",
+                "size": [
+                    96,
+                    192
+                ]
+            }
         ]
     },
     {
-        "mod_id": 8,
-        "mod_name": "enemy3",
+        "model_id": 8,
+        "model_name": "enemy3",
         "models": [
-            "./view/resource/tank/image/enemy/enemy3/enemy3D.gif",
-            "./view/resource/tank/image/enemy/enemy3/enemy3L.gif",
-            "./view/resource/tank/image/enemy/enemy3/enemy3R.gif",
-            "./view/resource/tank/image/enemy/enemy3/enemy3U.gif"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/enemy/enemy3/enemy3D.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/enemy/enemy3/enemy3L.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/enemy/enemy3/enemy3R.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/enemy/enemy3/enemy3U.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            }
         ]
     },
     {
-        "mod_id": 9,
-        "mod_name": "enemy4",
+        "model_id": 9,
+        "model_name": "enemy4",
         "models": [
-            "./view/resource/tank/image/enemy/enemy4/enemy4D.gif",
-            "./view/resource/tank/image/enemy/enemy4/enemy4L.gif",
-            "./view/resource/tank/image/enemy/enemy4/enemy4R.gif",
-            "./view/resource/tank/image/enemy/enemy4/enemy4U.gif"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/enemy/enemy4/enemy4D.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/enemy/enemy4/enemy4L.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/enemy/enemy4/enemy4R.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/enemy/enemy4/enemy4U.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            }
         ]
     },
     {
-        "mod_id": 10,
-        "mod_name": "enemy5",
+        "model_id": 10,
+        "model_name": "enemy5",
         "models": [
-            "./view/resource/tank/image/enemy/enemy5/enemy5D.gif",
-            "./view/resource/tank/image/enemy/enemy5/enemy5L.gif",
-            "./view/resource/tank/image/enemy/enemy5/enemy5R.gif",
-            "./view/resource/tank/image/enemy/enemy5/enemy5U.gif"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/enemy/enemy5/enemy5D.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/enemy/enemy5/enemy5L.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/enemy/enemy5/enemy5R.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/enemy/enemy5/enemy5U.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            }
         ]
     },
     {
-        "mod_id": 11,
-        "mod_name": "enemy2",
+        "model_id": 11,
+        "model_name": "enemy2",
         "models": [
-            "./view/resource/tank/image/enemy/enemy2/enemy2D.gif",
-            "./view/resource/tank/image/enemy/enemy2/enemy2L.gif",
-            "./view/resource/tank/image/enemy/enemy2/enemy2R.gif",
-            "./view/resource/tank/image/enemy/enemy2/enemy2U.gif"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/enemy/enemy2/enemy2D.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/enemy/enemy2/enemy2L.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/enemy/enemy2/enemy2R.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/enemy/enemy2/enemy2U.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            }
         ]
     },
     {
-        "mod_id": 12,
-        "mod_name": "born",
+        "model_id": 12,
+        "model_name": "born",
         "models": [
-            "./view/resource/tank/image/born/born1.gif",
-            "./view/resource/tank/image/born/born2.gif",
-            "./view/resource/tank/image/born/born3.gif",
-            "./view/resource/tank/image/born/born4.gif"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/born/born1.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/born/born2.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/born/born3.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/born/born4.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            }
         ]
     },
     {
-        "mod_id": 13,
-        "mod_name": "item",
+        "model_id": 13,
+        "model_name": "item",
         "models": [
-            "./view/resource/tank/image/item/food_boom.png",
-            "./view/resource/tank/image/item/food_clock.png",
-            "./view/resource/tank/image/item/food_gun.png",
-            "./view/resource/tank/image/item/food_iron.png",
-            "./view/resource/tank/image/item/food_protect.png",
-            "./view/resource/tank/image/item/food_star.png",
-            "./view/resource/tank/image/item/food_tank.png"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/item/food_boom.png",
+                "size": [
+                    32,
+                    32
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/item/food_clock.png",
+                "size": [
+                    32,
+                    32
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/item/food_gun.png",
+                "size": [
+                    32,
+                    32
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/item/food_iron.png",
+                "size": [
+                    32,
+                    32
+                ]
+            },
+            {
+                "index": 4,
+                "model": "./view/resource/tank/image/item/food_protect.png",
+                "size": [
+                    32,
+                    32
+                ]
+            },
+            {
+                "index": 5,
+                "model": "./view/resource/tank/image/item/food_star.png",
+                "size": [
+                    32,
+                    32
+                ]
+            },
+            {
+                "index": 6,
+                "model": "./view/resource/tank/image/item/food_tank.png",
+                "size": [
+                    32,
+                    32
+                ]
+            }
         ]
     },
     {
-        "mod_id": 14,
-        "mod_name": "bullet",
+        "model_id": 14,
+        "model_name": "bullet",
         "models": [
-            "./view/resource/tank/image/bullet/0_bullet.png",
-            "./view/resource/tank/image/bullet/1_bullet.png",
-            "./view/resource/tank/image/bullet/2_bullet.png",
-            "./view/resource/tank/image/bullet/3_bullet.png"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/bullet/0_bullet.png",
+                "size": [
+                    12,
+                    12
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/bullet/1_bullet.png",
+                "size": [
+                    12,
+                    12
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/bullet/2_bullet.png",
+                "size": [
+                    12,
+                    12
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/bullet/3_bullet.png",
+                "size": [
+                    12,
+                    12
+                ]
+            }
         ]
     },
     {
-        "mod_id": 15,
-        "mod_name": "scene",
+        "model_id": 15,
+        "model_name": "scene",
         "models": [
-            "./view/resource/tank/image/scene/brick.png",
-            "./view/resource/tank/image/scene/ice.png",
-            "./view/resource/tank/image/scene/iron.png",
-            "./view/resource/tank/image/scene/river1.png",
-            "./view/resource/tank/image/scene/river2.png",
-            "./view/resource/tank/image/scene/tree.png"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/scene/brick.png",
+                "size": [
+                    24,
+                    24
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/scene/ice.png",
+                "size": [
+                    12,
+                    12
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/scene/iron.png",
+                "size": [
+                    24,
+                    24
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/scene/river1.png",
+                "size": [
+                    12,
+                    12
+                ]
+            },
+            {
+                "index": 4,
+                "model": "./view/resource/tank/image/scene/river2.png",
+                "size": [
+                    12,
+                    12
+                ]
+            },
+            {
+                "index": 5,
+                "model": "./view/resource/tank/image/scene/tree.png",
+                "size": [
+                    12,
+                    12
+                ]
+            }
         ]
     },
     {
-        "mod_id": 16,
-        "mod_name": "player1",
+        "model_id": 16,
+        "model_name": "player1",
         "models": [
-            "./view/resource/tank/image/player/player1/1_p1tankW.gif",
-            "./view/resource/tank/image/player/player1/2_p1tankS.gif",
-            "./view/resource/tank/image/player/player1/3_p1tankA.gif",
-            "./view/resource/tank/image/player/player1/4_p1tabkD.gif",
-            "./view/resource/tank/image/player/player1/tank_T1_0.png",
-            "./view/resource/tank/image/player/player1/tank_T1_1.png",
-            "./view/resource/tank/image/player/player1/tank_T1_2.png"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/player/player1/1_p1tankW.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/player/player1/2_p1tankS.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/player/player1/3_p1tankA.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/player/player1/4_p1tabkD.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 4,
+                "model": "./view/resource/tank/image/player/player1/tank_T1_0.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 5,
+                "model": "./view/resource/tank/image/player/player1/tank_T1_1.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 6,
+                "model": "./view/resource/tank/image/player/player1/tank_T1_2.png",
+                "size": [
+                    96,
+                    192
+                ]
+            }
         ]
     },
     {
-        "mod_id": 17,
-        "mod_name": "player2",
+        "model_id": 17,
+        "model_name": "player2",
         "models": [
-            "./view/resource/tank/image/player/player2/1_p2tankW.gif",
-            "./view/resource/tank/image/player/player2/2_p2tankS.gif",
-            "./view/resource/tank/image/player/player2/3_p2tankA.gif",
-            "./view/resource/tank/image/player/player2/4_p2tankD.gif",
-            "./view/resource/tank/image/player/player2/tank_T2_0.png",
-            "./view/resource/tank/image/player/player2/tank_T2_1.png",
-            "./view/resource/tank/image/player/player2/tank_T2_2.png"
-        ]
-    },
-    {
-        "mod_id": 18,
-        "mod_name": "map",
-        "models": [
-            "./view/resource/tank/map/tank.webp"
+            {
+                "index": 0,
+                "model": "./view/resource/tank/image/player/player2/1_p2tankW.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 1,
+                "model": "./view/resource/tank/image/player/player2/2_p2tankS.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 2,
+                "model": "./view/resource/tank/image/player/player2/3_p2tankA.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 3,
+                "model": "./view/resource/tank/image/player/player2/4_p2tankD.gif",
+                "size": [
+                    60,
+                    60
+                ]
+            },
+            {
+                "index": 4,
+                "model": "./view/resource/tank/image/player/player2/tank_T2_0.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 5,
+                "model": "./view/resource/tank/image/player/player2/tank_T2_1.png",
+                "size": [
+                    96,
+                    192
+                ]
+            },
+            {
+                "index": 6,
+                "model": "./view/resource/tank/image/player/player2/tank_T2_2.png",
+                "size": [
+                    96,
+                    192
+                ]
+            }
         ]
     }
 ]

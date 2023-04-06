@@ -1,10 +1,8 @@
-from render.window import Window
+from window.interface.window import Window
 import asyncio
 import pygame
 from typing import Optional
-from view.view import View
-from common.logger import logger
-from net.tcp import Tcp
+from view.interface.view import View
 
 
 class PyGameWindow(Window):
@@ -22,8 +20,9 @@ class PyGameWindow(Window):
             await self.listen_event()
 
             for behavior in self.view.get_behaviors():
-                logger.debug(f"window update behavior {behavior.entity.create.mod_name}")
                 if not behavior.models:
+                    continue
+                if not behavior.mode or not behavior.rect:
                     continue
                 self.window.blit(behavior.mode, behavior.rect)
 

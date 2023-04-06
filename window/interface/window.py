@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from view.view import View
+from view.interface.view import View
 
 
 class Window(object):

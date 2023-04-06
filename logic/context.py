@@ -1,5 +1,5 @@
 from logic.entity.entity import GameLogicEntity
-from logic.command.command import Command
+from logic.interface.command import Command
 from typing import List, Dict, Callable, Tuple
 import json
 from logic.event.event import EventDispatch, IEvent, EntityCreateEvent
@@ -13,27 +13,26 @@ class Context(object):
         self.commands: List[Command] = []
         self.messages: List[Command] = []
         self.event_dispatch: EventDispatch = EventDispatch()
-        self.edge_size: Tuple[float, float] = (780, 780)
         
         self.is_connected: bool = False
         self.edge_size: Tuple[float, float] = (780, 780)
 
-    def create_entity(self) -> GameLogicEntity:
-        entity = GameLogicEntity(self.uid_cnt)
+    def create_entity(self, is_async: bool = True) -> GameLogicEntity:
+        entity = GameLogicEntity(self.uid_cnt, is_async)
         self.entities[self.uid_cnt] = entity
         self.dispatch_event(EntityCreateEvent(self.uid_cnt))
 
         self.uid_cnt += 1
         return entity
     
-    def get_entity(self, uid: int) -> GameLogicEntity:
+    def get_entity(self, uid: int, is_async: bool = True) -> GameLogicEntity:
         entity = self.entities.get(uid, None)
         if not entity:
-            entity = self.create_entity()
+            entity = self.create_entity(is_async)
             entity.uid = uid
         return entity
 
-    def remove_entity(self, uid: int):
+    def destroy_entity(self, uid: int):
         if uid not in self.entities:
             return
         del self.entities[uid]
@@ -62,15 +61,14 @@ class Context(object):
         d = json.loads(s)
         if not d:
             return
-        for _, info in d.items():
-            uid = info.get("uid", -1)
+        for s_uid, info in d.items():
+            uid = int(s_uid)
             if uid < 0:
                 continue
             entity = self.get_entity(uid)
-            entity = self.entities[uid]
-            entity.refresh(info)
+            entity.update(info)
             if uid > self.uid_cnt:
-                self.uid_cnt = uid + 1  #  确保客户端和服务端uid尽可能一致
+                self.uid_cnt = uid + 1  # 确保客户端和服务端uid尽可能一致
 
     def dispatch_event(self, event: IEvent):
         self.event_dispatch.dispatch_event(event)

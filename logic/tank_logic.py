@@ -1,8 +1,7 @@
-from logic.logic import Logic
+from logic.interface.logic import Logic
 from logic.context import Context
 from common.data_util import data_util
 from common.logger import logger
-from common.common import Vector2
 from logic.command.create_command import CreateCmd
 
 
@@ -15,26 +14,31 @@ class TankLogic(Logic):
         from logic.system.move_system import MoveSystem
         from logic.system.command_system import CommandSystem
         from logic.system.collider_system import ColliderSystem
-        from logic.system.gc_system import GCSystem
+        from logic.system.destroy_system import DestroySystem
         from logic.system.enemy_system import EnemySystem
+        from logic.system.create_system import CreateSystem
         
+        self.register_system(CreateSystem(self.context))
         self.register_system(EnemySystem(self.context))
         self.register_system(MoveSystem(self.context))
         self.register_system(CommandSystem(self.context))
         self.register_system(ColliderSystem(self.context))
-        self.register_system(GCSystem(self.context))
+        self.register_system(DestroySystem(self.context))
 
+        self.load_map(f"./view/scene/{self.gid}.json")
+
+    def load_map(self, path: str):
         # 场景重建
-        map = data_util.load_from_json('./view/scene/tank.json')
+        scene = data_util.load_from_json(path)
         logger.debug(f"logic_load_map {map}")
-        if not map:
+        if not scene:
             return
-        items = map.get("items", [])
-        self.context.edge_size = map.get("window_size", [780, 780])
+        items = scene.get("items", [])
+        self.context.edge_size = scene.get("window_size", [780, 780])
         for item in items:
             entity = self.context.create_entity()
             cmd = CreateCmd(entity.uid)
-            cmd.__dict__.update(item)
+            cmd.node_data = item
             self. context.input_command(cmd)
         logger.info(f"{self.context.uid_cnt} entity created.")
         

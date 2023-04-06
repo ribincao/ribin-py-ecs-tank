@@ -4,7 +4,7 @@ from common.logger import logger
 from net.buffer import Buffer
 from net.codec import Codec
 from logic.context import Context
-from logic.command.command_factory import cmd_factory
+from logic.manager.command_manager import command_manager
 import time
 
 
@@ -30,7 +30,7 @@ class Connection(object):
     def close(self):
         self.writer.close()
         self._is_close = True
-        self.context.remove_entity(self.uid)
+        self.context.destroy_entity(self.uid)
         logger.debug(f"{self.uid} close connection.")
 
     async def handle_message(self):
@@ -40,7 +40,7 @@ class Connection(object):
                 if not data:
                     break
                 message = self.codec.decode(data)
-                cmd = cmd_factory.create_cmd(message)
+                cmd = command_manager.create_cmd(message)
                 logger.debug(f"server receive_cmd {cmd.__dict__}")
                 if cmd:
                     self.context.input_command(cmd)
@@ -48,6 +48,7 @@ class Connection(object):
                     self.update_active_time()
             self.close()
         except Exception as error:
+            logger.error(f"handle_message_error: {error}")
             self.close()
 
     async def export_world(self):
@@ -61,6 +62,7 @@ class Connection(object):
                 await asyncio.sleep(self.SNAP_RATE)
             self.close()
         except Exception as error:
+            logger.error(f"export_world_error: {error}")
             self.close()
 
     async def import_world(self):
@@ -78,6 +80,7 @@ class Connection(object):
                 self.update_active_time()
             self.close()
         except Exception as error:
+            logger.error(f"import_world_error: {error}")
             self.close()
 
     async def receive_message(self) -> Optional[bytes]:
@@ -105,7 +108,7 @@ class Connection(object):
                     logger.info(f"client send_command {message}")
                     await self.send_message(message)
             except Exception as e:
-                logger.error(f"Error: {e}")
+                logger.error(f"connect_error: {e}")
                 self.close()
             await asyncio.sleep(self.NET_RATE)
 
