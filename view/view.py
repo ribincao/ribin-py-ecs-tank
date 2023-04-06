@@ -10,8 +10,6 @@ class View(object):
     def __init__(self, context: Context):
         self.behaviors: Dict[int, PyGameBehavior] = {}
         self.context: Context = context
-        self.scenes: Dict[int, object] = {}
-        self.scene_id: int = 0  # 场景id, 不同关卡
         self.back_ground = (0, 0, 0)
         self.window_size: Tuple[float, float] = (1024, 960)
 
