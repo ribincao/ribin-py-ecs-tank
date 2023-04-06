@@ -2,7 +2,6 @@ from logic.entity.entity import GameLogicEntity
 from pygame import Surface, Rect
 from typing import Dict, List, Tuple, Optional
 from abc import abstractmethod
-from common.logger import logger
 
 
 class Behavior(object):
@@ -34,7 +33,6 @@ class PyGameBehavior(Behavior):
         super(PyGameBehavior, self).__init__(entity)
         self.models: Dict[int, Surface] = {}
 
-    @abstractmethod
     def init_models(self, module: str, mod_name: str):
         from view.resource.gltf import GLTF
         import pygame.image as img
@@ -74,5 +72,6 @@ class PyGameBehavior(Behavior):
     def get_bullet_position(self) -> Tuple[float, float]:
         return 0.0, 0.0
 
+    @abstractmethod
     async def update(self):
         pass

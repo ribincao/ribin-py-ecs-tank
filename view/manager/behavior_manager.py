@@ -31,5 +31,5 @@ class BehaviorManager(Singleton):
 
         return TankBehavior(entity)
 
-behavior_manager = BehaviorManager()
 
+behavior_manager = BehaviorManager()

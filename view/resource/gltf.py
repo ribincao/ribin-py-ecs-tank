@@ -60,6 +60,7 @@ class GLTF(object):
                 return data.get('models', [])
             return []
 
+
 if __name__ == '__main__':
     gltf = GLTF()
     gltf.export('tank')

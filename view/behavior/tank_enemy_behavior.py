@@ -1,4 +1,4 @@
-from view.view import PyGameBehavior
+from view.interface.view import PyGameBehavior
 from logic.entity.entity import GameLogicEntity
 
 

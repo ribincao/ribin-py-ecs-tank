@@ -1,8 +1,8 @@
-from window.window import Window
+from window.interface.window import Window
 import asyncio
 import pygame
 from typing import Optional
-from view.view import View
+from view.interface.view import View
 
 
 class PyGameWindow(Window):

@@ -48,6 +48,7 @@ class Connection(object):
                     self.update_active_time()
             self.close()
         except Exception as error:
+            logger.error(f"handle_message_error: {error}")
             self.close()
 
     async def export_world(self):
@@ -61,6 +62,7 @@ class Connection(object):
                 await asyncio.sleep(self.SNAP_RATE)
             self.close()
         except Exception as error:
+            logger.error(f"export_world_error: {error}")
             self.close()
 
     async def import_world(self):
@@ -78,6 +80,7 @@ class Connection(object):
                 self.update_active_time()
             self.close()
         except Exception as error:
+            logger.error(f"import_world_error: {error}")
             self.close()
 
     async def receive_message(self) -> Optional[bytes]:
@@ -105,7 +108,7 @@ class Connection(object):
                     logger.info(f"client send_command {message}")
                     await self.send_message(message)
             except Exception as e:
-                logger.error(f"Error: {e}")
+                logger.error(f"connect_error: {e}")
                 self.close()
             await asyncio.sleep(self.NET_RATE)
 

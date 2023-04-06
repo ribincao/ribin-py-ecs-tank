@@ -68,7 +68,7 @@ class Context(object):
             entity = self.get_entity(uid)
             entity.update(info)
             if uid > self.uid_cnt:
-                self.uid_cnt = uid + 1  #  确保客户端和服务端uid尽可能一致
+                self.uid_cnt = uid + 1  # 确保客户端和服务端uid尽可能一致
 
     def dispatch_event(self, event: IEvent):
         self.event_dispatch.dispatch_event(event)

@@ -1,5 +1,4 @@
 import signal
-from typing import Tuple
 
 
 def signal_handler():

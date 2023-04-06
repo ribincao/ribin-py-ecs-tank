@@ -202,7 +202,6 @@ class Test(object):
         items.append(self.get_tank_item("glass", [720, 540]))
         return items
 
-
     def export_map(self, module: str):
         data = {}
         data["scene_id"] = 0

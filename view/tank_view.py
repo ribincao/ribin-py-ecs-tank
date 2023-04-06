@@ -1,8 +1,7 @@
-from view.view import View
+from view.interface.view import View
 from logic.context import Context
 from common.logger import logger
 from logic.entity.entity import GameLogicEntity
-from view.behavior.tank_behavior import TankBehavior
 from common.data_util import data_util
 import asyncio
 from logic.component.move_component import MoveDirection
