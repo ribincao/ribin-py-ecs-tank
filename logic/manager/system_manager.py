@@ -1,9 +1,8 @@
-from common.singleton import Singleton
 from logic.interface.system import System
 from typing import Dict
 
 
-class SystemManager(Singleton):
+class SystemManager(object):
 
     def __init__(self):
         self._systems: Dict[str, System] = {}
@@ -15,6 +14,4 @@ class SystemManager(Singleton):
     def get_system(self) -> Dict[str, System]:
         return self._systems
 
-
-system_manager = SystemManager()
 
