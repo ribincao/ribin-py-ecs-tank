@@ -1,3 +1,4 @@
+from logic.interface.component import Component
 from logic.component.create_component import CreateComponent
 from logic.component.transform_component import TransformComponent
 from logic.component.move_component import MoveComponent
@@ -7,12 +8,14 @@ from logic.component.state_component import StateComponent
 from logic.component.model_component import ModelComponent
 from logic.component.player_component import PlayerComponent
 from typing import Optional, Tuple
+from logic.manager.component_manager import component_manager
 
 
 class GameLogicEntity(object):
 
-    def __init__(self, uid: int):
+    def __init__(self, uid: int, is_async: bool = True):
         self.uid: int = uid
+        self.is_async: bool = is_async
 
         self.transform: Optional[TransformComponent] = None
         self.create: Optional[CreateComponent] = None
@@ -24,27 +27,24 @@ class GameLogicEntity(object):
         self.player: Optional[PlayerComponent] = None
 
     def export(self) -> dict:
-        if not self.create:
+        if not self.is_async:
             return {}
-        d = dict()
-        d["uid"] = self.uid
-        d["mod_index"] = self.mod_index
-        d["transform"] = {}
-        d["transform"]["position"] = self.transform.position.to_tuple()
-        d["create"] = {}
-        d["create"]["mod_name"] = self.create.mod_name
-        d["create"]["mod_type"] = self.create.mod_type
-        d["move"] = {}
-        d["move"]["speed"] = self.move.speed
+        if not self.create or not self.create.create_status:
+            return {}
+        d = {}
+        for k, v in self.__dict__.items():
+            if not v or not isinstance(v, Component):
+                continue
+            component = v.serialize()
+            d[k] = component
         return d
 
-    def refresh(self, info: dict):
-        self.transform.position.x = info["transform"]["position"][0]
-        self.transform.position.y = info["transform"]["position"][1]
-        self.create.mod_name = info["create"]["mod_name"]
-        self.create.mod_type = info["create"]["mod_type"]
-        self.move.speed = info["move"]["speed"]
-        self.mod_index = info.get("mod_index", 0)
+    def refresh(self, snap: dict):
+        for name, new_compnent in snap.items():
+            component = self.__dict__.get("name", None)
+            if not component:
+                component = component_manager.get_component(name)
+            component.__dict__.update(new_compnent)
 
     def add_transform(self, position: Tuple[float, float], is_async: bool = True):
         if not self.transform:
