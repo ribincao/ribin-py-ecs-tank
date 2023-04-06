@@ -65,7 +65,7 @@ class Test(object):
             item["box_collider"]["layer"] = 1
 
         item["transform"] = {}
-        item["transform"]["position"] = position
+        item["transform"]["position"] = [position[0] + 30, position[1] + 30]
         return item
             
     def get_tank_items(self):

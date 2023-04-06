@@ -64,9 +64,7 @@ class PyGameBehavior(Behavior):
     def rect(self) -> Optional[Rect]:
         if not self.mode:
             return None
-        rect = self.mode.get_rect()
-        x, y = self.entity.transform.position
-        rect.left, rect.top = int(x), int(y)
+        rect = self.mode.get_rect(center=self.entity.transform.position)
         return rect
 
     def get_bullet_position(self) -> Tuple[float, float]:

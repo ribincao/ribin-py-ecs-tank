@@ -25,6 +25,7 @@ class PyGameWindow(Window):
                 if not behavior.mode or not behavior.rect:
                     continue
                 self.window.blit(behavior.mode, behavior.rect)
+                pygame.draw.rect(self.window, (255, 0, 0), behavior.rect, 1)
 
             pygame.display.update()
             await asyncio.sleep(self.RENDER_RATE)
