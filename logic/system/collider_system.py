@@ -68,4 +68,4 @@ class ColliderSystem(System):
                         collider_direction = 4
 
                 if collider:
-                    logger.info(f"box collider detect {collider_direction}: {entityA.uid} -> {entityB.uid}")
+                    logger.debug(f"box collider detect {collider_direction}: {entityA.uid} -> {entityB.uid}")

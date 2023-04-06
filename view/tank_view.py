@@ -88,11 +88,11 @@ class TankView(View):
 
         elif operation == 'j' and self.player_uid > 0:
             tank = self.behaviors.get(self.player_uid)
-            if not tank or not tank.entity.model:
+            if not tank or not tank.entity.model or not tank.entity.move:
                 return
             entity = self.context.create_entity()
             node_data = {
-                    "move": {"speed": 5},
+                    "move": {"speed": 5, "direction": tank.entity.move.direction},
                     "model": {"model_name": "bullet", "model_index": tank.entity.model.model_index},
                     "box_collider": {"layer": 1, "width": 12, "height": 12},
                     "transform": {"position": tank.get_bullet_position()},

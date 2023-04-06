@@ -22,6 +22,6 @@ class CreateSystem(System):
                 entity.__dict__[name] = component
             entity.create.create_status = True
             self.entity_count += 1
-            logger.info(f"CreateSystem {self.entity_count}| {entity.uid} - {entity.__dict__}")
+            logger.debug(f"CreateSystem {self.entity_count}| {entity.uid} - {node_data}")
             
 

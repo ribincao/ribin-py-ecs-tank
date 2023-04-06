@@ -777,14 +777,6 @@
         "models": [
             {
                 "index": 0,
-                "model": "./view/resource/tank/image/bullet/.DS_Store",
-                "size": [
-                    0,
-                    0
-                ]
-            },
-            {
-                "index": 1,
                 "model": "./view/resource/tank/image/bullet/0_bullet.png",
                 "size": [
                     12,
@@ -792,7 +784,7 @@
                 ]
             },
             {
-                "index": 2,
+                "index": 1,
                 "model": "./view/resource/tank/image/bullet/1_bullet.png",
                 "size": [
                     12,
@@ -800,7 +792,7 @@
                 ]
             },
             {
-                "index": 3,
+                "index": 2,
                 "model": "./view/resource/tank/image/bullet/2_bullet.png",
                 "size": [
                     12,
@@ -808,7 +800,7 @@
                 ]
             },
             {
-                "index": 4,
+                "index": 3,
                 "model": "./view/resource/tank/image/bullet/3_bullet.png",
                 "size": [
                     12,
