@@ -1,9 +1,8 @@
-from common.logger import logger
 from logic.system.system import System
 from logic.context import Context
 from logic.entity.entity import GameLogicEntity
 from typing import List, Optional
-from common.common import Vector2
+from logic.component.transform_component import Vector2
 
 
 class EnemySystem(System):

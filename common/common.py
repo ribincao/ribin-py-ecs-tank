@@ -15,16 +15,3 @@ def signal_handler():
     signal.signal(signal.SIGSEGV, receive_signal)
 
 
-class Vector2(object):
-
-    def __init__(self, x: float, y: float):
-        self.x: float = x
-        self.y: float = y
-
-    @staticmethod
-    def zero():
-        return Vector2(0.0, 0.0)
-
-    def to_tuple(self) -> Tuple[float, float]:
-        return self.x, self.y
-

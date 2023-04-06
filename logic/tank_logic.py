@@ -2,7 +2,7 @@ from logic.logic import Logic
 from logic.context import Context
 from common.data_util import data_util
 from common.logger import logger
-from common.common import Vector2
+from logic.component.transform_component import Vector2
 from logic.command.create_command import CreateCmd
 
 

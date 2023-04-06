@@ -2,7 +2,7 @@ from logic.command.command import Command
 from logic.entity.entity import GameLogicEntity
 from common.logger import logger
 from typing import Tuple
-from common.common import Vector2
+from logic.component.transform_component import Vector2
 
 
 class CreateCmd(Command):

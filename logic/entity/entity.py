@@ -1,4 +1,3 @@
-from typing import Tuple
 from logic.component.create_component import CreateComponent
 from logic.component.transform_component import TransformComponent
 from logic.component.move_component import MoveComponent
@@ -6,7 +5,7 @@ from logic.component.rigibody_component import RigibodyComponent
 from logic.component.box_collider_component import BoxColliderComponent
 from typing import Optional
 from logic.entity.state import EntityState
-from common.common import Vector2
+from logic.component.transform_component import Vector2
 
 
 class GameLogicEntity(object):
