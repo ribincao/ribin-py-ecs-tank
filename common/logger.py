@@ -47,19 +47,28 @@ class Logger(Singleton):
             return msg
 
     def debug(self, msg: str):
-        self._logger.debug(self.format_msg(msg))
+        msg = self.format_msg(msg)
+        if self.log_mode == LOG_MODE_CONSOLE:
+            msg = f"\033[34m{msg}\033[0m"
+        self._logger.debug(msg)
 
     def info(self, msg: str):
-        self._logger.info(self.format_msg(msg))
+        msg = self.format_msg(msg)
+        if self.log_mode == LOG_MODE_CONSOLE:
+            msg = f"\033[32m{msg}\033[0m"
+        self._logger.info(msg)
 
     def warning(self, msg: str):
-        self._logger.warning(self.format_msg(msg))
+        msg = self.format_msg(msg)
+        if self.log_mode == LOG_MODE_CONSOLE:
+            msg = f"\033[33m{msg}\033[0m"
+        self._logger.warning(msg)
 
     def error(self, msg: str):
-        self._logger.error(self.format_msg(msg), stack_info=True)
-
-    def critical(self, msg: str):
-        self._logger.critical(self.format_msg(msg))
+        msg = self.format_msg(msg)
+        if self.log_mode == LOG_MODE_CONSOLE:
+            msg = f"\033[31m{msg}\033[0m"
+        self._logger.error(msg, stack_info=True)
 
 
 logger = Logger()
