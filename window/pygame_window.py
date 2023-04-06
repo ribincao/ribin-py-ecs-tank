@@ -22,6 +22,8 @@ class PyGameWindow(Window):
             for behavior in self.view.get_behaviors():
                 if not behavior.models:
                     continue
+                if not behavior.mode or not behavior.rect:
+                    continue
                 self.window.blit(behavior.mode, behavior.rect)
 
             pygame.display.update()

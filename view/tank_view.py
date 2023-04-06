@@ -10,6 +10,7 @@ from logic.manager.command_manager import command_manager
 from logic.interface.command import Command
 from typing import Optional, Tuple
 from logic.component.state_component import State
+from view.manager.behavior_manager import behavior_manager
 
 
 class TankView(View):
@@ -34,8 +35,7 @@ class TankView(View):
             await asyncio.sleep(self.VIEW_RATE)
 
     def create_behavior(self, entity: GameLogicEntity):
-        behavior = TankBehavior(entity)
-
+        behavior = behavior_manager.get_tank_behavior(entity)
         if entity.model:
             behavior.init_models(self.MODULE, entity.model.model_name)
         self.behaviors[entity.uid] = behavior
