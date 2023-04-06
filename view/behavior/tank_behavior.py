@@ -15,13 +15,13 @@ class TankBehavior(PyGameBehavior):
             return 0, 0
 
         if self.entity.model.model_index == MoveDirection.UP:
-            return position[0] + self.rect.width / 2 - 6, position[1]
+            return position[0], position[1] - self.rect.height / 2
         elif self.entity.model.model_index == MoveDirection.DOWN:
-            return position[0] + self.rect.width / 2 - 6, position[1] + self.rect.height
+            return position[0], position[1] + self.rect.height / 2
         elif self.entity.model.model_index == MoveDirection.LEFT:
-            return position[0], position[1] + self.rect.height / 2 - 6
+            return position[0] - self.rect.width / 2, position[1]
         elif self.entity.model.model_index == MoveDirection.RIGHT:
-            return position[0] + self.rect.width, position[1] + self.rect.height / 2 - 6  #  bullet_size: 12 x 12
+            return position[0] + self.rect.width / 2, position[1]
 
         return 0.0, 0.0
 

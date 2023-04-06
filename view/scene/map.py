@@ -33,39 +33,49 @@ class Test(object):
             item["model"]["model_index"] = 0
             item["box_collider"] = {}
             item["box_collider"]["layer"] = 2
+            item["transform"] = {}
+            item["transform"]["position"] = [position[0] + 30, position[1] + 30]
         elif name == "walls":
             item["model"] = {}
             item["model"]["model_name"] = "wall"
             item["model"]["model_index"] = 6
             item["box_collider"] = {}
             item["box_collider"]["layer"] = 1
+            item["transform"] = {}
+            item["transform"]["position"] = [position[0] + 30, position[1] + 30]
         elif name == "wall":
             item["model"] = {}
             item["model"]["model_name"] = "wall"
             item["model"]["model_index"] = 5
             item["box_collider"] = {}
             item["box_collider"]["layer"] = 1
+            item["transform"] = {}
+            item["transform"]["position"] = [position[0] + 7, position[1] + 7]
         elif name == "water":
             item["model"] = {}
             item["model"]["model_name"] = "wall"
             item["model"]["model_index"] = 7
             item["box_collider"] = {}
             item["box_collider"]["layer"] = 0
+            item["transform"] = {}
+            item["transform"]["position"] = [position[0] + 30, position[1] + 30]
         elif name == "steels":
             item["model"] = {}
             item["model"]["model_name"] = "wall"
             item["model"]["model_index"] = 4
             item["box_collider"] = {}
             item["box_collider"]["layer"] = 1
+            item["transform"] = {}
+            item["transform"]["position"] = [position[0] + 30, position[1] + 22]
         elif name == "symbol":
             item["model"] = {}
             item["model"]["model_name"] = "symbol"
             item["model"]["model_index"] = 1
             item["box_collider"] = {}
             item["box_collider"]["layer"] = 1
+            item["transform"] = {}
+            item["transform"]["position"] = [position[0] + 30, position[1] + 30]
 
-        item["transform"] = {}
-        item["transform"]["position"] = [position[0] + 30, position[1] + 30]
         return item
             
     def get_tank_items(self):

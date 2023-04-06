@@ -33,8 +33,8 @@ class MoveSystem(System):
                     x += entity.move.speed
 
             if entity.box_collider:
-                x = min(max(x, 0), self.context.edge_size[0] - entity.box_collider.width)
-                y = min(max(y, 0), self.context.edge_size[1] - entity.box_collider.height)
+                x = min(max(x, entity.box_collider.width / 2), self.context.edge_size[0] - entity.box_collider.width / 2)
+                y = min(max(y, entity.box_collider.height / 2), self.context.edge_size[1] - entity.box_collider.height / 2)
             entity.transform.position = (x, y)
 
     def on_entity_create(self, event: EntityCreateEvent):

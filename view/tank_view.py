@@ -69,7 +69,7 @@ class TankView(View):
                     "move": {"speed": 5},
                     "model": {"model_name": "player1"},
                     "box_collider": {"layer": 1, "width": 60, "height": 60},
-                    "transform": {"position": (295.0, 750.0)}
+                    "transform": {"position": (315.0, 750.0)}
             }
             cmd = command_manager.get_create_cmd(entity.uid, node_data)
             self.player_uid = entity.uid
