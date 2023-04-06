@@ -15,10 +15,14 @@ class TankLogic(Logic):
         from logic.system.move_system import MoveSystem
         from logic.system.command_system import CommandSystem
         from logic.system.collider_system import ColliderSystem
+        from logic.system.gc_system import GCSystem
+        from logic.system.enemy_system import EnemySystem
         
+        self.register_system(EnemySystem(self.context))
+        self.register_system(MoveSystem(self.context))
         self.register_system(CommandSystem(self.context))
         self.register_system(ColliderSystem(self.context))
-        self.register_system(MoveSystem(self.context))
+        self.register_system(GCSystem(self.context))
 
         # 场景重建
         map = data_util.load_from_json('./view/scene/tank.json')
@@ -27,6 +31,7 @@ class TankLogic(Logic):
             return
         self.context.edge_size = map.get("window_size", [780, 780])
         items = map.get("items", [])
+        self.context.edge_size = map.get("window_size", [780, 780])
         for item in items:
             entity = self.context.create_entity()
             cmd = CreateCmd(entity.uid)

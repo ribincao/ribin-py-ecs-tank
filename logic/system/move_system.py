@@ -21,40 +21,21 @@ class MoveSystem(System):
             x, y = entity.transform.position.to_tuple()
             if entity.state == EntityState.move:
                 if entity.mod_index == UP:
-                    if entity.box2d_collider and entity.box2d_collider.collider_direction[1] == -1:
-                        continue
                     y -= entity.move.speed
                 if entity.mod_index == DOWN:
-                    if entity.box2d_collider and entity.box2d_collider.collider_direction[1] == 1:
-                        continue
                     y += entity.move.speed
                 if entity.mod_index == LEFT:
-                    if entity.box2d_collider and entity.box2d_collider.collider_direction[0] == -1:
-                        continue
                     x -= entity.move.speed
                 if entity.mod_index == RIGHT:
-                    if entity.box2d_collider and entity.box2d_collider.collider_direction[0] == 1:
-                        continue
                     x += entity.move.speed
 
-            if entity.rigibody:
-                y += entity.rigibody.gravity
-
-            if entity.box2d_collider and  self.check_edge(x, y, entity.box2d_collider.width, entity.box2d_collider.height):
-                continue
 
             entity.transform.position.x = x
             entity.transform.position.y = y
+            if entity.create.mod_name != "bullet":
+                entity.transform.position.x = min(max(x, 0), self.context.edge_size[0] - 60)
+                entity.transform.position.y = min(max(0, y), self.context.edge_size[1] - 60)
 
     def on_entity_create(self, event: EntityCreateEvent):
         logger.debug(f"MoveListenEvent {event.uid} created.")
-
-    def check_edge(self, x: float, y: float, width: float, height: float) -> bool:
-        if x < 0 or y < 0:
-            return True
-
-        if x + width > self.context.edge_size[0] or y + height > self.context.edge_size[1]:
-            return True
-
-        return False
 

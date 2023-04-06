@@ -15,16 +15,16 @@ class CmdFactory(Singleton):
         class_name = d.get('__class__', '')
         if not class_name:
             return None
-        eid = d.get('eid', -1)
-        if eid < 0:
+        uid = d.get('uid', -1)
+        if uid < 0:
             return None
 
         cmd = None
         if class_name == 'MoveCmd':
-            cmd = MoveCmd(eid)
+            cmd = MoveCmd(uid)
             cmd.__dict__.update(d)
         if class_name == 'CreateCmd':
-            cmd = CreateCmd(eid)
+            cmd = CreateCmd(uid)
             cmd.__dict__.update(d)
         return cmd
 
