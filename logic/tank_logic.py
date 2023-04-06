@@ -26,7 +26,6 @@ class TankLogic(Logic):
         self.register_system(DestroySystem(self.context))
 
         self.load_map(f"./view/scene/{self.gid}.json")
-    
 
     def load_map(self, path: str):
         # 场景重建

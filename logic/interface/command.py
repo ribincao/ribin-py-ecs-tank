@@ -15,6 +15,6 @@ class Command(object):
 
     def encode(self):
         d = self.__dict__
-        d["name"] = self.__class__.__name__[:-7].lower()
+        d["name"] = self.__class__.__name__[:-3].lower()
         return json.dumps(d) 
 

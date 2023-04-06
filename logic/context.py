@@ -61,12 +61,11 @@ class Context(object):
         d = json.loads(s)
         if not d:
             return
-        for _, info in d.items():
-            uid = info.get("uid", -1)
+        for s_uid, info in d.items():
+            uid = int(s_uid)
             if uid < 0:
                 continue
             entity = self.get_entity(uid)
-            entity = self.entities[uid]
             entity.update(info)
             if uid > self.uid_cnt:
                 self.uid_cnt = uid + 1  #  确保客户端和服务端uid尽可能一致

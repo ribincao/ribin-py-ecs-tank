@@ -40,11 +40,12 @@ class GameLogicEntity(object):
         return d
 
     def update(self, snap: dict):
-        for name, new_compnent in snap.items():
-            component = self.__dict__.get("name", None)
+        for name, new_component in snap.items():
+            component = self.__dict__.get(name, None)
             if not component:
                 component = component_manager.get_component(name)
-            component.__dict__.update(new_compnent)
+            component.__dict__.update(new_component)
+            self.__dict__[name] = component
 
     def add_transform(self, position: Tuple[float, float], is_async: bool = True):
         if not self.transform:
