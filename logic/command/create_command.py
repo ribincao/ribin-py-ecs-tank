@@ -30,5 +30,5 @@ class CreateCmd(Command):
         if self.mod_name == 'bullet':
             self.box_collider = (12.0, 12.0)
         entity.add_box_collider(self.box_collider[0], self.box_collider[1])
-        logger.info(f"CreateCmd Execute {entity.uid} {self.__dict__}")
+        logger.debug(f"CreateCmd Execute {entity.uid} {self.__dict__}")
 

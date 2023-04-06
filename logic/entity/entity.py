@@ -50,6 +50,7 @@ class GameLogicEntity(object):
         if not self.transform:
             self.transform = TransformComponent()
         self.transform.position = new_position
+        self.transform.last_position = new_position
 
     def add_move(self, new_speed: float):
         if not self.move:

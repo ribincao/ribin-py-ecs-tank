@@ -19,6 +19,9 @@ class MoveSystem(System):
             if not entity.transform or not entity.move or entity.move.speed <= 0:
                 continue
             x, y = entity.transform.position.to_tuple()
+
+            entity.transform.last_position.x = x
+            entity.transform.last_position.y = y
             if entity.state == EntityState.move:
                 if entity.mod_index == UP:
                     y -= entity.move.speed
@@ -28,7 +31,6 @@ class MoveSystem(System):
                     x -= entity.move.speed
                 if entity.mod_index == RIGHT:
                     x += entity.move.speed
-
 
             entity.transform.position.x = x
             entity.transform.position.y = y

@@ -7,5 +7,7 @@ class TransformComponent(Component):
     def __init__(self):
         super(TransformComponent, self).__init__()
         self.position: Vector2 = Vector2.zero()
+        self.last_position: Vector2 = Vector2.zero()
+
 
 

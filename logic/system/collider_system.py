@@ -67,3 +67,7 @@ class ColliderSystem(System):
 
                 if collider:
                     logger.debug(f"box collider detect {entityA.create.mod_name} -> {entityB.create.mod_name}")
+                    if entityA.create.mod_name == 'bullet':
+                        self.context.remove_entity(entityA.uid)
+                    else:
+                        entityA.transform.position = entityA.transform.last_position
