@@ -63,23 +63,25 @@ class TankView(View):
 
         elif operation == 'n' and self.player_uid <= 0:
             entity = self.context.create_entity()
-            d = {
-                    "speed": 5,
-                    "mod_name": "player1",
-                    "layer": 1,
-                    "position": [285.0, 720.0]
+            node_data = {
+                    "state": {"state": State.normal},
+                    "move": {"speed": 5},
+                    "model": {"model_name": "player1"},
+                    "box_collider": {"layer": 1, "width": 60, "height": 60},
+                    "transform": {"position": (285.0, 720.0)}
             }
-            cmd = command_manager.get_create_cmd(entity.uid, d)
+            cmd = command_manager.get_create_cmd(entity.uid, node_data)
             self.player_uid = entity.uid
         elif operation == 'm' and self.player_uid <= 0:
             entity = self.context.create_entity()
-            d = {
-                    "speed": 5,
-                    "mod_name": "player2",
-                    "layer": 1,
-                    "position": [435.0, 720.0]
+            node_data = {
+                    "state": {"state": State.normal},
+                    "move": {"speed": 5},
+                    "model": {"model_name": "player2"},
+                    "box_collider": {"layer": 1, "width": 60, "height": 60},
+                    "transform": {"position": (435.0, 720.0)}
             }
-            cmd = command_manager.get_create_cmd(entity.uid, d)
+            cmd = command_manager.get_create_cmd(entity.uid, node_data)
             self.player_uid = entity.uid
 
         elif operation == 'j' and self.player_uid > 0:
@@ -87,15 +89,14 @@ class TankView(View):
             if not tank or not tank.entity.model:
                 return
             entity = self.context.create_entity()
-            d = {
-                    "mod_index": tank.entity.model.model_index,
-                    "state": State.move,
-                    "speed": 5,
-                    "mod_name": "bullet",
-                    "layer": 1,
-                    "position": tank.get_bullet_position()
+            node_data = {
+                    "move": {"speed": 5},
+                    "model": {"model_name": "bullet", "model_index": tank.entity.model.model_index},
+                    "box_collider": {"layer": 1, "width": 12, "height": 12},
+                    "transform": {"position": tank.get_bullet_position()},
+                    "state": {"state": State.move}
             }
-            cmd = command_manager.get_create_cmd(entity.uid, d)
+            cmd = command_manager.get_create_cmd(entity.uid, node_data)
 
         self.send_cmd(cmd)
         
