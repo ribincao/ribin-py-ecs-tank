@@ -42,7 +42,7 @@ class PyGameBehavior(Behavior):
         models = gltf.load_models(module, mod_name)
         self.models = {}
         for model in models:
-            model_id = model.get("model_id", -1)
+            model_id = model.get("index", -1)
             if model_id < 0:
                 continue
             path = model.get("model", "")
