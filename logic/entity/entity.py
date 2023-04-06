@@ -5,8 +5,8 @@ from logic.component.rigibody_component import RigibodyComponent
 from logic.component.box_collider_component import BoxColliderComponent
 from logic.component.state_component import StateComponent
 from logic.component.model_component import ModelComponent
-from typing import Optional
-from logic.entity.state import EntityState
+from logic.component.player_component import PlayerComponent
+from typing import Optional, Tuple
 from logic.component.transform_component import Vector2
 
 
@@ -22,6 +22,7 @@ class GameLogicEntity(object):
         self.box2d_collider: Optional[BoxColliderComponent] = None
         self.state: Optional[StateComponent] = None
         self.model: Optional[ModelComponent] = None
+        self.player: Optional[PlayerComponent] = None
 
     def export(self) -> dict:
         if not self.create:
@@ -46,25 +47,45 @@ class GameLogicEntity(object):
         self.move.speed = info["move"]["speed"]
         self.mod_index = info.get("mod_index", 0)
 
-    def add_transform(self, new_position: Vector2):
+    def add_transform(self, position: Vector2):
         if not self.transform:
             self.transform = TransformComponent()
-        self.transform.position = new_position
-        self.transform.last_position = new_position
+        self.transform.position = position
+        self.transform.last_position = position
 
-    def add_move(self, new_speed: float):
+    def add_move(self, speed: float, direction: int):
         if not self.move:
             self.move = MoveComponent()
-        self.move.speed = new_speed
+        self.move.speed = speed
+        self.move.direction = direction
 
-    def add_create(self, new_mod_name: str):
+    def add_create(self, create_status: bool, node_data: dict):
         if not self.create:
             self.create = CreateComponent()
-        self.create.mod_name = new_mod_name
+        self.create.create_status = create_status
+        self.create.node_data = node_data
     
-    def add_box_collider(self, width: float, height: float):
+    def add_box_collider(self, width: float, height: float, collider_direction: Tuple[int, int], layer: int):
         if not self.box2d_collider:
             self.box2d_collider = BoxColliderComponent()
         self.box2d_collider.height = height
         self.box2d_collider.width = width
+        self.box2d_collider.collider_direction = collider_direction
+        self.box2d_collider.layer = layer
+
+    def add_state(self, state: int):
+        if not self.state:
+            self.state = StateComponent()
+        self.state.state = state
+
+    def add_model(self, model_index: int, model_name: str):
+        if not self.model:
+            self.model = ModelComponent()
+        self.model.model_index = model_index
+        self.model.model_name = model_name
+
+    def add_player(self, player_id: str):
+        if not self.player:
+            self.player = PlayerComponent()
+        self.player.player_id = player_id
 

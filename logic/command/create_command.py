@@ -9,13 +9,7 @@ class CreateCmd(Command):
 
     def __init__(self, uid: int):
         super(CreateCmd, self).__init__(uid)
-        self.mod_name: str = ""
-        self.mod_index: int = 0
-        self.position: Tuple[float, float] = (0.0, 0.0)
-        self.layer: int = 0
-        self.speed: float = 0
-        self.state: int = 0
-        self.box_collider: Tuple[float, float] = (60, 60)
+        self.node_data: dict = {}
 
     async def execute(self, entity: GameLogicEntity):
         if not self.mod_name:

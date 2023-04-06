@@ -12,5 +12,5 @@ class ModelComponent(Component):
 
     def __init__(self):
         self.model_index: int = ModelIndex.UP
-        self.mod_name: str = ''
+        self.model_name: str = ''
 
