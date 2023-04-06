@@ -14,14 +14,16 @@ class TankLogic(Logic):
         from logic.system.move_system import MoveSystem
         from logic.system.command_system import CommandSystem
         from logic.system.collider_system import ColliderSystem
-        from logic.system.gc_system import GCSystem
+        from logic.system.destroy_system import DestroySystem
         from logic.system.enemy_system import EnemySystem
+        from logic.system.create_system import CreateSystem
         
+        self.register_system(CreateSystem(self.context))
         self.register_system(EnemySystem(self.context))
         self.register_system(MoveSystem(self.context))
         self.register_system(CommandSystem(self.context))
         self.register_system(ColliderSystem(self.context))
-        self.register_system(GCSystem(self.context))
+        self.register_system(DestroySystem(self.context))
 
         self.load_map(f"./view/scene/{self.gid}.json")
     

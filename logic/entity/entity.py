@@ -17,7 +17,7 @@ class GameLogicEntity(object):
         self.uid: int = uid
         self.is_async: bool = is_async
 
-        self.transform: Optional[TransformComponent] = None
+        self.transform: TransformComponent = TransformComponent()
         self.create: Optional[CreateComponent] = None
         self.move: Optional[MoveComponent] = None
         self.rigibody: Optional[RigibodyComponent] = None

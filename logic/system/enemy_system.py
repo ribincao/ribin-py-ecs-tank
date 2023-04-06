@@ -13,12 +13,5 @@ class EnemySystem(System):
         self.positions: List[Tuple[float, float]] = [(0, 0), (360, 0), (720, 0)]
 
     async def update(self):
-        for idx in range(len(self.slot)):
-            if self.slot[idx]:
-                continue
-            entity = self.context.create_entity()
-            entity.add_create("enemy2")
-            entity.add_transform(self.positions[idx])
-            entity.add_move(3)
-            self.slot[idx] = entity
+        pass
 

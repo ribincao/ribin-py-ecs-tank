@@ -2,6 +2,7 @@ from logic.interface.component import Component
 
 
 class State:
+    destroy = -1
     normal = 0
     move = 1
 

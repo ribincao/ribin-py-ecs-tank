@@ -17,22 +17,22 @@ class Context(object):
         self.is_connected: bool = False
         self.edge_size: Tuple[float, float] = (780, 780)
 
-    def create_entity(self) -> GameLogicEntity:
-        entity = GameLogicEntity(self.uid_cnt)
+    def create_entity(self, is_async: bool = True) -> GameLogicEntity:
+        entity = GameLogicEntity(self.uid_cnt, is_async)
         self.entities[self.uid_cnt] = entity
         self.dispatch_event(EntityCreateEvent(self.uid_cnt))
 
         self.uid_cnt += 1
         return entity
     
-    def get_entity(self, uid: int) -> GameLogicEntity:
+    def get_entity(self, uid: int, is_async: bool = True) -> GameLogicEntity:
         entity = self.entities.get(uid, None)
         if not entity:
-            entity = self.create_entity()
+            entity = self.create_entity(is_async)
             entity.uid = uid
         return entity
 
-    def remove_entity(self, uid: int):
+    def destroy_entity(self, uid: int):
         if uid not in self.entities:
             return
         del self.entities[uid]
