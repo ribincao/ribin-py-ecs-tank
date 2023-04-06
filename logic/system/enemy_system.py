@@ -1,8 +1,7 @@
 from logic.interface.system import System
 from logic.context import Context
 from logic.entity.entity import GameLogicEntity
-from typing import List, Optional
-from logic.component.transform_component import Vector2
+from typing import List, Optional, Tuple
 
 
 class EnemySystem(System):
@@ -11,7 +10,7 @@ class EnemySystem(System):
     def __init__(self, context: Context):
         super(EnemySystem, self).__init__(context)
         self.slot: List[Optional[GameLogicEntity]] = [None for _ in range(self.MAX_CNT)]
-        self.positions: List[Vector2] = [Vector2(0, 0), Vector2(360, 0), Vector2(720, 0)]
+        self.positions: List[Tuple[float, float]] = [(0, 0), (360, 0), (720, 0)]
 
     async def update(self):
         for idx in range(len(self.slot)):

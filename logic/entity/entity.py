@@ -7,7 +7,6 @@ from logic.component.state_component import StateComponent
 from logic.component.model_component import ModelComponent
 from logic.component.player_component import PlayerComponent
 from typing import Optional, Tuple
-from logic.component.transform_component import Vector2
 
 
 class GameLogicEntity(object):
@@ -19,7 +18,7 @@ class GameLogicEntity(object):
         self.create: Optional[CreateComponent] = None
         self.move: Optional[MoveComponent] = None
         self.rigibody: Optional[RigibodyComponent] = None
-        self.box2d_collider: Optional[BoxColliderComponent] = None
+        self.box_collider: Optional[BoxColliderComponent] = None
         self.state: Optional[StateComponent] = None
         self.model: Optional[ModelComponent] = None
         self.player: Optional[PlayerComponent] = None
@@ -47,7 +46,7 @@ class GameLogicEntity(object):
         self.move.speed = info["move"]["speed"]
         self.mod_index = info.get("mod_index", 0)
 
-    def add_transform(self, position: Vector2):
+    def add_transform(self, position: Tuple[float, float]):
         if not self.transform:
             self.transform = TransformComponent()
         self.transform.position = position
@@ -66,12 +65,12 @@ class GameLogicEntity(object):
         self.create.node_data = node_data
     
     def add_box_collider(self, width: float, height: float, collider_direction: Tuple[int, int], layer: int):
-        if not self.box2d_collider:
-            self.box2d_collider = BoxColliderComponent()
-        self.box2d_collider.height = height
-        self.box2d_collider.width = width
-        self.box2d_collider.collider_direction = collider_direction
-        self.box2d_collider.layer = layer
+        if not self.box_collider:
+            self.box_collider = BoxColliderComponent()
+        self.box_collider.height = height
+        self.box_collider.width = width
+        self.box_collider.collider_direction = collider_direction
+        self.box_collider.layer = layer
 
     def add_state(self, state: int):
         if not self.state:
