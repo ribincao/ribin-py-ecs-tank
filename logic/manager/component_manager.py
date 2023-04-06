@@ -5,6 +5,9 @@ from logic.component.move_component import MoveComponent
 from logic.component.create_component import CreateComponent
 from logic.component.box_collider_component import BoxColliderComponent
 from logic.component.rigibody_component import RigibodyComponent
+from logic.component.state_component import StateComponent
+from logic.component.model_component import ModelComponent
+from logic.component.player_component import PlayerComponent
 from typing import Optional
 
 
@@ -24,6 +27,12 @@ class ComponentManager(Singleton):
             return BoxColliderComponent()
         elif component_name == "rigibody":
             return RigibodyComponent()
+        elif component_name == "model":
+            return ModelComponent()
+        elif component_name == "state":
+            return StateComponent()
+        elif component_name == "player":
+            return PlayerComponent()
         else:
             return None
 
