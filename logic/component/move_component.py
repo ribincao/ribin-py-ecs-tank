@@ -14,5 +14,5 @@ class MoveComponent(Component):
     def __init__(self):
         super(MoveComponent, self).__init__()
         self.speed: float = 5
-        self.direction: int = -1
+        self.direction: int = MoveDirection.STOP
 

@@ -2,26 +2,19 @@ from logic.interface.command import Command
 from logic.entity.entity import GameLogicEntity
 from common.logger import logger
 from logic.entity.state import EntityState
-
-
-STOP = -1
-UP = 0
-DOWN = 1
-LEFT = 2
-RIGHT = 3
+from logic.component.move_component import MoveDirection
 
 
 class MoveCmd(Command):
 
     def __init__(self, uid: int):
         super(MoveCmd, self).__init__(uid)
-        self.direction = STOP
+        self.direction = MoveDirection.STOP
 
     async def execute(self, entity: GameLogicEntity):
-        logger.debug(f"MoveCommand IN {entity.uid}-{self.direction} exceute")
         if not entity.move or entity.move.speed <= 0:
             return
-        if UP <= self.direction <= RIGHT:
+        if MoveDirection.UP <= self.direction <= MoveDirection.RIGHT:
             entity.state = EntityState.move
             entity.mod_index = self.direction
         else:

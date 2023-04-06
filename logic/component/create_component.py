@@ -13,5 +13,6 @@ class CreateComponent(Component):
         self.mod_name: str = ''
         self.mod_type: str = EntityType.T_ITEM
         self.create_status: bool = False
+        self.node_data: dict = {}
 
 
