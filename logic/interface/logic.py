@@ -1,10 +1,9 @@
 from logic.interface.system import System
-from typing import Dict, List
 from logic.context import Context
 from abc import abstractmethod
-from common.logger import logger
 import asyncio
 from common.data_util import data_util
+from logic.manager.system_manager import SystemManager
 
 
 class Logic(object):
@@ -13,18 +12,15 @@ class Logic(object):
     def __init__(self, gid: str, context: Context):
         self.gid: str = gid
         self.context: Context = context
-        self.systems: Dict[str, System] = {}
+        self.system_manager: SystemManager = SystemManager()
         self.gltf = []
     
     def register_system(self, system: System):
-        system_name = system.__class__.__name__
-        if system_name in self.systems:
-            logger.debug("warning")
-        self.systems[system_name] = system
+        self.system_manager.register_system(system)
 
     async def update(self):
         while True:
-            for _, system in self.systems.items():
+            for _, system in self.system_manager.get_system().items():
                 await system.update()
             await asyncio.sleep(self.LOGIC_RATE)
 

@@ -24,8 +24,12 @@ class TankLogic(Logic):
         self.register_system(ColliderSystem(self.context))
         self.register_system(GCSystem(self.context))
 
+        self.load_map(f"./view/scene/{self.gid}.json")
+    
+
+    def load_map(self, path: str):
         # 场景重建
-        map = data_util.load_from_json('./view/scene/tank.json')
+        map = data_util.load_from_json(path)
         logger.debug(f"logic_load_map {map}")
         if not map:
             return
