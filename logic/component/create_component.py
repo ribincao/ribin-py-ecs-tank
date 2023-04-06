@@ -1,4 +1,4 @@
-from logic.component.component import Component
+from logic.interface.component import Component
 
 
 class EntityType:

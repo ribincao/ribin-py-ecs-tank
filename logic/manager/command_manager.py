@@ -1,12 +1,12 @@
 from logic.command.move_command import MoveCmd
 from logic.command.create_command import CreateCmd
 from common.singleton import Singleton
-from logic.command.command import Command
+from logic.interface.command import Command
 from typing import Optional
 import json
 
 
-class CmdFactory(Singleton):
+class CommandManager(Singleton):
 
     def __init__(self):
         pass
@@ -45,5 +45,5 @@ class CmdFactory(Singleton):
         return cmd
 
 
-cmd_factory = CmdFactory()
+command_manager = CommandManager()
 

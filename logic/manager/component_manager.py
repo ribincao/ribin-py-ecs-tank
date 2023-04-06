@@ -1,14 +1,14 @@
 from common.singleton import Singleton
+from logic.interface.component import Component
 from logic.component.transform_component import TransformComponent
 from logic.component.move_component import MoveComponent
 from logic.component.create_component import CreateComponent
 from logic.component.box_collider_component import BoxColliderComponent
 from logic.component.rigibody_component import RigibodyComponent
-from logic.component.component import Component
 from typing import Optional
 
 
-class ComponentFactory(Singleton):
+class ComponentManager(Singleton):
 
     def __init__(self):
         pass
@@ -28,6 +28,6 @@ class ComponentFactory(Singleton):
             return None
 
 
-component_factory = ComponentFactory()
+component_manager = ComponentManager()
 
 

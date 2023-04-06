@@ -1,4 +1,4 @@
-from logic.command.command import Command
+from logic.interface.command import Command
 from logic.entity.entity import GameLogicEntity
 from common.logger import logger
 from typing import Tuple

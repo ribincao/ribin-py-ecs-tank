@@ -1,5 +1,5 @@
 from common.logger import logger
-from logic.system.system import System
+from logic.interface.system import System
 from logic.context import Context
 from logic.entity.state import EntityState
 from logic.command.move_command import UP, DOWN, LEFT, RIGHT

@@ -1,4 +1,4 @@
-from logic.system.system import System
+from logic.interface.system import System
 from logic.context import Context
 from common.logger import logger
 from logic.entity.entity import GameLogicEntity

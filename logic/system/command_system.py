@@ -1,5 +1,5 @@
 from common.logger import logger
-from logic.system.system import System
+from logic.interface.system import System
 from logic.context import Context
 
 
