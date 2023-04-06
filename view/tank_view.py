@@ -5,11 +5,11 @@ from logic.entity.entity import GameLogicEntity
 from view.behavior.tank_behavior import TankBehavior
 from common.data_util import data_util
 import asyncio
-from logic.command.move_command import UP, DOWN, LEFT, RIGHT, STOP
-from logic.command.command_factory import cmd_factory
-from logic.command.command import Command
+from logic.component.move_component import MoveDirection
+from logic.manager.command_manager import command_manager
+from logic.interface.command import Command
 from typing import Optional, Tuple
-from logic.entity.state import EntityState
+from logic.component.state_component import State
 
 
 class TankView(View):
@@ -36,8 +36,8 @@ class TankView(View):
     def create_behavior(self, entity: GameLogicEntity):
         behavior = TankBehavior(entity)
 
-        if entity.create:
-            behavior.init_models(self.MODULE, entity.create.mod_name)
+        if entity.model:
+            behavior.init_models(self.MODULE, entity.model.model_name)
         self.behaviors[entity.uid] = behavior
         return behavior
 
@@ -51,15 +51,15 @@ class TankView(View):
 
         cmd: Optional[Command] = None
         if operation == 'w' and self.player_uid:
-            cmd = cmd_factory.get_move_cmd(self.player_uid, UP)
+            cmd = command_manager.get_move_cmd(self.player_uid, MoveDirection.UP)
         elif operation == 'a' and self.player_uid:
-            cmd = cmd_factory.get_move_cmd(self.player_uid, LEFT)
+            cmd = command_manager.get_move_cmd(self.player_uid, MoveDirection.LEFT)
         elif operation == 's' and self.player_uid:
-            cmd = cmd_factory.get_move_cmd(self.player_uid, DOWN)
+            cmd = command_manager.get_move_cmd(self.player_uid, MoveDirection.DOWN)
         elif operation == 'd' and self.player_uid:
-            cmd = cmd_factory.get_move_cmd(self.player_uid, RIGHT)
+            cmd = command_manager.get_move_cmd(self.player_uid, MoveDirection.RIGHT)
         elif operation == '-' and self.player_uid:
-            cmd = cmd_factory.get_move_cmd(self.player_uid, STOP)
+            cmd = command_manager.get_move_cmd(self.player_uid, MoveDirection.STOP)
 
         elif operation == 'n' and self.player_uid <= 0:
             entity = self.context.create_entity()
@@ -69,7 +69,7 @@ class TankView(View):
                     "layer": 1,
                     "position": [285.0, 720.0]
             }
-            cmd = cmd_factory.get_create_cmd(entity.uid, d)
+            cmd = command_manager.get_create_cmd(entity.uid, d)
             self.player_uid = entity.uid
         elif operation == 'm' and self.player_uid <= 0:
             entity = self.context.create_entity()
@@ -79,23 +79,23 @@ class TankView(View):
                     "layer": 1,
                     "position": [435.0, 720.0]
             }
-            cmd = cmd_factory.get_create_cmd(entity.uid, d)
+            cmd = command_manager.get_create_cmd(entity.uid, d)
             self.player_uid = entity.uid
 
         elif operation == 'j' and self.player_uid > 0:
             tank = self.behaviors.get(self.player_uid)
-            if not tank:
+            if not tank or not tank.entity.model:
                 return
             entity = self.context.create_entity()
             d = {
-                    "mod_index": tank.entity.mod_index,
-                    "state": EntityState.move,
+                    "mod_index": tank.entity.model.model_index,
+                    "state": State.move,
                     "speed": 5,
                     "mod_name": "bullet",
                     "layer": 1,
                     "position": tank.get_bullet_position()
             }
-            cmd = cmd_factory.get_create_cmd(entity.uid, d)
+            cmd = command_manager.get_create_cmd(entity.uid, d)
 
         self.send_cmd(cmd)
         
