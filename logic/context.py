@@ -13,6 +13,7 @@ class Context(object):
         self.commands: List[Command] = []
         self.messages: List[Command] = []
         self.event_dispatch: EventDispatch = EventDispatch()
+        self.edge_size: Tuple[float, float] = (780, 780)
         
         self.is_connected: bool = False
         self.edge_size: Tuple[float, float] = (780, 780)
