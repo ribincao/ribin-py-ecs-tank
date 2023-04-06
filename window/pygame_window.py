@@ -1,4 +1,4 @@
-from render.window import Window
+from window.window import Window
 import asyncio
 import pygame
 from typing import Optional

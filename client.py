@@ -2,12 +2,12 @@ from common.logger import logger
 from common.common import signal_handler
 import asyncio
 from logic.logic import Logic
-from render.window import Window
+from window.window import Window
 from view.view import View
 from logic.context import Context
 from logic.tank_logic import TankLogic
 from view.tank_view import TankView
-from render.pygame_window import PyGameWindow
+from window.pygame_window import PyGameWindow
 from net.tcp import Tcp
 
 
