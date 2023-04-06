@@ -1,6 +1,5 @@
 from view.behavior.behavior import PyGameBehavior
 from logic.entity.entity import GameLogicEntity
-from logic.component.move_component import MoveDirection
 from typing import Tuple
 
 
@@ -14,13 +13,13 @@ class TankBehavior(PyGameBehavior):
         if not self.entity.model or not self.rect:
             return 0, 0
 
-        if self.entity.model.model_index == MoveDirection.UP:
+        if self.entity.transform.rotation == 0:
             return position[0], position[1] - self.rect.height / 2
-        elif self.entity.model.model_index == MoveDirection.DOWN:
+        elif self.entity.transform.rotation == 180:
             return position[0], position[1] + self.rect.height / 2
-        elif self.entity.model.model_index == MoveDirection.LEFT:
+        elif self.entity.transform.rotation == 90:
             return position[0] - self.rect.width / 2, position[1]
-        elif self.entity.model.model_index == MoveDirection.RIGHT:
+        elif self.entity.transform.rotation == 270:
             return position[0] + self.rect.width / 2, position[1]
 
         return 0.0, 0.0

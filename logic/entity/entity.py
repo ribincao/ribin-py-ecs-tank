@@ -47,17 +47,17 @@ class GameLogicEntity(object):
             component.__dict__.update(new_component)
             self.__dict__[name] = component
 
-    def add_transform(self, position: Tuple[float, float], is_async: bool = True):
+    def add_transform(self, position: Tuple[float, float], rotation: float = 0.0, is_async: bool = True):
         if not self.transform:
             self.transform = TransformComponent(is_async)
         self.transform.position = position
+        self.transform.rotation = rotation
         self.transform.last_position = position
 
-    def add_move(self, speed: float, direction: int, is_async: bool = True):
+    def add_move(self, speed: float, is_async: bool = True):
         if not self.move:
             self.move = MoveComponent(is_async)
         self.move.speed = speed
-        self.move.direction = direction
 
     def add_create(self, create_status: bool, node_data: dict, is_async: bool = True):
         if not self.create:

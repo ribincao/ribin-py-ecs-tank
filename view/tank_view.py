@@ -4,7 +4,7 @@ from common.logger import logger
 from logic.entity.entity import GameLogicEntity
 from common.data_util import data_util
 import asyncio
-from logic.component.move_component import MoveDirection
+from logic.command.move_command import MoveDirection
 from logic.manager.command_manager import command_manager
 from logic.interface.command import Command
 from typing import Optional, Tuple
@@ -91,10 +91,10 @@ class TankView(View):
                 return
             entity = self.context.create_entity()
             node_data = {
-                    "move": {"speed": 5, "direction": tank.entity.move.direction},
+                    "move": {"speed": 5},
                     "model": {"model_name": "bullet", "model_index": tank.entity.model.model_index},
                     "box_collider": {"layer": 1, "width": 12, "height": 12},
-                    "transform": {"position": tank.get_bullet_position()},
+                    "transform": {"position": tank.get_bullet_position(), "rotation": tank.entity.transform.rotation},
                     "state": {"state": State.move}
             }
             cmd = command_manager.get_create_cmd(entity.uid, node_data)

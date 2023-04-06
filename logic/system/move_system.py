@@ -2,7 +2,6 @@ from common.logger import logger
 from logic.interface.system import System
 from logic.context import Context
 from logic.component.state_component import State
-from logic.component.move_component import MoveDirection
 from logic.event.event import EntityCreateEvent
 
 
@@ -23,13 +22,13 @@ class MoveSystem(System):
 
             entity.transform.last_position = (x, y)
             if entity.state.state == State.move:
-                if entity.move.direction == MoveDirection.UP:
+                if entity.transform.rotation == 0:
                     y -= entity.move.speed
-                if entity.move.direction == MoveDirection.DOWN:
+                if entity.transform.rotation == 180:
                     y += entity.move.speed
-                if entity.move.direction == MoveDirection.LEFT:
+                if entity.transform.rotation == 90:
                     x -= entity.move.speed
-                if entity.move.direction == MoveDirection.RIGHT:
+                if entity.transform.rotation == 270:
                     x += entity.move.speed
 
             if entity.box_collider:

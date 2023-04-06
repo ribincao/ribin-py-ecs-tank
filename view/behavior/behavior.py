@@ -2,6 +2,7 @@ from logic.entity.entity import GameLogicEntity
 from pygame import Surface, Rect
 from typing import Dict, List, Tuple, Optional
 from abc import abstractmethod
+import pygame
 
 
 class Behavior(object):
@@ -58,7 +59,8 @@ class PyGameBehavior(Behavior):
     def mode(self) -> Optional[Surface]:
         if not self.entity.model:
             return None
-        return self.models[self.entity.model.model_index]
+        model = self.models[self.entity.model.model_index]
+        return pygame.transform.rotate(model, self.entity.transform.rotation)
 
     @property
     def rect(self) -> Optional[Rect]:
