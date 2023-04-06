@@ -1,6 +1,7 @@
 import os
 import json
 import pygame
+from typing import Tuple
 
 
 class GLTF(object):
@@ -19,16 +20,28 @@ class GLTF(object):
             if dirs:
                 continue
             mod = root.split('/')[-1]
-            d = {'mod_id': mod_id, 'mod_name': mod, 'models': []}
+            model = {'model_id': mod_id, 'model_name': mod, 'models': []}
+            index = 0
             for file in sorted(files):
+                d = {}
                 file_path = os.path.join(root, file)
-                d['models'].append('./view/resource' + file_path[1:])
-                self.show_size(file_path)
+                d["index"] = index
+                d["model"] = './view/resource' + file_path[1:]
+                d["size"] = self.get_size(file_path) 
+                model["models"].append(d)
+                index += 1
             mod_id += 1
-            gltf.append(d)
+            gltf.append(model)
     
         # print(gltf)
         self.save(module, gltf)
+
+    def get_size(self, path: str) -> Tuple[int, int]:
+        if path.endswith('.gif') or path.endswith('.png'):
+            img = pygame.image.load(path)
+            rect = img.get_rect()
+            return rect.width, rect.height
+        return 0, 0
     
     def show_size(self, path: str):
         if path.endswith('.gif') or path.endswith('.png'):
@@ -41,7 +54,7 @@ class GLTF(object):
             if not gltf_data:
                 return []
             for data in gltf_data:
-                _mod_name = data.get('mod_name', '')
+                _mod_name = data.get('model_name', '')
                 if _mod_name != mod_name:
                     continue
                 return data.get('models', [])
