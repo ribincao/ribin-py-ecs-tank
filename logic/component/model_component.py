@@ -10,7 +10,8 @@ class ModelIndex:
 
 class ModelComponent(Component):
 
-    def __init__(self):
+    def __init__(self, is_async: bool = True):
+        super(ModelComponent, self).__init__(is_async)
         self.model_index: int = ModelIndex.UP
         self.model_name: str = ''
 
