@@ -67,7 +67,7 @@ class Context(object):
                 continue
             entity = self.get_entity(uid)
             entity = self.entities[uid]
-            entity.refresh(info)
+            entity.update(info)
             if uid > self.uid_cnt:
                 self.uid_cnt = uid + 1  #  确保客户端和服务端uid尽可能一致
 

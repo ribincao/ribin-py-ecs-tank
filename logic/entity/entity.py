@@ -39,7 +39,7 @@ class GameLogicEntity(object):
             d[k] = component
         return d
 
-    def refresh(self, snap: dict):
+    def update(self, snap: dict):
         for name, new_compnent in snap.items():
             component = self.__dict__.get("name", None)
             if not component:

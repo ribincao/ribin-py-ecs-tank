@@ -7,17 +7,14 @@ from logic.component.state_component import State
 
 
 class DestroySystem(System):
-    """
-    删除entity的system
-    """
-    DELTA = 100
 
     def __init__(self, context: Context):
         super(DestroySystem, self).__init__(context)
 
     async def update(self):
         destroy: List[GameLogicEntity] = []
-        for entity in self.context.get_entities():
+        entities = self.context.get_entities()
+        for entity in entities:
             if not entity.state or entity.state.state != State.destroy:
                 continue
             destroy.append(entity)

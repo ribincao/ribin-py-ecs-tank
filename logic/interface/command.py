@@ -7,6 +7,7 @@ class Command(object):
 
     def __init__(self, uid: int):
         self.uid: int = uid
+        self.name: str = ""
 
     @abstractmethod
     async def execute(self, entity: GameLogicEntity):
@@ -14,6 +15,6 @@ class Command(object):
 
     def encode(self):
         d = self.__dict__
-        d["__class__"] = self.__class__.__name__
+        d["name"] = self.__class__.__name__[:-7].lower()
         return json.dumps(d) 
 

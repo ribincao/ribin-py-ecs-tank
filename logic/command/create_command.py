@@ -1,7 +1,5 @@
 from logic.interface.command import Command
 from logic.entity.entity import GameLogicEntity
-from common.logger import logger
-from typing import Tuple
 
 
 class CreateCmd(Command):
@@ -11,17 +9,5 @@ class CreateCmd(Command):
         self.node_data: dict = {}
 
     async def execute(self, entity: GameLogicEntity):
-        if not self.mod_name:
-            return
-        
-        entity.mod_index = self.mod_index
-        entity.layer = self.layer
-        entity.state = self.state
-        entity.add_create(self.mod_name)
-        entity.add_transform((self.position[0], self.position[1]))
-        entity.add_move(self.speed)
-        if self.mod_name == 'bullet':
-            self.box_collider = (12.0, 12.0)
-        entity.add_box_collider(self.box_collider[0], self.box_collider[1])
-        logger.debug(f"CreateCmd Execute {entity.uid} {self.__dict__}")
+        entity.add_create(False, self.node_data)
 

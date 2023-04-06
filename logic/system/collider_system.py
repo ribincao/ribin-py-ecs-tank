@@ -35,20 +35,21 @@ class ColliderSystem(System):
                 heightB = entityB.box_collider.height
                 widthB = entityB.box_collider.width
 
-                collider = False
+                collider_direction, collider = 0, False
                 if positionA[0] >= positionB[0] and positionA[1] >= positionB[1]:
                     distanceX = positionA[0] - positionB[0]
                     distanceY = positionA[1] - positionB[1]
                     if distanceX < widthB and distanceY < heightA:
                         collider = True
                         entityA.box_collider.collider_direction = (-1, -1)
-                        logger.debug(f"1. box collider detect {entityA.uid} -> {entityB.uid}")
+                        collider_direction = 1
                 elif positionA[0] >= positionB[0] and positionA[1] < positionB[1]:
                     distanceX = positionA[0] - positionB[0]
                     distanceY = positionB[1] - positionA[1]
                     if distanceX < widthA and distanceY < heightA:
                         collider = True
                         entityA.box_collider.collider_direction = (1, -1)
+                        collider_direction = 2
                         logger.debug(f"2. box collider detect {entityA.uid} -> {entityB.uid}")
                 elif positionA[0] < positionB[0] and positionA[1] < positionB[1]:
                     distanceX = positionB[0] - positionA[0]
@@ -56,6 +57,7 @@ class ColliderSystem(System):
                     if distanceX < widthA and distanceY < heightB:
                         collider = True
                         entityA.box_collider.collider_direction = (1, 1)
+                        collider_direction = 3
                         logger.debug(f"3. box collider detect {entityA.uid} -> {entityB.uid}")
                 elif positionA[0] < positionB[0] and positionA[1] >= positionB[1]:
                     distanceX = positionB[0] - positionA[0]
@@ -63,7 +65,7 @@ class ColliderSystem(System):
                     if distanceX < widthB and distanceY < heightB:
                         collider = True
                         entityA.box_collider.collider_direction = (-1, 1)
-                        logger.debug(f"4. box collider detect {entityA.uid} -> {entityB.uid}")
+                        collider_direction = 4
 
                 if collider:
-                    logger.debug(f"box collider detect {entityA.uid} -> {entityB.uid}")
+                    logger.info(f"box collider detect {collider_direction}: {entityA.uid} -> {entityB.uid}")
