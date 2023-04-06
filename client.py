@@ -1,7 +1,7 @@
 from common.logger import logger
 from common.common import signal_handler
 import asyncio
-from logic.logic import Logic
+from logic.interface.logic import Logic
 from window.window import Window
 from view.view import View
 from logic.context import Context

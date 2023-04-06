@@ -1,4 +1,4 @@
-from logic.system.system import System
+from logic.interface.system import System
 from typing import Dict, List
 from logic.context import Context
 from abc import abstractmethod
