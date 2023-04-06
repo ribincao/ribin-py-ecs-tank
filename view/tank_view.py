@@ -65,7 +65,7 @@ class TankView(View):
         elif operation == 'n' and self.player_uid <= 0:
             entity = self.context.create_entity()
             d = {
-                    "speed": 1,
+                    "speed": 5,
                     "mod_name": "player1",
                     "layer": 1,
                     "position": [285.0, 720.0]
@@ -75,7 +75,7 @@ class TankView(View):
         elif operation == 'm' and self.player_uid <= 0:
             entity = self.context.create_entity()
             d = {
-                    "speed": 1,
+                    "speed": 5,
                     "mod_name": "player2",
                     "layer": 1,
                     "position": [435.0, 720.0]

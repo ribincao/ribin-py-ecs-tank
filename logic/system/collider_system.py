@@ -49,25 +49,25 @@ class ColliderSystem(System):
                     if distanceX < widthA and distanceY < heightA:
                         collider = True
                         entityA.box2d_collider.collider_direction = (1, -1)
-                        logger.info(f"1. box collider detect {entityA.create.mod_name} -> {entityB.create.mod_name}")
+                        logger.info(f"2. box collider detect {entityA.create.mod_name} -> {entityB.create.mod_name}")
                 elif positionA[0] < positionB[0] and positionA[1] < positionB[1]:
                     distanceX = positionB[0] - positionA[0]
                     distanceY = positionB[1] - positionA[1]
                     if distanceX < widthA and distanceY < heightB:
                         collider = True
                         entityA.box2d_collider.collider_direction = (1, 1)
-                        logger.info(f"1. box collider detect {entityA.create.mod_name} -> {entityB.create.mod_name}")
+                        logger.info(f"3. box collider detect {entityA.create.mod_name} -> {entityB.create.mod_name}")
                 elif positionA[0] < positionB[0] and positionA[1] >= positionB[1]:
                     distanceX = positionB[0] - positionA[0]
                     distanceY = positionA[1] - positionB[1]
                     if distanceX < widthB and distanceY < heightB:
                         collider = True
                         entityA.box2d_collider.collider_direction = (-1, 1)
-                        logger.info(f"1. box collider detect {entityA.create.mod_name} -> {entityB.create.mod_name}")
+                        logger.info(f"4. box collider detect {entityA.create.mod_name} -> {entityB.create.mod_name}")
 
                 if collider:
                     logger.debug(f"box collider detect {entityA.create.mod_name} -> {entityB.create.mod_name}")
-                    if entityA.create.mod_name == 'bullet':
-                        self.context.remove_entity(entityA.uid)
-                    else:
-                        entityA.transform.position = entityA.transform.last_position
+                    # if entityA.create.mod_name == 'bullet':
+                    #     self.context.remove_entity(entityA.uid)
+                    # else:
+                    #     entityA.transform.position = entityA.transform.last_position
