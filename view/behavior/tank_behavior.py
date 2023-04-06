@@ -22,3 +22,6 @@ class TankBehavior(PyGameBehavior):
 
         return 0.0, 0.0
 
+    async def update(self):
+        pass
+

@@ -25,12 +25,11 @@ class TankView(View):
             behaviors = {}
             for entity in self.context.get_entities():
                 behavior = self.behaviors.get(entity.uid, None)
-                if behavior:
-                    behavior.entity = entity
-                    behaviors[entity.uid] = behavior
-                    continue
-                behavior = self.create_behavior(entity)
+                if not behavior:
+                    behavior = self.create_behavior(entity)
+                behavior.entity = entity
                 behaviors[entity.uid] = behavior
+                await behavior.update()
             self.behaviors = behaviors
             await asyncio.sleep(self.VIEW_RATE)
 

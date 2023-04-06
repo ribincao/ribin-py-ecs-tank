@@ -16,6 +16,10 @@ class Behavior(object):
         pass
 
     @abstractmethod
+    async def update(self):
+        pass
+
+    @abstractmethod
     def mode(self) -> object:
         pass
 
@@ -57,3 +61,6 @@ class PyGameBehavior(Behavior):
 
     def get_bullet_position(self) -> Tuple[float, float]:
         return 0.0, 0.0
+
+    async def update(self):
+        pass
