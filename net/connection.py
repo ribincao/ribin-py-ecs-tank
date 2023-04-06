@@ -4,7 +4,7 @@ from common.logger import logger
 from net.buffer import Buffer
 from net.codec import Codec
 from logic.context import Context
-from logic.command.command_factory import cmd_factory
+from logic.manager.command_manager import command_manager
 import time
 
 
@@ -30,7 +30,7 @@ class Connection(object):
     def close(self):
         self.writer.close()
         self._is_close = True
-        self.context.remove_entity(self.uid)
+        self.context.destroy_entity(self.uid)
         logger.debug(f"{self.uid} close connection.")
 
     async def handle_message(self):
@@ -40,7 +40,7 @@ class Connection(object):
                 if not data:
                     break
                 message = self.codec.decode(data)
-                cmd = cmd_factory.create_cmd(message)
+                cmd = command_manager.create_cmd(message)
                 logger.debug(f"server receive_cmd {cmd.__dict__}")
                 if cmd:
                     self.context.input_command(cmd)

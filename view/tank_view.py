@@ -25,6 +25,8 @@ class TankView(View):
         while True:
             behaviors = {}
             for entity in self.context.get_entities():
+                if not entity.model:
+                    continue
                 behavior = self.behaviors.get(entity.uid, None)
                 if not behavior:
                     behavior = self.create_behavior(entity)

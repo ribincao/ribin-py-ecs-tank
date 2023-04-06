@@ -32,17 +32,23 @@ class PyGameBehavior(Behavior):
 
     def __init__(self, entity: GameLogicEntity):
         super(PyGameBehavior, self).__init__(entity)
-        self.models: List[Surface] = []
+        self.models: Dict[int, Surface] = {}
 
     @abstractmethod
     def init_models(self, module: str, mod_name: str):
         from view.resource.gltf import GLTF
         import pygame.image as img
         gltf = GLTF()
-        paths = gltf.load_models(module, mod_name)
-        self.models = []
-        for path in paths:
-            self.models.append(img.load(path))
+        models = gltf.load_models(module, mod_name)
+        self.models = {}
+        for model in models:
+            model_id = model.get("model_id", -1)
+            if model_id < 0:
+                continue
+            path = model.get("model", "")
+            if not path:
+                continue
+            self.models[model_id] = img.load(path)
 
     @property
     def layer(self) -> int:

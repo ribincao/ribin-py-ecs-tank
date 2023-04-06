@@ -28,43 +28,50 @@ class Test(object):
     def get_tank_item(self, name, position):
         item = {}
         if name == "glass":
-            item["mod_name"] = "wall"
-            item["mod_index"] = 0
-            item["layer"] = 2
+            item["model"] = {}
+            item["model"]["model_name"] = "wall"
+            item["model"]["model_index"] = 0
+            item["box_collider"] = {}
+            item["box_collider"]["layer"] = 2
         elif name == "walls":
-            item["mod_name"] = "wall"
-            item["mod_index"] = 6
-            item["layer"] = 1
+            item["model"] = {}
+            item["model"]["model_name"] = "wall"
+            item["model"]["model_index"] = 6
+            item["box_collider"] = {}
+            item["box_collider"]["layer"] = 1
         elif name == "wall":
-            item["mod_name"] = "wall"
-            item["mod_index"] = 5
-            item["layer"] = 1
+            item["model"] = {}
+            item["model"]["model_name"] = "wall"
+            item["model"]["model_index"] = 5
+            item["box_collider"] = {}
+            item["box_collider"]["layer"] = 1
         elif name == "water":
-            item["mod_name"] = "wall"
-            item["mod_index"] = 7
-            item["layer"] = 0
+            item["model"] = {}
+            item["model"]["model_name"] = "wall"
+            item["model"]["model_index"] = 7
+            item["box_collider"] = {}
+            item["box_collider"]["layer"] = 0
         elif name == "steels":
-            item["mod_name"] = "wall"
-            item["mod_index"] = 4
-            item["layer"] = 1
+            item["model"] = {}
+            item["model"]["model_name"] = "wall"
+            item["model"]["model_index"] = 4
+            item["box_collider"] = {}
+            item["box_collider"]["layer"] = 1
         elif name == "symbol":
-            item["mod_name"] = "symbol"
-            item["mod_index"] = 1
-            item["layer"] = 1
-        elif name == "player1":
-            item["mod_name"] = "player1"
-            item["mod_index"] = 0
-            item["layer"] = 1
+            item["model"] = {}
+            item["model"]["model_name"] = "symbol"
+            item["model"]["model_index"] = 1
+            item["box_collider"] = {}
+            item["box_collider"]["layer"] = 1
 
-        item["position"] = position
+        item["transform"] = {}
+        item["transform"]["position"] = position
         return item
             
     def get_tank_items(self):
         # 地图编辑
         items = []
 
-        items.append(self.get_tank_item("", [0, 0]))
-        items.append(self.get_tank_item("", [0, 60]))
         items.append(self.get_tank_item("glass", [0, 120]))
         items.append(self.get_tank_item("walls", [0, 180]))
         items.append(self.get_tank_item("walls", [0, 240]))
@@ -73,13 +80,7 @@ class Test(object):
         items.append(self.get_tank_item("walls", [0, 420]))
         items.append(self.get_tank_item("walls", [0, 480]))
         items.append(self.get_tank_item("glass", [0, 540]))
-        items.append(self.get_tank_item("", [0, 600]))
-        items.append(self.get_tank_item("", [0, 660]))
-        items.append(self.get_tank_item("", [0, 720]))
 
-        items.append(self.get_tank_item("", [60, 0]))
-        items.append(self.get_tank_item("", [60, 60]))
-        items.append(self.get_tank_item("", [60, 120]))
         items.append(self.get_tank_item("glass", [60, 180]))
         items.append(self.get_tank_item("walls", [60, 240]))
         items.append(self.get_tank_item("water", [60, 300]))
@@ -88,12 +89,7 @@ class Test(object):
         items.append(self.get_tank_item("walls", [60, 480]))
         items.append(self.get_tank_item("water", [60, 540]))
         items.append(self.get_tank_item("glass", [60, 600]))
-        items.append(self.get_tank_item("", [60, 660]))
-        items.append(self.get_tank_item("", [60, 720]))
 
-        items.append(self.get_tank_item("", [120, 0]))
-        items.append(self.get_tank_item("", [120, 60]))
-        items.append(self.get_tank_item("", [120, 120]))
         items.append(self.get_tank_item("glass", [120, 180]))
         items.append(self.get_tank_item("walls", [120, 240]))
         items.append(self.get_tank_item("water", [120, 300]))
@@ -102,11 +98,7 @@ class Test(object):
         items.append(self.get_tank_item("water", [120, 480]))
         items.append(self.get_tank_item("water", [120, 540]))
         items.append(self.get_tank_item("glass", [120, 600]))
-        items.append(self.get_tank_item("", [120, 660]))
-        items.append(self.get_tank_item("", [120, 720]))
 
-        items.append(self.get_tank_item("", [180, 0]))
-        items.append(self.get_tank_item("", [180, 60]))
         items.append(self.get_tank_item("glass", [180, 120]))
         items.append(self.get_tank_item("walls", [180, 180]))
         items.append(self.get_tank_item("walls", [180, 240]))
@@ -115,11 +107,7 @@ class Test(object):
         items.append(self.get_tank_item("water", [180, 420]))
         items.append(self.get_tank_item("water", [180, 480]))
         items.append(self.get_tank_item("glass", [180, 540]))
-        items.append(self.get_tank_item("", [180, 600]))
-        items.append(self.get_tank_item("", [180, 660]))
-        items.append(self.get_tank_item("", [180, 720]))
 
-        items.append(self.get_tank_item("", [240, 0]))
         items.append(self.get_tank_item("walls", [240, 60]))
         items.append(self.get_tank_item("walls", [240, 120]))
         items.append(self.get_tank_item("walls", [240, 180]))
@@ -129,12 +117,7 @@ class Test(object):
         items.append(self.get_tank_item("walls", [240, 420]))
         items.append(self.get_tank_item("water", [240, 480]))
         items.append(self.get_tank_item("glass", [240, 540]))
-        items.append(self.get_tank_item("", [240, 600]))
-        items.append(self.get_tank_item("", [240, 660]))
-        # items.append(self.get_tank_item("player1", [240, 720]))
 
-        items.append(self.get_tank_item("", [300, 0]))
-        items.append(self.get_tank_item("", [300, 60]))
         items.append(self.get_tank_item("glass", [300, 120]))
         items.append(self.get_tank_item("walls", [300, 180]))
         items.append(self.get_tank_item("walls", [300, 240]))
@@ -143,11 +126,7 @@ class Test(object):
         items.append(self.get_tank_item("walls", [300, 420]))
         items.append(self.get_tank_item("walls", [300, 480]))
         items.append(self.get_tank_item("glass", [300, 540]))
-        items.append(self.get_tank_item("", [300, 600]))
-        items.append(self.get_tank_item("", [300, 660]))
 
-        items.append(self.get_tank_item("", [360, 0]))
-        items.append(self.get_tank_item("", [360, 60]))
         items.append(self.get_tank_item("walls", [360, 120]))
         items.append(self.get_tank_item("walls", [360, 180]))
         items.append(self.get_tank_item("steels", [360, 240]))
@@ -156,7 +135,6 @@ class Test(object):
         items.append(self.get_tank_item("walls", [360, 420]))
         items.append(self.get_tank_item("water", [360, 480]))
         items.append(self.get_tank_item("glass", [360, 540]))
-        items.append(self.get_tank_item("", [360, 600]))
         items.append(self.get_tank_item("wall", [345, 705]))
         items.append(self.get_tank_item("wall", [345, 720]))
         items.append(self.get_tank_item("wall", [345, 735]))
@@ -173,8 +151,6 @@ class Test(object):
         items.append(self.get_tank_item("wall", [420, 765]))
         items.append(self.get_tank_item("symbol", [360, 728]))
 
-        items.append(self.get_tank_item("", [420, 0]))
-        items.append(self.get_tank_item("", [420, 60]))
         items.append(self.get_tank_item("glass", [420, 120]))
         items.append(self.get_tank_item("walls", [420, 180]))
         items.append(self.get_tank_item("walls", [420, 240]))
@@ -183,12 +159,7 @@ class Test(object):
         items.append(self.get_tank_item("water", [420, 420]))
         items.append(self.get_tank_item("water", [420, 480]))
         items.append(self.get_tank_item("glass", [420, 540]))
-        items.append(self.get_tank_item("", [420, 600]))
-        items.append(self.get_tank_item("", [420, 660]))
 
-        items.append(self.get_tank_item("", [480, 0]))
-        items.append(self.get_tank_item("", [480, 60]))
-        items.append(self.get_tank_item("", [480, 120]))
         items.append(self.get_tank_item("glass", [480, 180]))
         items.append(self.get_tank_item("walls", [480, 240]))
         items.append(self.get_tank_item("water", [480, 300]))
@@ -197,12 +168,7 @@ class Test(object):
         items.append(self.get_tank_item("water", [480, 480]))
         items.append(self.get_tank_item("water", [480, 540]))
         items.append(self.get_tank_item("glass", [480, 600]))
-        items.append(self.get_tank_item("", [480, 660]))
-        items.append(self.get_tank_item("", [480, 720]))
 
-        items.append(self.get_tank_item("", [540, 0]))
-        items.append(self.get_tank_item("", [540, 60]))
-        items.append(self.get_tank_item("", [540, 120]))
         items.append(self.get_tank_item("glass", [540, 180]))
         items.append(self.get_tank_item("walls", [540, 240]))
         items.append(self.get_tank_item("water", [540, 300]))
@@ -211,11 +177,7 @@ class Test(object):
         items.append(self.get_tank_item("walls", [540, 480]))
         items.append(self.get_tank_item("water", [540, 540]))
         items.append(self.get_tank_item("glass", [540, 600]))
-        items.append(self.get_tank_item("", [540, 660]))
-        items.append(self.get_tank_item("", [540, 720]))
 
-        items.append(self.get_tank_item("", [600, 0]))
-        items.append(self.get_tank_item("", [600, 60]))
         items.append(self.get_tank_item("glass", [600, 120]))
         items.append(self.get_tank_item("walls", [600, 180]))
         items.append(self.get_tank_item("walls", [600, 240]))
@@ -224,13 +186,7 @@ class Test(object):
         items.append(self.get_tank_item("walls", [600, 420]))
         items.append(self.get_tank_item("walls", [600, 480]))
         items.append(self.get_tank_item("glass", [600, 540]))
-        items.append(self.get_tank_item("", [600, 600]))
-        items.append(self.get_tank_item("", [600, 660]))
-        items.append(self.get_tank_item("", [600, 720]))
 
-        items.append(self.get_tank_item("", [660, 0]))
-        items.append(self.get_tank_item("", [660, 60]))
-        items.append(self.get_tank_item("", [660, 120]))
         items.append(self.get_tank_item("glass", [660, 180]))
         items.append(self.get_tank_item("glass", [660, 240]))
         items.append(self.get_tank_item("glass", [660, 300]))
@@ -239,22 +195,11 @@ class Test(object):
         items.append(self.get_tank_item("water", [660, 480]))
         items.append(self.get_tank_item("water", [660, 540]))
         items.append(self.get_tank_item("glass", [660, 600]))
-        items.append(self.get_tank_item("", [660, 660]))
-        items.append(self.get_tank_item("", [660, 720]))
 
-        items.append(self.get_tank_item("", [720, 0]))
-        items.append(self.get_tank_item("", [720, 60]))
-        items.append(self.get_tank_item("", [720, 120]))
-        items.append(self.get_tank_item("", [720, 180]))
-        items.append(self.get_tank_item("", [720, 240]))
-        items.append(self.get_tank_item("", [720, 300]))
         items.append(self.get_tank_item("glass", [720, 360]))
         items.append(self.get_tank_item("glass", [720, 420]))
         items.append(self.get_tank_item("water", [720, 480]))
         items.append(self.get_tank_item("glass", [720, 540]))
-        items.append(self.get_tank_item("", [720, 600]))
-        items.append(self.get_tank_item("", [720, 660]))
-        items.append(self.get_tank_item("", [720, 720]))
         return items
 
 

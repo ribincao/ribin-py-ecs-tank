@@ -30,16 +30,16 @@ class TankLogic(Logic):
 
     def load_map(self, path: str):
         # 场景重建
-        map = data_util.load_from_json(path)
+        scene = data_util.load_from_json(path)
         logger.debug(f"logic_load_map {map}")
-        if not map:
+        if not scene:
             return
-        items = map.get("items", [])
-        self.context.edge_size = map.get("window_size", [780, 780])
+        items = scene.get("items", [])
+        self.context.edge_size = scene.get("window_size", [780, 780])
         for item in items:
             entity = self.context.create_entity()
             cmd = CreateCmd(entity.uid)
-            cmd.__dict__.update(item)
+            cmd.node_data = item
             self. context.input_command(cmd)
         logger.info(f"{self.context.uid_cnt} entity created.")
         

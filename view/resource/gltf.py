@@ -49,7 +49,7 @@ class GLTF(object):
             print(path, img.get_rect())
 
     def load_models(self, module: str, mod_name: str):
-        with open(f'./view/resource/{module}/gltf.json/{module}/gltf.json', "r", encoding="utf-8") as f:
+        with open(f'./view/resource/{module}/gltf.json', "r", encoding="utf-8") as f:
             gltf_data = json.load(f)
             if not gltf_data:
                 return []

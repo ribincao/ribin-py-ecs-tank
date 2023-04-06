@@ -20,6 +20,7 @@ class CreateSystem(System):
                 component = component_manager.get_component(name)
                 component.__dict__.update(value)
                 entity.__dict__[name] = component
+            entity.create.create_status = True
             self.entity_count += 1
             logger.info(f"CreateSystem {self.entity_count}| {entity.uid} - {entity.__dict__}")
             
