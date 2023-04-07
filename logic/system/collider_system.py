@@ -41,25 +41,25 @@ class ColliderSystem(System):
                     distance_y = position_a[1] - position_b[1]
                     if not (distance_x < (width_a + width_b) / 2 and distance_y < (heigh_a + height_b) / 2):
                         continue
-                    collider_direction = [-1, -1]
+                    collider_direction = [1, -1]
                 elif position_a[0] >= position_b[0] and position_a[1] < position_b[1]:
                     distance_x = position_a[0] - position_b[0]
                     distance_y = position_b[1] - position_a[1]
                     if not (distance_x < (width_a + width_b) / 2 and distance_y < (heigh_a + height_b) / 2):
                         continue
-                    collider_direction = [-1, 1]
+                    collider_direction = [1, 1]
                 elif position_a[0] < position_b[0] and position_a[1] >= position_b[1]:
                     distance_x = position_b[0] - position_a[0]
                     distance_y = position_a[1] - position_b[1]
                     if not (distance_x < (width_a + width_b) / 2 and distance_y < (heigh_a + height_b) / 2):
                         continue
-                    collider_direction = [1, -1]
+                    collider_direction = [-1, -1]
                 else:
                     distance_x = position_b[0] - position_a[0]
                     distance_y = position_b[1] - position_a[1]
                     if not (distance_x < (width_a + width_b) / 2 and distance_y < (heigh_a + height_b) / 2):
                         continue
-                    collider_direction = [1, 1]
+                    collider_direction = [-1, 1]
 
                 if position_a[0] == position_b[0]:
                     collider_direction[0] = 0

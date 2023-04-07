@@ -77,7 +77,7 @@ class Test(object):
             item["box_collider"]["height"] = 60
             item["box_collider"]["width"] = 60
             item["transform"] = {}
-            item["transform"]["position"] = [position[0] + 30, position[1] + 22]
+            item["transform"]["position"] = [position[0] + 30, position[1] + 30]
         elif name == "symbol":
             item["model"] = {}
             item["model"]["model_name"] = "symbol"

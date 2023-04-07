@@ -53,7 +53,7 @@ class CommandManager(Singleton):
             "move": {"speed": 5},
             "model": {"model_name": "player", "model_index": "player1" if is_player1 else "player2"},
             "box_collider": {"layer": 1, "width": 60, "height": 60},
-            "transform": {"position": (315.0, 750.0) if is_player1 else (465.0, 750.0)},
+            "transform": {"position": (310.0, 750.0) if is_player1 else (470.0, 750.0)},
             "player": {"player_id": player_id}
         }
         cmd = self.get_create_cmd(uid, node_data)
