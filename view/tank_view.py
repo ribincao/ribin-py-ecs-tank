@@ -29,9 +29,10 @@ class TankView(PyGameView):
         elif operation == '-' and self.player_uid:
             cmd = command_manager.get_move_cmd(self.player_uid, MoveDirection.STOP)
 
-        elif operation in ['n', 'm'] and self.player_uid <= 0:
+        elif operation in 'n' and self.player_uid <= 0:
             entity = self.context.create_entity()
-            cmd = command_manager.create_tank_player_cmd(entity.uid, "ribincao", operation == 'n')
+            player_count = self.context.get_player_count()
+            cmd = command_manager.create_tank_player_cmd(entity.uid, "ribincao", player_count % 2 == 0)
             self.player_uid = entity.uid
 
         elif operation == 'j' and self.player_uid > 0:

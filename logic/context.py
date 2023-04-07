@@ -32,6 +32,14 @@ class Context(object):
             entity.uid = uid
         return entity
 
+    def get_player_count(self):
+        cnt = 0
+        for entity in self.get_entities():
+            if not entity.player:
+                continue
+            cnt += 1
+        return cnt
+
     def destroy_entity(self, uid: int):
         if uid not in self.entities:
             return
