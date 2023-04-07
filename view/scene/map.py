@@ -63,7 +63,7 @@ class Test(object):
             item["model"]["model_name"] = "water"
             item["model"]["model_index"] = "water"
             item["box_collider"] = {}
-            item["box_collider"]["layer"] = 0
+            item["box_collider"]["layer"] = 1
             item["box_collider"]["height"] = 60
             item["box_collider"]["width"] = 60
             item["transform"] = {}

@@ -23,13 +23,25 @@ class MoveSystem(System):
             entity.transform.last_position = (x, y)
             if entity.state.state == State.move:
                 if entity.transform.rotation == 0:
-                    y -= entity.move.speed
+                    if entity.box_collider and entity.box_collider.collider_direction[1] > 0:
+                        y += entity.box_collider.collider_direction[1]
+                    else:
+                        y -= entity.move.speed
                 if entity.transform.rotation == 180:
-                    y += entity.move.speed
+                    if entity.box_collider and entity.box_collider.collider_direction[1] < 0:
+                        y += entity.box_collider.collider_direction[1]
+                    else:
+                        y += entity.move.speed
                 if entity.transform.rotation == 90:
-                    x -= entity.move.speed
+                    if entity.box_collider and entity.box_collider.collider_direction[0] > 0:
+                        x += entity.box_collider.collider_direction[0]
+                    else:
+                        x -= entity.move.speed
                 if entity.transform.rotation == 270:
-                    x += entity.move.speed
+                    if entity.box_collider and entity.box_collider.collider_direction[0] < 0:
+                        x += entity.box_collider.collider_direction[0]
+                    else:
+                        x += entity.move.speed
 
             if entity.box_collider:
                 x = min(max(x, entity.box_collider.width / 2), self.context.edge_size[0] - entity.box_collider.width / 2)

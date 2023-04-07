@@ -28,42 +28,38 @@ class ColliderSystem(System):
                     continue
 
                 position_a = entity_a.transform.position
-                heigh_a = entity_a.box_collider.height
-                width_a = entity_a.box_collider.width
-
                 position_b = entity_b.transform.position
-                height_b = entity_b.box_collider.height
-                width_b = entity_b.box_collider.width
+                distance_x = (entity_a.box_collider.width + entity_b.box_collider.width) / 2
+                distance_y = (entity_a.box_collider.height + entity_b.box_collider.height) / 2
 
-                collider_direction = [0, 0]
                 if position_a[0] >= position_b[0] and position_a[1] >= position_b[1]:
-                    distance_x = position_a[0] - position_b[0]
-                    distance_y = position_a[1] - position_b[1]
-                    if not (distance_x < (width_a + width_b) / 2 and distance_y < (heigh_a + height_b) / 2):
+                    delta_x = position_a[0] - position_b[0] - distance_x
+                    delta_y = position_a[1] - position_b[1] - distance_y
+                    if not (delta_x < 0 and delta_y < 0):
                         continue
-                    collider_direction = [1, -1]
+                    collider_direction = [-delta_x, -delta_y]
                 elif position_a[0] >= position_b[0] and position_a[1] < position_b[1]:
-                    distance_x = position_a[0] - position_b[0]
-                    distance_y = position_b[1] - position_a[1]
-                    if not (distance_x < (width_a + width_b) / 2 and distance_y < (heigh_a + height_b) / 2):
+                    delta_x = position_a[0] - position_b[0] - distance_x
+                    delta_y = position_b[1] - position_a[1] - distance_y
+                    if not (delta_x < 0 and delta_y < 0):
                         continue
-                    collider_direction = [1, 1]
+                    collider_direction = [-delta_x, delta_y]
                 elif position_a[0] < position_b[0] and position_a[1] >= position_b[1]:
-                    distance_x = position_b[0] - position_a[0]
-                    distance_y = position_a[1] - position_b[1]
-                    if not (distance_x < (width_a + width_b) / 2 and distance_y < (heigh_a + height_b) / 2):
+                    delta_x = position_b[0] - position_a[0] - distance_x
+                    delta_y = position_a[1] - position_b[1] - distance_y
+                    if not (delta_x < 0 and delta_y < 0):
                         continue
-                    collider_direction = [-1, -1]
+                    collider_direction = [delta_x, -delta_y]
                 else:
-                    distance_x = position_b[0] - position_a[0]
-                    distance_y = position_b[1] - position_a[1]
-                    if not (distance_x < (width_a + width_b) / 2 and distance_y < (heigh_a + height_b) / 2):
+                    delta_x = position_b[0] - position_a[0] - distance_x
+                    delta_y = position_b[1] - position_a[1] - distance_y
+                    if not (delta_x < 0 and delta_y < 0):
                         continue
-                    collider_direction = [-1, 1]
+                    collider_direction = [delta_x, delta_y]
 
-                if position_a[0] == position_b[0]:
+                if position_a[0] == position_b[0] or entity_a.transform.rotation == 0.0 or entity_a.transform.rotation == 180.0:
                     collider_direction[0] = 0
-                if position_a[1] == position_b[1]:
+                if position_a[1] == position_b[1] or entity_a.transform.rotation == 90.0 or entity_a.transform.rotation == 270.0:
                     collider_direction[1] = 0
                 
                 if collider_direction == [0, 0]:
