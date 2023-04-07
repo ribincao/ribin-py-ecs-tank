@@ -8,10 +8,9 @@ from typing import Optional, Tuple
 
 
 class TankView(PyGameView):
-    MODULE = 'tank'
 
-    def __init__(self, context: Context):
-        super(TankView, self).__init__(context)
+    def __init__(self, gid: str, context: Context):
+        super(TankView, self).__init__(gid, context)
         self.player_uid: int = 0
         self.window_size: Tuple[float, float] = (780, 780)
 

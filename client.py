@@ -17,8 +17,8 @@ class TankClient(object):
         self.context: Context = Context()
         self.tcp: Tcp = Tcp(8888, 'tank', self.context)  # 网络层
         self.logic: Logic = TankLogic('tank', self.context)  # 逻辑层
-        self.view: View = TankView(self.context)  # 表现层
-        self.window: Window = PyGameWindow("Tank", self.view)  # 渲染层
+        self.view: View = TankView("tank", self.context)  # 表现层
+        self.window: Window = PyGameWindow("tank", self.view)  # 渲染层
         self._loop: asyncio.AbstractEventLoop = asyncio.get_event_loop()
         
     def init_game(self):

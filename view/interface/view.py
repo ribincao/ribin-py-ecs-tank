@@ -5,8 +5,9 @@ from abc import abstractmethod
 class View(object):
     VIEW_RATE = 20e-3
 
-    def __init__(self, context: Context):
+    def __init__(self, gid: str, context: Context):
         self.context: Context = context
+        self.gid: str = gid
 
     @abstractmethod
     async def update(self):

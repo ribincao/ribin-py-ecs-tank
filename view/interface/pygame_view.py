@@ -11,8 +11,8 @@ from common.data_util import data_util
 
 class PyGameView(View):
 
-    def __init__(self, context: Context):
-        super(PyGameView, self).__init__(context)
+    def __init__(self, gid: str, context: Context):
+        super(PyGameView, self).__init__(gid, context)
         self.behaviors: Dict[int, PyGameBehavior] = {}
         self.back_ground = (0, 0, 0)
         self.window_size: Tuple[float, float] = (1024, 960)
@@ -39,7 +39,7 @@ class PyGameView(View):
         return behavior
 
     def init_view(self):
-        scene = data_util.load_from_json('./view/scene/tank.json')
+        scene = data_util.load_from_json(f'./view/scene/{self.gid}.json')
         if scene:
             self.window_size = scene.get("window_size", [780, 780])
 

@@ -11,7 +11,7 @@ class Server(object):
 
     def __init__(self):
         self.context: Context = Context()
-        self.tcp: Tcp = Tcp(8888, 'Tank', self.context)  # 网络层
+        self.tcp: Tcp = Tcp(8888, 'tank', self.context)  # 网络层
         self.logic: Logic = TankLogic('tank', self.context)  # 逻辑层
         self._loop: asyncio.AbstractEventLoop = asyncio.get_event_loop()
         
