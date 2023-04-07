@@ -57,9 +57,9 @@ class ColliderSystem(System):
                         continue
                     collider_direction = [delta_x, delta_y]
 
-                if position_a[0] == position_b[0] or entity_a.transform.rotation == 0.0 or entity_a.transform.rotation == 180.0:
+                if entity_a.transform.rotation == 0.0 or entity_a.transform.rotation == 180.0:
                     collider_direction[0] = 0
-                if position_a[1] == position_b[1] or entity_a.transform.rotation == 90.0 or entity_a.transform.rotation == 270.0:
+                if entity_a.transform.rotation == 90.0 or entity_a.transform.rotation == 270.0:
                     collider_direction[1] = 0
                 
                 if collider_direction == [0, 0]:

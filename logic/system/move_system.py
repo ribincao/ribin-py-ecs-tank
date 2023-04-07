@@ -16,20 +16,27 @@ class MoveSystem(System):
         for entity in entities:
             if not entity.move or entity.move.speed <= 0:
                 continue
-            if not entity.state:
+            if not entity.state or entity.state.state != State.move:
                 continue
-            x, y = entity.transform.position
 
+            x, y = entity.transform.position
             entity.transform.last_position = (x, y)
-            if entity.state.state == State.move:
-                if entity.transform.rotation == 0:
-                    y -= entity.move.speed
-                if entity.transform.rotation == 180:
-                    y += entity.move.speed
-                if entity.transform.rotation == 90:
-                    x -= entity.move.speed
-                if entity.transform.rotation == 270:
-                    x += entity.move.speed
+            if entity.transform.rotation == 0:
+                if entity.box_collider and entity.box_collider.collider_direction[1] > 0:
+                    continue
+                y -= entity.move.speed
+            if entity.transform.rotation == 180:
+                if entity.box_collider and entity.box_collider.collider_direction[1] < 0:
+                    continue
+                y += entity.move.speed
+            if entity.transform.rotation == 90:
+                if entity.box_collider and entity.box_collider.collider_direction[0] > 0:
+                    continue
+                x -= entity.move.speed
+            if entity.transform.rotation == 270:
+                if entity.box_collider and entity.box_collider.collider_direction[0] < 0:
+                    continue
+                x += entity.move.speed
 
             if entity.box_collider:
                 x = min(max(x, entity.box_collider.width / 2), self.context.edge_size[0] - entity.box_collider.width / 2)
