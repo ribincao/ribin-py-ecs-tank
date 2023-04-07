@@ -1,18 +1,13 @@
-from view.interface.view import View
+from view.interface.pygame_view import PyGameView
 from logic.context import Context
 from common.logger import logger
-from logic.entity.entity import GameLogicEntity
-from common.data_util import data_util
-import asyncio
 from logic.command.move_command import MoveDirection
 from logic.manager.command_manager import command_manager
 from logic.interface.command import Command
 from typing import Optional, Tuple
-from logic.component.state_component import State
-from view.manager.behavior_manager import behavior_manager
 
 
-class TankView(View):
+class TankView(PyGameView):
     MODULE = 'tank'
 
     def __init__(self, context: Context):
@@ -20,34 +15,8 @@ class TankView(View):
         self.player_uid: int = 0
         self.window_size: Tuple[float, float] = (780, 780)
 
-    async def update(self):
-        while True:
-            behaviors = {}
-            for entity in self.context.get_entities():
-                if not entity.model:
-                    continue
-                behavior = self.behaviors.get(entity.uid, None)
-                if not behavior:
-                    behavior = self.create_behavior(entity)
-                behavior.entity = entity
-                behaviors[entity.uid] = behavior
-                await behavior.update()
-            self.behaviors = behaviors
-            await asyncio.sleep(self.VIEW_RATE)
-
-    def create_behavior(self, entity: GameLogicEntity):
-        behavior = behavior_manager.get_tank_behavior(entity)
-        behavior.init_models()
-        self.behaviors[entity.uid] = behavior
-        return behavior
-
-    def init_view(self):
-        scene = data_util.load_from_json('./view/scene/tank.json')
-        logger.debug(f"view_load_tank_scene {scene}")
-        if scene:
-            self.window_size = scene.get("window_size", [780, 780])
     
-    async def handle_event(self, operation: str):
+    async def handler(self, operation: str):
 
         cmd: Optional[Command] = None
         if operation == 'w' and self.player_uid:

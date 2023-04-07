@@ -1,17 +1,17 @@
 from abc import abstractmethod
-from view.interface.view import View
 
 
 class Window(object):
+    RENDER_RATE = 20e-3
 
-    def __init__(self, window_name: str, view: View):
+    def __init__(self, window_name: str):
         self.window_name: str = window_name
-        self.view: View = view
 
     @abstractmethod
     async def update(self):
         pass
-
+    
+    @abstractmethod
     def init_window(self):
         pass
 
