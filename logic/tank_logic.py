@@ -36,10 +36,12 @@ class TankLogic(Logic):
         items = scene.get("items", [])
         self.context.edge_size = scene.get("window_size", [780, 780])
         for item in items:
-            entity = self.context.create_entity()
+            is_async = item.get("is_async", True)
+            entity = self.context.create_entity(is_async)
+
             cmd = CreateCmd(entity.uid)
             cmd.node_data = item
-            self. context.input_command(cmd)
+            self.context.input_command(cmd)
         logger.info(f"{self.context.uid_cnt} entity created.")
         
 

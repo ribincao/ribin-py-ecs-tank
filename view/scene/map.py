@@ -29,6 +29,7 @@ class Test(object):
     def get_tank_item(self, name, position):
         item = {}
         if name == "grass":
+            item["is_async"] = False
             item["model"] = {}
             item["model"]["model_name"] = "grass"
             item["model"]["model_index"] = "grass"
@@ -59,6 +60,7 @@ class Test(object):
             item["transform"] = {}
             item["transform"]["position"] = [position[0] + 7, position[1] + 7]
         elif name == "water":
+            item["is_async"] = False
             item["model"] = {}
             item["model"]["model_name"] = "water"
             item["model"]["model_index"] = "water"

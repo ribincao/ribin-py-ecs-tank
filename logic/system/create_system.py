@@ -18,6 +18,8 @@ class CreateSystem(System):
             node_data = entity.create.node_data
             for name, value in node_data.items():
                 component = component_manager.get_component(name)
+                if not component:
+                    continue
                 component.__dict__.update(value)
                 entity.__dict__[name] = component
             entity.create.create_status = True
