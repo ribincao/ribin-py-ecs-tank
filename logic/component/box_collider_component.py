@@ -8,6 +8,6 @@ class BoxColliderComponent(Component):
         super(BoxColliderComponent, self).__init__(is_async)
         self.width: float = 0.0
         self.height: float = 0.0
-        self.collider_direction: Tuple[int, int] = (0, 0)
+        self.collider_direction: Tuple[float, float] = (0, 0)
         self.layer: int = 0
 

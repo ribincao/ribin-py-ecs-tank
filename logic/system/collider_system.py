@@ -1,6 +1,7 @@
 from logic.interface.system import System
 from logic.context import Context
 from common.logger import logger
+from logic.component.state_component import State
 
 
 class ColliderSystem(System):
@@ -61,7 +62,7 @@ class ColliderSystem(System):
                     collider_direction[0] = 0
                 if entity_a.transform.rotation == 90.0 or entity_a.transform.rotation == 270.0:
                     collider_direction[1] = 0
-                
+
                 if collider_direction == [0, 0]:
                     continue
 
@@ -69,5 +70,6 @@ class ColliderSystem(System):
                 entity_b.box_collider.collider_direction = (-collider_direction[0], -collider_direction[1])
                 logger.debug(f"box collider detect {collider_direction}: {entity_a.uid} -> {entity_b.uid}")
 
-                entity_a.transform.add_position(collider_direction[0], collider_direction[1])
+                if entity_a.state.state == State.move:
+                    entity_a.transform.add_position(collider_direction[0], collider_direction[1])
 
