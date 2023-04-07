@@ -33,6 +33,8 @@ class Test(object):
             item["model"]["model_index"] = "grass"
             item["box_collider"] = {}
             item["box_collider"]["layer"] = 2
+            item["box_collider"]["height"] = 60
+            item["box_collider"]["width"] = 60
             item["transform"] = {}
             item["transform"]["position"] = [position[0] + 30, position[1] + 30]
         elif name == "walls":
@@ -41,6 +43,8 @@ class Test(object):
             item["model"]["model_index"] = "walls"
             item["box_collider"] = {}
             item["box_collider"]["layer"] = 1
+            item["box_collider"]["height"] = 60
+            item["box_collider"]["width"] = 60
             item["transform"] = {}
             item["transform"]["position"] = [position[0] + 30, position[1] + 30]
         elif name == "wall":
@@ -49,6 +53,8 @@ class Test(object):
             item["model"]["model_index"] = "wall"
             item["box_collider"] = {}
             item["box_collider"]["layer"] = 1
+            item["box_collider"]["height"] = 15
+            item["box_collider"]["width"] = 15
             item["transform"] = {}
             item["transform"]["position"] = [position[0] + 7, position[1] + 7]
         elif name == "water":
@@ -57,6 +63,8 @@ class Test(object):
             item["model"]["model_index"] = "water"
             item["box_collider"] = {}
             item["box_collider"]["layer"] = 0
+            item["box_collider"]["height"] = 60
+            item["box_collider"]["width"] = 60
             item["transform"] = {}
             item["transform"]["position"] = [position[0] + 30, position[1] + 30]
         elif name == "iron":
@@ -65,6 +73,8 @@ class Test(object):
             item["model"]["model_index"] = "irons"
             item["box_collider"] = {}
             item["box_collider"]["layer"] = 1
+            item["box_collider"]["height"] = 60
+            item["box_collider"]["width"] = 60
             item["transform"] = {}
             item["transform"]["position"] = [position[0] + 30, position[1] + 22]
         elif name == "symbol":
@@ -73,6 +83,8 @@ class Test(object):
             item["model"]["model_index"] = "symbol"
             item["box_collider"] = {}
             item["box_collider"]["layer"] = 1
+            item["box_collider"]["height"] = 60
+            item["box_collider"]["width"] = 60
             item["transform"] = {}
             item["transform"]["position"] = [position[0] + 30, position[1] + 30]
 
