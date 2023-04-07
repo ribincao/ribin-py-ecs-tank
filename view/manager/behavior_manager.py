@@ -1,4 +1,4 @@
-from view.interface.behavior import PyGameBehavior
+from view.interface.pygame_behavior import PyGameBehavior
 from common.singleton import Singleton
 from logic.entity.entity import GameLogicEntity
 from view.behavior.tank_player_behavior import TankPlayerBehavior

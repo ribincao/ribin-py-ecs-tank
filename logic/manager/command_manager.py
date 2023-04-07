@@ -4,7 +4,7 @@ from common.singleton import Singleton
 from logic.interface.command import Command
 from typing import Optional
 import json
-from view.interface.behavior import PyGameBehavior
+from view.interface.pygame_behavior import PyGameBehavior
 from logic.component.state_component import State
 
 

@@ -1,4 +1,4 @@
-from view.interface.behavior import PyGameBehavior
+from view.interface.pygame_behavior import PyGameBehavior
 from logic.entity.entity import GameLogicEntity
 from typing import Tuple
 
