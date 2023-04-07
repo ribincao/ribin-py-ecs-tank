@@ -6,16 +6,16 @@ TODOLIST:
 ## usage
 env
 ``` shell
-pip install pygame
+pip3 install pygame
 ```
 
 单机
 ``` python
-python tank.py
+python3 client.py
 ```
 
 联机
 ``` python
 python server.py
-python tank.py
+python client.py
 ```
