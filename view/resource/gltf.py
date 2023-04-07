@@ -11,7 +11,8 @@ class GLTF(object):
 
     def save(self, module, data):
         with open(f"./{module}/gltf.json", "w") as json_file:
-            json.dump(data, json_file, ensure_ascii=False, indent=4)
+            json.dump(data, json_file, ensure_ascii=False, separators=(',', ':'))
+            # json.dump(data, json_file, ensure_ascii=False, indent=4)
 
     def export(self, module: str):
         gltf = []

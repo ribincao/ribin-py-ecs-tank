@@ -10,7 +10,8 @@ class Test(object):
 
     def save(self, module, data):
         with open(f"./{module}.json", "w") as json_file:
-            json.dump(data, json_file, ensure_ascii=False, indent=4)
+            json.dump(data, json_file, ensure_ascii=False, separators=(',', ':'))
+            # json.dump(data, json_file, ensure_ascii=False, indent=4)
 
     def print_size(self, path: str):
         img = pygame.image.load(path)
