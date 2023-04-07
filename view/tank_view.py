@@ -42,6 +42,9 @@ class TankView(PyGameView):
             entity = self.context.create_entity()
             cmd = command_manager.tank_shot_cmd(entity.uid, tank)
 
+        elif operation == 't':
+            entity = self.context.create_entity()
+            cmd = command_manager.create_tank_enemy_cmd(entity.uid)
         self.send_cmd(cmd)
         
     def send_cmd(self, cmd: Optional[Command]):

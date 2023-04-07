@@ -14,7 +14,7 @@ class MoveSystem(System):
     async def update(self):
         entities = self.context.get_entities()
         for entity in entities:
-            if not entity.transform or not entity.move or entity.move.speed <= 0:
+            if not entity.move or entity.move.speed <= 0:
                 continue
             if not entity.state:
                 continue

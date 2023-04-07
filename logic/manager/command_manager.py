@@ -6,6 +6,7 @@ from typing import Optional
 import json
 from view.interface.pygame_behavior import PyGameBehavior
 from logic.component.state_component import State
+import random
 
 
 class CommandManager(Singleton):
@@ -70,6 +71,18 @@ class CommandManager(Singleton):
         cmd = self.get_create_cmd(uid, node_data)
         return cmd
 
+    def create_tank_enemy_cmd(self, uid: int) -> CreateCmd:
+        positions = [(30, 30), (390, 30), (750, 30)]
+        model_index = ["enemy" + str(i) for i in range(1, 7)]
+        node_data = {
+            "state": {"state": State.move},
+            "move": {"speed": 5},
+            "model": {"model_name": "enemy", "model_index": random.choice(model_index)},
+            "box_collider": {"layer": 1, "width": 60, "height": 60},
+            "transform": {"position": random.choice(positions), "rotation": 180.0},
+        }
+        cmd = self.get_create_cmd(uid, node_data)
+        return cmd
 
 command_manager = CommandManager()
 
