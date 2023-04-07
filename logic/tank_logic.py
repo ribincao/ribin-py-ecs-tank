@@ -19,10 +19,10 @@ class TankLogic(Logic):
         from logic.system.create_system import CreateSystem
         
         self.register_system(CreateSystem(self.context))
-        self.register_system(EnemySystem(self.context))
-        self.register_system(MoveSystem(self.context))
         self.register_system(CommandSystem(self.context))
+        self.register_system(MoveSystem(self.context))
         self.register_system(ColliderSystem(self.context))
+        self.register_system(EnemySystem(self.context))
         self.register_system(DestroySystem(self.context))
 
         self.load_map(f"./view/scene/{self.gid}.json")
