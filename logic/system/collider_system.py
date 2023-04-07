@@ -15,10 +15,15 @@ class ColliderSystem(System):
             if not entity_a.box_collider or not entity_a.move:
                 continue
 
-            for j in range(i + 1, len(entities)):
+            entity_a.box_collider.collider_direction = (0, 0)
+            for j in range(len(entities)):
+                if i == j:
+                    continue
+
                 entity_b = entities[j]
                 if not entity_b.box_collider:
                     continue
+                entity_b.box_collider.collider_direction = (0, 0)
                 if entity_a.box_collider.layer != entity_b.box_collider.layer:
                     continue
 
@@ -43,23 +48,28 @@ class ColliderSystem(System):
                     if not (distance_x < (width_a + width_b) / 2 and distance_y < (heigh_a + height_b) / 2):
                         continue
                     collider_direction = [-1, 1]
-                elif position_a[0] < position_b[0] and position_a[1] < position_b[1]:
-                    distance_x = position_b[0] - position_a[0]
-                    distance_y = position_b[1] - position_a[1]
-                    if not (distance_x < (width_a + width_b) / 2 and distance_y < (heigh_a + height_b) / 2):
-                        continue
-                    collider_direction = [1, 1]
                 elif position_a[0] < position_b[0] and position_a[1] >= position_b[1]:
                     distance_x = position_b[0] - position_a[0]
                     distance_y = position_a[1] - position_b[1]
                     if not (distance_x < (width_a + width_b) / 2 and distance_y < (heigh_a + height_b) / 2):
                         continue
                     collider_direction = [1, -1]
+                else:
+                    distance_x = position_b[0] - position_a[0]
+                    distance_y = position_b[1] - position_a[1]
+                    if not (distance_x < (width_a + width_b) / 2 and distance_y < (heigh_a + height_b) / 2):
+                        continue
+                    collider_direction = [1, 1]
 
                 if position_a[0] == position_b[0]:
                     collider_direction[0] = 0
                 if position_a[1] == position_b[1]:
                     collider_direction[1] = 0
+                
+                if collider_direction == [0, 0]:
+                    continue
 
+                entity_a.box_collider.collider_direction = (collider_direction[0], collider_direction[1])
+                entity_b.box_collider.collider_direction = (-collider_direction[0], -collider_direction[1])
                 logger.info(f"box collider detect {collider_direction}: {entity_a.uid} -> {entity_b.uid}")
 
