@@ -14,6 +14,10 @@ class Behavior(object):
         self.models: Dict[str, object] = {}
         self.gltf: GLTF = GLTF()
 
+    @property
+    def uid(self):
+        return self.entity.uid
+
     @abstractmethod
     def init_models(self):
         pass
@@ -29,6 +33,10 @@ class Behavior(object):
     @abstractmethod
     def rect(self) -> object:
         pass
+    
+    def get_forward(self) -> Tuple[Tuple[float, float], float]:
+        return (0.0, 0.0), 0.0
+
 
 
 class PyGameBehavior(Behavior):
@@ -63,7 +71,9 @@ class PyGameBehavior(Behavior):
     def mode(self) -> Optional[Surface]:
         if not self.entity.model:
             return None
-        model = self.models[self.entity.model.model_index]
+        model = self.models.get(self.entity.model.model_index, None)
+        if not model:
+            return model
         return pygame.transform.rotate(model, self.entity.transform.rotation)
 
     @property
@@ -72,9 +82,6 @@ class PyGameBehavior(Behavior):
             return None
         rect = self.mode.get_rect(center=self.entity.transform.position)
         return rect
-
-    def get_bullet_position(self) -> Tuple[float, float]:
-        return 0.0, 0.0
 
     @abstractmethod
     async def update(self):

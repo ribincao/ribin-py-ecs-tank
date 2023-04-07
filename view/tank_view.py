@@ -61,27 +61,9 @@ class TankView(View):
         elif operation == '-' and self.player_uid:
             cmd = command_manager.get_move_cmd(self.player_uid, MoveDirection.STOP)
 
-        elif operation == 'n' and self.player_uid <= 0:
+        elif operation in ['n', 'm'] and self.player_uid <= 0:
             entity = self.context.create_entity()
-            node_data = {
-                    "state": {"state": State.normal},
-                    "move": {"speed": 5},
-                    "model": {"model_name": "player", "model_index": "player1"},
-                    "box_collider": {"layer": 1, "width": 60, "height": 60},
-                    "transform": {"position": (315.0, 750.0)}
-            }
-            cmd = command_manager.get_create_cmd(entity.uid, node_data)
-            self.player_uid = entity.uid
-        elif operation == 'm' and self.player_uid <= 0:
-            entity = self.context.create_entity()
-            node_data = {
-                    "state": {"state": State.normal},
-                    "move": {"speed": 5},
-                    "model": {"model_name": "player", "model_index": "player2"},
-                    "box_collider": {"layer": 1, "width": 60, "height": 60},
-                    "transform": {"position": (465.0, 750.0)}
-            }
-            cmd = command_manager.get_create_cmd(entity.uid, node_data)
+            cmd = command_manager.create_tank_player_cmd(entity.uid, "ribincao", operation == 'n')
             self.player_uid = entity.uid
 
         elif operation == 'j' and self.player_uid > 0:
@@ -89,20 +71,14 @@ class TankView(View):
             if not tank or not tank.entity.model or not tank.entity.move:
                 return
             entity = self.context.create_entity()
-            node_data = {
-                    "move": {"speed": 5},
-                    "model": {"model_name": "bullet", "model_index": "bullet"},
-                    "box_collider": {"layer": 1, "width": 12, "height": 12},
-                    "transform": {"position": tank.get_bullet_position(), "rotation": tank.entity.transform.rotation},
-                    "state": {"state": State.move}
-            }
-            cmd = command_manager.get_create_cmd(entity.uid, node_data)
+            cmd = command_manager.tank_shot_cmd(entity.uid, tank)
 
         self.send_cmd(cmd)
         
     def send_cmd(self, cmd: Optional[Command]):
         if not cmd:
             return
+        logger.info(f"SendCommand {cmd.__dict__}")
         self.context.input_command(cmd)
         if self.context.is_connected:
             self.context.input_message(cmd)
