@@ -56,26 +56,26 @@ class Context(object):
 
     def export_world(self) -> str:
         d = dict()
-        d["uid_cnt"] = self.uid_cnt
-        d["entities"] = {}
         for entity in self.get_entities():
             snap = entity.export()
             if not snap:
                 continue
-            d["entities"][entity.uid] = snap
+            d[entity.uid] = snap
         if not d:
             return ''
         return json.dumps(d)
 
     def import_world(self, s: str):
         d = json.loads(s)
-        self.uid_cnt = d.get("uid_cnt", self.uid_cnt)
-        for s_uid, info in d.get("entities", {}).items():
+        for s_uid, info in d.items():
             uid = int(s_uid)
             if uid < 0:
                 continue
             entity = self.get_entity(uid)
             entity.update(info)
+            if uid <= self.uid_cnt:
+                continue
+            self.uid_cnt = uid + 1
 
     def dispatch_event(self, event: IEvent):
         self.event_dispatch.dispatch_event(event)

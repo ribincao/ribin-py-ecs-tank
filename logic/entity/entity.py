@@ -47,45 +47,45 @@ class GameLogicEntity(object):
             component.__dict__.update(new_component)
             self.__dict__[name] = component
 
-    def add_transform(self, position: Tuple[float, float], rotation: float = 0.0, is_async: bool = True):
+    def add_transform(self, position: Tuple[float, float], rotation: float = 0.0):
         if not self.transform:
-            self.transform = TransformComponent(is_async)
+            self.transform = TransformComponent()
         self.transform.position = position
         self.transform.rotation = rotation
         self.transform.last_position = position
 
-    def add_move(self, speed: float, is_async: bool = True):
+    def add_move(self, speed: float):
         if not self.move:
-            self.move = MoveComponent(is_async)
+            self.move = MoveComponent()
         self.move.speed = speed
 
-    def add_create(self, create_status: bool, node_data: dict, is_async: bool = True):
+    def add_create(self, create_status: bool, node_data: dict):
         if not self.create:
-            self.create = CreateComponent(is_async)
+            self.create = CreateComponent()
         self.create.create_status = create_status
         self.create.node_data = node_data
     
-    def add_box_collider(self, width: float, height: float, collider_direction: Tuple[int, int], layer: int, is_async: bool = True):
+    def add_box_collider(self, width: float, height: float, collider_direction: Tuple[int, int], layer: int):
         if not self.box_collider:
-            self.box_collider = BoxColliderComponent(is_async)
+            self.box_collider = BoxColliderComponent()
         self.box_collider.height = height
         self.box_collider.width = width
         self.box_collider.collider_direction = collider_direction
         self.box_collider.layer = layer
 
-    def add_state(self, state: int, is_async: bool = True):
+    def add_state(self, state: int):
         if not self.state:
-            self.state = StateComponent(is_async)
+            self.state = StateComponent()
         self.state.state = state
 
-    def add_model(self, model_index: int, model_name: str, is_async: bool = True):
+    def add_model(self, model_index: int, model_name: str):
         if not self.model:
-            self.model = ModelComponent(is_async)
+            self.model = ModelComponent()
         self.model.model_index = model_index
         self.model.model_name = model_name
 
-    def add_player(self, player_id: str, is_async: bool = True):
+    def add_player(self, player_id: str):
         if not self.player:
-            self.player = PlayerComponent(is_async)
+            self.player = PlayerComponent()
         self.player.player_id = player_id
 
