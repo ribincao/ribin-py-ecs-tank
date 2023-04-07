@@ -36,7 +36,7 @@ class PyGameBehavior(Behavior):
         return self.entity.box_collider.layer
 
     @property
-    def mode(self) -> Optional[Surface]:
+    def model(self) -> Optional[Surface]:
         if not self.entity.model:
             return None
         model = self.models.get(self.entity.model.model_index, None)
@@ -46,9 +46,9 @@ class PyGameBehavior(Behavior):
 
     @property
     def rect(self) -> Optional[Rect]:
-        if not self.mode:
+        if not self.model:
             return None
-        rect = self.mode.get_rect(center=self.entity.transform.position)
+        rect = self.model.get_rect(center=self.entity.transform.position)
         return rect
 
     @abstractmethod

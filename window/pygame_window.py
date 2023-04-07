@@ -2,15 +2,15 @@ from window.interface.window import Window
 import asyncio
 import pygame
 from typing import Optional
-from view.interface.view import View
+from view.interface.pygame_view import PyGameView
 
 
 class PyGameWindow(Window):
-    RENDER_RATE = 20e-3
 
-    def __init__(self, window_name: str, view: View):
-        super(PyGameWindow, self).__init__(window_name, view)
+    def __init__(self, window_name: str, view: PyGameView):
+        super(PyGameWindow, self).__init__(window_name)
         self.window: Optional[pygame.Surface] = None
+        self.view: PyGameView = view
 
     async def update(self):
         while True:
@@ -22,9 +22,9 @@ class PyGameWindow(Window):
             for behavior in self.view.get_behaviors():
                 if not behavior.models:
                     continue
-                if not behavior.mode or not behavior.rect:
+                if not behavior.model or not behavior.rect:
                     continue
-                self.window.blit(behavior.mode, behavior.rect)
+                self.window.blit(behavior.model, behavior.rect)
                 pygame.draw.rect(self.window, (255, 0, 0), behavior.rect, 1)
 
             pygame.display.update()
@@ -63,5 +63,5 @@ class PyGameWindow(Window):
 
             if operation == '':
                 continue
-            await self.view.handle_event(operation)
+            await self.view.handler(operation)
 
