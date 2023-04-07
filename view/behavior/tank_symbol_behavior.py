@@ -10,3 +10,17 @@ class TankSymbolBehavior(PyGameBehavior):
     async def update(self):
         pass
      
+    def init_models(self):
+        from view.resource.gltf import GLTF
+        import pygame.image as img
+        gltf = GLTF()
+        models = gltf.load_models("tank", "symbol")
+        self.models = {}
+        for model in models:
+            model_index = model.get("model_index", '')
+            if not model_index:
+                continue
+            path = model.get("model", "")
+            if not path:
+                continue
+            self.models[model_index] = img.load(path)

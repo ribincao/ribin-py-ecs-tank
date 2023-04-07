@@ -15,22 +15,18 @@ class GLTF(object):
 
     def export(self, module: str):
         gltf = []
-        mod_id = 0
         for root, dirs, files in os.walk('./' + module):
             if dirs:
                 continue
-            mod = root.split('/')[-1]
-            model = {'model_id': mod_id, 'model_name': mod, 'models': []}
-            index = 0
+            model_name = root.split('/')[-1]
+            model = {'model_name': model_name, 'models': []}
             for file in sorted(files):
                 d = {}
                 file_path = os.path.join(root, file)
-                d["index"] = index
+                d["model_index"] = file.split('.')[0]
                 d["model"] = './view/resource' + file_path[1:]
                 d["size"] = self.get_size(file_path) 
                 model["models"].append(d)
-                index += 1
-            mod_id += 1
             gltf.append(model)
     
         # print(gltf)

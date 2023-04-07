@@ -37,8 +37,7 @@ class TankView(View):
 
     def create_behavior(self, entity: GameLogicEntity):
         behavior = behavior_manager.get_tank_behavior(entity)
-        if entity.model:
-            behavior.init_models(self.MODULE, entity.model.model_name)
+        behavior.init_models()
         self.behaviors[entity.uid] = behavior
         return behavior
 
@@ -67,7 +66,7 @@ class TankView(View):
             node_data = {
                     "state": {"state": State.normal},
                     "move": {"speed": 5},
-                    "model": {"model_name": "player1"},
+                    "model": {"model_name": "player", "model_index": "player1"},
                     "box_collider": {"layer": 1, "width": 60, "height": 60},
                     "transform": {"position": (315.0, 750.0)}
             }
@@ -78,7 +77,7 @@ class TankView(View):
             node_data = {
                     "state": {"state": State.normal},
                     "move": {"speed": 5},
-                    "model": {"model_name": "player2"},
+                    "model": {"model_name": "player", "model_index": "player2"},
                     "box_collider": {"layer": 1, "width": 60, "height": 60},
                     "transform": {"position": (465.0, 750.0)}
             }
@@ -92,7 +91,7 @@ class TankView(View):
             entity = self.context.create_entity()
             node_data = {
                     "move": {"speed": 5},
-                    "model": {"model_name": "bullet", "model_index": tank.entity.model.model_index},
+                    "model": {"model_name": "bullet", "model_index": "bullet"},
                     "box_collider": {"layer": 1, "width": 12, "height": 12},
                     "transform": {"position": tank.get_bullet_position(), "rotation": tank.entity.transform.rotation},
                     "state": {"state": State.move}

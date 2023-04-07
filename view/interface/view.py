@@ -1,7 +1,7 @@
 from logic.context import Context
 from abc import abstractmethod
 from typing import List, Dict, Tuple
-from view.behavior.behavior import PyGameBehavior
+from view.interface.behavior import PyGameBehavior
 
 
 class View(object):

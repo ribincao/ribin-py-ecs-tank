@@ -2,10 +2,10 @@ from view.interface.view import PyGameBehavior
 from logic.entity.entity import GameLogicEntity
 
 
-class TankWallBehavior(PyGameBehavior):
+class TankIronBehavior(PyGameBehavior):
 
     def __init__(self, entity: GameLogicEntity):
-        super(TankWallBehavior, self).__init__(entity)
+        super(TankIronBehavior, self).__init__(entity)
 
     async def update(self):
         pass
@@ -14,7 +14,7 @@ class TankWallBehavior(PyGameBehavior):
         from view.resource.gltf import GLTF
         import pygame.image as img
         gltf = GLTF()
-        models = gltf.load_models("tank", "wall")
+        models = gltf.load_models("tank", "iron")
         self.models = {}
         for model in models:
             model_index = model.get("model_index", '')
