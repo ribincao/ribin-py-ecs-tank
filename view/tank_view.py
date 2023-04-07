@@ -50,7 +50,7 @@ class TankView(PyGameView):
     def send_cmd(self, cmd: Optional[Command]):
         if not cmd:
             return
-        logger.info(f"SendCommand {cmd.__dict__}")
+        logger.debug(f"SendCommand {cmd.__dict__}")
         self.context.input_command(cmd)
         if self.context.is_connected:
             self.context.input_message(cmd)
