@@ -3,6 +3,8 @@ from pygame import Surface, Rect
 from typing import Dict, List, Tuple, Optional
 from abc import abstractmethod
 import pygame
+from view.resource.gltf import GLTF
+import pygame.image as img
 
 
 class Behavior(object):
@@ -10,9 +12,10 @@ class Behavior(object):
     def __init__(self, entity: GameLogicEntity):
         self.entity: GameLogicEntity = entity
         self.models: Dict[str, object] = {}
+        self.gltf: GLTF = GLTF()
 
     @abstractmethod
-    def init_models(self, module: str, mod_name: str):
+    def init_models(self):
         pass
 
     @abstractmethod
@@ -33,6 +36,18 @@ class PyGameBehavior(Behavior):
     def __init__(self, entity: GameLogicEntity):
         super(PyGameBehavior, self).__init__(entity)
         self.models: Dict[str, Surface] = {}
+
+    def _load_models(self, module: str, model_name: str):
+        models = self.gltf.load_models(module, model_name)
+        self.models = {}
+        for model in models:
+            model_index = model.get("model_index", '')
+            if not model_index:
+                continue
+            path = model.get("model", "")
+            if not path:
+                continue
+            self.models[model_index] = img.load(path)
     
     @abstractmethod
     def init_models(self):

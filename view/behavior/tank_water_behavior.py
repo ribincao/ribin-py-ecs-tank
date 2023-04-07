@@ -11,16 +11,4 @@ class TankWaterBehavior(PyGameBehavior):
         pass
      
     def init_models(self):
-        from view.resource.gltf import GLTF
-        import pygame.image as img
-        gltf = GLTF()
-        models = gltf.load_models("tank", "water")
-        self.models = {}
-        for model in models:
-            model_index = model.get("model_index", '')
-            if not model_index:
-                continue
-            path = model.get("model", "")
-            if not path:
-                continue
-            self.models[model_index] = img.load(path)
+        self._load_models("tank", "water")
