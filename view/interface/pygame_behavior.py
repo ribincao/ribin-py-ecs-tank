@@ -2,7 +2,7 @@ from view.interface.behavior import Behavior
 from logic.entity.entity import GameLogicEntity
 import pygame
 from pygame import Surface, Rect
-from typing import Dict, Optional
+from typing import Dict, Optional, Tuple
 from abc import abstractmethod
 import pygame.image as img
 
@@ -54,3 +54,20 @@ class PyGameBehavior(Behavior):
     @abstractmethod
     async def update(self):
         pass
+    
+    def get_forward(self) -> Tuple[Tuple[float, float], float]:
+        position = self.entity.transform.position
+        if not self.entity.model or not self.rect:
+            return (0.0, 0.0), 0.0
+
+        if self.entity.transform.rotation == 0:
+            return (position[0], position[1] - self.rect.height / 2), self.entity.transform.rotation
+        elif self.entity.transform.rotation == 180:
+            return (position[0], position[1] + self.rect.height / 2), self.entity.transform.rotation
+        elif self.entity.transform.rotation == 90:
+            return (position[0] - self.rect.width / 2, position[1]), self.entity.transform.rotation
+        elif self.entity.transform.rotation == 270:
+            return (position[0] + self.rect.width / 2, position[1]), self.entity.transform.rotation
+
+        return (0.0, 0.0), 0.0
+
