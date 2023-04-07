@@ -67,9 +67,8 @@ class ColliderSystem(System):
                     continue
 
                 entity_a.box_collider.collider_direction = (collider_direction[0], collider_direction[1])
-                entity_b.box_collider.collider_direction = (-collider_direction[0], -collider_direction[1])
                 logger.debug(f"box collider detect {collider_direction}: {entity_a.uid} -> {entity_b.uid}")
 
-                if entity_a.state.state == State.move:
+                if entity_a.state and entity_a.state.state == State.move:
                     entity_a.transform.add_position(collider_direction[0], collider_direction[1])
 
