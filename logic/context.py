@@ -42,9 +42,13 @@ class Context(object):
         return cnt
 
     def destroy_entity(self, uid: int):
-        if uid not in self.entities:
-            return
-        del self.entities[uid]
+        uid_index = 0
+        for uid_cnt, entity in self.entities.items():
+            if entity.uid != uid:
+                continue
+            uid_index = uid_cnt
+        if uid_index:
+            del self.entities[uid_index]
 
     def input_command(self, command: Command):
         self.commands.append(command)
@@ -58,32 +62,29 @@ class Context(object):
     def export_world(self) -> str:
         d = dict()
         d["uid_cnt"] = self.uid_cnt
+        d["entities"] = {}
+        entities = dict()
         for entity in self.get_entities():
             snap = entity.export()
+            entities[entity.uid] = entity
             if not snap:
                 continue
-            d[entity.uid] = snap
-        if not d:
-            return ''
+            d["entities"][entity.uid] = snap
+        self.entities = entities
         return json.dumps(d)
 
     def import_world(self, s: str):
         d = json.loads(s)
         entities = dict()
-        for s_uid, info in d.items():
-            if s_uid == "uid_cnt":
-                self.uid_cnt = info
-                continue
+        for s_uid, info in d.get("entities", {}).items():
             uid = int(s_uid)
             if uid < 0:
                 continue
             entity = self.get_entity(uid)
             entity.update(info)
             entities[uid] = entity
-            if uid <= self.uid_cnt:
-                continue
-            self.uid_cnt = uid + 1
         self.entities = entities
+        self.uid_cnt = d.get("uid_cnt", self.uid_cnt)
 
     def dispatch_event(self, event: IEvent):
         self.event_dispatch.dispatch_event(event)
