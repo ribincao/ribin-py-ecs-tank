@@ -22,7 +22,7 @@ class Connection(object):
         self._is_close: bool = False
         self.last_world: str = ""
         self.uid: int = -1
-        self.last_active_time: int = 0
+        self.last_active_time: int = int(time.time())
 
     def update_active_time(self):
         self.last_active_time = int(time.time())
@@ -31,7 +31,9 @@ class Connection(object):
         self.writer.close()
         self._is_close = True
         self.context.destroy_entity(self.uid)
-        logger.debug(f"{self.uid} close connection.")
+        self.context.is_connected = False
+        self.context.player_uid = 0
+        logger.info(f"{self.uid} close connection.")
 
     async def handle_message(self):
         try:
@@ -54,6 +56,9 @@ class Connection(object):
     async def export_world(self):
         try:
             while not self._is_close:
+                if int(time.time()) - self.last_active_time > 60:
+                    logger.info(f"remove un_active player {self.uid}")
+                    break
                 world = self.context.export_world()
                 if world and world != self.last_world:
                     logger.debug(f"server export world {world}.")
@@ -104,6 +109,7 @@ class Connection(object):
                 messages = self.context.messages
                 self.context.messages = []
                 for command in messages:
+                    self.uid = command.uid
                     message = command.encode() 
                     logger.info(f"client send_command {message}")
                     await self.send_message(message)

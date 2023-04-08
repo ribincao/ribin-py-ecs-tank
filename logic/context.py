@@ -15,6 +15,7 @@ class Context(object):
         self.event_dispatch: EventDispatch = EventDispatch()
         
         self.is_connected: bool = False
+        self.player_uid: int = 0
         self.edge_size: Tuple[float, float] = (780, 780)
 
     def create_entity(self, is_async: bool = True) -> GameLogicEntity:
@@ -67,15 +68,18 @@ class Context(object):
 
     def import_world(self, s: str):
         d = json.loads(s)
+        entities = dict()
         for s_uid, info in d.items():
             uid = int(s_uid)
             if uid < 0:
                 continue
             entity = self.get_entity(uid)
             entity.update(info)
+            entities[uid] = entity
             if uid <= self.uid_cnt:
                 continue
             self.uid_cnt = uid + 1
+        self.entities = entities
 
     def dispatch_event(self, event: IEvent):
         self.event_dispatch.dispatch_event(event)
