@@ -56,7 +56,7 @@ class Connection(object):
             while not self._is_close:
                 world = self.context.export_world()
                 if world and world != self.last_world:
-                    logger.info(f"server export world {world}.")
+                    logger.debug(f"server export world {world}.")
                     self.last_world = world
                     await self.send_message(world)
                 await asyncio.sleep(self.SNAP_RATE)
@@ -72,7 +72,7 @@ class Connection(object):
                 if not data:
                     break
                 message = self.codec.decode(data)
-                logger.info(f"client import world {message}.")
+                logger.debug(f"client import world {message}.")
                 self.context.import_world(message)
                 if not self.context.is_connected:
                     self.context.is_connected = True

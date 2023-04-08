@@ -66,7 +66,8 @@ class CommandManager(Singleton):
                 "model": {"model_name": "bullet", "model_index": "bullet"},
                 "box_collider": {"layer": 1, "width": 12, "height": 12},
                 "transform": {"position": position, "rotation": rotation},
-                "state": {"state": State.move}
+                "state": {"state": State.move},
+                "bullet": {"belong": tank.entity.uid}
         }
         cmd = self.get_create_cmd(uid, node_data)
         return cmd

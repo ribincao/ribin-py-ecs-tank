@@ -7,6 +7,7 @@ from logic.component.box_collider_component import BoxColliderComponent
 from logic.component.state_component import StateComponent
 from logic.component.model_component import ModelComponent
 from logic.component.player_component import PlayerComponent
+from logic.component.bullet_component import BulletComponent
 from typing import Optional, Tuple
 from logic.manager.component_manager import component_manager
 
@@ -25,6 +26,7 @@ class GameLogicEntity(object):
         self.state: Optional[StateComponent] = None
         self.model: Optional[ModelComponent] = None
         self.player: Optional[PlayerComponent] = None
+        self.bullet: Optional[BulletComponent] = None
 
     def export(self) -> dict:
         if not self.is_async:
