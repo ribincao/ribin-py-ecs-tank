@@ -28,6 +28,8 @@ class Connection(object):
         self.last_active_time = int(time.time())
 
     def close(self):
+        if self._is_close:
+            return
         self.writer.close()
         self._is_close = True
         self.context.destroy_entity(self.uid)

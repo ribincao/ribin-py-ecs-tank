@@ -57,6 +57,7 @@ class Context(object):
 
     def export_world(self) -> str:
         d = dict()
+        d["uid_cnt"] = self.uid_cnt
         for entity in self.get_entities():
             snap = entity.export()
             if not snap:
@@ -70,6 +71,9 @@ class Context(object):
         d = json.loads(s)
         entities = dict()
         for s_uid, info in d.items():
+            if s_uid == "uid_cnt":
+                self.uid_cnt = info
+                continue
             uid = int(s_uid)
             if uid < 0:
                 continue
