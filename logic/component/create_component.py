@@ -8,4 +8,7 @@ class CreateComponent(Component):
         self.create_status: bool = False
         self.node_data: dict = {}
 
+    def serialize(self) -> dict:
+        return {}
+
 
