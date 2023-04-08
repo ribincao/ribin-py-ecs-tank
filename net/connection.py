@@ -45,7 +45,7 @@ class Connection(object):
                     break
                 message = self.codec.decode(data)
                 cmd = command_manager.create_cmd(message)
-                logger.debug(f"server receive_cmd {cmd.__dict__}")
+                logger.info(f"server receive_cmd {cmd.__dict__}")
                 if cmd:
                     self.context.input_command(cmd)
                     self.uid = cmd.uid

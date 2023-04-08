@@ -13,22 +13,20 @@ class PyGameWindow(Window):
         self.view: PyGameView = view
 
     async def update(self):
-        while True:
-            if not self.window:
-                return
-            self.window.fill(self.view.back_ground)
-            await self.listen_event()
+        if not self.window:
+            return
+        self.window.fill(self.view.back_ground)
+        await self.listen_event()
 
-            for behavior in self.view.get_behaviors():
-                if not behavior.models:
-                    continue
-                if not behavior.model or not behavior.rect:
-                    continue
-                self.window.blit(behavior.model, behavior.rect)
-                pygame.draw.rect(self.window, (255, 0, 0), behavior.rect, 1)
+        for behavior in self.view.get_behaviors():
+            if not behavior.models:
+                continue
+            if not behavior.model or not behavior.rect:
+                continue
+            self.window.blit(behavior.model, behavior.rect)
+            pygame.draw.rect(self.window, (255, 0, 0), behavior.rect, 1)
 
-            pygame.display.update()
-            await asyncio.sleep(self.RENDER_RATE)
+        pygame.display.update()
 
     def init_window(self):
         pygame.display.init()

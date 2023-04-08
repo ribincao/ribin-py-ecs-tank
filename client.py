@@ -26,12 +26,17 @@ class TankClient(object):
         self.logic.init_logic()
         self.view.init_view()
         self.window.init_window()
-        
+
+    async def play(self):
+        while True:
+            await self.logic.update()
+            await self.view.update()
+            await self.window.update()
+            await asyncio.sleep(20e-3)
+
     def run(self):
         self._loop.create_task(self.tcp.run_client('localhost', 8888))
-        self._loop.create_task(self.logic.update())
-        self._loop.create_task(self.view.update())
-        self._loop.create_task(self.window.update())
+        self._loop.create_task(self.play())
         self._loop.run_forever()
 
 

@@ -18,10 +18,15 @@ class Server(object):
     def init_game(self):
         # self.tcp.init_socket()
         self.logic.init_logic()
+
+    async def play(self):
+        while True:
+            await self.logic.update()
+            await asyncio.sleep(20e-3)
         
     def run(self):
         self._loop.create_task(self.tcp.run_server())
-        self._loop.create_task(self.logic.update())
+        self._loop.create_task(self.play())
         self._loop.run_forever()
 
 

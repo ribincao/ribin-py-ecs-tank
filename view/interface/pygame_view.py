@@ -18,19 +18,17 @@ class PyGameView(View):
         self.window_size: Tuple[float, float] = (1024, 960)
 
     async def update(self):
-        while True:
-            behaviors = {}
-            for entity in self.context.get_entities():
-                if not entity.model:
-                    continue
-                behavior = self.behaviors.get(entity.uid, None)
-                if not behavior:
-                    behavior = self.create_behavior(entity)
-                behavior.entity = entity
-                behaviors[entity.uid] = behavior
-                await behavior.update()
-            self.behaviors = behaviors
-            await asyncio.sleep(self.VIEW_RATE)
+        behaviors = {}
+        for entity in self.context.get_entities():
+            if not entity.model:
+                continue
+            behavior = self.behaviors.get(entity.uid, None)
+            if not behavior:
+                behavior = self.create_behavior(entity)
+            behavior.entity = entity
+            behaviors[entity.uid] = behavior
+            await behavior.update()
+        self.behaviors = behaviors
 
     def create_behavior(self, entity: GameLogicEntity):
         behavior = behavior_manager.get_tank_behavior(entity)
