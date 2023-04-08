@@ -8,6 +8,6 @@ class CreateCmd(Command):
         super(CreateCmd, self).__init__(uid)
         self.node_data: dict = {}
 
-    async def execute(self, entity: GameLogicEntity):
+    def execute(self, entity: GameLogicEntity):
         entity.add_create(False, self.node_data)
 

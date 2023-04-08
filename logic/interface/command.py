@@ -10,7 +10,7 @@ class Command(object):
         self.name: str = ""
 
     @abstractmethod
-    async def execute(self, entity: GameLogicEntity):
+    def execute(self, entity: GameLogicEntity):
         pass
 
     def encode(self):

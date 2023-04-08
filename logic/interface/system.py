@@ -9,6 +9,6 @@ class System(object):
         self.name: str = ""
 
     @abstractmethod
-    async def update(self):
+    def update(self):
         pass
 

@@ -13,7 +13,7 @@ class TankView(PyGameView):
         super(TankView, self).__init__(gid, context)
         self.window_size: Tuple[float, float] = (780, 780)
 
-    async def handler(self, operation: str):
+    def handler(self, operation: str):
 
         cmd: Optional[Command] = None
         if operation == 'w' and self.player_uid:

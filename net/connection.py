@@ -9,8 +9,8 @@ import time
 
 
 class Connection(object):
-    SNAP_RATE = 66e-100
-    NET_RATE = 20e-100
+    SNAP_RATE = 66e-3
+    NET_RATE = 20e-3
 
     def __init__(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter, context: Context):
         super(Connection, self).__init__()

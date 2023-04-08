@@ -14,7 +14,7 @@ class View(object):
         return self.context.player_uid
 
     @abstractmethod
-    async def update(self):
+    def update(self):
         pass
 
     @abstractmethod
@@ -22,6 +22,6 @@ class View(object):
         pass
 
     @abstractmethod
-    async def handler(self, operation: str):
+    def handler(self, operation: str):
         pass
 

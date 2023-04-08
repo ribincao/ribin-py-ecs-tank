@@ -11,7 +11,7 @@ class MoveSystem(System):
         super(MoveSystem, self).__init__(context)
         self.context.register_event("EntityCreateEvent", self.on_entity_create)
 
-    async def update(self):
+    def update(self):
         entities = self.context.get_entities()
         for entity in entities:
             if not entity.move or entity.move.speed <= 0:

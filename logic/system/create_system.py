@@ -10,7 +10,7 @@ class CreateSystem(System):
         super(CreateSystem, self).__init__(context)
         self.entity_count: int = 0
 
-    async def update(self):
+    def update(self):
         entities = self.context.get_entities()
         for entity in entities:
             if not entity.create or entity.create.create_status:

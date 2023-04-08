@@ -52,7 +52,7 @@ class PyGameBehavior(Behavior):
         return rect
 
     @abstractmethod
-    async def update(self):
+    def update(self):
         pass
     
     def get_forward(self) -> Tuple[Tuple[float, float], float]:

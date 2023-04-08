@@ -17,7 +17,7 @@ class PyGameView(View):
         self.back_ground = (0, 0, 0)
         self.window_size: Tuple[float, float] = (1024, 960)
 
-    async def update(self):
+    def update(self):
         behaviors = {}
         for entity in self.context.get_entities():
             if not entity.model:
@@ -27,7 +27,7 @@ class PyGameView(View):
                 behavior = self.create_behavior(entity)
             behavior.entity = entity
             behaviors[entity.uid] = behavior
-            await behavior.update()
+            behavior.update()
         self.behaviors = behaviors
 
     def create_behavior(self, entity: GameLogicEntity):
@@ -45,6 +45,6 @@ class PyGameView(View):
         return sorted(list(self.behaviors.values()), key=lambda x: x.layer)
 
     @abstractmethod
-    async def handler(self, operation: str):
+    def handler(self, operation: str):
         pass
 

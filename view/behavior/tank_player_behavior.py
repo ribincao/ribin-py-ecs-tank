@@ -8,7 +8,7 @@ class TankPlayerBehavior(PyGameBehavior):
     def __init__(self, entity: GameLogicEntity):
         super(TankPlayerBehavior, self).__init__(entity)
 
-    async def update(self):
+    def update(self):
         pass
 
     def init_models(self):
