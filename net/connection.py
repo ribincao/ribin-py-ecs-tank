@@ -55,7 +55,7 @@ class Connection(object):
         try:
             while not self._is_close:
                 world = self.context.export_world()
-                if world != self.last_world:
+                if world and world != self.last_world:
                     logger.info(f"server export world {world}.")
                     self.last_world = world
                     await self.send_message(world)

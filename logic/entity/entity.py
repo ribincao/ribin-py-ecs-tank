@@ -36,6 +36,8 @@ class GameLogicEntity(object):
             if not v or not isinstance(v, Component):
                 continue
             component = v.serialize()
+            if not component:
+                continue
             d[k] = component
         return d
 
