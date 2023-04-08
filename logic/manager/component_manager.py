@@ -8,6 +8,7 @@ from logic.component.rigibody_component import RigibodyComponent
 from logic.component.state_component import StateComponent
 from logic.component.model_component import ModelComponent
 from logic.component.player_component import PlayerComponent
+from logic.component.bullet_component import BulletComponent
 from typing import Optional
 
 
@@ -33,6 +34,8 @@ class ComponentManager(Singleton):
             return StateComponent()
         elif component_name == "player":
             return PlayerComponent()
+        elif component_name == "bullet":
+            return BulletComponent()
         else:
             return None
 

@@ -11,10 +11,8 @@ class TankView(PyGameView):
 
     def __init__(self, gid: str, context: Context):
         super(TankView, self).__init__(gid, context)
-        self.player_uid: int = 0
         self.window_size: Tuple[float, float] = (780, 780)
 
-    
     async def handler(self, operation: str):
 
         cmd: Optional[Command] = None
@@ -33,7 +31,7 @@ class TankView(PyGameView):
             entity = self.context.create_entity()
             player_count = self.context.get_player_count()
             cmd = command_manager.create_tank_player_cmd(entity.uid, "ribincao", player_count % 2 == 0)
-            self.player_uid = entity.uid
+            self.context.player_uid = entity.uid
 
         elif operation == 'j' and self.player_uid > 0:
             tank = self.behaviors.get(self.player_uid)

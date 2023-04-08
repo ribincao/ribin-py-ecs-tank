@@ -9,6 +9,10 @@ class View(object):
         self.context: Context = context
         self.gid: str = gid
 
+    @property
+    def player_uid(self):
+        return self.context.player_uid
+
     @abstractmethod
     async def update(self):
         pass

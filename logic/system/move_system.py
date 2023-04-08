@@ -43,6 +43,9 @@ class MoveSystem(System):
                 y = min(max(y, entity.box_collider.height / 2), self.context.edge_size[1] - entity.box_collider.height / 2)
             entity.transform.position = (x, y)
 
+            if entity.bullet and entity.transform.last_position == entity.transform.position:
+                entity.state.state = State.destroy
+
     def on_entity_create(self, event: EntityCreateEvent):
         logger.debug(f"MoveListenEvent {event.uid} created.")
 
