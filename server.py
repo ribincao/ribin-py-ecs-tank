@@ -8,6 +8,7 @@ from net.tcp import Tcp
 
 
 class Server(object):
+    FRAME_RATE = 20e-3
 
     def __init__(self):
         self.context: Context = Context()
@@ -18,10 +19,15 @@ class Server(object):
     def init_game(self):
         # self.tcp.init_socket()
         self.logic.init_logic()
+
+    async def play(self):
+        while True:
+            self.logic.update()
+            await asyncio.sleep(self.FRAME_RATE)
         
     def run(self):
         self._loop.create_task(self.tcp.run_server())
-        self._loop.create_task(self.logic.update())
+        self._loop.create_task(self.play())
         self._loop.run_forever()
 
 

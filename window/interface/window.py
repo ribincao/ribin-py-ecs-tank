@@ -8,7 +8,7 @@ class Window(object):
         self.window_name: str = window_name
 
     @abstractmethod
-    async def update(self):
+    def update(self):
         pass
     
     @abstractmethod

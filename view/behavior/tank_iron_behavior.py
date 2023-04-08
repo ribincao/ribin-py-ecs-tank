@@ -7,7 +7,7 @@ class TankIronBehavior(PyGameBehavior):
     def __init__(self, entity: GameLogicEntity):
         super(TankIronBehavior, self).__init__(entity)
 
-    async def update(self):
+    def update(self):
         pass
      
     def init_models(self):

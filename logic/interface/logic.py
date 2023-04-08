@@ -16,11 +16,9 @@ class Logic(object):
     def register_system(self, system: System):
         self.system_manager.register_system(system)
 
-    async def update(self):
-        while True:
-            for _, system in self.system_manager.get_system().items():
-                await system.update()
-            await asyncio.sleep(self.LOGIC_RATE)
+    def update(self):
+        for _, system in self.system_manager.get_system().items():
+            system.update()
 
     @abstractmethod
     def init_logic(self):

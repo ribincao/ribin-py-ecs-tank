@@ -25,7 +25,7 @@ class MoveCmd(Command):
         super(MoveCmd, self).__init__(uid)
         self.direction: int = MoveDirection.STOP
 
-    async def execute(self, entity: GameLogicEntity):
+    def execute(self, entity: GameLogicEntity):
         if not entity.move or entity.move.speed <= 0:
             return
         if not entity.state:

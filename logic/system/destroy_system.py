@@ -11,7 +11,7 @@ class DestroySystem(System):
     def __init__(self, context: Context):
         super(DestroySystem, self).__init__(context)
 
-    async def update(self):
+    def update(self):
         destroy: List[GameLogicEntity] = []
         entities = self.context.get_entities()
         for entity in entities:

@@ -9,8 +9,8 @@ import time
 
 
 class Connection(object):
-    SNAP_RATE = 66e-100
-    NET_RATE = 20e-100
+    SNAP_RATE = 66e-3
+    NET_RATE = 20e-3
 
     def __init__(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter, context: Context):
         super(Connection, self).__init__()
@@ -45,7 +45,7 @@ class Connection(object):
                     break
                 message = self.codec.decode(data)
                 cmd = command_manager.create_cmd(message)
-                logger.debug(f"server receive_cmd {cmd.__dict__}")
+                logger.info(f"server receive_cmd {cmd.__dict__}")
                 if cmd:
                     self.context.input_command(cmd)
                     self.uid = cmd.uid

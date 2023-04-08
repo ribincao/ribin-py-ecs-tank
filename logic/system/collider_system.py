@@ -9,7 +9,7 @@ class ColliderSystem(System):
     def __init__(self, context: Context):
         super(ColliderSystem, self).__init__(context)
 
-    async def update(self):
+    def update(self):
         entities = self.context.get_entities()
         for i in range(len(entities)):
             entity_a = entities[i]
