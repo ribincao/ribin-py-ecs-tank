@@ -69,14 +69,19 @@ class ColliderSystem(System):
                 if collider_direction == [0, 0]:
                     continue
 
-                entity_a.box_collider.collider_direction = (collider_direction[0], collider_direction[1])
-                logger.debug(f"box collider detect {collider_direction}: {entity_a.uid} -> {entity_b.uid}")
-
-                if entity_a.bullet:
-                    entity_a.state.state = State.destroy
+                if entity_a.bullet and entity_b.model:
+                    if entity_b.model.model_index in ["wall", "walls"]:
+                        entity_b.state.state = State.destroy
+                    if entity_b.model.model_index in ["symbol"]:
+                        entity_b.model.model_index = "destroy"
+                    if entity_b.model.model_index not in ["water"]:
+                        entity_a.state.state = State.destroy
                     continue
 
                 if entity_a.state.state == State.move:
                     entity_a.transform.add_position(collider_direction[0], collider_direction[1])
+
+                entity_a.box_collider.collider_direction = (collider_direction[0], collider_direction[1])
+                logger.debug(f"box collider detect {collider_direction}: {entity_a.uid} -> {entity_b.uid}")
 
 
