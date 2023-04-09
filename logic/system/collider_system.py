@@ -27,6 +27,9 @@ class ColliderSystem(System):
                 entity_b.box_collider.collider_direction = (0, 0)
                 if entity_a.box_collider.layer != entity_b.box_collider.layer:
                     continue
+                if (entity_b.bullet and entity_b.bullet.belong == entity_a.uid) or \
+                        (entity_a.bullet and entity_a.bullet.belong == entity_b.uid):
+                    continue
 
                 position_a = entity_a.transform.position
                 position_b = entity_b.transform.position
@@ -71,8 +74,7 @@ class ColliderSystem(System):
 
                 if entity_a.state and entity_a.state.state == State.move:
                     entity_a.transform.add_position(collider_direction[0], collider_direction[1])
+
                 if entity_a.bullet and entity_a.state:
-                    if entity_a.bullet.belong == entity_b.uid:
-                        continue
                     entity_a.state.state = State.destroy
 

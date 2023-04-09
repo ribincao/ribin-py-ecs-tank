@@ -62,7 +62,7 @@ class CommandManager(Singleton):
     def tank_shot_cmd(self, uid: int, tank: PyGameBehavior) -> CreateCmd:
         position, rotation = tank.get_forward()
         node_data = {
-                "move": {"speed": 5},
+                "move": {"speed": 8},
                 "model": {"model_name": "bullet", "model_index": "bullet"},
                 "box_collider": {"layer": 1, "width": 12, "height": 12},
                 "transform": {"position": position, "rotation": rotation},
