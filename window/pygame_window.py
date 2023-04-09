@@ -56,7 +56,7 @@ class PyGameWindow(Window):
                 if event.key == pygame.K_t:
                     operation = 't'
 
-            if event.type == pygame.KEYUP:
+            if event.type == pygame.KEYUP and event.unicode in 'wasd':
                 operation = '-'
 
             if operation == '':
