@@ -14,6 +14,13 @@ class EntityCreateEvent(IEvent):
         self.uid: int = uid
 
 
+class EntityDestroyEvent(IEvent):
+
+    def __init__(self, uid: int):
+        super(EntityDestroyEvent, self).__init__()
+        self.uid: int = uid
+
+
 class EventDispatch(object):
 
     def __init__(self):

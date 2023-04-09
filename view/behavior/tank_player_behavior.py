@@ -1,6 +1,5 @@
 from view.interface.pygame_behavior import PyGameBehavior
 from logic.entity.entity import GameLogicEntity
-from typing import Tuple
 
 
 class TankPlayerBehavior(PyGameBehavior):
@@ -12,4 +11,4 @@ class TankPlayerBehavior(PyGameBehavior):
         pass
 
     def init_models(self):
-        self._load_models("tank", "player")
+        self.models = self._load_models("tank", "player")

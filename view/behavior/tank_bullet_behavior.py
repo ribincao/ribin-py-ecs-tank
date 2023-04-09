@@ -11,4 +11,4 @@ class TankBulletBehavior(PyGameBehavior):
         pass
     
     def init_models(self):
-        self._load_models("tank", "bullet")
+        self.models = self._load_models("tank", "bullet")

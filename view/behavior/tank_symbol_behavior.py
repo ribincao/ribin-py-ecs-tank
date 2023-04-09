@@ -11,4 +11,5 @@ class TankSymbolBehavior(PyGameBehavior):
         pass
      
     def init_models(self):
-        self._load_models("tank", "symbol")
+        self.models = self._load_models("tank", "symbol")
+

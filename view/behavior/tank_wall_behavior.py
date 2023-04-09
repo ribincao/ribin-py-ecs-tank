@@ -11,4 +11,5 @@ class TankWallBehavior(PyGameBehavior):
         pass
      
     def init_models(self):
-        self._load_models("tank", "wall")
+        self.models = self._load_models("tank", "wall")
+

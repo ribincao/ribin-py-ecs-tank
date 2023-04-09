@@ -11,4 +11,4 @@ class TankGrassBehavior(PyGameBehavior):
         pass
      
     def init_models(self):
-        self._load_models("tank", "grass")
+        self.models = self._load_models("tank", "grass")
