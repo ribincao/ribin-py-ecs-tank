@@ -20,7 +20,7 @@ class TankView(PyGameView):
     def on_entity_create(self, event: EntityCreateEvent):
         logger.info(f"TankVieListen {event.uid} created.")
         entity = self.context.get_entity(event.uid)
-        if not entity:
+        if not entity or entity.bullet or not entity.move:
             return
         animation = animation_manager.get_animation(entity, "born")
         if not animation:
@@ -30,7 +30,7 @@ class TankView(PyGameView):
     def on_entity_destroy(self, event: EntityDestroyEvent):
         logger.info(f"TankViewListen {event.uid} destroyed.")
         entity = self.context.get_entity(event.uid)
-        if not entity:
+        if not entity or entity.bullet or not entity.move:
             return
         animation = animation_manager.get_animation(entity, "boom")
         if not animation:

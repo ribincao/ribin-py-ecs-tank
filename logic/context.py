@@ -47,7 +47,7 @@ class Context(object):
                 continue
             uid_index = uid_cnt
         if uid_index:
-            self.dispatch_event(EntityDestroyEvent(self.uid_cnt))
+            self.dispatch_event(EntityDestroyEvent(uid_index))
             del self.entities[uid_index]
 
     def input_command(self, command: Command):
