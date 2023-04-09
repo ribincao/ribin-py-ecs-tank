@@ -70,13 +70,18 @@ class ColliderSystem(System):
                     continue
 
                 if entity_a.bullet and entity_b.model:
-                    if entity_b.model.model_index in ["wall", "walls"]:
+                    if entity_b.model.model_name in ["wall", "enemy"]:
                         entity_b.state.state = State.destroy
                     if entity_b.model.model_index in ["symbol"]:
                         entity_b.model.model_index = "destroy"
-                    if entity_b.model.model_index not in ["water"]:
+                    if entity_b.model.model_name not in ["water"]:
                         entity_a.state.state = State.destroy
                     continue
+
+                if entity_a.model and entity_a.model.model_name == "enemy":
+                    if entity_b.bullet and entity_b.bullet.belong != entity_a.uid:
+                        entity_a.state.state = State.destroy
+                        continue
 
                 if entity_a.state.state == State.move:
                     entity_a.transform.add_position(collider_direction[0], collider_direction[1])
