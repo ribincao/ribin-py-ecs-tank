@@ -2,7 +2,7 @@ from logic.entity.entity import GameLogicEntity
 from logic.interface.command import Command
 from typing import List, Dict, Callable, Tuple
 import json
-from logic.event.event import EventDispatch, IEvent, EntityCreateEvent
+from logic.event.event import EventDispatch, IEvent, EntityCreateEvent, EntityDestroyEvent
 
 
 class Context(object):
@@ -48,6 +48,7 @@ class Context(object):
                 continue
             uid_index = uid_cnt
         if uid_index:
+            self.dispatch_event(EntityDestroyEvent(self.uid_cnt))
             del self.entities[uid_index]
 
     def input_command(self, command: Command):

@@ -24,8 +24,8 @@ class TankLogic(Logic):
         self.register_system(MoveSystem(self.context))
         self.register_system(ColliderSystem(self.context))
         self.register_system(EnemySystem(self.context))
-        self.register_system(AnimationSystem(self.context))
         self.register_system(DestroySystem(self.context))
+        self.register_system(AnimationSystem(self.context))
 
         self.load_map(f"./view/scene/{self.gid}.json")
 

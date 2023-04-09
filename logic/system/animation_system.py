@@ -9,7 +9,7 @@ class AnimationSystem(System):
     def __init__(self, context: Context):
         super(AnimationSystem, self).__init__(context)
         self.context.register_event("EntityCreateEvent", self.on_entity_create)
-        self.context.register_event("EntityDestroyEvent", self.on_entity_create)
+        self.context.register_event("EntityDestroyEvent", self.on_entity_destroy)
 
     def update(self):
         entities = self.context.get_entities()
