@@ -2,6 +2,7 @@ from common.logger import logger
 from logic.interface.system import System
 from logic.context import Context
 from logic.manager.component_manager import component_manager
+from logic.event.event import EntityCreateEvent
 
 
 class CreateSystem(System):
@@ -24,6 +25,7 @@ class CreateSystem(System):
                 entity.__dict__[name] = component
             entity.create.is_created = True
             self.entity_count += 1
+            self.context.dispatch_event(EntityCreateEvent(entity.uid))
             logger.debug(f"CreateSystem {self.entity_count}| {entity.uid} - {node_data}")
             
 

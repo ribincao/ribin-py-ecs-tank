@@ -21,7 +21,6 @@ class Context(object):
     def create_entity(self, is_async: bool = True) -> GameLogicEntity:
         entity = GameLogicEntity(self.uid_cnt, is_async)
         self.entities[self.uid_cnt] = entity
-        self.dispatch_event(EntityCreateEvent(self.uid_cnt))
 
         self.uid_cnt += 1
         return entity

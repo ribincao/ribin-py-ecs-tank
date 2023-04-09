@@ -17,7 +17,6 @@ class TankLogic(Logic):
         from logic.system.destroy_system import DestroySystem
         from logic.system.enemy_system import EnemySystem
         from logic.system.create_system import CreateSystem
-        from logic.system.animation_system import AnimationSystem
         
         self.register_system(CreateSystem(self.context))
         self.register_system(CommandSystem(self.context))
@@ -25,7 +24,6 @@ class TankLogic(Logic):
         self.register_system(ColliderSystem(self.context))
         self.register_system(EnemySystem(self.context))
         self.register_system(DestroySystem(self.context))
-        self.register_system(AnimationSystem(self.context))
 
         self.load_map(f"./view/scene/{self.gid}.json")
 

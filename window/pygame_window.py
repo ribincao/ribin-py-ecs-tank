@@ -26,6 +26,12 @@ class PyGameWindow(Window):
             self.window.blit(behavior.model, behavior.rect)
             # pygame.draw.rect(self.window, (255, 0, 0), behavior.rect, 1)
 
+        for animation in self.view.animations:
+            model, rect = animation.animation
+            if not model or not rect:
+                continue
+            self.window.blit(model, rect)
+
         pygame.display.update()
 
     def init_window(self):
