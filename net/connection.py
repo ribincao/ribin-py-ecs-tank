@@ -59,7 +59,7 @@ class Connection(object):
     async def export_world(self):
         try:
             while not self._is_close:
-                if int(time.time()) - self.last_active_time > 60:
+                if int(time.time()) - self.last_active_time > 120:
                     logger.info(f"remove un_active player {self.uid}")
                     break
                 world = self.context.export_world()

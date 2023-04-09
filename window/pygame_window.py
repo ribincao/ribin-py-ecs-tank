@@ -24,7 +24,7 @@ class PyGameWindow(Window):
             if not behavior.model or not behavior.rect:
                 continue
             self.window.blit(behavior.model, behavior.rect)
-            pygame.draw.rect(self.window, (255, 0, 0), behavior.rect, 1)
+            # pygame.draw.rect(self.window, (255, 0, 0), behavior.rect, 1)
 
         pygame.display.update()
 
