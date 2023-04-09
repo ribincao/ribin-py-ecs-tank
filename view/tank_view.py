@@ -18,7 +18,7 @@ class TankView(PyGameView):
         self.context.register_event("EntityDestroyEvent", self.on_entity_destroy)
 
     def on_entity_create(self, event: EntityCreateEvent):
-        logger.info(f"TankVieListen {event.uid} created.")
+        logger.debug(f"TankViewListen {event.uid} created.")
         entity = self.context.get_entity(event.uid)
         if not entity or entity.bullet or not entity.move:
             return
@@ -28,7 +28,7 @@ class TankView(PyGameView):
         self.animations.append(animation)
 
     def on_entity_destroy(self, event: EntityDestroyEvent):
-        logger.info(f"TankViewListen {event.uid} destroyed.")
+        logger.debug(f"TankViewListen {event.uid} destroyed.")
         entity = self.context.get_entity(event.uid)
         if not entity or entity.bullet or not entity.move:
             return
