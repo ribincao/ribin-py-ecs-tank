@@ -50,7 +50,7 @@ class CommandManager(Singleton):
     def create_tank_player_cmd(self, uid: int, player_id: str, is_player1: bool = True) -> CreateCmd:
         node_data = {
             "state": {"state": State.normal},
-            "move": {"speed": 5},
+            "move": {"speed": 2},
             "model": {"model_name": "player", "model_index": "player1" if is_player1 else "player2"},
             "box_collider": {"layer": 1, "width": 60, "height": 60},
             "transform": {"position": (310.0, 750.0) if is_player1 else (470.0, 750.0)},
@@ -62,7 +62,7 @@ class CommandManager(Singleton):
     def tank_shot_cmd(self, uid: int, tank: PyGameBehavior) -> CreateCmd:
         position, rotation = tank.get_forward()
         node_data = {
-                "move": {"speed": 8},
+                "move": {"speed": 5},
                 "model": {"model_name": "bullet", "model_index": "bullet"},
                 "box_collider": {"layer": 1, "width": 12, "height": 12},
                 "transform": {"position": position, "rotation": rotation},
@@ -77,13 +77,14 @@ class CommandManager(Singleton):
         model_index = ["enemy" + str(i) for i in range(1, 7)]
         node_data = {
             "state": {"state": State.move},
-            "move": {"speed": 5},
+            "move": {"speed": 2},
             "model": {"model_name": "enemy", "model_index": random.choice(model_index)},
             "box_collider": {"layer": 1, "width": 60, "height": 60},
             "transform": {"position": random.choice(positions), "rotation": 180.0},
         }
         cmd = self.get_create_cmd(uid, node_data)
         return cmd
+
 
 command_manager = CommandManager()
 

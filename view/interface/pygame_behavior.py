@@ -13,9 +13,9 @@ class PyGameBehavior(Behavior):
         super(PyGameBehavior, self).__init__(entity)
         self.models: Dict[str, Surface] = {}
 
-    def _load_models(self, module: str, model_name: str):
+    def _load_models(self, module: str, model_name: str) -> Dict[str, Surface]:
         models = self.gltf.load_models(module, model_name)
-        self.models = {}
+        result = dict()
         for model in models:
             model_index = model.get("model_index", '')
             if not model_index:
@@ -23,11 +23,14 @@ class PyGameBehavior(Behavior):
             path = model.get("model", "")
             if not path:
                 continue
-            self.models[model_index] = img.load(path)
+            result[model_index] = img.load(path)
+        return result
     
     @abstractmethod
-    def init_models(self):
-        pass
+    def init_models(self, gid: str):
+        if not self.entity.model:
+            return
+        self.models = self._load_models(gid, self.entity.model.model_name)
 
     @property
     def layer(self) -> int:

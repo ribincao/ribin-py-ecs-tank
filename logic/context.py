@@ -2,7 +2,7 @@ from logic.entity.entity import GameLogicEntity
 from logic.interface.command import Command
 from typing import List, Dict, Callable, Tuple
 import json
-from logic.event.event import EventDispatch, IEvent, EntityCreateEvent
+from logic.event.event import EventDispatch, IEvent, EntityCreateEvent, EntityDestroyEvent
 
 
 class Context(object):
@@ -21,7 +21,6 @@ class Context(object):
     def create_entity(self, is_async: bool = True) -> GameLogicEntity:
         entity = GameLogicEntity(self.uid_cnt, is_async)
         self.entities[self.uid_cnt] = entity
-        self.dispatch_event(EntityCreateEvent(self.uid_cnt))
 
         self.uid_cnt += 1
         return entity
@@ -48,6 +47,7 @@ class Context(object):
                 continue
             uid_index = uid_cnt
         if uid_index:
+            self.dispatch_event(EntityDestroyEvent(uid_index))
             del self.entities[uid_index]
 
     def input_command(self, command: Command):

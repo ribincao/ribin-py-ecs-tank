@@ -3,10 +3,10 @@ from abc import abstractmethod
 from typing import List, Dict, Tuple
 from view.interface.pygame_behavior import PyGameBehavior
 from view.interface.view import View
-import asyncio
 from logic.entity.entity import GameLogicEntity
-from view.manager.behavior_manager import behavior_manager
 from common.data_util import data_util
+from view.interface.pygame_behavior import PyGameBehavior
+from view.manager.animation_manager import Animation
 
 
 class PyGameView(View):
@@ -14,6 +14,7 @@ class PyGameView(View):
     def __init__(self, gid: str, context: Context):
         super(PyGameView, self).__init__(gid, context)
         self.behaviors: Dict[int, PyGameBehavior] = {}
+        self.animations: List[Animation] = []
         self.back_ground = (0, 0, 0)
         self.window_size: Tuple[float, float] = (1024, 960)
 
@@ -30,9 +31,17 @@ class PyGameView(View):
             behavior.update()
         self.behaviors = behaviors
 
+        animations = []
+        for animation in self.animations:
+            model, rect = animation.animation
+            if not model or not rect:
+                continue
+            animations.append(animation)
+        self.animations = animations
+
     def create_behavior(self, entity: GameLogicEntity):
-        behavior = behavior_manager.get_tank_behavior(entity)
-        behavior.init_models()
+        behavior = PyGameBehavior(entity)
+        behavior.init_models(self.gid)
         self.behaviors[entity.uid] = behavior
         return behavior
 
