@@ -15,7 +15,10 @@ class Buffer(object):
         self._offset: int = 0
         self._buffer: bytes = b''
 
-    def receive_data(self, data: bytes) -> bytes:
+    def add_data(self, data: bytes):
+        self._buffer += data
+
+    def receive_data(self, data: bytes = b'') -> bytes:
         receive_data = self._buffer + data
         length, data = self.try_get_packet(receive_data, self._offset)
         if length + self.FRAME_HEADER_LENGTH == len(data):
@@ -27,7 +30,6 @@ class Buffer(object):
 
     def try_get_packet(self, data: bytes, start_pos: int) -> Tuple[int, bytes]:
         if not data:
-            logger.warning(f"client closed.")
             return 0, b''
         size = len(data)
 

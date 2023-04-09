@@ -46,10 +46,11 @@ class Connection(object):
                 message = self.codec.decode(data)
                 cmd = command_manager.create_cmd(message)
                 logger.info(f"server receive_cmd {cmd.__dict__}")
-                if cmd:
-                    self.context.input_command(cmd)
-                    self.uid = cmd.uid
-                    self.update_active_time()
+                if not cmd:
+                    continue
+                self.context.input_command(cmd)
+                self.uid = cmd.uid
+                self.update_active_time()
             self.close()
         except Exception as error:
             logger.error(f"handle_message_error: {error}")
@@ -92,13 +93,13 @@ class Connection(object):
 
     async def receive_message(self) -> Optional[bytes]:
         while not self._is_close:
+            message = self.buffer.receive_data()
+            if message:
+                return message
             data = await self.reader.read(1024)
             if not data:
-                return data
-            message = self.buffer.receive_data(data)
-            if not message:
-                continue
-            return message
+                return None
+            self.buffer.add_data(data)
 
     async def send_message(self, message: str):
         data = self.codec.encode(message)
