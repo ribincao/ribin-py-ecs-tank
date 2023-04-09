@@ -27,8 +27,10 @@ class PyGameBehavior(Behavior):
         return result
     
     @abstractmethod
-    def init_models(self):
-        pass
+    def init_models(self, gid: str):
+        if not self.entity.model:
+            return
+        self.models = self._load_models(gid, self.entity.model.model_name)
 
     @property
     def layer(self) -> int:
