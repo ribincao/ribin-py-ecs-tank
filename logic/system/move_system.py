@@ -16,7 +16,7 @@ class MoveSystem(System):
         for entity in entities:
             if not entity.move or entity.move.speed <= 0:
                 continue
-            if not entity.state or entity.state.state != State.move:
+            if entity.state.state != State.move:
                 continue
 
             x, y = entity.transform.position

@@ -18,12 +18,12 @@ class GameLogicEntity(object):
         self.uid: int = uid
         self.is_async: bool = is_async
 
+        self.create: CreateComponent = CreateComponent()
         self.transform: TransformComponent = TransformComponent()
-        self.create: Optional[CreateComponent] = None
+        self.state: StateComponent = StateComponent()
         self.move: Optional[MoveComponent] = None
         self.rigibody: Optional[RigibodyComponent] = None
         self.box_collider: Optional[BoxColliderComponent] = None
-        self.state: Optional[StateComponent] = None
         self.model: Optional[ModelComponent] = None
         self.player: Optional[PlayerComponent] = None
         self.bullet: Optional[BulletComponent] = None
@@ -31,7 +31,7 @@ class GameLogicEntity(object):
     def export(self) -> dict:
         if not self.is_async:
             return {}
-        if not self.create or not self.create.create_status:
+        if not self.create.is_created:
             return {}
         d = {}
         for k, v in self.__dict__.items():
@@ -63,10 +63,10 @@ class GameLogicEntity(object):
             self.move = MoveComponent()
         self.move.speed = speed
 
-    def add_create(self, create_status: bool, node_data: dict):
+    def add_create(self, is_created: bool, node_data: dict):
         if not self.create:
             self.create = CreateComponent()
-        self.create.create_status = create_status
+        self.create.is_created = is_created
         self.create.node_data = node_data
     
     def add_box_collider(self, width: float, height: float, collider_direction: Tuple[int, int], layer: int):

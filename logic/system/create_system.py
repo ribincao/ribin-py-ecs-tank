@@ -13,7 +13,7 @@ class CreateSystem(System):
     def update(self):
         entities = self.context.get_entities()
         for entity in entities:
-            if not entity.create or entity.create.create_status:
+            if entity.create.is_created:
                 continue
             node_data = entity.create.node_data
             for name, value in node_data.items():
@@ -22,7 +22,7 @@ class CreateSystem(System):
                     continue
                 component.__dict__.update(value)
                 entity.__dict__[name] = component
-            entity.create.create_status = True
+            entity.create.is_created = True
             self.entity_count += 1
             logger.debug(f"CreateSystem {self.entity_count}| {entity.uid} - {node_data}")
             

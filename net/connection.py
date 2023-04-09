@@ -45,7 +45,7 @@ class Connection(object):
                     break
                 message = self.codec.decode(data)
                 cmd = command_manager.create_cmd(message)
-                logger.info(f"server receive_cmd {cmd.__dict__}")
+                logger.debug(f"server receive_cmd {cmd.__dict__}")
                 if not cmd:
                     continue
                 self.context.input_command(cmd)
@@ -114,7 +114,7 @@ class Connection(object):
                 for command in messages:
                     self.uid = command.uid
                     message = command.encode() 
-                    logger.info(f"client send_command {message}")
+                    logger.debug(f"client send_command {message}")
                     await self.send_message(message)
             except Exception as e:
                 logger.error(f"connect_error: {e}")

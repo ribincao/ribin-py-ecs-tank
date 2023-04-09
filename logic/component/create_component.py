@@ -5,7 +5,7 @@ class CreateComponent(Component):
 
     def __init__(self):
         super(CreateComponent, self).__init__()
-        self.create_status: bool = False
+        self.is_created: bool = False
         self.node_data: dict = {}
 
     def serialize(self) -> dict:

@@ -15,7 +15,7 @@ class DestroySystem(System):
         destroy: List[GameLogicEntity] = []
         entities = self.context.get_entities()
         for entity in entities:
-            if not entity.state or entity.state.state != State.destroy:
+            if entity.state.state != State.destroy:
                 continue
             destroy.append(entity)
 
