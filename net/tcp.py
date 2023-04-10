@@ -18,7 +18,7 @@ class Tcp(object):
         async def handle_client(reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
             connection = Connection(reader, writer, self._context)
 
-            logger.info(f"client connected.")
+            logger.info(f"Client Connected.")
             await asyncio.gather(
                     connection.handle_message(),
                     connection.export_world()

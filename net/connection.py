@@ -35,7 +35,7 @@ class Connection(object):
         self.context.destroy_entity(self.uid)
         self.context.is_connected = False
         self.context.player_uid = 0
-        logger.info(f"{self.uid} close connection.")
+        logger.info(f"{self.uid} Close Connection.")
 
     async def handle_message(self):
         try:
@@ -107,6 +107,7 @@ class Connection(object):
         # await self.writer.drain()
 
     async def connect(self):
+        logger.info(f"Connected Server Successed.")
         while not self._is_close:
             try:
                 messages = self.context.messages

@@ -20,6 +20,6 @@ class DestroySystem(System):
             destroy.append(entity)
 
         for entity in destroy:
-            logger.info(f"destroy entity {entity.uid}")
+            logger.debug(f"destroy entity {entity.uid}")
             self.context.destroy_entity(entity.uid)
 
