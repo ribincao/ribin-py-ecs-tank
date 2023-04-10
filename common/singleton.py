@@ -5,7 +5,7 @@ class Singleton(object):
 
     def __new__(cls, *args, **kwargs):
         if not isinstance(cls._inst, cls):
-            cls._inst = object.__new__(cls, *args, **kwargs)
+            cls._inst = object.__new__(cls)
         return cls._inst
 
 
