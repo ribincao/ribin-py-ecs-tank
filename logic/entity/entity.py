@@ -10,6 +10,7 @@ from logic.component.player_component import PlayerComponent
 from logic.component.bullet_component import BulletComponent
 from typing import Optional, Tuple
 from logic.manager.component_manager import component_manager
+from logic.event.event import Event
 
 
 class GameLogicEntity(object):
@@ -18,6 +19,9 @@ class GameLogicEntity(object):
         self.uid: int = uid
         self.is_async: bool = is_async
         self._components = {}
+        self.on_component_add: Event = Event()
+        self.on_component_remove: Event = Event()
+        self.on_component_replace: Event = Event()
 
         self.create: CreateComponent = CreateComponent()
         self.transform: TransformComponent = TransformComponent()
