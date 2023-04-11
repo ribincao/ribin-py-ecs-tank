@@ -1,9 +1,8 @@
-from logic.context import Context
+from logic.matrix.context import Context
 from abc import abstractmethod
 from typing import List, Dict, Tuple
-from view.interface.pygame_behavior import PyGameBehavior
 from view.interface.view import View
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.entity import GameLogicEntity
 from common.data_util import data_util
 from view.interface.pygame_behavior import PyGameBehavior
 from view.manager.animation_manager import Animation
@@ -56,4 +55,3 @@ class PyGameView(View):
     @abstractmethod
     def handler(self, operation: str):
         pass
-

@@ -1,4 +1,4 @@
-from logic.context import Context
+from logic.matrix.context import Context
 from abc import abstractmethod
 
 

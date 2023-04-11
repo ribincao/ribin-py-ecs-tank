@@ -1,11 +1,10 @@
 from view.interface.pygame_view import PyGameView
-from logic.context import Context
+from logic.matrix.context import Context
 from common.logger import logger
 from logic.command.move_command import MoveDirection
 from logic.manager.command_manager import command_manager
-from logic.interface.command import Command
+from logic.matrix.command import Command
 from typing import Optional, Tuple
-from logic.event.event import EntityCreateEvent, EntityDestroyEvent
 from view.manager.animation_manager import animation_manager
 
 
@@ -14,28 +13,6 @@ class TankView(PyGameView):
     def __init__(self, gid: str, context: Context):
         super(TankView, self).__init__(gid, context)
         self.window_size: Tuple[float, float] = (780, 780)
-        self.context.register_event("EntityCreateEvent", self.on_entity_create)
-        self.context.register_event("EntityDestroyEvent", self.on_entity_destroy)
-
-    def on_entity_create(self, event: EntityCreateEvent):
-        logger.debug(f"TankViewListen {event.uid} created.")
-        entity = self.context.get_entity(event.uid)
-        if not entity or entity.bullet or not entity.move:
-            return
-        animation = animation_manager.get_animation(entity, "born")
-        if not animation:
-            return
-        self.animations.append(animation)
-
-    def on_entity_destroy(self, event: EntityDestroyEvent):
-        logger.debug(f"TankViewListen {event.uid} destroyed.")
-        entity = self.context.get_entity(event.uid)
-        if not entity or entity.bullet or not entity.move:
-            return
-        animation = animation_manager.get_animation(entity, "boom")
-        if not animation:
-            return
-        self.animations.append(animation)
 
     def handler(self, operation: str):
 

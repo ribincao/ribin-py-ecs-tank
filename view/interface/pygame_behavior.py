@@ -1,5 +1,5 @@
 from view.interface.behavior import Behavior
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.entity import GameLogicEntity
 import pygame
 from pygame import Surface, Rect
 from typing import Dict, Optional, Tuple
@@ -73,4 +73,3 @@ class PyGameBehavior(Behavior):
             return (position[0] + self.rect.width / 2, position[1]), self.entity.transform.rotation
 
         return (0.0, 0.0), 0.0
-

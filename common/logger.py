@@ -1,7 +1,7 @@
-import os
-import sys
-import logging
 from common.singleton import Singleton
+import logging
+import sys
+import os
 
 LOG_NAME = "PyECS"
 LOG_MODE_FILE = "file"

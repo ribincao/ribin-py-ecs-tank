@@ -1,8 +1,8 @@
 from common.logger import logger
 from common.common import signal_handler
 import asyncio
-from logic.interface.logic import Logic
-from logic.context import Context
+from logic.matrix.logic import Logic
+from logic.matrix.context import Context
 from logic.tank_logic import TankLogic
 from net.tcp import Tcp
 
