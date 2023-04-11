@@ -17,6 +17,7 @@ class GameLogicEntity(object):
     def __init__(self, uid: int, is_async: bool = True):
         self.uid: int = uid
         self.is_async: bool = is_async
+        self._components = {}
 
         self.create: CreateComponent = CreateComponent()
         self.transform: TransformComponent = TransformComponent()
@@ -27,6 +28,16 @@ class GameLogicEntity(object):
         self.model: Optional[ModelComponent] = None
         self.player: Optional[PlayerComponent] = None
         self.bullet: Optional[BulletComponent] = None
+
+    def has(self, *t_comps):
+        if len(t_comps) == 1:
+            return t_comps[0] in self._components
+        return all([t_comp in self._components for t_comp in t_comps])
+
+    def has_any(self, *t_comps):
+        if len(t_comps) == 1:
+            return t_comps[0] in self._components
+        return any([t_comp in self._components for t_comp in t_comps])
 
     def export(self) -> dict:
         if not self.is_async:
