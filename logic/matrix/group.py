@@ -24,7 +24,7 @@ class Group(object):
         self.on_entity_update: Event = Event()
 
     @property
-    def entities(self):
+    def entities(self) -> Set[GameLogicEntity]:
         return self._entities
 
     def init_entity(self, entity: GameLogicEntity):

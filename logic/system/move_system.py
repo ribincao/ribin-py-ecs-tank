@@ -1,17 +1,19 @@
 from logic.matrix.system import System
 from logic.matrix.context import Context
 from logic.component.state_component import State
+from logic.matrix.group import Group
+from logic.matrix.matcher import Matcher
 
 
 class MoveSystem(System):
 
     def __init__(self, context: Context):
         super(MoveSystem, self).__init__(context)
+        self.move_group: Group = self.context.get_group(Matcher("move", "state"))
 
     def update(self):
-        entities = list(self.context.entities)
-        for entity in entities:
-            if not entity.move or entity.move.speed <= 0:
+        for entity in self.move_group.entities:
+            if entity.move.speed <= 0:
                 continue
             if entity.state.state != State.move:
                 continue

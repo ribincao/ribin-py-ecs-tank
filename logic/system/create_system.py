@@ -2,17 +2,19 @@ from common.logger import logger
 from logic.matrix.system import System
 from logic.matrix.context import Context
 from logic.manager.component_manager import component_manager
+from logic.matrix.group import Group
+from logic.matrix.matcher import Matcher
 
 
 class CreateSystem(System):
 
     def __init__(self, context: Context):
         super(CreateSystem, self).__init__(context)
+        self.create_group: Group = self.context.get_group(Matcher("create"))
         self.entity_count: int = 0
 
     def update(self):
-        entities = list(self.context.entities)
-        for entity in entities:
+        for entity in self.create_group.entities:
             if entity.create.is_created:
                 continue
             node_data = entity.create.node_data

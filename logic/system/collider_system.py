@@ -2,12 +2,15 @@ from logic.matrix.system import System
 from logic.matrix.context import Context
 from common.logger import logger
 from logic.component.state_component import State
+from logic.matrix.group import Group
+from logic.matrix.matcher import Matcher
 
 
 class ColliderSystem(System):
 
     def __init__(self, context: Context):
         super(ColliderSystem, self).__init__(context)
+        self.box_collider_group: Group = self.context.get_group(Matcher("boxcollider"))
 
     def update(self):
         entities = list(self.context.entities)
