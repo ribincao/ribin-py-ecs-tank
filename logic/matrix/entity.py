@@ -23,7 +23,7 @@ class GameLogicEntity(object):
 
     def get_component(self, name: str) -> Optional[Component]:
         if not self.has(name):
-            logger.warning(f"entity does not have {name} component.")
+            # logger.warning(f"entity does not have {name} component.")
             return None
         return self._components[name]
 

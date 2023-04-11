@@ -25,6 +25,8 @@ class ColliderSystem(System):
                     continue
 
                 entity_b = entities[j]
+                if not entity_b.get_component("boxcollider"):
+                    continue
                 entity_b.get_component("boxcollider").collider_direction = (0, 0)
                 if entity_a.get_component("boxcollider").layer != entity_b.get_component("boxcollider").layer:
                     continue
@@ -71,12 +73,12 @@ class ColliderSystem(System):
                     continue
 
                 if entity_a.get_component("bullet") and entity_b.get_component("model"):
-                    if entity_b.model.model_name in ["wall", "enemy"]:
-                        entity_b.state.state = State.destroy
-                    if entity_b.model.model_index in ["symbol"]:
-                        entity_b.model.model_index = "destroy"
-                    if entity_b.model.model_name not in ["water"]:
-                        entity_a.state.state = State.destroy
+                    if entity_b.get_component("state") and entity_b.get_component("model").model_name in ["wall", "enemy"]:
+                        entity_b.get_component("state").state = State.destroy
+                    if entity_b.get_component("model").model_index in ["symbol"]:
+                        entity_b.get_component("model").model_index = "destroy"
+                    if entity_a.get_component("state") and entity_b.get_component("model").model_name not in ["water"]:
+                        entity_a.get_component("state").state = State.destroy
                     continue
 
                 if entity_a.get_component("model") and entity_a.get_component("model").model_name == "enemy":
