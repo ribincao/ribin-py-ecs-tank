@@ -17,7 +17,7 @@ class DestroySystem(System):
     def update(self):
         destroy: List[GameLogicEntity] = []
         for entity in self.state_group.entities:
-            if entity.state.state != State.destroy:
+            if entity.get_component("state").state != State.destroy:
                 continue
             destroy.append(entity)
 

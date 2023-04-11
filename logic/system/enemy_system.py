@@ -19,11 +19,11 @@ class EnemySystem(System):
     def update(self):
         entities = list(self.context.entities)
         for entity in entities:
-            if not entity.model:
+            if not entity.get_component("model"):
                 continue
-            if entity.model.model_name != "enemy":
+            if entity.get_component("model").model_name != "enemy":
                 continue
-            if entity.transform.last_position != entity.transform.position:
+            if entity.get_component("transform").last_position != entity.get_component("transform").position:
                 continue
-            entity.transform.rotation = self.get_random_rotate()
+            entity.get_component("transform").rotation = self.get_random_rotate()
 

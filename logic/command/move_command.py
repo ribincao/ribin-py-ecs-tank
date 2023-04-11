@@ -27,12 +27,12 @@ class MoveCmd(Command):
         self.direction: int = MoveDirection.STOP
 
     def execute(self, entity: GameLogicEntity):
-        if not entity.move or entity.move.speed <= 0:
+        if not entity.get_component("move") or entity.get_component("move").speed <= 0:
             return
-        if not entity.state:
+        if not entity.get_component("state"):
             return
         if MoveDirection.UP <= self.direction <= MoveDirection.RIGHT:
-            entity.state.state = State.move
-            entity.transform.rotation = angel.get(int(self.direction), 0)
+            entity.get_component("state").state = State.move
+            entity.get_component("transform").rotation = angel.get(int(self.direction), 0)
         else:
-            entity.state.state = State.normal
+            entity.get_component("state").state = State.normal

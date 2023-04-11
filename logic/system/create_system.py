@@ -15,16 +15,16 @@ class CreateSystem(System):
 
     def update(self):
         for entity in self.create_group.entities:
-            if entity.create.is_created:
+            if entity.get_component("create").is_created:
                 continue
-            node_data = entity.create.node_data
+            node_data = entity.get_component("create").node_data
             for name, value in node_data.items():
                 component = component_manager.get_component(name)
                 if not component:
                     continue
                 component.__dict__.update(value)
-                entity.__dict__[name] = component
-            entity.create.is_created = True
+                entity.add_component(component)
+            entity.get_component("create").is_created = True
             self.entity_count += 1
             logger.debug(f"CreateSystem {self.entity_count}| {entity.uid} - {node_data}")
             

@@ -36,7 +36,7 @@ class TankView(PyGameView):
 
         elif operation == 'j' and self.player_uid > 0:
             tank = self.behaviors.get(self.player_uid)
-            if not tank or not tank.entity.model or not tank.entity.move:
+            if not tank or not tank.entity.get_component("model") or not tank.entity.get_component("model"):
                 return
             entity = self.context.create_entity()
             cmd = command_manager.tank_shot_cmd(entity.uid, tank)
