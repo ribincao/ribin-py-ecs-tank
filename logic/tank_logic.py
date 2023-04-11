@@ -1,4 +1,4 @@
-from logic.matrix.logic import Logic
+from logic.matrix.ilogic import Logic
 from logic.matrix.context import Context
 from common.data_util import data_util
 from common.logger import logger
