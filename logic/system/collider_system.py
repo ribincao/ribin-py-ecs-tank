@@ -13,7 +13,7 @@ class ColliderSystem(System):
         self.box_collider_group: Group = self.context.get_group(Matcher("boxcollider"))
 
     def update(self):
-        entities = list(self.context.entities)
+        entities = list(self.box_collider_group.entities)
         for i in range(len(entities)):
             entity_a = entities[i]
             if not entity_a.get_component("move"):
@@ -73,6 +73,8 @@ class ColliderSystem(System):
                     continue
 
                 if entity_a.get_component("bullet") and entity_b.get_component("model"):
+                    if entity_b.get_component("bullet"):
+                        continue
                     if entity_b.get_component("state") and entity_b.get_component("model").model_name in ["wall", "enemy"]:
                         entity_b.get_component("state").state = State.destroy
                     if entity_b.get_component("model").model_index in ["symbol"]:

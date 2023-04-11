@@ -24,7 +24,7 @@ class ComponentManager(Singleton):
             return CreateComponent()
         elif component_name == "move":
             return MoveComponent()
-        elif component_name == "box_collider":
+        elif component_name == "boxcollider":
             return BoxColliderComponent()
         elif component_name == "rigibody":
             return RigibodyComponent()
