@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from logic.matrix.logic import Context
+from logic.matrix.ilogic import Context
 
 
 class System(object):

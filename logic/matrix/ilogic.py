@@ -1,5 +1,5 @@
-from logic.matrix.system import System
 from logic.matrix.context import Context
+from logic.matrix.system import System
 from abc import abstractmethod
 from logic.manager.system_manager import SystemManager
 
