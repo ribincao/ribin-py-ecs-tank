@@ -1,5 +1,5 @@
 from typing import Optional, List
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.entity import GameLogicEntity
 
 
 class Matcher(object):

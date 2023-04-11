@@ -1,10 +1,11 @@
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.entity import GameLogicEntity
 from logic.interface.command import Command
 from typing import List, Dict, Callable, Tuple, Set
 import json
 from logic.event.event import EventDispatch, IEvent, EntityCreateEvent, EntityDestroyEvent
-from logic.match.matcher import Matcher
-from logic.entity.group import Group
+from logic.matrix.matcher import Matcher
+from logic.matrix.group import Group
+from logic.interface.component import Component
 
 
 class Context(object):
@@ -97,15 +98,23 @@ class Context(object):
     def register_event(self, event_name: str, func: Callable):
         self.event_dispatch.register_event(event_name, func)
 
-    def get_group(self, matcher: Matcher):
+    def get_group(self, matcher: Matcher) -> Group:
         if matcher in self._groups:
             return self._groups[matcher]
 
         group = Group(matcher)
         for entity in self._entities:
-            group.handle_entity(entity)
+            group.init_entity(entity)
 
         self._groups[matcher] = group
         return group
 
+    def _comp_added_or_removed(self, entity: GameLogicEntity, comp: Component):
+        for matcher in self._groups:
+            self._groups[matcher].handle_entity(entity, comp)
+
+    def _comp_replaced(self, entity: GameLogicEntity, old_comp: Component, new_comp: Component):
+        for matcher in self._groups:
+            group = self._groups[matcher]
+            group.update_entity(entity, old_comp, new_comp)
 

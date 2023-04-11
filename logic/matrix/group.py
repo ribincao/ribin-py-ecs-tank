@@ -1,6 +1,6 @@
-from logic.match.matcher import Matcher
+from logic.matrix.matcher import Matcher
 from typing import Set
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.entity import GameLogicEntity
 from logic.event.event import Event
 from enum import Enum
 from logic.interface.component import Component
@@ -27,18 +27,20 @@ class Group(object):
     def entities(self):
         return self._entities
 
-    def handle_entity(self, entity: GameLogicEntity, component: Component , g_event: GroupEventType = GroupEventType.NONE):
+    def init_entity(self, entity: GameLogicEntity):
         if self._matcher.matches(entity):
-            is_ok = self._add_entity(entity)
+            self._add_entity(entity)
         else:
-            is_ok = self._remove_entity(entity)
+            self._remove_entity(entity)
 
-        if not is_ok:
-            return
-
-        if g_event == GroupEventType.ADD:
+    def handle_entity(self, entity: GameLogicEntity, component: Component):
+        if self._matcher.matches(entity):
+            if not self._add_entity(entity):
+                return
             self.on_entity_add(entity, component)
-        if g_event == GroupEventType.REMOVE:
+        else:
+            if not self._remove_entity(entity):
+                return
             self.on_entity_remove(entity, component)
 
     def update_entity(self, entity: GameLogicEntity, old_comp: Component, new_comp: Component):
