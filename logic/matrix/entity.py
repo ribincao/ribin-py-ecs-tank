@@ -19,6 +19,7 @@ class GameLogicEntity(object):
     def activate(self, uid: int, is_async: bool):
         self.uid = uid
         self._is_async = is_async
+        self._is_enable = True
 
     def get_component(self, name: str) -> Optional[Component]:
         if not self.has(name):
