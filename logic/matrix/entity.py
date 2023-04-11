@@ -1,6 +1,6 @@
 from logic.manager.component_manager import component_manager
 from logic.matrix.component import Component
-from logic.event.event import Event
+from logic.matrix.event import Event
 from common.logger import logger
 from typing import Optional, Dict
 
