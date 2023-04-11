@@ -1,8 +1,10 @@
 from logic.entity.entity import GameLogicEntity
 from logic.interface.command import Command
-from typing import List, Dict, Callable, Tuple
+from typing import List, Dict, Callable, Tuple, Set
 import json
 from logic.event.event import EventDispatch, IEvent, EntityCreateEvent, EntityDestroyEvent
+from logic.match.matcher import Matcher
+from logic.entity.group import Group
 
 
 class Context(object):
@@ -17,6 +19,9 @@ class Context(object):
         self.is_connected: bool = False
         self.player_uid: int = 0
         self.edge_size: Tuple[float, float] = (780, 780)
+
+        self._groups: Dict[Matcher, Group] = {}
+        self._entities: Set[GameLogicEntity] = set()
 
     def create_entity(self, is_async: bool = True) -> GameLogicEntity:
         entity = GameLogicEntity(self.uid_cnt, is_async)
@@ -91,4 +96,16 @@ class Context(object):
 
     def register_event(self, event_name: str, func: Callable):
         self.event_dispatch.register_event(event_name, func)
+
+    def get_group(self, matcher: Matcher):
+        if matcher in self._groups:
+            return self._groups[matcher]
+
+        group = Group(matcher)
+        for entity in self._entities:
+            group.handle_entity(entity)
+
+        self._groups[matcher] = group
+        return group
+
 
