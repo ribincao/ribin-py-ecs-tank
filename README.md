@@ -1,4 +1,4 @@
-# py-ecs-demo
+# py-ecs-tank
 
 该项目是基于 ecs 框架复刻的一个单机/联机坦克大战游戏,项目主要用到 pygame 依赖
 
