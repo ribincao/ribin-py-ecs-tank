@@ -15,7 +15,7 @@ class Behavior(object):
         return self.entity.uid
 
     @abstractmethod
-    def init_models(self):
+    def init_models(self, gid: str):
         pass
 
     @abstractmethod

@@ -19,7 +19,7 @@ class PyGameView(View):
 
     def update(self):
         behaviors = {}
-        for entity in self.context.get_entities():
+        for entity in self.context.entities:
             if not entity.model:
                 continue
             behavior = self.behaviors.get(entity.uid, None)
