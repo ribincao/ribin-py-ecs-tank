@@ -1,60 +1,77 @@
 from logic.matrix.entity import GameLogicEntity
-from logic.interface.command import Command
-from typing import List, Dict, Callable, Tuple, Set
+from logic.matrix.command import Command
+from typing import List, Dict, Tuple, Set, Optional
 import json
-from logic.event.event import EventDispatch, IEvent, EntityCreateEvent, EntityDestroyEvent
 from logic.matrix.matcher import Matcher
 from logic.matrix.group import Group
-from logic.interface.component import Component
+from logic.matrix.component import Component
+from common.logger import logger
 
 
 class Context(object):
 
     def __init__(self):
-        self.uid_cnt: int = 1
-        self.entities: Dict[int, GameLogicEntity] = {}
+        self._uid_cnt: int = 1
         self.commands: List[Command] = []
         self.messages: List[Command] = []
-        self.event_dispatch: EventDispatch = EventDispatch()
-        
+
         self.is_connected: bool = False
         self.player_uid: int = 0
         self.edge_size: Tuple[float, float] = (780, 780)
 
         self._groups: Dict[Matcher, Group] = {}
         self._entities: Set[GameLogicEntity] = set()
+        # self._reusable_entities: deque = deque()
+
+    @property
+    def entities(self) -> Set[GameLogicEntity]:
+        return self._entities
 
     def create_entity(self, is_async: bool = True) -> GameLogicEntity:
-        entity = GameLogicEntity(self.uid_cnt, is_async)
-        self.entities[self.uid_cnt] = entity
+        # entity = self._reusable_entities.pop() if self._reusable_entities else GameLogicEntity()
+        entity = GameLogicEntity()
+        entity.activate(self._uid_cnt, is_async)
+        self._uid_cnt += 1
+        self._entities.add(entity)
 
-        self.uid_cnt += 1
+        entity.on_component_add += self._comp_added_or_removed
+        entity.on_component_remove += self._comp_added_or_removed
+        entity.on_component_replace += self._comp_replaced
         return entity
-    
-    def get_entity(self, uid: int, is_async: bool = True) -> GameLogicEntity:
-        entity = self.entities.get(uid, None)
+
+    def has_entity(self, entity: GameLogicEntity) -> bool:
+        return entity in self._entities
+
+    def destroy_entity(self, uid: int):
+        entity = self.get_entity(uid)
         if not entity:
-            entity = self.create_entity(is_async)
-            entity.uid = uid
+            return
+        if not self.has_entity(entity):
+            logger.warning(f"Entity.{entity.uid} not exist.")
+            return
+        self._entities.remove(entity)
+        # entity.destroy()
+        # self._reusable_entities.append(entity)
+
+    def get_entity(self, uid: int) -> Optional[GameLogicEntity]:
+        for entity in self._entities:
+            if entity.uid == uid:
+                return entity
+        return None
+
+    def get_or_create_entity(self, uid: int, is_async: bool = True) -> GameLogicEntity:
+        entity = self.get_entity(uid)
+        if not entity:
+            return self.create_entity(is_async)
         return entity
 
-    def get_player_count(self):
+    def get_player_count(self) -> int:
         cnt = 0
-        for entity in self.get_entities():
-            if not entity.player:
+        for entity in self._entities:
+            if not entity.has("player"):
                 continue
             cnt += 1
         return cnt
-
-    def destroy_entity(self, uid: int):
-        uid_index = 0
-        for uid_cnt, entity in self.entities.items():
-            if entity.uid != uid:
-                continue
-            uid_index = uid_cnt
-        if uid_index:
-            self.dispatch_event(EntityDestroyEvent(uid_index))
-            del self.entities[uid_index]
 
     def input_command(self, command: Command):
         self.commands.append(command)
@@ -62,41 +79,29 @@ class Context(object):
     def input_message(self, command: Command):
         self.messages.append(command)
 
-    def get_entities(self) -> List[GameLogicEntity]:
-        return list(self.entities.values())
-
     def export_world(self) -> str:
         d = dict()
-        d["uid_cnt"] = self.uid_cnt
+        d["uid_cnt"] = self._uid_cnt
         d["entities"] = {}
-        entities = dict()
-        for entity in self.get_entities():
+        for entity in self._entities:
             snap = entity.export()
-            entities[entity.uid] = entity
             if not snap:
                 continue
             d["entities"][entity.uid] = snap
-        self.entities = entities
         return json.dumps(d)
 
     def import_world(self, s: str):
         d = json.loads(s)
-        entities = dict()
+        entities = set()
         for s_uid, info in d.get("entities", {}).items():
             uid = int(s_uid)
             if uid < 0:
                 continue
             entity = self.get_entity(uid)
             entity.update(info)
-            entities[uid] = entity
-        self.entities = entities
-        self.uid_cnt = d.get("uid_cnt", self.uid_cnt)
-
-    def dispatch_event(self, event: IEvent):
-        self.event_dispatch.dispatch_event(event)
-
-    def register_event(self, event_name: str, func: Callable):
-        self.event_dispatch.register_event(event_name, func)
+            entities.add(entity)
+        self._entities = entities
+        self._uid_cnt = d.get("uid_cnt", self._uid_cnt)
 
     def get_group(self, matcher: Matcher) -> Group:
         if matcher in self._groups:

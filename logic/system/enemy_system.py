@@ -1,6 +1,6 @@
-from logic.interface.system import System
-from logic.context import Context
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.system import System
+from logic.matrix.context import Context
+from logic.matrix.entity import GameLogicEntity
 from typing import List, Optional, Tuple
 import random
 
@@ -17,7 +17,7 @@ class EnemySystem(System):
         return random.choice([0, 90, 180, 270])
 
     def update(self):
-        entities = self.context.get_entities()
+        entities = list(self.context.entities)
         for entity in entities:
             if not entity.model:
                 continue

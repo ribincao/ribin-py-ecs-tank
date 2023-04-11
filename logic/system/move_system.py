@@ -1,18 +1,15 @@
-from common.logger import logger
-from logic.interface.system import System
-from logic.context import Context
+from logic.matrix.system import System
+from logic.matrix.context import Context
 from logic.component.state_component import State
-from logic.event.event import EntityCreateEvent
 
 
 class MoveSystem(System):
 
     def __init__(self, context: Context):
         super(MoveSystem, self).__init__(context)
-        self.context.register_event("EntityCreateEvent", self.on_entity_create)
 
     def update(self):
-        entities = self.context.get_entities()
+        entities = list(self.context.entities)
         for entity in entities:
             if not entity.move or entity.move.speed <= 0:
                 continue
@@ -45,7 +42,4 @@ class MoveSystem(System):
 
             if entity.bullet and entity.transform.last_position == entity.transform.position:
                 entity.state.state = State.destroy
-
-    def on_entity_create(self, event: EntityCreateEvent):
-        logger.debug(f"MoveListenEvent {event.uid} created.")
 

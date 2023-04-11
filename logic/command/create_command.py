@@ -1,5 +1,6 @@
-from logic.interface.command import Command
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.command import Command
+from logic.matrix.entity import GameLogicEntity
+from logic.component.create_component import CreateComponent
 
 
 class CreateCmd(Command):
@@ -9,5 +10,7 @@ class CreateCmd(Command):
         self.node_data: dict = {}
 
     def execute(self, entity: GameLogicEntity):
-        entity.add_create(False, self.node_data)
+        comp = CreateComponent()
+        comp.node_data = self.node_data
+        entity.add_component(comp)
 

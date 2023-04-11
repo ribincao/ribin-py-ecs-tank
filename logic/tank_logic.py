@@ -1,5 +1,5 @@
-from logic.interface.logic import Logic
-from logic.context import Context
+from logic.matrix.logic import Logic
+from logic.matrix.context import Context
 from common.data_util import data_util
 from common.logger import logger
 from logic.command.create_command import CreateCmd
@@ -42,6 +42,5 @@ class TankLogic(Logic):
             cmd = CreateCmd(entity.uid)
             cmd.node_data = item
             self.context.input_command(cmd)
-        logger.info(f"{self.context.uid_cnt} entity created.")
-        
+
 

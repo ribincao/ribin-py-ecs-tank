@@ -1,5 +1,5 @@
-from logic.interface.command import Command
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.command import Command
+from logic.matrix.entity import GameLogicEntity
 from logic.component.state_component import State
 from typing import Dict
 
@@ -11,12 +11,13 @@ class MoveDirection:
     LEFT = 2
     RIGHT = 3
 
+
 angel: Dict[int, float] = {
-        MoveDirection.UP: 0,
-        MoveDirection.LEFT: 90,
-        MoveDirection.DOWN: 180,
-        MoveDirection.RIGHT: 270
-        }
+    MoveDirection.UP: 0,
+    MoveDirection.LEFT: 90,
+    MoveDirection.DOWN: 180,
+    MoveDirection.RIGHT: 270
+}
 
 
 class MoveCmd(Command):
@@ -35,4 +36,3 @@ class MoveCmd(Command):
             entity.transform.rotation = angel.get(int(self.direction), 0)
         else:
             entity.state.state = State.normal
-

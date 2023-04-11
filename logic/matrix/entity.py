@@ -1,5 +1,5 @@
 from logic.manager.component_manager import component_manager
-from logic.interface.component import Component
+from logic.matrix.component import Component
 from logic.event.event import Event
 from common.logger import logger
 from typing import Optional, Dict
@@ -7,23 +7,27 @@ from typing import Optional, Dict
 
 class GameLogicEntity(object):
 
-    def __init__(self, uid: int, is_async: bool = True):
-        self._uid: int = uid
-        self.is_async: bool = is_async
+    def __init__(self):
+        self.uid: int = 0
+        self._is_async: bool = True
         self._is_enable: bool = False
         self._components: Dict[str, Component] = {}
         self.on_component_add: Event = Event()
         self.on_component_remove: Event = Event()
         self.on_component_replace: Event = Event()
 
+    def activate(self, uid: int, is_async: bool):
+        self.uid = uid
+        self._is_async = is_async
+
     def get_component(self, name: str) -> Optional[Component]:
         if not self.has(name):
-            logger.warn(f"entity does not have {name} component.")
+            logger.warning(f"entity does not have {name} component.")
             return None
         return self._components[name]
 
     def __repr__(self):
-        return f"[Entity.{self._uid}]: [{', '.join([str(comp) for _, comp in self._components.items()])}]"
+        return f"[Entity.{self.uid}]: [{', '.join([str(comp) for _, comp in self._components.items()])}]"
 
     def destroy(self):
         self._is_enable = False
@@ -62,7 +66,7 @@ class GameLogicEntity(object):
             logger.error(f"Cannot add component for not enable entity.")
             return
         if not self.has(comp_name):
-            logger.warn(f"entity does not have {comp_name} component.")
+            logger.warning(f"entity does not have {comp_name} component.")
             return
         self._replace_component(comp_name, None)
 
@@ -81,7 +85,7 @@ class GameLogicEntity(object):
         return any([t_comp in self._components for t_comp in comp_names])
 
     def export(self) -> dict:
-        if not self._is_enable or not self.is_async:
+        if not self._is_enable or not self._is_async:
             return {}
         d = {}
         for comp_name, component in self._components.items():

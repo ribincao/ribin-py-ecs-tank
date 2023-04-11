@@ -1,5 +1,5 @@
-from logic.interface.system import System
-from logic.context import Context
+from logic.matrix.system import System
+from logic.matrix.context import Context
 from common.logger import logger
 from logic.component.state_component import State
 
@@ -10,7 +10,7 @@ class ColliderSystem(System):
         super(ColliderSystem, self).__init__(context)
 
     def update(self):
-        entities = self.context.get_entities()
+        entities = list(self.context.entities)
         for i in range(len(entities)):
             entity_a = entities[i]
             if not entity_a.box_collider or not entity_a.move:

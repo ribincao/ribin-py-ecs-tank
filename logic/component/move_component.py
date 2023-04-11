@@ -1,4 +1,4 @@
-from logic.interface.component import Component
+from logic.matrix.component import Component
 
 
 class MoveComponent(Component):

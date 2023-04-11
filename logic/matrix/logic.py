@@ -1,7 +1,6 @@
-from logic.interface.system import System
-from logic.context import Context
+from logic.matrix.system import System
+from logic.matrix.context import Context
 from abc import abstractmethod
-import asyncio
 from logic.manager.system_manager import SystemManager
 
 

@@ -1,7 +1,7 @@
 from logic.command.move_command import MoveCmd
 from logic.command.create_command import CreateCmd
 from common.singleton import Singleton
-from logic.interface.command import Command
+from logic.matrix.command import Command
 from typing import Optional
 import json
 from view.interface.pygame_behavior import PyGameBehavior

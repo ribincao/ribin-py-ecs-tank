@@ -3,7 +3,7 @@ from typing import Set
 from logic.matrix.entity import GameLogicEntity
 from logic.event.event import Event
 from enum import Enum
-from logic.interface.component import Component
+from logic.matrix.component import Component
 
 
 class GroupEventType(Enum):

@@ -1,7 +1,7 @@
 from common.logger import logger
-from logic.interface.system import System
-from logic.context import Context
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.system import System
+from logic.matrix.context import Context
+from logic.matrix.entity import GameLogicEntity
 from typing import List
 from logic.component.state_component import State
 
@@ -13,7 +13,7 @@ class DestroySystem(System):
 
     def update(self):
         destroy: List[GameLogicEntity] = []
-        entities = self.context.get_entities()
+        entities = list(self.context.entities)
         for entity in entities:
             if entity.state.state != State.destroy:
                 continue
