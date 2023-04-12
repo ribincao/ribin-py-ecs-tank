@@ -1,7 +1,7 @@
 from window.interface.window import Window
 import pygame
 from typing import Optional
-from view.interface.pygame_view import PyGameView
+from view.matrix.pygame_view import PyGameView
 
 
 class PyGameWindow(Window):

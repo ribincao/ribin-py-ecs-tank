@@ -1,4 +1,4 @@
-from view.interface.behavior import Behavior
+from view.matrix.behavior import Behavior
 from logic.matrix.entity import GameLogicEntity
 import pygame
 from pygame import Surface, Rect
