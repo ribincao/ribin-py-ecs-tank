@@ -1,4 +1,4 @@
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.entity import GameLogicEntity
 from typing import Tuple
 from abc import abstractmethod
 from view.resource.gltf import GLTF
@@ -15,7 +15,7 @@ class Behavior(object):
         return self.entity.uid
 
     @abstractmethod
-    def init_models(self):
+    def init_models(self, gid: str):
         pass
 
     @abstractmethod

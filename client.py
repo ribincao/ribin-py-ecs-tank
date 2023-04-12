@@ -1,10 +1,10 @@
 from common.logger import logger
 from common.util import signal_handler
 import asyncio
-from logic.interface.logic import Logic
+from logic.matrix.ilogic import Logic
 from window.interface.window import Window
 from view.interface.pygame_view import PyGameView
-from logic.context import Context
+from logic.matrix.context import Context
 from logic.tank_logic import TankLogic
 from view.tank_view import TankView
 from window.pygame_window import PyGameWindow

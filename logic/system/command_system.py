@@ -1,6 +1,5 @@
-from common.logger import logger
-from logic.interface.system import System
-from logic.context import Context
+from logic.matrix.system import System
+from logic.matrix.context import Context
 
 
 class CommandSystem(System):
@@ -14,5 +13,5 @@ class CommandSystem(System):
         for command in commands:
             if command.uid < 0:
                 continue
-            command.execute(self.context.get_entity(command.uid))
+            command.execute(self.context.get_or_create_entity(command.uid))
 

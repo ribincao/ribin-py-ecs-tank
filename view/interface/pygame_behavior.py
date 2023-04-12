@@ -1,5 +1,5 @@
 from view.interface.behavior import Behavior
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.entity import GameLogicEntity
 import pygame
 from pygame import Surface, Rect
 from typing import Dict, Optional, Tuple
@@ -34,9 +34,9 @@ class PyGameBehavior(Behavior):
 
     @property
     def layer(self) -> int:
-        if not self.entity.box_collider:
+        if not self.entity.box2d_collider:
             return 0
-        return self.entity.box_collider.layer
+        return self.entity.box2d_collider.layer
 
     @property
     def model(self) -> Optional[Surface]:
@@ -45,13 +45,13 @@ class PyGameBehavior(Behavior):
         model = self.models.get(self.entity.model.model_index, None)
         if not model:
             return model
-        return pygame.transform.rotate(model, self.entity.transform.rotation)
+        return pygame.transform.rotate(model, self.entity.get_component("transform").rotation)
 
     @property
     def rect(self) -> Optional[Rect]:
         if not self.model:
             return None
-        rect = self.model.get_rect(center=self.entity.transform.position)
+        rect = self.model.get_rect(center=self.entity.get_component("transform").position)
         return rect
 
     @abstractmethod
@@ -59,18 +59,17 @@ class PyGameBehavior(Behavior):
         pass
     
     def get_forward(self) -> Tuple[Tuple[float, float], float]:
-        position = self.entity.transform.position
+        position = self.entity.get_component("transform").position
         if not self.entity.model or not self.rect:
             return (0.0, 0.0), 0.0
 
-        if self.entity.transform.rotation == 0:
-            return (position[0], position[1] - self.rect.height / 2), self.entity.transform.rotation
-        elif self.entity.transform.rotation == 180:
-            return (position[0], position[1] + self.rect.height / 2), self.entity.transform.rotation
-        elif self.entity.transform.rotation == 90:
-            return (position[0] - self.rect.width / 2, position[1]), self.entity.transform.rotation
-        elif self.entity.transform.rotation == 270:
-            return (position[0] + self.rect.width / 2, position[1]), self.entity.transform.rotation
+        if self.entity.get_component("transform").rotation == 0:
+            return (position[0], position[1] - self.rect.height / 2), self.entity.get_component("transform").rotation
+        elif self.entity.get_component("transform").rotation == 180:
+            return (position[0], position[1] + self.rect.height / 2), self.entity.get_component("transform").rotation
+        elif self.entity.get_component("transform").rotation == 90:
+            return (position[0] - self.rect.width / 2, position[1]), self.entity.get_component("transform").rotation
+        elif self.entity.get_component("transform").rotation == 270:
+            return (position[0] + self.rect.width / 2, position[1]), self.entity.get_component("transform").rotation
 
         return (0.0, 0.0), 0.0
-

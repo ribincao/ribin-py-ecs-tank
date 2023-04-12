@@ -1,6 +1,5 @@
-from view.interface.pygame_behavior import PyGameBehavior
 from common.singleton import Singleton
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.entity import GameLogicEntity
 from pygame import Surface, Rect
 from typing import Optional, List, Tuple
 import pygame

@@ -3,7 +3,7 @@ from typing import Optional
 from common.logger import logger
 from net.buffer import Buffer
 from net.codec import Codec
-from logic.context import Context
+from logic.matrix.context import Context
 from logic.manager.command_manager import command_manager
 import time
 
@@ -107,7 +107,7 @@ class Connection(object):
         # await self.writer.drain()
 
     async def connect(self):
-        logger.info(f"Connected Server Successed.")
+        logger.info(f"Connected Server Success.")
         while not self._is_close:
             try:
                 messages = self.context.messages
@@ -121,4 +121,3 @@ class Connection(object):
                 logger.error(f"connect_error: {e}")
                 self.close()
             await asyncio.sleep(self.NET_RATE)
-

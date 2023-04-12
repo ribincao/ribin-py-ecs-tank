@@ -1,4 +1,4 @@
-from logic.interface.system import System
+from logic.matrix.system import System
 from typing import Dict
 
 

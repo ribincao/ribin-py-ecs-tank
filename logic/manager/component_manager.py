@@ -1,5 +1,5 @@
 from common.singleton import Singleton
-from logic.interface.component import Component
+from logic.matrix.component import Component
 from logic.component.transform_component import TransformComponent
 from logic.component.move_component import MoveComponent
 from logic.component.create_component import CreateComponent
@@ -24,7 +24,7 @@ class ComponentManager(Singleton):
             return CreateComponent()
         elif component_name == "move":
             return MoveComponent()
-        elif component_name == "box_collider":
+        elif component_name == "box2d_collider":
             return BoxColliderComponent()
         elif component_name == "rigibody":
             return RigibodyComponent()

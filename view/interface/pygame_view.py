@@ -1,9 +1,8 @@
-from logic.context import Context
+from logic.matrix.context import Context
 from abc import abstractmethod
 from typing import List, Dict, Tuple
-from view.interface.pygame_behavior import PyGameBehavior
-from view.interface.view import View
-from logic.entity.entity import GameLogicEntity
+from view.interface.iview import View
+from logic.matrix.entity import GameLogicEntity
 from common.data_util import data_util
 from view.interface.pygame_behavior import PyGameBehavior
 from view.manager.animation_manager import Animation
@@ -20,7 +19,7 @@ class PyGameView(View):
 
     def update(self):
         behaviors = {}
-        for entity in self.context.get_entities():
+        for entity in self.context.entities:
             if not entity.model:
                 continue
             behavior = self.behaviors.get(entity.uid, None)
@@ -56,4 +55,3 @@ class PyGameView(View):
     @abstractmethod
     def handler(self, operation: str):
         pass
-

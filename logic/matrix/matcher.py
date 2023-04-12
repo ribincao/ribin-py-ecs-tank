@@ -1,5 +1,5 @@
 from typing import Optional, List
-from logic.entity.entity import GameLogicEntity
+from logic.matrix.entity import GameLogicEntity
 
 
 class Matcher(object):
@@ -9,7 +9,7 @@ class Matcher(object):
         self._any: Optional[List[str]] = kwargs.get("any_of", None)
         self._none: Optional[List[str]] = kwargs.get("none_of", None)
 
-    def matches(self, entity: GameLogicEntity):
+    def matches(self, entity: GameLogicEntity) -> bool:
         all_condition = self._all is None or entity.has(*self._all)
         any_condition = self._any is None or entity.has_any(*self._any)
         none_condition = self._none is None or not entity.has_any(*self._none)

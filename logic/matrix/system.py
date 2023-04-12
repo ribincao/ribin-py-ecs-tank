@@ -1,12 +1,11 @@
 from abc import abstractmethod
-from logic.context import Context
+from logic.matrix.ilogic import Context
 
 
 class System(object):
 
     def __init__(self, context: Context):
         self.context: Context = context
-        self.name: str = ""
 
     @abstractmethod
     def update(self):
