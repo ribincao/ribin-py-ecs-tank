@@ -23,7 +23,7 @@ class EnemySystem(System):
                 continue
             if entity.model.model_name != "enemy":
                 continue
-            if entity.get_component("transform").last_position != entity.get_component("transform").position:
+            if entity.transform.last_position != entity.transform.position:
                 continue
-            entity.get_component("transform").rotation = self.get_random_rotate()
+            entity.transform.rotation = self.get_random_rotate()
 

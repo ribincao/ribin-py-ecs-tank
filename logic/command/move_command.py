@@ -33,6 +33,6 @@ class MoveCmd(Command):
             return
         if MoveDirection.UP <= self.direction <= MoveDirection.RIGHT:
             entity.state.state = State.move
-            entity.get_component("transform").rotation = angel.get(int(self.direction), 0)
+            entity.transform.rotation = angel.get(int(self.direction), 0)
         else:
             entity.state.state = State.normal
