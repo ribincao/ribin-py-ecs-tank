@@ -1,4 +1,4 @@
-from view.interface.pygame_view import PyGameView
+from view.matrix.pygame_view import PyGameView
 from logic.matrix.context import Context
 from common.logger import logger
 from logic.command.move_command import MoveDirection

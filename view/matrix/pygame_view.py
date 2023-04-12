@@ -1,10 +1,10 @@
 from logic.matrix.context import Context
 from abc import abstractmethod
 from typing import List, Dict, Tuple
-from view.interface.iview import View
+from view.matrix.iview import View
 from logic.matrix.entity import GameLogicEntity
 from common.data_util import data_util
-from view.interface.pygame_behavior import PyGameBehavior
+from view.matrix.pygame_behavior import PyGameBehavior
 from view.manager.animation_manager import Animation
 
 
