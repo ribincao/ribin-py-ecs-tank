@@ -37,7 +37,29 @@ class ComponentManager(Singleton):
         self._register_component(PlayerComponent())
         self._register_component(BulletComponent())
 
+    def generate_logic_entity(self):
+        i_entity = '''from logic.matrix.entity import Entity\n'''
+        i_component = '''from logic.manager.component_manager import *\n\n'''
+        e_init = '''\nclass GameLogicEntity(Entity):\n\n\tdef __init__(self):\n\t\tsuper(GameLogicEntity, self).__init__()\n\n'''
+        t_component = '''\t@property\n\tdef {component_name}(self) -> Optional[{component_class_name}]:\n\t\treturn self._get_component("{component_name}")\n\n'''
+
+        code = i_entity + i_component + e_init
+        for component_name, component_inst in self._component_map.items():
+            component_code = t_component.format(component_name=component_name,
+                                                component_class_name=component_inst.__class__.__name__)
+            code += component_code
+        self._output_file(code)
+
+    @staticmethod
+    def _output_file(file_data: str, file_name: str = "../logic_entity.py"):
+        with open(file_name, "w") as file:
+            file.write(file_data)
+
 
 component_manager = ComponentManager()
+
+
+if __name__ == '__main__':
+    component_manager.generate_logic_entity()
 
 
