@@ -15,7 +15,7 @@ class CreateSystem(System):
 
     def update(self):
         for entity in self.create_group.entities:
-            if entity.create.is_created:
+            if not entity.create or  entity.create.is_created:
                 continue
             node_data = entity.create.node_data
             for name, value in node_data.items():

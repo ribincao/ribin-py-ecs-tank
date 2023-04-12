@@ -13,6 +13,8 @@ class MoveSystem(System):
 
     def update(self):
         for entity in self.move_group.entities:
+            if not entity.move or not entity.state or not entity.transform:
+                continue
             if entity.move.speed <= 0:
                 continue
             if entity.state.state != State.move:

@@ -41,7 +41,7 @@ class ComponentManager(Singleton):
         i_entity = '''from logic.matrix.entity import Entity\n'''
         i_component = '''from logic.manager.component_manager import *\n\n'''
         e_init = '''\nclass GameLogicEntity(Entity):\n\n\tdef __init__(self):\n\t\tsuper(GameLogicEntity, self).__init__()\n\n'''
-        t_component = '''\t@property\n\tdef {component_name}(self) -> Optional[{component_class_name}]:\n\t\treturn self._get_component("{component_name}")\n\n'''
+        t_component = '''\t@property\n\tdef {component_name}(self) -> Optional[{component_class_name}]:\n\t\treturn self._get_component("{component_name}")  # type: ignore\n\n'''
 
         code = i_entity + i_component + e_init
         for component_name, component_inst in self._component_map.items():

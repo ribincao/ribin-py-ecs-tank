@@ -19,7 +19,7 @@ class EnemySystem(System):
     def update(self):
         entities = list(self.context.entities)
         for entity in entities:
-            if not entity.model:
+            if not entity.model or not entity.transform:
                 continue
             if entity.model.model_name != "enemy":
                 continue
