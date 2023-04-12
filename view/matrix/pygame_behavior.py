@@ -63,6 +63,7 @@ class PyGameBehavior(Behavior):
             return (0.0, 0.0), 0.0
         position = self.entity.transform.position
 
+        position = self.entity.transform.position
         if self.entity.transform.rotation == 0:
             return (position[0], position[1] - self.rect.height / 2), self.entity.transform.rotation
         elif self.entity.transform.rotation == 180:
