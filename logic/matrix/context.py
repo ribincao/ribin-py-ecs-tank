@@ -50,7 +50,7 @@ class Context(object):
             logger.warning(f"Entity.{entity.uid} not exist.")
             return
         self._entities.remove(entity)
-        # entity.destroy()
+        entity.destroy()
         # self._reusable_entities.append(entity)
 
     def get_entity(self, uid: int) -> Optional[GameLogicEntity]:

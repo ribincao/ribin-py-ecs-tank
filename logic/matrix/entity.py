@@ -32,7 +32,7 @@ class Entity(object):
 
     def destroy(self):
         self._is_enable = False
-        self.remove_all_component()
+#         self.remove_all_component()
 
     def _add_component(self, comp: Component):
         if not self._is_enable:

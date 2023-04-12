@@ -6,13 +6,6 @@ from enum import Enum
 from logic.matrix.component import Component
 
 
-class GroupEventType(Enum):
-    NONE = 0
-    ADD = 1
-    REMOVE = 2
-    UPDATE = 3
-
-
 class Group(object):
 
     def __init__(self, matcher: Matcher):
