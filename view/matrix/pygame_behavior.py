@@ -40,7 +40,7 @@ class PyGameBehavior(Behavior):
 
     @property
     def model(self) -> Optional[Surface]:
-        if not self.entity.model:
+        if not self.entity.model or not self.entity.transform:
             return None
         model = self.models.get(self.entity.model.model_index, None)
         if not model:
@@ -49,7 +49,7 @@ class PyGameBehavior(Behavior):
 
     @property
     def rect(self) -> Optional[Rect]:
-        if not self.model:
+        if not self.model or not self.entity.transform:
             return None
         rect = self.model.get_rect(center=self.entity.transform.position)
         return rect
@@ -59,9 +59,9 @@ class PyGameBehavior(Behavior):
         pass
     
     def get_forward(self) -> Tuple[Tuple[float, float], float]:
-        position = self.entity.transform.position
-        if not self.entity.model or not self.rect:
+        if not self.entity.model or not self.rect or not self.entity.transform:
             return (0.0, 0.0), 0.0
+        position = self.entity.transform.position
 
         if self.entity.transform.rotation == 0:
             return (position[0], position[1] - self.rect.height / 2), self.entity.transform.rotation

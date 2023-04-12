@@ -46,7 +46,7 @@ class AnimationManager(Singleton):
         pass
 
     def get_animation(self, entity: GameLogicEntity, model_name: str) -> Optional[Animation]:
-        if not entity.model or not entity.model.model_name:
+        if not entity.model or not entity.model.model_name or not entity.transform:
             return None
         animation = Animation(entity.transform.position, entity.transform.rotation)
         animation.init_animation("tank", model_name)
