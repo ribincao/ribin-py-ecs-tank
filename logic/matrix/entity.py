@@ -32,7 +32,7 @@ class Entity(object):
 
     def destroy(self):
         self._is_enable = False
-#         self.remove_all_component()
+        self.remove_all_component()
 
     def _add_component(self, comp: Component):
         if not self._is_enable:
@@ -53,8 +53,8 @@ class Entity(object):
             self._add_component(comp)
 
     def _replace_component(self, comp_name: str, new_comp: Optional[Component]):
-        old_comp = self._components[comp_name]
-        if not new_comp:
+        old_comp = self._components.get(comp_name, None)
+        if not new_comp and old_comp:
             del self._components[comp_name]
             self.on_component_remove(self, old_comp)
             return
@@ -70,7 +70,8 @@ class Entity(object):
         self._replace_component(comp_name, None)
 
     def remove_all_component(self):
-        for name, _ in self._components.items():
+        comp_names = list(self._components.keys())
+        for name in comp_names:
             self._replace_component(name, None)
 
     def has(self, *comp_names: str) -> bool:

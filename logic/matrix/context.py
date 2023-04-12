@@ -122,4 +122,3 @@ class Context(object):
         for matcher in self._groups:
             group = self._groups[matcher]
             group.update_entity(entity, old_comp, new_comp)
-
