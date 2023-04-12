@@ -21,7 +21,7 @@ class Entity(object):
         self._is_async = is_async
         self._is_enable = True
 
-    def get_component(self, name: str) -> Optional[Component]:
+    def _get_component(self, name: str) -> Optional[Component]:
         if not self.has(name):
             # logger.warning(f"entity does not have {name} component.")
             return None

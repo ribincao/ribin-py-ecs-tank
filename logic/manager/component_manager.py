@@ -9,35 +9,33 @@ from logic.component.state_component import StateComponent
 from logic.component.model_component import ModelComponent
 from logic.component.player_component import PlayerComponent
 from logic.component.bullet_component import BulletComponent
-from typing import Optional
+from typing import Optional, Dict
+from copy import deepcopy
 
 
 class ComponentManager(Singleton):
 
     def __init__(self):
-        pass
+        self._component_map: Dict[str, Component] = {}
+        self._init_component_manager()
 
     def get_component(self, component_name: str) -> Optional[Component]:
-        if component_name == "transform":
-            return TransformComponent()
-        elif component_name == "create":
-            return CreateComponent()
-        elif component_name == "move":
-            return MoveComponent()
-        elif component_name == "box2d_collider":
-            return BoxColliderComponent()
-        elif component_name == "rigibody":
-            return RigibodyComponent()
-        elif component_name == "model":
-            return ModelComponent()
-        elif component_name == "state":
-            return StateComponent()
-        elif component_name == "player":
-            return PlayerComponent()
-        elif component_name == "bullet":
-            return BulletComponent()
-        else:
-            return None
+        instance = self._component_map.get(component_name, None)
+        return deepcopy(instance)
+
+    def _register_component(self, component: Component):
+        self._component_map[component.name] = component
+
+    def _init_component_manager(self):
+        self._register_component(TransformComponent())
+        self._register_component(MoveComponent())
+        self._register_component(CreateComponent())
+        self._register_component(BoxColliderComponent())
+        self._register_component(RigibodyComponent())
+        self._register_component(StateComponent())
+        self._register_component(ModelComponent())
+        self._register_component(PlayerComponent())
+        self._register_component(BulletComponent())
 
 
 component_manager = ComponentManager()
