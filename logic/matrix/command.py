@@ -1,5 +1,5 @@
 from abc import abstractmethod
-from logic.matrix.entity import GameLogicEntity
+from logic.logic_entity import GameLogicEntity
 import json
 
 

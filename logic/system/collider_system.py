@@ -34,8 +34,8 @@ class ColliderSystem(System):
                         (entity_a.bullet and entity_a.bullet.belong == entity_b.uid):
                     continue
 
-                position_a = entity_a.get_component("transform").position
-                position_b = entity_b.get_component("transform").position
+                position_a = entity_a.transform.position
+                position_b = entity_b.transform.position
                 distance_x = (entity_a.box2d_collider.width + entity_b.box2d_collider.width) / 2
                 distance_y = (entity_a.box2d_collider.height + entity_b.box2d_collider.height) / 2
 
@@ -64,9 +64,9 @@ class ColliderSystem(System):
                         continue
                     collider_direction = [delta_x, delta_y]
 
-                if entity_a.get_component("transform").rotation == 0.0 or entity_a.get_component("transform").rotation == 180.0:
+                if entity_a.transform.rotation == 0.0 or entity_a.transform.rotation == 180.0:
                     collider_direction[0] = 0
-                if entity_a.get_component("transform").rotation == 90.0 or entity_a.get_component("transform").rotation == 270.0:
+                if entity_a.transform.rotation == 90.0 or entity_a.transform.rotation == 270.0:
                     collider_direction[1] = 0
 
                 if collider_direction == [0, 0]:
@@ -89,7 +89,7 @@ class ColliderSystem(System):
                         continue
 
                 if entity_a.state.state == State.move:
-                    entity_a.get_component("transform").add_position(collider_direction[0], collider_direction[1])
+                    entity_a.transform.add_position(collider_direction[0], collider_direction[1])
 
                 entity_a.box2d_collider.collider_direction = (collider_direction[0], collider_direction[1])
                 logger.debug(f"box collider detect {collider_direction}: {entity_a.uid} -> {entity_b.uid}")

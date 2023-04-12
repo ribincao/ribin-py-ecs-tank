@@ -1,6 +1,6 @@
 from logic.matrix.matcher import Matcher
 from typing import Set
-from logic.matrix.entity import GameLogicEntity
+from logic.logic_entity import GameLogicEntity
 from logic.matrix.event import Event
 from enum import Enum
 from logic.matrix.component import Component

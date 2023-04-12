@@ -2,7 +2,7 @@ from logic.matrix.context import Context
 from abc import abstractmethod
 from typing import List, Dict, Tuple
 from view.matrix.iview import View
-from logic.matrix.entity import GameLogicEntity
+from logic.logic_entity import GameLogicEntity
 from common.data_util import data_util
 from view.matrix.pygame_behavior import PyGameBehavior
 from view.manager.animation_manager import Animation

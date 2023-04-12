@@ -5,7 +5,7 @@ from common.logger import logger
 from typing import Optional, Dict
 
 
-class GameLogicEntity(object):
+class Entity(object):
 
     def __init__(self):
         self.uid: int = 0
@@ -21,17 +21,11 @@ class GameLogicEntity(object):
         self._is_async = is_async
         self._is_enable = True
 
-    def get_component(self, name: str) -> Optional[Component]:
+    def _get_component(self, name: str) -> Optional[Component]:
         if not self.has(name):
             # logger.warning(f"entity does not have {name} component.")
             return None
         return self._components[name]
-
-    def __getattr__(self, component_name: str):
-        component = self.get_component(component_name)
-        if not component:
-            return self.__dict__.get(component_name, None)
-        return component
 
     def __repr__(self):
         return f"[Entity.{self.uid}]: [{', '.join([str(comp) for _, comp in self._components.items()])}]"

@@ -15,19 +15,27 @@
 
 ## 使用
 
-env
+1. 安装pygame
 
 ```shell
 pip3 install pygame
 ```
 
-单机
+2. 导出LogicEntity(每次新增component组件需要在component_manager上注册并重新导出LogicEntity)
+
+```shell
+cd .logic/manager/
+python3 component_manager.py
+
+```
+
+3. 单机玩法直接启动client.py
 
 ```python
 python3 client.py
 ```
 
-联机
+3. 联机玩法需要先启动server.py再启动client.py
 
 ```python
 python3 server.py
