@@ -97,7 +97,7 @@ class Context(object):
             uid = int(s_uid)
             if uid < 0:
                 continue
-            entity = self.get_entity(uid)
+            entity = self.get_or_create_entity(uid)
             entity.update(info)
             entities.add(entity)
         self._entities = entities

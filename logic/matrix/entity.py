@@ -105,6 +105,8 @@ class GameLogicEntity(object):
             component = self._components.get(name, None)
             if not component:
                 component = component_manager.get_component(name)
+            if not component:
+                continue
             component.__dict__.update(new_component)
             self._components[name] = component
 

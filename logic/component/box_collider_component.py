@@ -11,3 +11,7 @@ class BoxColliderComponent(Component):
         self.collider_direction: Tuple[float, float] = (0, 0)
         self.layer: int = 0
 
+    @property
+    def name(self):
+        return "box2d_collider"
+
