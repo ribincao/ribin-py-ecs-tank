@@ -65,7 +65,7 @@ class GameLogicEntity(object):
             self.on_component_remove(self, old_comp)
             return
         self._components[comp_name] = new_comp
-        self.on_component_replace(old_comp, new_comp)
+        self.on_component_replace(self, old_comp, new_comp)
 
     def remove_component(self, comp_name: str):
         if not self._is_enable:
