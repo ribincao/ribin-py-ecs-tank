@@ -61,7 +61,6 @@ class PyGameBehavior(Behavior):
     def get_forward(self) -> Tuple[Tuple[float, float], float]:
         if not self.entity.model or not self.rect or not self.entity.transform:
             return (0.0, 0.0), 0.0
-        position = self.entity.transform.position
 
         position = self.entity.transform.position
         if self.entity.transform.rotation == 0:
