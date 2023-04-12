@@ -1,12 +1,9 @@
 {
     "include": [
         "common",
-        "interface",
-        "component",
-        "system",
-        "entity",
-        "command",
-        "game"
+        "logic",
+        "view",
+        "window"
     ],
     "exclude": [
         "**/__pycache__",

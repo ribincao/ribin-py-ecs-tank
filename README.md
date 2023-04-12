@@ -24,7 +24,7 @@ pip3 install pygame
 2. 导出LogicEntity(每次新增component组件需要在component_manager上注册并重新导出LogicEntity)
 
 ```shell
-cd .logic/manager/
+cd ./logic/manager/
 python3 component_manager.py
 
 ```
