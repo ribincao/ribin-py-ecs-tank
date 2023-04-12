@@ -29,7 +29,7 @@ class MoveCmd(Command):
     def execute(self, entity: GameLogicEntity):
         if not entity.move or entity.move.speed <= 0:
             return
-        if not entity.state:
+        if not entity.state or not entity.transform:
             return
         if MoveDirection.UP <= self.direction <= MoveDirection.RIGHT:
             entity.state.state = State.move

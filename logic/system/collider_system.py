@@ -16,7 +16,7 @@ class ColliderSystem(System):
         entities = list(self.box_collider_group.entities)
         for i in range(len(entities)):
             entity_a = entities[i]
-            if not entity_a.move:
+            if not entity_a.move or not entity_a.box2d_collider or not entity_a.transform:
                 continue
 
             entity_a.box2d_collider.collider_direction = (0, 0)
@@ -25,7 +25,7 @@ class ColliderSystem(System):
                     continue
 
                 entity_b = entities[j]
-                if not entity_b.box2d_collider:
+                if not entity_b.box2d_collider or not entity_b.box2d_collider or not entity_b.transform:
                     continue
                 entity_b.box2d_collider.collider_direction = (0, 0)
                 if entity_a.box2d_collider.layer != entity_b.box2d_collider.layer:
@@ -83,6 +83,10 @@ class ColliderSystem(System):
                         entity_a.state.state = State.destroy
                     continue
 
+                entity_a.box2d_collider.collider_direction = (collider_direction[0], collider_direction[1])
+                logger.debug(f"box collider detect {collider_direction}: {entity_a.uid} -> {entity_b.uid}")
+                if not entity_a.state:
+                    continue
                 if entity_a.model and entity_a.model.model_name == "enemy":
                     if entity_b.bullet and entity_b.bullet.belong != entity_a.uid:
                         entity_a.state.state = State.destroy
@@ -90,8 +94,5 @@ class ColliderSystem(System):
 
                 if entity_a.state.state == State.move:
                     entity_a.transform.add_position(collider_direction[0], collider_direction[1])
-
-                entity_a.box2d_collider.collider_direction = (collider_direction[0], collider_direction[1])
-                logger.debug(f"box collider detect {collider_direction}: {entity_a.uid} -> {entity_b.uid}")
 
 
