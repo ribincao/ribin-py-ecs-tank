@@ -40,7 +40,7 @@ class GameLogicEntity(object):
         self._is_enable = False
         self.remove_all_component()
 
-    def add_component(self, comp: Component):
+    def _add_component(self, comp: Component):
         if not self._is_enable:
             logger.error(f"Cannot add component for not enable entity.")
             return
@@ -49,14 +49,14 @@ class GameLogicEntity(object):
         self._components[comp.name] = comp
         self.on_component_add(self, comp)
 
-    def replace_component(self, comp: Component):
+    def add_component(self, comp: Component):
         if not self._is_enable:
             logger.error(f"Cannot add component for not enable entity.")
             return
         if self.has(comp.name):
             self._replace_component(comp.name, comp)
         else:
-            self.add_component(comp)
+            self._add_component(comp)
 
     def _replace_component(self, comp_name: str, new_comp: Optional[Component]):
         old_comp = self._components[comp_name]
