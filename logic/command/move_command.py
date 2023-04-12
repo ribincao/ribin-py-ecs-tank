@@ -1,5 +1,5 @@
 from logic.matrix.command import Command
-from logic.matrix.entity import GameLogicEntity
+from logic.logic_entity import GameLogicEntity
 from logic.component.state_component import State
 from typing import Dict
 

@@ -1,6 +1,6 @@
 from logic.matrix.system import System
 from logic.matrix.context import Context
-from logic.matrix.entity import GameLogicEntity
+from logic.logic_entity import GameLogicEntity
 from typing import List, Optional, Tuple
 import random
 

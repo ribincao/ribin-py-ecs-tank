@@ -1,4 +1,4 @@
-from logic.matrix.entity import GameLogicEntity
+from logic.logic_entity import GameLogicEntity
 from logic.matrix.command import Command
 from typing import List, Dict, Tuple, Set, Optional
 import json

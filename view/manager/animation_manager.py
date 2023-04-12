@@ -1,5 +1,5 @@
 from common.singleton import Singleton
-from logic.matrix.entity import GameLogicEntity
+from logic.logic_entity import GameLogicEntity
 from pygame import Surface, Rect
 from typing import Optional, List, Tuple
 import pygame

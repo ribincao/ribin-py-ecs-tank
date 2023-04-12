@@ -1,5 +1,5 @@
 from view.matrix.behavior import Behavior
-from logic.matrix.entity import GameLogicEntity
+from logic.logic_entity import GameLogicEntity
 import pygame
 from pygame import Surface, Rect
 from typing import Dict, Optional, Tuple

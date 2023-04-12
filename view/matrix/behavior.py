@@ -1,4 +1,4 @@
-from logic.matrix.entity import GameLogicEntity
+from logic.logic_entity import GameLogicEntity
 from typing import Tuple
 from abc import abstractmethod
 from view.resource.gltf import GLTF

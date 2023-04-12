@@ -1,5 +1,5 @@
 from logic.matrix.command import Command
-from logic.matrix.entity import GameLogicEntity
+from logic.logic_entity import GameLogicEntity
 from logic.component.create_component import CreateComponent
 
 
