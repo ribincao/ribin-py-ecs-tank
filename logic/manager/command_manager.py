@@ -52,7 +52,7 @@ class CommandManager(Singleton):
             "state": {"state": State.normal},
             "move": {"speed": 5},
             "model": {"model_name": "player", "model_index": "player1" if is_player1 else "player2"},
-            "boxcollider": {"layer": 1, "width": 60, "height": 60},
+            "box2d_collider": {"layer": 1, "width": 60, "height": 60},
             "transform": {"position": (310.0, 750.0) if is_player1 else (470.0, 750.0)},
             "player": {"player_id": player_id}
         }
@@ -64,7 +64,7 @@ class CommandManager(Singleton):
         node_data = {
                 "move": {"speed": 5},
                 "model": {"model_name": "bullet", "model_index": "bullet"},
-                "boxcollider": {"layer": 1, "width": 12, "height": 12},
+                "box2d_collider": {"layer": 1, "width": 12, "height": 12},
                 "transform": {"position": position, "rotation": rotation},
                 "state": {"state": State.move},
                 "bullet": {"belong": tank.entity.uid}
@@ -79,7 +79,7 @@ class CommandManager(Singleton):
             "state": {"state": State.move},
             "move": {"speed": 2},
             "model": {"model_name": "enemy", "model_index": random.choice(model_index)},
-            "boxcollider": {"layer": 1, "width": 60, "height": 60},
+            "box2d_collider": {"layer": 1, "width": 60, "height": 60},
             "transform": {"position": random.choice(positions), "rotation": 180.0},
         }
         cmd = self.get_create_cmd(uid, node_data)

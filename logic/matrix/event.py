@@ -10,12 +10,12 @@ class Event(object):
         for handler in self._handlers:
             handler(*args, **kwargs)
 
-    def __add__(self, handler: Callable):
+    def __add__(self, handler: Callable) -> 'Event':
         if handler not in self._handlers:
             self._handlers.append(handler)
         return self
 
-    def __sub__(self, handler: Callable):
+    def __sub__(self, handler: Callable) -> 'Event':
         if handler in self._handlers:
             self._handlers.remove(handler)
         return self

@@ -19,9 +19,9 @@ class EnemySystem(System):
     def update(self):
         entities = list(self.context.entities)
         for entity in entities:
-            if not entity.get_component("model"):
+            if not entity.model:
                 continue
-            if entity.get_component("model").model_name != "enemy":
+            if entity.model.model_name != "enemy":
                 continue
             if entity.get_component("transform").last_position != entity.get_component("transform").position:
                 continue

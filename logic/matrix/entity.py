@@ -27,6 +27,12 @@ class GameLogicEntity(object):
             return None
         return self._components[name]
 
+    def __getattr__(self, component_name: str):
+        component = self.get_component(component_name)
+        if not component:
+            return self.__dict__.get(component_name, None)
+        return component
+
     def __repr__(self):
         return f"[Entity.{self.uid}]: [{', '.join([str(comp) for _, comp in self._components.items()])}]"
 

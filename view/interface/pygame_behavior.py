@@ -28,21 +28,21 @@ class PyGameBehavior(Behavior):
     
     @abstractmethod
     def init_models(self, gid: str):
-        if not self.entity.get_component("model"):
+        if not self.entity.model:
             return
-        self.models = self._load_models(gid, self.entity.get_component("model").model_name)
+        self.models = self._load_models(gid, self.entity.model.model_name)
 
     @property
     def layer(self) -> int:
-        if not self.entity.get_component("boxcollider"):
+        if not self.entity.box2d_collider:
             return 0
-        return self.entity.get_component("boxcollider").layer
+        return self.entity.box2d_collider.layer
 
     @property
     def model(self) -> Optional[Surface]:
-        if not self.entity.get_component("model"):
+        if not self.entity.model:
             return None
-        model = self.models.get(self.entity.get_component("model").model_index, None)
+        model = self.models.get(self.entity.model.model_index, None)
         if not model:
             return model
         return pygame.transform.rotate(model, self.entity.get_component("transform").rotation)
@@ -60,7 +60,7 @@ class PyGameBehavior(Behavior):
     
     def get_forward(self) -> Tuple[Tuple[float, float], float]:
         position = self.entity.get_component("transform").position
-        if not self.entity.get_component("model") or not self.rect:
+        if not self.entity.model or not self.rect:
             return (0.0, 0.0), 0.0
 
         if self.entity.get_component("transform").rotation == 0:
