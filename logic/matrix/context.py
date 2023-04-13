@@ -46,9 +46,6 @@ class Context(object):
         entity = self.get_entity(uid)
         if not entity:
             return
-        if not self.has_entity(entity):
-            logger.warning(f"Entity.{entity.uid} not exist.")
-            return
         self._entities.remove(entity)
         entity.destroy()
         # self._reusable_entities.append(entity)

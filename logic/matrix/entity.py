@@ -54,7 +54,7 @@ class Entity(object):
 
     def _replace_component(self, comp_name: str, new_comp: Optional[Component]):
         old_comp = self._components.get(comp_name, None)
-        if not new_comp and old_comp:
+        if not new_comp:
             del self._components[comp_name]
             self.on_component_remove(self, old_comp)
             return
