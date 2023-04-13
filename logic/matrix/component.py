@@ -12,3 +12,6 @@ class Component(object):
     def serialize(self) -> dict:
         return self.__dict__
 
+    def deserialize(self, d: dict):
+        self.__dict__.update(d)
+

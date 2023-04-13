@@ -84,7 +84,7 @@ class Entity(object):
             return comp_names[0] in self._components
         return any([t_comp in self._components for t_comp in comp_names])
 
-    def export(self) -> dict:
+    def serialize(self) -> dict:
         if not self._is_enable or not self._is_async:
             return {}
         d = {}
@@ -95,14 +95,14 @@ class Entity(object):
             d[comp_name] = info
         return d
 
-    def update(self, snap: dict):
+    def deserialize(self, snap: dict):
         for name, new_component in snap.items():
             component = self._components.get(name, None)
             if not component:
                 component = component_manager.get_component(name)
             if not component:
                 continue
-            component.__dict__.update(new_component)
+            component.deserialize(new_component)
             self._components[name] = component
 
 

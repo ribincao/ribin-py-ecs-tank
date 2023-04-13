@@ -81,7 +81,7 @@ class Context(object):
         d["uid_cnt"] = self._uid_cnt
         d["entities"] = {}
         for entity in self._entities:
-            snap = entity.export()
+            snap = entity.serialize()
             if not snap:
                 continue
             d["entities"][entity.uid] = snap
@@ -95,7 +95,7 @@ class Context(object):
             if uid < 0:
                 continue
             entity = self.get_or_create_entity(uid)
-            entity.update(info)
+            entity.deserialize(info)
             entities.add(entity)
         self._entities = entities
         self._uid_cnt = d.get("uid_cnt", self._uid_cnt)
